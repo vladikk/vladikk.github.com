@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Developer, IBloggable</title>
+  <title>Uncoupling Configuration Files - Developer, IBloggable</title>
   <meta name="author" content="Vladik Khononov">
 
   
@@ -19,7 +19,7 @@ to modify applications’ behavior to suit various deployment scenarios. &hellip
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://vladikk.github.io">
+  <link rel="canonical" href="http://vladikk.github.io/blog/2013/05/05/my-first-static-post">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Developer, IBloggable" type="application/atom+xml">
@@ -64,15 +64,12 @@ to modify applications’ behavior to suit various deployment scenarios. &hellip
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/05/05/my-first-static-post/">Uncoupling Configuration Files</a></h1>
+      <h1 class="entry-title">Uncoupling Configuration Files</h1>
     
     
       <p class="meta">
@@ -95,7 +92,7 @@ to modify applications’ behavior to suit various deployment scenarios. &hellip
   </header>
 
 
-  <div class="entry-content"><p>We use configuration files and other configuration storages such as databases
+<div class="entry-content"><p>We use configuration files and other configuration storages such as databases
 to modify applications’ behavior to suit various deployment scenarios. Many
 software frameworks provide classes to easily access data stored in
 configuration files. For example in Microsoft .NET framework if we have a
@@ -118,23 +115,70 @@ configuration file like this:</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
+<!-- more -->
+
+
+<p>The values of “Foo” and “Bar” can be accessed via the
+ConfigurationManager class:</p>
+
+<figure class='code'><figcaption><span>Accessing configuration values</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="kt">int</span> <span class="n">foo</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSetttings</span><span class="p">[</span><span class="err">“</span><span class="n">Foo</span><span class="err">”</span><span class="p">]);</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">bar</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="err">“</span><span class="n">Bar</span><span class="err">”</span><span class="p">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
 </div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/05/05/my-first-static-post/">Read on &rarr;</a>
-    </footer>
+
+<span class="byline author vcard">Posted by <span class="fn">Vladik Khononov</span></span>
+
+      
+
+
+
+
+
+
+
+
   
 
 
-    </article>
+<time datetime="2013-05-05T23:39:00+03:00" pubdate data-updated="true">May 5<span>th</span>, 2013</time>
+      
+
+<span class="categories">
   
-  <div class="pagination">
+    <a class='category' href='/blog/categories/amazing/'>Amazing</a>, <a class='category' href='/blog/categories/awesome/'>Awesome</a>, <a class='category' href='/blog/categories/beautiful/'>Beautiful</a>
+  
+</span>
+
+
+    </p>
     
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://vladikk.github.io/blog/2013/05/05/my-first-static-post/" data-via="vladikk" data-counturl="http://vladikk.github.io/blog/2013/05/05/my-first-static-post/" >Tweet</a>
+  
+  
+  
 </div>
+
+    
+    <p class="meta">
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -191,6 +235,7 @@ configuration file like this:</p>
 
   
 </aside>
+
 
     </div>
   </div>

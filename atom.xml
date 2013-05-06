@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Developer, IBloggable]]></title>
+  <link href="http://vladikk.github.io/atom.xml" rel="self"/>
+  <link href="http://vladikk.github.io/"/>
+  <updated>2013-05-06T17:42:04+03:00</updated>
+  <id>http://vladikk.github.io/</id>
+  <author>
+    <name><![CDATA[Vladik Khononov]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Uncoupling Configuration Files]]></title>
+    <link href="http://vladikk.github.io/blog/2013/05/05/my-first-static-post/"/>
+    <updated>2013-05-05T23:39:00+03:00</updated>
+    <id>http://vladikk.github.io/blog/2013/05/05/my-first-static-post</id>
+    <content type="html"><![CDATA[<p>We use configuration files and other configuration storages such as databases
+to modify applications’ behavior to suit various deployment scenarios. Many
+software frameworks provide classes to easily access data stored in
+configuration files. For example in Microsoft .NET framework if we have a
+configuration file like this:</p>
+
+<figure class='code'><figcaption><span>Typical configuration file</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+</span><span class='line'><span class="nt">&lt;configuration&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;appSettings&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">&quot;Foo&quot;</span> <span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">&quot;Bar&quot;</span> <span class="na">value=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/appSettings&gt;</span>
+</span><span class='line'><span class="nt">&lt;/configuration&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<!-- more -->
+
+
+<p>The values of “Foo” and “Bar” can be accessed via the
+ConfigurationManager class:</p>
+
+<figure class='code'><figcaption><span>Accessing configuration values</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="kt">int</span> <span class="n">foo</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSetttings</span><span class="p">[</span><span class="err">“</span><span class="n">Foo</span><span class="err">”</span><span class="p">]);</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">bar</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="err">“</span><span class="n">Bar</span><span class="err">”</span><span class="p">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+</feed>

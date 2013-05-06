@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Awesome | Developer, IBloggable]]></title>
+  <link href="http://vladikk.github.io/blog/categories/awesome/atom.xml" rel="self"/>
+  <link href="http://vladikk.github.io/"/>
+  <updated>2013-05-06T17:42:04+03:00</updated>
+  <id>http://vladikk.github.io/</id>
+  <author>
+    <name><![CDATA[Vladik Khononov]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Uncoupling Configuration Files]]></title>
+    <link href="http://vladikk.github.io/blog/2013/05/05/my-first-static-post/"/>
+    <updated>2013-05-05T23:39:00+03:00</updated>
+    <id>http://vladikk.github.io/blog/2013/05/05/my-first-static-post</id>
+    <content type="html"><![CDATA[<p>We use configuration files and other configuration storages such as databases
+to modify applications’ behavior to suit various deployment scenarios. Many
+software frameworks provide classes to easily access data stored in
+configuration files. For example in Microsoft .NET framework if we have a
+configuration file like this:
+``` xml Typical configuration file
+&lt;?xml version="1.0"?>
+<configuration>
+  <appSettings></p>
+
+<pre><code>&lt;add key="Foo" value="1"/&gt;
+&lt;add key="Bar" value="2"/&gt;
+</code></pre>
+
+<p>  </appSettings>
+</configuration>
+```</p>
+
+<!-- more -->
+
+
+<p>The values of “Foo” and “Bar” can be accessed via the
+ConfigurationManager class:
+<code>c# Accessing configuration values
+int foo = int.Parse(ConfigurationManager.AppSetttings[“Foo”]);
+int bar = int.Parse(ConfigurationManager.AppSettings[“Bar”]);
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>
