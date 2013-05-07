@@ -4,6 +4,7 @@ title: "Uncoupling Configuration Files"
 date: 2013-05-05 23:39
 comments: true
 categories: [Awesome, Amazing, Beautiful] 
+published: false
 ---
 We use configuration files and other configuration storages such as databases
 to modify applications’ behavior to suit various deployment scenarios. Many
