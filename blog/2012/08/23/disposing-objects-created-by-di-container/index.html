@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Developer, IBloggable</title>
+  <title>Disposing Objects Created by DI Container - Developer, IBloggable</title>
   <meta name="author" content="Vladik Khononov">
 
   
-  <meta name="description" content="On the project I’m working on I’ve had a requirement to store and read files
-from the file system. Alse the files had to be accessible from the web. &hellip;">
+  <meta name="description" content="The general rule says that if you created an object, then it is your responsibility to dispose it. Things get a bit tricky when objects are created &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@ from the file system. Alse the files had to be accessible from the web. &hellip;
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://vladikk.github.io">
+  <link rel="canonical" href="http://vladikk.github.io/blog/2012/08/23/disposing-objects-created-by-di-container">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Developer, IBloggable" type="application/atom+xml">
@@ -64,141 +63,12 @@ from the file system. Alse the files had to be accessible from the web. &hellip;
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/10/15/learning-from-mistakes-leaky-abstractions/">Learning From Mistakes: Leaky Abstractions</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-15T03:10:00+02:00" pubdate data-updated="true">Oct 15<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>On the project I’m working on I’ve had a requirement to store and read files
-from the file system. Alse the files had to be accessible from the web.</p>
-
-<p>Having a gut feeling that the infrastructure may change as the business will
-grow, I decided to hide operations on the file system behind an interface:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">public</span> <span class="k">interface</span> <span class="n">IFilesStorage</span> <span class="p">{</span>
-</span><span class='line'>    <span class="kt">string</span> <span class="nf">StoreFile</span><span class="p">(</span><span class="n">Stream</span> <span class="n">stream</span><span class="p">,</span> <span class="kt">string</span> <span class="n">fileName</span><span class="p">);</span>
-</span><span class='line'>    <span class="n">Stream</span> <span class="nf">GetFile</span><span class="p">(</span><span class="kt">string</span> <span class="n">virtualPath</span><span class="p">);</span>
-</span><span class='line'>    <span class="kt">string</span> <span class="nf">GetFileUrl</span><span class="p">(</span><span class="kt">string</span> <span class="n">virtualPath</span><span class="p">);</span>
-</span><span class='line'>    <span class="kt">string</span> <span class="nf">GetFilePath</span><span class="p">(</span><span class="kt">string</span> <span class="n">virtualPath</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>As it looks, if someday I’ll need to switch from the file
-system to another storage mechanism, I’ll be able to do get the
-job done by writing another implementation of the interface.
-Right? Wrong! The requirement did come in - I’ve had to store
-the files in S3. And only then I realised that IFilesStorage is
-a leaky abstraction.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/10/15/learning-from-mistakes-leaky-abstractions/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/10/dependency-injection-patterns/">Dependency Injection Patterns</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-10T13:55:00+03:00" pubdate data-updated="true">Sep 10<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Choosing the right pattern for implementing dependency injection is an important task and can affect your class’s usability and functionality. In this post I’ll overview 3 patterns of implementing dependency injection - constructor injection, property injection, builder (Joshua Bloch’s pattern, not GoF pattern).
-For demonstration purposes we will work with a class called TextTranslator, that requires 3 dependencies: TextReader, TranslationService and TextWriter:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">TextTranslator</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="k">protected</span> <span class="n">TextReader</span> <span class="n">textReader</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">protected</span> <span class="n">TranslationService</span> <span class="n">translationService</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">protected</span> <span class="n">TextWriter</span> <span class="n">textWriter</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The sample code will be written in C#, but the examples are applicable to Java and other object oriented languages.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/09/10/dependency-injection-patterns/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/08/23/disposing-objects-created-by-di-container/">Disposing Objects Created by DI Container</a></h1>
+      <h1 class="entry-title">Disposing Objects Created by DI Container</h1>
     
     
       <p class="meta">
@@ -221,7 +91,7 @@ For demonstration purposes we will work with a class called TextTranslator, that
   </header>
 
 
-  <div class="entry-content"><p>The general rule says that if you created an object, then it is your responsibility to dispose it. Things get a bit tricky when objects are created by a dependency injection container. The responsibility of containers is to construct objects and inject the dependencies they need. An error I’ve seen people doing again and again is to dispose objects that were injected into an object via constructor or property injection. Consider the class “Foo” that requires an instance of class “Bar”:</p>
+<div class="entry-content"><p>The general rule says that if you created an object, then it is your responsibility to dispose it. Things get a bit tricky when objects are created by a dependency injection container. The responsibility of containers is to construct objects and inject the dependencies they need. An error I’ve seen people doing again and again is to dispose objects that were injected into an object via constructor or property injection. Consider the class “Foo” that requires an instance of class “Bar”:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -262,23 +132,100 @@ For demonstration purposes we will work with a class called TextTranslator, that
 
 <p>The problem with this approach is that the “Foo” class will know too much about the environment it runs in. At least it will think it does. An instance of “Foo” can’t and shouldn’t know who passed in the instance of “Bar”, and what he intends to do with it after the instance of “Foo” will be disposed.</p>
 
+<!-- more -->
+
+
+<p>So who should dispose “Bar”? As I said in the beginning of the post, if you created an instance, then you should dispose it. In our case, a dependency injection container has created an object and its dependencies, and therefore it should be responsible for disposing them. Usually containers will have a special method for disposing objects, for example “TearDown” in Unity and “Release” in Windsor.
+Let’s see what the correct disposal strategy will look like in our Foo &amp; Bar case:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">Foo</span> <span class="p">:</span> <span class="n">IDisposable</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">protected</span> <span class="n">Bar</span> <span class="n">bar</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nf">Foo</span><span class="p">(</span><span class="n">Bar</span> <span class="n">bar</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">bar</span> <span class="p">=</span> <span class="n">bar</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">void</span> <span class="nf">Dispose</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">Program</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kt">var</span> <span class="n">foo</span> <span class="p">=</span> <span class="n">container</span><span class="p">.</span><span class="n">Resolve</span><span class="p">&lt;</span><span class="n">Foo</span><span class="p">&gt;();</span>
+</span><span class='line'>        <span class="p">...</span>
+</span><span class='line'>        <span class="n">container</span><span class="p">.</span><span class="n">TearDown</span><span class="p">(</span><span class="n">foo</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note: Microsoft being Microsoft, didn’t implement the TearDown method correctly in their Unity framework. Out of the box, the method only disposes the passed object, and ignores the dependencies it created to construct it. The best solution to this issue is to use Rory Primrose’s <a href="http://www.neovolve.com/post/2010/06/18/Unity-Extension-For-Disposing-Build-Trees-On-TearDown.aspx">plugin that implements the absent functionality</a>.</p>
 </div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/08/23/disposing-objects-created-by-di-container/">Read on &rarr;</a>
-    </footer>
+
+<span class="byline author vcard">Posted by <span class="fn">Vladik Khononov</span></span>
+
+      
+
+
+
+
+
+
+
+
   
 
 
-    </article>
+<time datetime="2012-08-23T07:57:00+03:00" pubdate data-updated="true">Aug 23<span>rd</span>, 2012</time>
+      
+
+<span class="categories">
   
-  <div class="pagination">
+    <a class='category' href='/blog/categories/c-number/'>C#</a>, <a class='category' href='/blog/categories/container/'>Container</a>, <a class='category' href='/blog/categories/dependency-injection/'>Dependency Injection</a>, <a class='category' href='/blog/categories/dispose/'>Dispose</a>, <a class='category' href='/blog/categories/unity/'>Unity</a>
+  
+</span>
+
+
+    </p>
     
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://vladikk.github.io/blog/2012/08/23/disposing-objects-created-by-di-container/" data-via="vladikk" data-counturl="http://vladikk.github.io/blog/2012/08/23/disposing-objects-created-by-di-container/" >Tweet</a>
+  
+  
+  
 </div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/09/10/dependency-injection-patterns/" title="Next Post: Dependency Injection Patterns">Dependency Injection Patterns &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -343,6 +290,7 @@ For demonstration purposes we will work with a class called TextTranslator, that
 
   
 </aside>
+
 
     </div>
   </div>

@@ -1,12 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
+        <loc>
+            http://vladikk.github.io/blog/2012/08/23/disposing-objects-created-by-di-container/
+        </loc>
+        <lastmod>2013-05-06T23:33:21+03:00</lastmod>
+    </url>
+    <url>
+        <loc>http://vladikk.github.io/blog/2012/09/10/dependency-injection-patterns/</loc>
+        <lastmod>2013-05-06T23:49:11+03:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://vladikk.github.io/blog/2012/10/15/learning-from-mistakes-leaky-abstractions/
+        </loc>
+        <lastmod>2013-05-06T23:31:41+03:00</lastmod>
+    </url>
+    <url>
         <loc>http://vladikk.github.io/blog/archives/</loc>
-        <lastmod>2013-05-05T23:36:17+03:00</lastmod>
+        <lastmod>2013-05-06T23:49:11+03:00</lastmod>
     </url>
     <url>
         <loc>http://vladikk.github.io/</loc>
-        <lastmod>2013-05-05T23:36:17+03:00</lastmod>
+        <lastmod>2013-05-06T23:49:11+03:00</lastmod>
     </url>
     <url>
         <loc>http://vladikk.github.io/robots.txt</loc>
