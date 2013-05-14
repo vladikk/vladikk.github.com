@@ -4,6 +4,8 @@ title: "Disposing Objects Created by DI Container"
 date: 2012-08-23 07:57
 comments: true
 categories: [C#, Container, Dependency Injection, Dispose, Unity]
+keywords: C#, container, dependency injection, unity, di, solid, oop, object oriented design, dispose objects
+description: How to properly dispose instances that were created by a dependency injection container.
 ---
 The general rule says that if you created an object, then it is your responsibility to dispose it. Things get a bit tricky when objects are created by a dependency injection container. The responsibility of containers is to construct objects and inject the dependencies they need. An error I’ve seen people doing again and again is to dispose objects that were injected into an object via constructor or property injection. Consider the class “Foo” that requires an instance of class “Bar”:
 ``` c#

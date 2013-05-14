@@ -4,6 +4,8 @@ title: "Learning From Mistakes: Leaky Abstractions"
 date: 2012-10-15 03:10
 comments: true
 categories: [Leaky abstraction, Design, OOP, OOD]
+keywords: leaky abstraction, design, oop, ood, objection oriented design, code smell
+description:
 ---
 
 On the project I’m working on I’ve had a requirement to store and read files

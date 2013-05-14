@@ -3,7 +3,9 @@ layout: post
 title: "Dependency Injection Patterns"
 date: 2012-09-10 13:55
 comments: true
-categories: 
+categories: [Dependency Injection, OOP, OOD, Patterns, C#]
+keywords: dependency injection, patterns, objection oriented design, oop, ood, c#, constructor injection, property injection, builder
+description: Overview of 3 patterns of implementing dependency injection - constructor injection, property injection, builder. 
 ---
 Choosing the right pattern for implementing dependency injection is an important task and can affect your class’s usability and functionality. In this post I’ll overview 3 patterns of implementing dependency injection - constructor injection, property injection, builder (Joshua Bloch’s pattern, not GoF pattern).
 For demonstration purposes we will work with a class called TextTranslator, that requires 3 dependencies: TextReader, TranslationService and TextWriter:
