@@ -75,8 +75,10 @@ More often than not, hard to test code is guilty of violating principles of clea
 
 ### Smell #2 Violation of the Single Responsibility Principle (SRP)
 Currently this class does two things:
-* Executing some logic defined in the “Execute” method.
-* Loading and parsing values from the configuration file.
+
+* Executing some logic defined in the “Execute” method
+* Loading and parsing values from the configuration file
+
 These two responsibilities are a clear violation of the Single Responsibility Principle, which states that each class should have only one responsibility, or in other words, every class should have only one reason for change. Currently FooBarBaz will be change if its logic changes or if there are changes in the configuration storage.
 
 ### Smell #3 Violation of the Dependency Inversion Principle (DIP)
@@ -144,10 +146,12 @@ This simple refactoring reduces the number of constructor arguments to one, howe
 
 ### Smell #6 Too Much Ceremony
 In case we’ll need to introduce a new configuration parameter, it will require too much ceremony - adding it in at least four places:
-* New public property should be added to hold the new value
-* The new value should be added to Config’s constructor
-* Assignment of the value passed to the constructor to the new public property
-* The code that loads values from configuration source and creates an instance of the Config object
+
+1. New public property should be added to hold the new value
+2. The new value should be added to Config’s constructor
+3. Assignment of the value passed to the constructor to the new public property
+4. The code that loads values from configuration source and creates an instance of the Config object
+
 Adding the new public property is probably inevitable, but let’s see how the code can be refactored to eliminate the other three modifications.
 
 Refactoring #3
