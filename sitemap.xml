@@ -1,19 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>
-            http://vladikk.github.io/blog/2012/08/23/disposing-objects-created-by-di-container/
-        </loc>
+        <loc>http://vladikk.github.io/2012/08/23/disposing-objects-created-by-di-container/</loc>
         <lastmod>2013-05-14T13:56:36+03:00</lastmod>
     </url>
     <url>
-        <loc>http://vladikk.github.io/blog/2012/09/10/dependency-injection-patterns/</loc>
+        <loc>http://vladikk.github.io/2012/09/10/dependency-injection-patterns/</loc>
         <lastmod>2013-05-14T13:56:36+03:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://vladikk.github.io/blog/2012/10/15/learning-from-mistakes-leaky-abstractions/
-        </loc>
+        <loc>http://vladikk.github.io/2012/10/15/learning-from-mistakes-leaky-abstractions/</loc>
         <lastmod>2013-05-14T13:56:36+03:00</lastmod>
     </url>
     <url>
