@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: c# | Vladikk : Developer, IBloggable]]></title>
-  <link href="http://vladikk.github.io/categories/c-number/atom.xml" rel="self"/>
+  <title><![CDATA[Category: managing dependencies | Vladikk : Developer, IBloggable]]></title>
+  <link href="http://vladikk.github.io/categories/managing-dependencies/atom.xml" rel="self"/>
   <link href="http://vladikk.github.io/"/>
   <updated>2013-05-14T18:37:46+03:00</updated>
   <id>http://vladikk.github.io/</id>
