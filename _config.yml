@@ -3,8 +3,8 @@
 # ----------------------- #
 
 url: http://vladikk.github.io
-title: Developer, IBloggable
-subtitle: A blogging framework for hackers.
+title: "Vladikk : Developer, IBloggable"
+subtitle: Random mumblings about software architecture, development & design
 author: Vladik Khononov
 simple_search: http://google.com/search
 description:
@@ -46,7 +46,7 @@ titlecase: true       # Converts page and post titles to titlecase
 # list each of the sidebar modules you want to include, in the order you want them to appear.
 # To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
 default_asides: [asides/recent_posts.html, asides/github.html,
-asides/delicious.html, asides/pinboard.html, asides/googleplus.html,
+asides/delicious.html, asides/pinboard.html, asides/googleplus, custom/asides/about.html,
 custom/asides/aboutmetwitter.html]
 
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
@@ -70,7 +70,7 @@ twitter_user: vladikk
 twitter_tweet_button: true
 
 # Google +1
-google_plus_one: false
+google_plus_one: true
 google_plus_one_size: medium
 
 # Google Plus Profile
@@ -94,4 +94,4 @@ disqus_show_comment_count: false
 google_analytics_tracking_id:
 
 # Facebook Like
-facebook_like: false
+facebook_like: true
