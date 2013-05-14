@@ -211,10 +211,15 @@ More often than not, hard to test code is guilty of violating principles of clea
 
 <h3>Smell #2 Violation of the Single Responsibility Principle (SRP)</h3>
 
-<p>Currently this class does two things:
-* Executing some logic defined in the “Execute” method.
-* Loading and parsing values from the configuration file.
-These two responsibilities are a clear violation of the Single Responsibility Principle, which states that each class should have only one responsibility, or in other words, every class should have only one reason for change. Currently FooBarBaz will be change if its logic changes or if there are changes in the configuration storage.</p>
+<p>Currently this class does two things:</p>
+
+<ul>
+<li>Executing some logic defined in the “Execute” method</li>
+<li>Loading and parsing values from the configuration file</li>
+</ul>
+
+
+<p>These two responsibilities are a clear violation of the Single Responsibility Principle, which states that each class should have only one responsibility, or in other words, every class should have only one reason for change. Currently FooBarBaz will be change if its logic changes or if there are changes in the configuration storage.</p>
 
 <h3>Smell #3 Violation of the Dependency Inversion Principle (DIP)</h3>
 
@@ -326,12 +331,17 @@ All execution flows can be easily tested by passing the configurations values to
 
 <h3>Smell #6 Too Much Ceremony</h3>
 
-<p>In case we’ll need to introduce a new configuration parameter, it will require too much ceremony - adding it in at least four places:
-* New public property should be added to hold the new value
-* The new value should be added to Config’s constructor
-* Assignment of the value passed to the constructor to the new public property
-* The code that loads values from configuration source and creates an instance of the Config object
-Adding the new public property is probably inevitable, but let’s see how the code can be refactored to eliminate the other three modifications.</p>
+<p>In case we’ll need to introduce a new configuration parameter, it will require too much ceremony - adding it in at least four places:</p>
+
+<ol>
+<li>New public property should be added to hold the new value</li>
+<li>The new value should be added to Config’s constructor</li>
+<li>Assignment of the value passed to the constructor to the new public property</li>
+<li>The code that loads values from configuration source and creates an instance of the Config object</li>
+</ol>
+
+
+<p>Adding the new public property is probably inevitable, but let’s see how the code can be refactored to eliminate the other three modifications.</p>
 
 <h1>Refactoring #3</h1>
 
