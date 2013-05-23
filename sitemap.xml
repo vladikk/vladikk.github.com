@@ -2,27 +2,27 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://vladikk.github.io/2012/08/23/disposing-objects-created-by-di-container/</loc>
-        <lastmod>2013-05-14T13:56:36+03:00</lastmod>
+        <lastmod>2013-05-15T12:21:13+03:00</lastmod>
     </url>
     <url>
         <loc>http://vladikk.github.io/2012/09/10/dependency-injection-patterns/</loc>
-        <lastmod>2013-05-14T13:56:36+03:00</lastmod>
+        <lastmod>2013-05-15T12:21:13+03:00</lastmod>
     </url>
     <url>
         <loc>http://vladikk.github.io/2012/10/15/learning-from-mistakes-leaky-abstractions/</loc>
-        <lastmod>2013-05-14T13:56:36+03:00</lastmod>
+        <lastmod>2013-05-15T12:21:13+03:00</lastmod>
     </url>
     <url>
         <loc>http://vladikk.github.io/2013/05/14/uncoupling-configuration-files/</loc>
-        <lastmod>2013-05-14T18:46:12+03:00</lastmod>
+        <lastmod>2013-05-15T12:21:13+03:00</lastmod>
     </url>
     <url>
         <loc>http://vladikk.github.io/blog/archives/</loc>
-        <lastmod>2013-05-14T18:46:12+03:00</lastmod>
+        <lastmod>2013-05-15T12:21:13+03:00</lastmod>
     </url>
     <url>
         <loc>http://vladikk.github.io/</loc>
-        <lastmod>2013-05-14T18:46:12+03:00</lastmod>
+        <lastmod>2013-05-15T12:21:13+03:00</lastmod>
     </url>
     <url>
         <loc>http://vladikk.github.io/robots.txt</loc>
@@ -30,6 +30,6 @@
     </url>
     <url>
         <loc>http://vladikk.github.io/search.html</loc>
-        <lastmod>2013-05-14T13:56:36+03:00</lastmod>
+        <lastmod>2013-05-15T12:21:13+03:00</lastmod>
     </url>
 </urlset>
