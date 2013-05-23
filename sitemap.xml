@@ -1,39 +1,39 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://vladikk.github.io/2012/08/23/disposing-objects-created-by-di-container/</loc>
+        <loc>http://blog.kh-v.net/2012/08/23/disposing-objects-created-by-di-container/</loc>
         <lastmod>2013-05-15T12:21:13+03:00</lastmod>
     </url>
     <url>
-        <loc>http://vladikk.github.io/2012/09/10/dependency-injection-patterns/</loc>
+        <loc>http://blog.kh-v.net/2012/09/10/dependency-injection-patterns/</loc>
         <lastmod>2013-05-15T12:21:13+03:00</lastmod>
     </url>
     <url>
-        <loc>http://vladikk.github.io/2012/10/15/learning-from-mistakes-leaky-abstractions/</loc>
+        <loc>http://blog.kh-v.net/2012/10/15/learning-from-mistakes-leaky-abstractions/</loc>
         <lastmod>2013-05-15T12:21:13+03:00</lastmod>
     </url>
     <url>
-        <loc>http://vladikk.github.io/2013/05/14/uncoupling-configuration-files/</loc>
+        <loc>http://blog.kh-v.net/2013/05/14/uncoupling-configuration-files/</loc>
         <lastmod>2013-05-15T12:21:13+03:00</lastmod>
     </url>
     <url>
-        <loc>http://vladikk.github.io/about/</loc>
+        <loc>http://blog.kh-v.net/about/</loc>
         <lastmod>2013-05-23T22:39:23+03:00</lastmod>
     </url>
     <url>
-        <loc>http://vladikk.github.io/blog/archives/</loc>
+        <loc>http://blog.kh-v.net/blog/archives/</loc>
         <lastmod>2013-05-15T12:21:13+03:00</lastmod>
     </url>
     <url>
-        <loc>http://vladikk.github.io/</loc>
+        <loc>http://blog.kh-v.net/</loc>
         <lastmod>2013-05-15T12:21:13+03:00</lastmod>
     </url>
     <url>
-        <loc>http://vladikk.github.io/robots.txt</loc>
+        <loc>http://blog.kh-v.net/robots.txt</loc>
         <lastmod>2013-05-14T13:11:14+03:00</lastmod>
     </url>
     <url>
-        <loc>http://vladikk.github.io/search.html</loc>
+        <loc>http://blog.kh-v.net/search.html</loc>
         <lastmod>2013-05-15T12:21:13+03:00</lastmod>
     </url>
 </urlset>

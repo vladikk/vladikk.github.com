@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Vladikk : Developer, IBloggable]]></title>
-  <link href="http://vladikk.github.io/atom.xml" rel="self"/>
-  <link href="http://vladikk.github.io/"/>
-  <updated>2013-05-23T22:52:02+03:00</updated>
-  <id>http://vladikk.github.io/</id>
+  <link href="http://blog.kh-v.net/atom.xml" rel="self"/>
+  <link href="http://blog.kh-v.net/"/>
+  <updated>2013-05-23T22:55:58+03:00</updated>
+  <id>http://blog.kh-v.net/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Uncoupling Configuration Files]]></title>
-    <link href="http://vladikk.github.io/2013/05/14/uncoupling-configuration-files/"/>
+    <link href="http://blog.kh-v.net/2013/05/14/uncoupling-configuration-files/"/>
     <updated>2013-05-14T17:34:00+03:00</updated>
-    <id>http://vladikk.github.io/2013/05/14/uncoupling-configuration-files</id>
+    <id>http://blog.kh-v.net/2013/05/14/uncoupling-configuration-files</id>
     <content type="html"><![CDATA[<p>Tight coupling is a known source for inflexible and hard to test code. In this post I want to talk about a rather unexpected source of tight coupling - configuration files.
 Configuration files are external dependencies. As other external dependencies, its infrastructure may change in the future, and it should be easily mocked for unit testing. Modern software frameworks provide means for easy access to the values stored in configuration files. In the .NET framework configuration files can be accessed using the ConfigurationManager:</p>
 
@@ -448,9 +448,9 @@ The process can complicate things if you are using a dependency injection contai
   
   <entry>
     <title type="html"><![CDATA[Learning From Mistakes: Leaky Abstractions]]></title>
-    <link href="http://vladikk.github.io/2012/10/15/learning-from-mistakes-leaky-abstractions/"/>
+    <link href="http://blog.kh-v.net/2012/10/15/learning-from-mistakes-leaky-abstractions/"/>
     <updated>2012-10-15T03:10:00+02:00</updated>
-    <id>http://vladikk.github.io/2012/10/15/learning-from-mistakes-leaky-abstractions</id>
+    <id>http://blog.kh-v.net/2012/10/15/learning-from-mistakes-leaky-abstractions</id>
     <content type="html"><![CDATA[<p>On the project I’m working on I’ve had a requirement to store and read files
 from the file system. Alse the files had to be accessible from the web.</p>
 
@@ -507,9 +507,9 @@ underlying architecture.</p>
   
   <entry>
     <title type="html"><![CDATA[Dependency Injection Patterns]]></title>
-    <link href="http://vladikk.github.io/2012/09/10/dependency-injection-patterns/"/>
+    <link href="http://blog.kh-v.net/2012/09/10/dependency-injection-patterns/"/>
     <updated>2012-09-10T13:55:00+03:00</updated>
-    <id>http://vladikk.github.io/2012/09/10/dependency-injection-patterns</id>
+    <id>http://blog.kh-v.net/2012/09/10/dependency-injection-patterns</id>
     <content type="html"><![CDATA[<p>Choosing the right pattern for implementing dependency injection is an important task and can affect your class’s usability and functionality. In this post I’ll overview 3 patterns of implementing dependency injection - constructor injection, property injection, builder (Joshua Bloch’s pattern, not GoF pattern).
 For demonstration purposes we will work with a class called TextTranslator, that requires 3 dependencies: TextReader, TranslationService and TextWriter:</p>
 
@@ -858,9 +858,9 @@ Let’s see how this pattern can be implemented. In this example TranslationServ
   
   <entry>
     <title type="html"><![CDATA[Disposing Objects Created by DI Container]]></title>
-    <link href="http://vladikk.github.io/2012/08/23/disposing-objects-created-by-di-container/"/>
+    <link href="http://blog.kh-v.net/2012/08/23/disposing-objects-created-by-di-container/"/>
     <updated>2012-08-23T07:57:00+03:00</updated>
-    <id>http://vladikk.github.io/2012/08/23/disposing-objects-created-by-di-container</id>
+    <id>http://blog.kh-v.net/2012/08/23/disposing-objects-created-by-di-container</id>
     <content type="html"><![CDATA[<p>The general rule says that if you created an object, then it is your responsibility to dispose it. Things get a bit tricky when objects are created by a dependency injection container. The responsibility of containers is to construct objects and inject the dependencies they need. An error I’ve seen people doing again and again is to dispose objects that were injected into an object via constructor or property injection. Consider the class “Foo” that requires an instance of class “Bar”:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>

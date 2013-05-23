@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://vladikk.github.io/sitemap.xml 
+Sitemap: http://blog.kh-v.net/sitemap.xml 
