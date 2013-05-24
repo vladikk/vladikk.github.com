@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: OOP | Vladikk : Developer, IBloggable]]></title>
-  <link href="http://blog.kh-v.net/categories/oop/atom.xml" rel="self"/>
-  <link href="http://blog.kh-v.net/"/>
-  <updated>2013-05-24T18:40:10+03:00</updated>
-  <id>http://blog.kh-v.net/</id>
+  <link href="http://www.ibloggable.com/categories/oop/atom.xml" rel="self"/>
+  <link href="http://www.ibloggable.com/"/>
+  <updated>2013-05-24T18:41:15+03:00</updated>
+  <id>http://www.ibloggable.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Learning From Mistakes: Leaky Abstractions]]></title>
-    <link href="http://blog.kh-v.net/2012/10/15/learning-from-mistakes-leaky-abstractions/"/>
+    <link href="http://www.ibloggable.com/2012/10/15/learning-from-mistakes-leaky-abstractions/"/>
     <updated>2012-10-15T03:10:00+02:00</updated>
-    <id>http://blog.kh-v.net/2012/10/15/learning-from-mistakes-leaky-abstractions</id>
+    <id>http://www.ibloggable.com/2012/10/15/learning-from-mistakes-leaky-abstractions</id>
     <content type="html"><![CDATA[<p>On the project I’m working on I’ve had a requirement to store and read files
 from the file system. Alse the files had to be accessible from the web.</p>
 
@@ -70,9 +70,9 @@ underlying architecture.</p>
   
   <entry>
     <title type="html"><![CDATA[Dependency Injection Patterns]]></title>
-    <link href="http://blog.kh-v.net/2012/09/10/dependency-injection-patterns/"/>
+    <link href="http://www.ibloggable.com/2012/09/10/dependency-injection-patterns/"/>
     <updated>2012-09-10T13:55:00+03:00</updated>
-    <id>http://blog.kh-v.net/2012/09/10/dependency-injection-patterns</id>
+    <id>http://www.ibloggable.com/2012/09/10/dependency-injection-patterns</id>
     <content type="html"><![CDATA[<p>Choosing the right pattern for implementing dependency injection is an important task and can affect your class’s usability and functionality. In this post I’ll overview 3 patterns of implementing dependency injection - constructor injection, property injection, builder (Joshua Bloch’s pattern, not GoF pattern).
 For demonstration purposes we will work with a class called TextTranslator, that requires 3 dependencies: TextReader, TranslationService and TextWriter:
 ``` c#

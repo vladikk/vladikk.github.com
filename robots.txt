@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://blog.kh-v.net/sitemap.xml 
+Sitemap: http://www.ibloggable.com/sitemap.xml 

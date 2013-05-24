@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: unit testing | Vladikk : Developer, IBloggable]]></title>
-  <link href="http://blog.kh-v.net/categories/unit-testing/atom.xml" rel="self"/>
-  <link href="http://blog.kh-v.net/"/>
-  <updated>2013-05-24T18:40:10+03:00</updated>
-  <id>http://blog.kh-v.net/</id>
+  <link href="http://www.ibloggable.com/categories/unit-testing/atom.xml" rel="self"/>
+  <link href="http://www.ibloggable.com/"/>
+  <updated>2013-05-24T18:41:15+03:00</updated>
+  <id>http://www.ibloggable.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Uncoupling Configuration Files]]></title>
-    <link href="http://blog.kh-v.net/2013/05/14/uncoupling-configuration-files/"/>
+    <link href="http://www.ibloggable.com/2013/05/14/uncoupling-configuration-files/"/>
     <updated>2013-05-14T17:34:00+03:00</updated>
-    <id>http://blog.kh-v.net/2013/05/14/uncoupling-configuration-files</id>
+    <id>http://www.ibloggable.com/2013/05/14/uncoupling-configuration-files</id>
     <content type="html"><![CDATA[<p>Tight coupling is a known source for inflexible and hard to test code. In this post I want to talk about a rather unexpected source of tight coupling - configuration files.
 Configuration files are external dependencies. As other external dependencies, its infrastructure may change in the future, and it should be easily mocked for unit testing. Modern software frameworks provide means for easy access to the values stored in configuration files. In the .NET framework configuration files can be accessed using the ConfigurationManager:
 ``` xml
