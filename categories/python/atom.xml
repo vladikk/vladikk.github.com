@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: python | Vladikk : Developer, IBloggable]]></title>
+  <link href="http://www.ibloggable.com/categories/python/atom.xml" rel="self"/>
+  <link href="http://www.ibloggable.com/"/>
+  <updated>2013-06-01T15:04:29+03:00</updated>
+  <id>http://www.ibloggable.com/</id>
+  <author>
+    <name><![CDATA[Vladik Khononov]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Unicode file names in Python 2.7]]></title>
+    <link href="http://www.ibloggable.com/2013/06/01/unicode-file-names-in-python/"/>
+    <updated>2013-06-01T14:58:00+03:00</updated>
+    <id>http://www.ibloggable.com/2013/06/01/unicode-file-names-in-python</id>
+    <content type="html"><![CDATA[<p>Today I wrote a small script to find and delete duplicate files. To do this task I needed to iterate over files in a specific folder, and calculate md5 checksum for each file:</p>
+
+<p>``` python
+for folder, subs, files in os.walk(path):</p>
+
+<pre><code>for filename in files:
+    file_path = os.path.join(folder, filename)
+        with open(file_path, 'rb') as fh:
+            ...
+</code></pre>
+
+<p>```</p>
+
+<p>If the source folder contains a file or a folder with unicode characters in it, execution of the code results in this bummer:</p>
+
+<p><code>
+IOError: [Errno 22] invalid mode ('rb') or filename: 'files\\????????? ????? ????????.txt'
+</code></p>
+
+<!-- more -->
+
+
+<p>The solution was easy. As it turned out, the os.walk method can return values encoded either as ASCII or as Unicode strings. It chooses the encoding based on the encoding of the "top path" argument. Originally I was passing an ASCII string. Once it was encoded to UTF-8 the problem was solved:
+``` python
+for folder, subs, files in os.walk(unicode(path, 'utf-8')):</p>
+
+<pre><code>for filename in files:
+    file_path = os.path.join(folder, filename)
+</code></pre>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+</feed>

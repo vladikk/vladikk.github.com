@@ -4,7 +4,7 @@
   <title><![CDATA[Vladikk : Developer, IBloggable]]></title>
   <link href="http://www.ibloggable.com/atom.xml" rel="self"/>
   <link href="http://www.ibloggable.com/"/>
-  <updated>2013-05-25T10:21:09+03:00</updated>
+  <updated>2013-06-01T15:04:29+03:00</updated>
   <id>http://www.ibloggable.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -12,6 +12,49 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Unicode file names in Python 2.7]]></title>
+    <link href="http://www.ibloggable.com/2013/06/01/unicode-file-names-in-python/"/>
+    <updated>2013-06-01T14:58:00+03:00</updated>
+    <id>http://www.ibloggable.com/2013/06/01/unicode-file-names-in-python</id>
+    <content type="html"><![CDATA[<p>Today I wrote a small script to find and delete duplicate files. To do this task I needed to iterate over files in a specific folder, and calculate md5 checksum for each file:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">for</span> <span class="n">folder</span><span class="p">,</span> <span class="n">subs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+</span><span class='line'>    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+</span><span class='line'>        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+</span><span class='line'>          <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+</span><span class='line'>              <span class="o">...</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If the source folder contains a file or a folder with unicode characters in it, execution of the code results in this bummer:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="ne">IOError</span><span class="p">:</span> <span class="p">[</span><span class="n">Errno</span> <span class="mi">22</span><span class="p">]</span> <span class="n">invalid</span> <span class="n">mode</span> <span class="p">(</span><span class="s">&#39;rb&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">filename</span><span class="p">:</span> <span class="s">&#39;files</span><span class="se">\\</span><span class="s">????????? ????? ????????.txt&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<!-- more -->
+
+
+<p>The solution was easy. As it turned out, the os.walk method can return values encoded either as ASCII or as Unicode strings. It chooses the encoding based on the encoding of the &#8220;top path&#8221; argument. Originally I was passing an ASCII string. Once it was encoded to UTF-8 the problem was solved:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">for</span> <span class="n">folder</span><span class="p">,</span> <span class="n">subs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="nb">unicode</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s">&#39;utf-8&#39;</span><span class="p">)):</span>
+</span><span class='line'>    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+</span><span class='line'>        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Uncoupling Configuration Files]]></title>
