@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: python | Vladikk : Developer, IBloggable]]></title>
-  <link href="http://www.ibloggable.com/categories/python/atom.xml" rel="self"/>
-  <link href="http://www.ibloggable.com/"/>
-  <updated>2013-06-01T15:04:29+03:00</updated>
-  <id>http://www.ibloggable.com/</id>
+  <link href="http://www.vladikk.com/categories/python/atom.xml" rel="self"/>
+  <link href="http://www.vladikk.com/"/>
+  <updated>2013-06-02T22:28:27+03:00</updated>
+  <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Unicode file names in Python 2.7]]></title>
-    <link href="http://www.ibloggable.com/2013/06/01/unicode-file-names-in-python/"/>
+    <link href="http://www.vladikk.com/2013/06/01/unicode-file-names-in-python/"/>
     <updated>2013-06-01T14:58:00+03:00</updated>
-    <id>http://www.ibloggable.com/2013/06/01/unicode-file-names-in-python</id>
+    <id>http://www.vladikk.com/2013/06/01/unicode-file-names-in-python</id>
     <content type="html"><![CDATA[<p>Today I wrote a small script to find and delete duplicate files. To do this task I needed to iterate over files in a specific folder, and calculate md5 checksum for each file:</p>
 
 <p>``` python

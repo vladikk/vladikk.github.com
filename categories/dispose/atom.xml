@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Dispose | Vladikk : Developer, IBloggable]]></title>
-  <link href="http://www.ibloggable.com/categories/dispose/atom.xml" rel="self"/>
-  <link href="http://www.ibloggable.com/"/>
-  <updated>2013-06-01T15:04:29+03:00</updated>
-  <id>http://www.ibloggable.com/</id>
+  <link href="http://www.vladikk.com/categories/dispose/atom.xml" rel="self"/>
+  <link href="http://www.vladikk.com/"/>
+  <updated>2013-06-02T22:28:27+03:00</updated>
+  <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Disposing Objects Created by DI Container]]></title>
-    <link href="http://www.ibloggable.com/2012/08/23/disposing-objects-created-by-di-container/"/>
+    <link href="http://www.vladikk.com/2012/08/23/disposing-objects-created-by-di-container/"/>
     <updated>2012-08-23T07:57:00+03:00</updated>
-    <id>http://www.ibloggable.com/2012/08/23/disposing-objects-created-by-di-container</id>
+    <id>http://www.vladikk.com/2012/08/23/disposing-objects-created-by-di-container</id>
     <content type="html"><![CDATA[<p>The general rule says that if you created an object, then it is your responsibility to dispose it. Things get a bit tricky when objects are created by a dependency injection container. The responsibility of containers is to construct objects and inject the dependencies they need. An error I’ve seen people doing again and again is to dispose objects that were injected into an object via constructor or property injection. Consider the class “Foo” that requires an instance of class “Bar”:
 ``` c#
 public class Foo : IDisposable {</p>
