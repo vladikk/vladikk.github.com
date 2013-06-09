@@ -1,0 +1,72 @@
+---
+layout: post
+title: "Introducing SQL2JSON"
+date: 2013-06-09 13:38
+comments: true
+categories: mssql, c#, .net, json
+description: SQL2JSON a utility that captures execution result of a sql query to a json file
+keywords: mssql, c#, json, sql, sql2json, .net, open source, github, sql to json, sql 2 json, convert
+---
+
+If you'll ever try to generate JSON file using Sql Server's Management Studio, probably there'll be lots of pain in your future. If you wanna save the pain, you can use SQL2JSON, an open source project I started last week.
+
+The idea was born out of a need to generate a huge JSON file containing data from MSSQL database. After seeing our DBA struggling with formatting, escaping weird characters and unicode strings, I decided to write a small utility that will do just that - execute a sql query and capture its results as a json file.
+You can grab it from [Github repository](https://github.com/vladikk/sql2json).
+
+Usage
+-----
+
+Suppose you have a table called "users" with the following records:
+
+```
+|user_id | first_name | last_name
+|--------|------------|----------
+|1       | john       | johnson
+|2       | scott      | scottson
+|3       | paul       | paulson
+```
+
+<!-- more -->
+
+### Example #1 - Simplest Case
+
+```
+sql2json.exe -cs="Data Source=.;Initial Catalog=DB1;User Id=usr;Password=pwd;" -sql="select * from users" -output="users.json"
+```
+
+``` json users.json
+[
+	{ "user_id": 1, "first_name": "john", "last_name": "johnson"},
+	{ "user_id": 2, "first_name": "scott", "last_name": "scottson"},
+	{ "user_id": 3, "first_name": "paul", "last_name": "paulson"}
+]
+```
+
+### Example #2 - Nested Objects
+This example demonstrates the use of delimiters to build a json string containing nested objects
+
+```
+sql2json.exe -cs="Data Source=.;Initial Catalog=DB1;User Id=usr;Password=pwd;" -sql="select user_id, first_name as 'name::first', last_name as 'name::last' from users" -output="users.json"
+```
+
+``` json users.json
+[
+	{
+		"user_id": 1,
+		"name": { "first": "john", "last": "johnson" }
+	},
+	{
+		"user_id": 2,
+		"name": { "first": "scott", "last": "scottson" }
+	},
+	{
+		"user_id": 3,
+		"name": { "first": "paul", "last": "paulson" }
+	}
+]
+```
+
+Advanced Scenarios
+------------------
+
+If you need include calculations or aggregations in your JSON objects you can either precalculate them in your sql query, or if you are more adventurous, you can write your own implementation of ITransformer to execute the required logic.
