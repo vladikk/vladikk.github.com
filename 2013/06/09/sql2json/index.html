@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Disposing Objects Created by DI Container - Vladikk : Developer, IBloggable</title>
+  <title>Introducing SQL2JSON - Vladikk : Developer, IBloggable</title>
 
   <meta name="author" content="Vladik Khononov">
   
-  <meta name="description" content="How to properly dispose instances that were created by a dependency injection container.">
-  <meta name="keywords" content="C#, container, dependency injection, unity, di, solid, oop, object oriented design, dispose objects">
+  <meta name="description" content="SQL2JSON a utility that captures execution result of a sql query to a json file">
+  <meta name="keywords" content="mssql, c#, json, sql, sql2json, .net, open source, github, sql to json, sql 2 json, convert">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.vladikk.com/2012/08/23/disposing-objects-created-by-di-container/">
+  <link rel="canonical" href="http://www.vladikk.com/2013/06/09/sql2json/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">Disposing Objects Created by DI Container</h1>
+      <h1 class="entry-title">Introducing SQL2JSON</h1>
     
     
       <p class="meta">
@@ -96,61 +96,72 @@
   
 
 
-<time datetime="2012-08-23T07:57:00+03:00" pubdate data-updated="true">Aug 23<span>rd</span>, 2012</time>
+<time datetime="2013-06-09T13:38:00+03:00" pubdate data-updated="true">Jun 9<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>The general rule says that if you created an object, then it is your responsibility to dispose it. Things get a bit tricky when objects are created by a dependency injection container. The responsibility of containers is to construct objects and inject the dependencies they need. An error I’ve seen people doing again and again is to dispose objects that were injected into an object via constructor or property injection. Consider the class “Foo” that requires an instance of class “Bar”:</p>
+<div class="entry-content"><p>If you&#8217;ll ever try to generate JSON file using Sql Server&#8217;s Management Studio, probably there&#8217;ll be lots of pain in your future. If you wanna save the pain, you can use SQL2JSON, an open source project I started last week.</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>The idea was born out of a need to generate a huge JSON file containing data from MSSQL database. After seeing our DBA struggling with formatting, escaping weird characters and unicode strings, I decided to write a small utility that will do just that - execute a sql query and capture its results as a json file.
+You can grab it from <a href="https://github.com/vladikk/sql2json">Github repository</a>.</p>
+
+<h2>Usage</h2>
+
+<p>Suppose you have a table called &#8220;users&#8221; with the following records:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">Foo</span> <span class="p">:</span> <span class="n">IDisposable</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">protected</span> <span class="n">Bar</span> <span class="n">bar</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">public</span> <span class="nf">Foo</span><span class="p">(</span><span class="n">Bar</span> <span class="n">bar</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">bar</span> <span class="p">=</span> <span class="n">bar</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="k">public</span> <span class="k">void</span> <span class="nf">Dispose</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="n">bar</span><span class="p">.</span><span class="n">Dispose</span><span class="p">();</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">Program</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="kt">var</span> <span class="n">foo</span> <span class="p">=</span> <span class="n">container</span><span class="p">.</span><span class="n">Resolve</span><span class="p">&lt;</span><span class="n">Foo</span><span class="p">&gt;();</span>
-</span><span class='line'>        <span class="p">...</span>
-</span><span class='line'>        <span class="n">foo</span><span class="p">.</span><span class="n">Dispose</span><span class="p">();</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>|user_id | first_name | last_name
+</span><span class='line'>|--------|------------|----------
+</span><span class='line'>|1       | john       | johnson
+</span><span class='line'>|2       | scott      | scottson
+</span><span class='line'>|3       | paul       | paulson</span></code></pre></td></tr></table></div></figure>
 
 
-<p>The problem with this approach is that the “Foo” class will know too much about the environment it runs in. At least it will think it does. An instance of “Foo” can’t and shouldn’t know who passed in the instance of “Bar”, and what he intends to do with it after the instance of “Foo” will be disposed.</p>
+
 
 <!-- more -->
 
 
-<p>So who should dispose “Bar”? As I said in the beginning of the post, if you created an instance, then you should dispose it. In our case, a dependency injection container has created an object and its dependencies, and therefore it should be responsible for disposing them. Usually containers will have a special method for disposing objects, for example “TearDown” in Unity and “Release” in Windsor.
-Let’s see what the correct disposal strategy will look like in our Foo &amp; Bar case:</p>
+<h3>Example #1 - Simplest Case</h3>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sql2json.exe -cs="Data Source=.;Initial Catalog=DB1;User Id=usr;Password=pwd;" -sql="select * from users" -output="users.json"</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>users.json</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">[</span>
+</span><span class='line'>  <span class="p">{</span> <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;john&quot;</span><span class="p">,</span> <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;johnson&quot;</span><span class="p">},</span>
+</span><span class='line'>  <span class="p">{</span> <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;scott&quot;</span><span class="p">,</span> <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;scottson&quot;</span><span class="p">},</span>
+</span><span class='line'>  <span class="p">{</span> <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;paul&quot;</span><span class="p">,</span> <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;paulson&quot;</span><span class="p">}</span>
+</span><span class='line'><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Example #2 - Nested Objects</h3>
+
+<p>This example demonstrates the use of delimiters to build a json string containing nested objects</p>
+
+<figure class='code'><figcaption><span>users.json</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">sql</span><span class="mi">2</span><span class="err">json.exe</span> <span class="err">-cs=</span><span class="s2">&quot;Data Source=.;Initial Catalog=DB1;User Id=usr;Password=pwd;&quot;</span> <span class="err">-sql=</span><span class="s2">&quot;select user_id, first_name as &#39;name::first&#39;, last_name as &#39;name::last&#39; from users&quot;</span> <span class="err">-output=</span><span class="s2">&quot;users.json&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>users.json</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -164,26 +175,26 @@ Let’s see what the correct disposal strategy will look like in our Foo &amp; B
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">Foo</span> <span class="p">:</span> <span class="n">IDisposable</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">protected</span> <span class="n">Bar</span> <span class="n">bar</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">public</span> <span class="nf">Foo</span><span class="p">(</span><span class="n">Bar</span> <span class="n">bar</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">bar</span> <span class="p">=</span> <span class="n">bar</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="k">public</span> <span class="k">void</span> <span class="nf">Dispose</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">Program</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="kt">var</span> <span class="n">foo</span> <span class="p">=</span> <span class="n">container</span><span class="p">.</span><span class="n">Resolve</span><span class="p">&lt;</span><span class="n">Foo</span><span class="p">&gt;();</span>
-</span><span class='line'>        <span class="p">...</span>
-</span><span class='line'>        <span class="n">container</span><span class="p">.</span><span class="n">TearDown</span><span class="p">(</span><span class="n">foo</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">[</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;john&quot;</span><span class="p">,</span> <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;johnson&quot;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;scott&quot;</span><span class="p">,</span> <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;scottson&quot;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;paul&quot;</span><span class="p">,</span> <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;paulson&quot;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">]</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Note: Microsoft being Microsoft, didn’t implement the TearDown method correctly in their Unity framework. Out of the box, the method only disposes the passed object, and ignores the dependencies it created to construct it. The best solution to this issue is to use Rory Primrose’s <a href="http://www.neovolve.com/post/2010/06/18/Unity-Extension-For-Disposing-Build-Trees-On-TearDown.aspx">plugin that implements the absent functionality</a>.</p>
+<h2>Advanced Scenarios</h2>
+
+<p>If you need include calculations or aggregations in your JSON objects you can either precalculate them in your sql query, or if you are more adventurous, you can write your own implementation of ITransformer to execute the required logic.</p>
 </div>
 
 
@@ -206,12 +217,12 @@ Let’s see what the correct disposal strategy will look like in our Foo &amp; B
   
 
 
-<time datetime="2012-08-23T07:57:00+03:00" pubdate data-updated="true">Aug 23<span>rd</span>, 2012</time>
+<time datetime="2013-06-09T13:38:00+03:00" pubdate data-updated="true">Jun 9<span>th</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/categories/c-number/'>C#</a>, <a class='category' href='/categories/container/'>Container</a>, <a class='category' href='/categories/dependency-injection/'>Dependency Injection</a>, <a class='category' href='/categories/dispose/'>Dispose</a>, <a class='category' href='/categories/unity/'>Unity</a>
+    <a class='category' href='/categories/dot-net/'>.net,</a>, <a class='category' href='/categories/c-number/'>c#,</a>, <a class='category' href='/categories/json/'>json</a>, <a class='category' href='/categories/mssql/'>mssql,</a>
   
 </span>
 
@@ -220,7 +231,7 @@ Let’s see what the correct disposal strategy will look like in our Foo &amp; B
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.vladikk.com/2012/08/23/disposing-objects-created-by-di-container/" data-via="vladikk" data-counturl="http://www.vladikk.com/2012/08/23/disposing-objects-created-by-di-container/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.vladikk.com/2013/06/09/sql2json/" data-via="vladikk" data-counturl="http://www.vladikk.com/2013/06/09/sql2json/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -233,8 +244,8 @@ Let’s see what the correct disposal strategy will look like in our Foo &amp; B
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/2013/06/01/unicode-file-names-in-python/" title="Previous Post: Unicode file names in Python 2.7">&laquo; Unicode file names in Python 2.7</a>
       
-        <a class="basic-alignment right" href="/2012/09/10/dependency-injection-patterns/" title="Next Post: Dependency Injection Patterns">Dependency Injection Patterns &raquo;</a>
       
     </p>
   </footer>
@@ -364,8 +375,8 @@ Let’s see what the correct disposal strategy will look like in our Foo &amp; B
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.vladikk.com/2012/08/23/disposing-objects-created-by-di-container/';
-        var disqus_url = 'http://www.vladikk.com/2012/08/23/disposing-objects-created-by-di-container/';
+        var disqus_identifier = 'http://www.vladikk.com/2013/06/09/sql2json/';
+        var disqus_url = 'http://www.vladikk.com/2013/06/09/sql2json/';
         var disqus_script = 'embed.js';
       
     (function () {

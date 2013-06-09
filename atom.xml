@@ -4,7 +4,7 @@
   <title><![CDATA[Vladikk : Developer, IBloggable]]></title>
   <link href="http://www.vladikk.com/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2013-06-02T22:28:27+03:00</updated>
+  <updated>2013-06-09T15:33:11+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -12,6 +12,106 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing SQL2JSON]]></title>
+    <link href="http://www.vladikk.com/2013/06/09/sql2json/"/>
+    <updated>2013-06-09T13:38:00+03:00</updated>
+    <id>http://www.vladikk.com/2013/06/09/sql2json</id>
+    <content type="html"><![CDATA[<p>If you&#8217;ll ever try to generate JSON file using Sql Server&#8217;s Management Studio, probably there&#8217;ll be lots of pain in your future. If you wanna save the pain, you can use SQL2JSON, an open source project I started last week.</p>
+
+<p>The idea was born out of a need to generate a huge JSON file containing data from MSSQL database. After seeing our DBA struggling with formatting, escaping weird characters and unicode strings, I decided to write a small utility that will do just that - execute a sql query and capture its results as a json file.
+You can grab it from <a href="https://github.com/vladikk/sql2json">Github repository</a>.</p>
+
+<h2>Usage</h2>
+
+<p>Suppose you have a table called &#8220;users&#8221; with the following records:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>|user_id | first_name | last_name
+</span><span class='line'>|--------|------------|----------
+</span><span class='line'>|1       | john       | johnson
+</span><span class='line'>|2       | scott      | scottson
+</span><span class='line'>|3       | paul       | paulson</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- more -->
+
+
+<h3>Example #1 - Simplest Case</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sql2json.exe -cs="Data Source=.;Initial Catalog=DB1;User Id=usr;Password=pwd;" -sql="select * from users" -output="users.json"</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>users.json</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">[</span>
+</span><span class='line'>  <span class="p">{</span> <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;john&quot;</span><span class="p">,</span> <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;johnson&quot;</span><span class="p">},</span>
+</span><span class='line'>  <span class="p">{</span> <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;scott&quot;</span><span class="p">,</span> <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;scottson&quot;</span><span class="p">},</span>
+</span><span class='line'>  <span class="p">{</span> <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;paul&quot;</span><span class="p">,</span> <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;paulson&quot;</span><span class="p">}</span>
+</span><span class='line'><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Example #2 - Nested Objects</h3>
+
+<p>This example demonstrates the use of delimiters to build a json string containing nested objects</p>
+
+<figure class='code'><figcaption><span>users.json</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">sql</span><span class="mi">2</span><span class="err">json.exe</span> <span class="err">-cs=</span><span class="s2">&quot;Data Source=.;Initial Catalog=DB1;User Id=usr;Password=pwd;&quot;</span> <span class="err">-sql=</span><span class="s2">&quot;select user_id, first_name as &#39;name::first&#39;, last_name as &#39;name::last&#39; from users&quot;</span> <span class="err">-output=</span><span class="s2">&quot;users.json&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>users.json</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">[</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;john&quot;</span><span class="p">,</span> <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;johnson&quot;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;scott&quot;</span><span class="p">,</span> <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;scottson&quot;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;paul&quot;</span><span class="p">,</span> <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;paulson&quot;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Advanced Scenarios</h2>
+
+<p>If you need include calculations or aggregations in your JSON objects you can either precalculate them in your sql query, or if you are more adventurous, you can write your own implementation of ITransformer to execute the required logic.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Unicode file names in Python 2.7]]></title>

@@ -83,6 +83,68 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/2013/06/09/sql2json/">Introducing SQL2JSON</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-09T13:38:00+03:00" pubdate data-updated="true">Jun 9<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you&#8217;ll ever try to generate JSON file using Sql Server&#8217;s Management Studio, probably there&#8217;ll be lots of pain in your future. If you wanna save the pain, you can use SQL2JSON, an open source project I started last week.</p>
+
+<p>The idea was born out of a need to generate a huge JSON file containing data from MSSQL database. After seeing our DBA struggling with formatting, escaping weird characters and unicode strings, I decided to write a small utility that will do just that - execute a sql query and capture its results as a json file.
+You can grab it from <a href="https://github.com/vladikk/sql2json">Github repository</a>.</p>
+
+<h2>Usage</h2>
+
+<p>Suppose you have a table called &#8220;users&#8221; with the following records:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>|user_id | first_name | last_name
+</span><span class='line'>|--------|------------|----------
+</span><span class='line'>|1       | john       | johnson
+</span><span class='line'>|2       | scott      | scottson
+</span><span class='line'>|3       | paul       | paulson</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2013/06/09/sql2json/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/2013/06/01/unicode-file-names-in-python/">Unicode File Names in Python 2.7</a></h1>
     
     
@@ -428,6 +490,10 @@ For demonstration purposes we will work with a class called TextTranslator, that
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/06/09/sql2json/">Introducing SQL2JSON</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/06/01/unicode-file-names-in-python/">Unicode file names in Python 2.7</a>
       </li>
     
@@ -441,10 +507,6 @@ For demonstration purposes we will work with a class called TextTranslator, that
     
       <li class="post">
         <a href="/2012/09/10/dependency-injection-patterns/">Dependency Injection Patterns</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2012/08/23/disposing-objects-created-by-di-container/">Disposing Objects Created by DI Container</a>
       </li>
     
   </ul>
