@@ -69,4 +69,4 @@ sql2json.exe -cs="Data Source=.;Initial Catalog=DB1;User Id=usr;Password=pwd;" -
 Advanced Scenarios
 ------------------
 
-If you need include calculations or aggregations in your JSON objects you can either precalculate them in your sql query, or if you are more adventurous, you can write your own implementation of ITransformer to execute the required logic.
+If you need to include custom calculations or aggregations in your JSON objects you can either pre-calculate them in your sql query, or if you are more adventurous, you can write your own implementation of ITransformer to execute the required logic.
