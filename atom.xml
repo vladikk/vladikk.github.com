@@ -4,7 +4,7 @@
   <title><![CDATA[Vladikk : Developer, IBloggable]]></title>
   <link href="http://www.vladikk.com/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2013-06-09T15:33:11+03:00</updated>
+  <updated>2013-06-09T17:17:30+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -109,7 +109,7 @@ You can grab it from <a href="https://github.com/vladikk/sql2json">Github reposi
 
 <h2>Advanced Scenarios</h2>
 
-<p>If you need include calculations or aggregations in your JSON objects you can either precalculate them in your sql query, or if you are more adventurous, you can write your own implementation of ITransformer to execute the required logic.</p>
+<p>If you need to include custom calculations or aggregations in your JSON objects you can either pre-calculate them in your sql query, or if you are more adventurous, you can write your own implementation of ITransformer to execute the required logic.</p>
 ]]></content>
   </entry>
   
