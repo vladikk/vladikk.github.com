@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: python | Vladikk : Developer, IBloggable]]></title>
+  <title><![CDATA[Category: Python, | Vladikk : Developer, IBloggable]]></title>
   <link href="http://www.vladikk.com/categories/python/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2013-06-09T17:17:30+03:00</updated>
+  <updated>2013-06-11T16:56:37+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -14,41 +14,52 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Unicode file names in Python 2.7]]></title>
-    <link href="http://www.vladikk.com/2013/06/01/unicode-file-names-in-python/"/>
-    <updated>2013-06-01T14:58:00+03:00</updated>
-    <id>http://www.vladikk.com/2013/06/01/unicode-file-names-in-python</id>
-    <content type="html"><![CDATA[<p>Today I wrote a small script to find and delete duplicate files. To do this task I needed to iterate over files in a specific folder, and calculate md5 checksum for each file:</p>
+    <title type="html"><![CDATA[JSON2CSV]]></title>
+    <link href="http://www.vladikk.com/2013/06/11/json2csv/"/>
+    <updated>2013-06-11T16:05:00+03:00</updated>
+    <id>http://www.vladikk.com/2013/06/11/json2csv</id>
+    <content type="html"><![CDATA[<p>Last week I've needed a utility to convert a file containing json data to csv. I found many online solutions, but for some weird reason they didn't support nested objects and arrays. So I wrote one, this time in python. Grab it here - <a href="https://github.com/vladikk/json2csv">Github repository</a>.</p>
 
-<p>``` python
-for folder, subs, files in os.walk(path):</p>
-
-<pre><code>for filename in files:
-    file_path = os.path.join(folder, filename)
-        with open(file_path, 'rb') as fh:
-            ...
-</code></pre>
-
-<p>```</p>
-
-<p>If the source folder contains a file or a folder with unicode characters in it, execution of the code results in this bummer:</p>
+<h2>Usage</h2>
 
 <p><code>
-IOError: [Errno 22] invalid mode ('rb') or filename: 'files\\????????? ????? ????????.txt'
+python json2csv.py "input_file.json" "output_file.csv"
 </code></p>
 
-<!-- more -->
+<p>If you pass in the following json file:
+``` json
+[</p>
 
-
-<p>The solution was easy. As it turned out, the os.walk method can return values encoded either as ASCII or as Unicode strings. It chooses the encoding based on the encoding of the "top path" argument. Originally I was passing an ASCII string. Once it was encoded to UTF-8 the problem was solved:
-``` python
-for folder, subs, files in os.walk(unicode(path, 'utf-8')):</p>
-
-<pre><code>for filename in files:
-    file_path = os.path.join(folder, filename)
+<pre><code>{
+    "id": 1,
+    "name": {
+        "first": "john",
+        "last": "johnson"
+    },
+    "age": 27,
+    "languages": [ "c#", "vb", "python" ]
+ },
+ {
+    "id": 2,
+    "name": {
+        "first": "scott",
+        "middle": "scottster",
+        "last": "scottson"
+    },
+    "age": 29,
+    "languages": [ "objective-c", "c++" ]
+ }
 </code></pre>
 
-<p>```</p>
+<p>]
+```</p>
+
+<p>You'll get the following csv file:
+<code>text
+age,  id,   languages_0,    languages_1,    languages_2,    name_first, name_last,  name_middle
+27, 1,      c#,             vb,             python,         john,       johnson,
+29, 2,      objective-c,    c++,            ,               scott,      scottson,   scottster
+</code></p>
 ]]></content>
   </entry>
   

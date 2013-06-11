@@ -83,6 +83,106 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/2013/06/11/json2csv/">JSON2CSV</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-11T16:05:00+03:00" pubdate data-updated="true">Jun 11<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Last week I&#8217;ve needed a utility to convert a file containing json data to csv. I found many online solutions, but for some weird reason they didn&#8217;t support nested objects and arrays. So I wrote one, this time in python. Grab it here - <a href="https://github.com/vladikk/json2csv">Github repository</a>.</p>
+
+<h2>Usage</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>python json2csv.py "input_file.json" "output_file.csv"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you pass in the following json file:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">[</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;john&quot;</span><span class="p">,</span>
+</span><span class='line'>          <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;johnson&quot;</span>
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;languages&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;c#&quot;</span><span class="p">,</span> <span class="s2">&quot;vb&quot;</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span> <span class="p">]</span>
+</span><span class='line'>   <span class="p">},</span>
+</span><span class='line'>   <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;scott&quot;</span><span class="p">,</span>
+</span><span class='line'>          <span class="nt">&quot;middle&quot;</span><span class="p">:</span> <span class="s2">&quot;scottster&quot;</span><span class="p">,</span>
+</span><span class='line'>          <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;scottson&quot;</span>
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">29</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;languages&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;objective-c&quot;</span><span class="p">,</span> <span class="s2">&quot;c++&quot;</span> <span class="p">]</span>
+</span><span class='line'>   <span class="p">}</span>
+</span><span class='line'><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You&#8217;ll get the following csv file:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>age,  id,    languages_0,    languages_1,    languages_2,    name_first, name_last,  name_middle
+</span><span class='line'>27,   1,      c#,             vb,             python,         john,       johnson,
+</span><span class='line'>29,   2,      objective-c,    c++,            ,               scott,      scottson,   scottster
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/2013/06/09/sql2json/">Introducing SQL2JSON</a></h1>
     
     
@@ -490,6 +590,10 @@ For demonstration purposes we will work with a class called TextTranslator, that
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/06/11/json2csv/">JSON2CSV</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/06/09/sql2json/">Introducing SQL2JSON</a>
       </li>
     
@@ -503,10 +607,6 @@ For demonstration purposes we will work with a class called TextTranslator, that
     
       <li class="post">
         <a href="/2012/10/15/learning-from-mistakes-leaky-abstractions/">Learning From Mistakes: Leaky Abstractions</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2012/09/10/dependency-injection-patterns/">Dependency Injection Patterns</a>
       </li>
     
   </ul>
