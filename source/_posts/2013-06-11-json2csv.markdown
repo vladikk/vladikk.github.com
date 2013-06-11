@@ -8,7 +8,8 @@ keywords: json to csv, convert, converter, json, csv, python, open source
 description: Open source utility that converts json files to csv
 ---
 
-Last week I've needed a utility to convert a file containing json data to csv. I found many online solutions, but for some weird reason they didn't support nested objects and arrays. So I wrote one, and open sourced it, this time in python. Grab it here - [Github repository](https://github.com/vladikk/json2csv).
+Last week I've needed a utility to convert a file containing json data to csv. I found many online solutions, but for some weird reason they didn't support nested objects and arrays. So I wrote one, this time in python.
+Grab it here - [Github repository](https://github.com/vladikk/json2csv).
 
 Usage
 -----
