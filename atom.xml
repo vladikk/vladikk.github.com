@@ -4,7 +4,7 @@
   <title><![CDATA[Vladikk : Developer, IBloggable]]></title>
   <link href="http://www.vladikk.com/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2013-06-11T16:56:37+03:00</updated>
+  <updated>2013-09-09T19:44:32+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -18,7 +18,8 @@
     <link href="http://www.vladikk.com/2013/06/11/json2csv/"/>
     <updated>2013-06-11T16:05:00+03:00</updated>
     <id>http://www.vladikk.com/2013/06/11/json2csv</id>
-    <content type="html"><![CDATA[<p>Last week I&#8217;ve needed a utility to convert a file containing json data to csv. I found many online solutions, but for some weird reason they didn&#8217;t support nested objects and arrays. So I wrote one, this time in python. Grab it here - <a href="https://github.com/vladikk/json2csv">Github repository</a>.</p>
+    <content type="html"><![CDATA[<p>Last week I&#8217;ve needed a utility to convert a file containing json data to csv. I found many online solutions, but for some weird reason they didn&#8217;t support nested objects and arrays. So I wrote one, this time in python.
+Grab it here - <a href="https://github.com/vladikk/json2csv">Github repository</a>.</p>
 
 <h2>Usage</h2>
 
