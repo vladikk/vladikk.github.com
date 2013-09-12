@@ -17,65 +17,28 @@ In this post I will show you how to get up and running with serving Flask apps o
 
 Prerequisites
 -------------
+First, we will need PIP to download packages:
+	sudo apt-get install python-setuptools
+	sudo easy_install pip
+We will use virtualenv to isolate our application's environment:
+	sudo pip install virtualenv
+
+To install Nginx from apt-get, we have to add Nginx repositories apt-get sources:
+	wget http://nginx.org/keys/nginx_signing.key
+	apt-key add nginx_signing.key
+	rm nginx_signing.key
+	echo "deb http://nginx.org/packages/ubuntu/ raring nginx" >> /etc/apt/sources.list
+	echo "deb-src http://nginx.org/packages/ubuntu/ raring nginx" >> /etc/apt/sources.list
+(Note: At the time of this writing, I am using Ubuntu 13.04, therefore I'm using the codename "raring". If you are running other version, use your repository version instead. More info: http://nginx.org/en/linux_packages.html#stable)
+
+Update repositories and upgrade existing packages:
+	sudo apt-get update && apt-get upgrade
+
+Packages required for uWSGI:
+	sudo apt-get install build-essential python python-dev
 
 
 
-Nginx is gaining against IIS and Apache because it's very good at being a web server and using less resources to do its job, and serving PHP with Nginx is easy to do, too. While most guides have custom fcgi spawners and init.d scripts, serving PHP with Nginx can be done even quicker and easier with mostly apt-get installed software.
-
-
-Nginx from apt-get
-
-First you need to get the Nginx signing key so your machine can trust the download and install the software provided by nginx.org.
-
-wget http://nginx.org/keys/nginx_signing.key
-apt-key add nginx_signing.key
-rm nginx_signing.key
-Add the nginx repo to /etc/apt/sources.list.d.
-
-echo "deb http://nginx.org/packages/ubuntu precise nginx" > /etc/apt/sources.list.d/nginx.list
-Note: I'm on Ubuntu 12.04 LTS so I'm using “precise”. At the time of this writing, there is also “lucid”, “oneiric” and “quantal” builds available. Use your version in the repo instead.
-
-Then update the sources list and install Nginx.
-
-apt-get update && apt-get install nginx
-
-
-
-http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
-http://jyunderwood.com/posts/serving-php-with-nginx-on-ubuntu.html
-
-
-
-
-Flask is a cool python based web micro-framework.
-Nginx is a good web server.
-In this post I’ll show how to get nginx serving flask in no time.
-I’ll be using ubuntu 13.04 running on EC2 instance.
-
-Intro
-Nginx is a server. It uses uWSGI to run python apps. We will use it to execute our Flask based application, and nginx to serve it.
-
-Prerequisites
-Before we start installing the required software, let’s install required prerequisites
-pip & virtualenv:
-sudo apt-get install python-setuptools
-sudo easy_install pip
-sudo pip install virtualenv
-
-add nginx repositories to apt-get:
-cd /tmp
-wget http://nginx.org/keys/nginx_signing.key
-sudo apt-key add nginx_signing.key
-sudo vim /etc/apt/sources.list
-append to the end of the file:
-deb http://nginx.org/packages/ubuntu/ raring nginx
-deb-src http://nginx.org/packages/ubuntu/ raring nginx
-sudo apt-get update
-sudo apt-get upgrade
-
-for uwsgi
-sudo apt-get install build-essential python
-sudo apt-get install python-dev
 
 nginx
 sudo apt-get install nginx
@@ -171,3 +134,10 @@ env LOGTO=/var/log/uwsgi/emperor.log
 exec $UWSGI --master --emperor /etc/uwsgi/vassals --die-on-term --uid nginx --gid nginx --logto $LOGTO
 '''
 sudo start uwsgi
+
+
+Then update the sources list and install Nginx.
+apt-get update && apt-get install nginx
+
+http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
+http://jyunderwood.com/posts/serving-php-with-nginx-on-ubuntu.html
