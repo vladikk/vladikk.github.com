@@ -11,12 +11,12 @@ description:
 
 My background
 -------------
-I'm a software engineer with double digit years of experience developing complex applications in several languages. Having spent the majority of my career in the Microsoft stake, lately I've decided to step out of my comfort zone and to dive into the world of open source software.
+I'm a software engineer with double digit years of experience developing complex applications in various languages. Having spent the majority of my career in the Microsoft stake, lately I've decided to step out of my comfort zone and to dive into the world of open source software. The project I'm currently working on at my day job is a RESTful service. The service should be running on commodity hardware, that can be scaled horizontally as needed. To do the job I've decided to use Flask and Nginx. Flask is a lightweight Python web framework, and Nginx is a highly stable web server, that runs extremely well on cheap hardware, namely EC2 micro-instances.
 
+In this post I will show you how to get up and running with serving Flask apps on Nginx servers. The OS I'll be using is Ubuntu 13.04. Before we install Nginx and other required software, let's install some prerequisites.
 
-, and lately   I first learned Python as part of an effort to create bindings for a C++ library at work.
-
-In addition to Python, I've written web apps in PHP, Ruby, Smalltalk and believe it or not, also in C++. Of all these, the Python/Flask combination is the one that I've found to be the most flexible.
+Prerequisites
+-------------
 
 
 
@@ -43,3 +43,131 @@ apt-get update && apt-get install nginx
 
 http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 http://jyunderwood.com/posts/serving-php-with-nginx-on-ubuntu.html
+
+
+
+
+Flask is a cool python based web micro-framework.
+Nginx is a good web server.
+In this post I’ll show how to get nginx serving flask in no time.
+I’ll be using ubuntu 13.04 running on EC2 instance.
+
+Intro
+Nginx is a server. It uses uWSGI to run python apps. We will use it to execute our Flask based application, and nginx to serve it.
+
+Prerequisites
+Before we start installing the required software, let’s install required prerequisites
+pip & virtualenv:
+sudo apt-get install python-setuptools
+sudo easy_install pip
+sudo pip install virtualenv
+
+add nginx repositories to apt-get:
+cd /tmp
+wget http://nginx.org/keys/nginx_signing.key
+sudo apt-key add nginx_signing.key
+sudo vim /etc/apt/sources.list
+append to the end of the file:
+deb http://nginx.org/packages/ubuntu/ raring nginx
+deb-src http://nginx.org/packages/ubuntu/ raring nginx
+sudo apt-get update
+sudo apt-get upgrade
+
+for uwsgi
+sudo apt-get install build-essential python
+sudo apt-get install python-dev
+
+nginx
+sudo apt-get install nginx
+sudo /etc/init.d/nginx start
+
+uwsgi
+sudo pip install uwsgi
+
+Sample app
+Let’s make a simple hello world application. I will be located at the /var/www/demoapp folder.
+sudo mkdir /var/www
+sudo mkdir /var/www/demoapp
+cd /var/www/demoapp
+sudo virtualenv venv
+. venv/bin/activate
+sudo chown -R ubuntu:ubuntu /var/www/
+
+pip install Flask 
+
+sudo vim hello.py
+'''
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "Hello World!"
+
+if __name__ == "__main__":
+    app.run()
+'''
+
+sudo wget https://raw.github.com/nginx/nginx/master/conf/uwsgi_params
+sudo chown -R nginx:nginx /var/www/
+
+5. configure nginx
+sudo rm /etc/nginx/conf.d/default.conf
+sudo vim /var/www/demoapp/demoapp_nginx.conf
+'''
+server {
+    listen      80;
+    server_name localhost;
+    charset     utf-8;
+    client_max_body_size 75M;
+
+    location / { try_files $uri @yourapplication; }
+    location @yourapplication {
+        include uwsgi_params;
+        uwsgi_pass unix:/var/www/run/demoapp_uwsgi.sock;
+    }    
+}
+'''
+sudo mkdir -p /var/www/run
+sudo chown -R nginx:nginx /var/www/
+sudo ln -s /var/www/demoapp/demoapp_nginx.conf /etc/nginx/conf.d/
+sudo /etc/init.d/nginx restart
+
+6. configure uwsgi
+sudo mkdir -p /var/log/uwsgi
+sudo chown -R nginx:nginx /var/log/uwsgi
+sudo vim /var/www/demoapp/demoapp_uwsgi.ini
+'''
+[uwsgi]
+# Variables
+base = /var/www/demoapp
+app = hello
+# Generic Config
+# plugins = http,python
+home = %(base)/venv
+pythonpath = %(base)
+socket = /var/www/run/%n.sock
+module = %(app)
+callable = app
+chmod-socket    = 666
+logto = /var/log/uwsgi/%n.log
+env = PRODUCTION=true
+'''
+sudo mkdir /etc/uwsgi
+sudo mkdir /etc/uwsgi/vassals
+sudo ln -s /var/www/demoapp/demoapp_uwsgi.ini /etc/uwsgi/vassals
+
+7. uWSGI Emperor
+sudo vim /etc/init/uwsgi.conf
+'''
+description "uWSGI"
+start on runlevel [2345]
+stop on runlevel [06]
+respawn
+
+env UWSGI=/usr/local/bin/uwsgi
+env LOGTO=/var/log/uwsgi/emperor.log
+
+exec $UWSGI --master --emperor /etc/uwsgi/vassals --die-on-term --uid nginx --gid nginx --logto $LOGTO
+'''
+sudo start uwsgi
