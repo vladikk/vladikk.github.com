@@ -37,26 +37,25 @@ Update repositories and upgrade existing packages:
 Packages required for uWSGI:
 	sudo apt-get install build-essential python python-dev
 
+Nginx
+-----
+Install and start Nginx:
+	sudo apt-get install nginx
+	sudo /etc/init.d/nginx start
 
+Nginx is a web server. It serves static files, however it cannot execute and host Python application. uWSGI fills that gap. Let's install it first, and later we'll see how Nginx and uWSGI are talking to each other.
+	sudo pip install uwsgi
 
-
-nginx
-sudo apt-get install nginx
-sudo /etc/init.d/nginx start
-
-uwsgi
-sudo pip install uwsgi
-
-Sample app
-Let’s make a simple hello world application. I will be located at the /var/www/demoapp folder.
-sudo mkdir /var/www
-sudo mkdir /var/www/demoapp
-cd /var/www/demoapp
-sudo virtualenv venv
-. venv/bin/activate
-sudo chown -R ubuntu:ubuntu /var/www/
-
-pip install Flask 
+Sample application
+------------------
+The application we will host is literally a "Hello, world!" application. It will serve only on page, and guess what it will contain.
+All the application related files will be stored at the /var/www/demoapp folder.
+	sudo mkdir /var/www
+	sudo mkdir /var/www/demoapp
+	cd /var/www/demoapp
+	sudo virtualenv venv
+	. venv/bin/activate
+	sudo pip install Flask  //// <==== Fix this. It won't work with sudo
 
 sudo vim hello.py
 '''
