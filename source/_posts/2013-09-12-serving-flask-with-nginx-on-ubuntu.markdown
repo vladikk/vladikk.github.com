@@ -46,9 +46,13 @@ Install and start Nginx:
 Nginx is a web server. It serves static files, however it cannot execute and host Python application. uWSGI fills that gap. Let's install it first, and later we'll see how Nginx and uWSGI are talking to each other.
 	sudo pip install uwsgi
 
+### Milestone #1
+Browse to your server and you should get the Nginx greeting page:
+<Screenshot>
+
 Sample application
 ------------------
-The application we will host is literally a "Hello, world!" application. It will serve only on page, and guess what it will contain.
+The application we will host is literally a "Hello, world!" application. It will serve only one page, and guess what text it will contain.
 All the application related files will be stored at the /var/www/demoapp folder.
 	sudo mkdir /var/www
 	sudo mkdir /var/www/demoapp
@@ -56,8 +60,7 @@ All the application related files will be stored at the /var/www/demoapp folder.
 	sudo virtualenv venv
 	. venv/bin/activate
 	sudo pip install Flask  //// <==== Fix this. It won't work with sudo
-
-sudo vim hello.py
+Create the hello.py file, with the following code:
 '''
 from flask import Flask
 app = Flask(__name__)
@@ -69,13 +72,21 @@ def hello():
 if __name__ == "__main__":
     app.run()
 '''
+	sudo chown -R nginx:nginx /var/www/ <====== Fix this!!!
 
-sudo wget https://raw.github.com/nginx/nginx/master/conf/uwsgi_params
-sudo chown -R nginx:nginx /var/www/
+### Milestone #2
+Let's execute the script we just created:
+python hello.py  ////// <====== Fix this. Add host 0.0.0.0
+Now you can browse to your server's port 5000 and see the app in action:
+<Picture>
+The app is served by Flask's built in web server. It is a great tool for developing, but it is not recommended in production environment. Let's configure Nginx to do the heavy lifting.
 
-5. configure nginx
-sudo rm /etc/nginx/conf.d/default.conf
-sudo vim /var/www/demoapp/demoapp_nginx.conf
+Configuring Nginx
+-----------------
+Let's start by removing the Nginx's default site configuration:
+	sudo rm /etc/nginx/conf.d/default.conf
+Instead, create a configuration file for our application:
+	sudo vim /var/www/demoapp/demoapp_nginx.conf
 '''
 server {
     listen      80;
@@ -86,40 +97,63 @@ server {
     location / { try_files $uri @yourapplication; }
     location @yourapplication {
         include uwsgi_params;
-        uwsgi_pass unix:/var/www/run/demoapp_uwsgi.sock;
+        uwsgi_pass unix:/var/www/demoapp/demoapp_uwsgi.sock;
     }    
 }
 '''
-sudo mkdir -p /var/www/run
-sudo chown -R nginx:nginx /var/www/
-sudo ln -s /var/www/demoapp/demoapp_nginx.conf /etc/nginx/conf.d/
-sudo /etc/init.d/nginx restart
+And symlink it to Nginx configuration files' directory:
+	sudo ln -s /var/www/demoapp/demoapp_nginx.conf /etc/nginx/conf.d/
+All the files should be owned by the nginx user:
+	sudo chown -R nginx:nginx /var/www/
+Restart Nginx to reload configuration files:
+	sudo /etc/init.d/nginx restart
 
-6. configure uwsgi
-sudo mkdir -p /var/log/uwsgi
-sudo chown -R nginx:nginx /var/log/uwsgi
-sudo vim /var/www/demoapp/demoapp_uwsgi.ini
+### Milestone #3
+Browser to server's public ip address, and you will get a 502 error:
+<Picture>
+Actually, this is a "good" error. It says that Nginx uses the configuration file we just created, but it has a trouble connecting to our Python application host, uWSGI. The connection to uWSGI is defined in the configuration file at line #10:
+	uwsgi_pass unix:/var/www/demoapp/demoapp_uwsgi.sock;
+It says that Nginx should use a socket file, located at /var/www/demoapp/demoapp_uwsgi.sock to communicate with uWSGI. We still haven't configured uWSGI, thereforr the file doesn't exist, and Nginx returns the "bad gateway error". Let's fix this now.
+
+Configuring uWSGI
+-----------------
+Create a new uWSGI configuration file:
+	sudo vim /var/www/demoapp/demoapp_uwsgi.ini
 '''
 [uwsgi]
-# Variables
 base = /var/www/demoapp
 app = hello
-# Generic Config
-# plugins = http,python
 home = %(base)/venv
 pythonpath = %(base)
-socket = /var/www/run/%n.sock
+socket = /var/www/demoapp/%n.sock
 module = %(app)
 callable = app
 chmod-socket    = 666
 logto = /var/log/uwsgi/%n.log
-env = PRODUCTION=true
 '''
-sudo mkdir /etc/uwsgi
-sudo mkdir /etc/uwsgi/vassals
-sudo ln -s /var/www/demoapp/demoapp_uwsgi.ini /etc/uwsgi/vassals
+This configuration states a few things:
+Line #1: Our applications base folder
+Line #2: Python module to import
+Line #5: The socket file's location
+Line #7: The variable that hold our Flask application
+Line #9: Location for a log file
 
-7. uWSGI Emperor
+Let's create a folder for log files, and make nginx its owner:
+	sudo mkdir -p /var/log/uwsgi
+	sudo chown -R nginx:nginx /var/log/uwsgi
+
+### Milestone #4
+Let's execute uWSGI and pass it the newly created configuration file:
+	uwsgi --ini /var/www/demoapp/demoapp/_uwsgi.ini
+Next, browse to your server. Now Nginx should be able to connect to uWSGI process, and display our very informative page:
+<Picture>
+
+We are almost finished. The only thing left to do, is to configure uWSGI to run as a background service. That's a task of uWSGI Emperor.
+
+uWSGI Emperor
+-------------
+uWSGI Emperor (quite a name, isn't it?) is responsible for reading configuration files, like the one we just created, and spawing processes to execute them.
+Create a new upstart configuration file to execute emperor:
 sudo vim /etc/init/uwsgi.conf
 '''
 description "uWSGI"
@@ -132,11 +166,14 @@ env LOGTO=/var/log/uwsgi/emperor.log
 
 exec $UWSGI --master --emperor /etc/uwsgi/vassals --die-on-term --uid nginx --gid nginx --logto $LOGTO
 '''
-sudo start uwsgi
+Line #9 tells emperor to look for config files at the /etc/uwsgi/vassals folder. Let's create the folder:
+	sudo mkdir /etc/uwsgi
+	sudo mkdir /etc/uwsgi/vassals
+And symlink our app's uwsgi config file into it:
+	sudo ln -s /var/www/demoapp/demoapp_uwsgi.ini /etc/uwsgi/vassals
+Now we can start the uWSGI job:
+	sudo start uwsgi
 
-
-Then update the sources list and install Nginx.
-apt-get update && apt-get install nginx
-
-http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
-http://jyunderwood.com/posts/serving-php-with-nginx-on-ubuntu.html
+### Milestone #5
+Now both Nginx and uWSGI are configured to correctly server our application on system start up:
+<Picture>
