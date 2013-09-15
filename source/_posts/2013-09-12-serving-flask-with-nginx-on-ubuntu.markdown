@@ -49,7 +49,7 @@ Nginx is a web server. It serves static files, however it cannot execute and hos
 
 ### Milestone #1
 Browse to your server and you should get the Nginx greeting page:
-<Screenshot>
+![nginx](../images/nginx-flask-ubuntu/milestone_1.png "nginx")
 
 Sample application
 ------------------
@@ -78,7 +78,7 @@ if __name__ == "__main__":
 Let's execute the script we just created:
 sudo venv/bin/python hello.py
 Now you can browse to your server's port 81 and see the app in action (I've used port 81 because port 80 is already in use by nginx):
-<Picture>
+![flask](../images/nginx-flask-ubuntu/milestone_2.png "flask")
 The app is served by Flask's built in web server. It is a great tool for developing, but it is not recommended in production environment. Let's configure Nginx to do the heavy lifting.
 
 Configuring Nginx
@@ -108,7 +108,7 @@ Restart Nginx to reload configuration files:
 
 ### Milestone #3
 Browser to server's public ip address, and you will get a 502 error:
-<Picture>
+![502](../images/nginx-flask-ubuntu/milestone_3.png "502")
 Actually, this is a "good" error. It says that Nginx uses the configuration file we just created, but it has a trouble connecting to our Python application host, uWSGI. The connection to uWSGI is defined in the configuration file at line #10:
 	uwsgi_pass unix:/var/www/demoapp/demoapp_uwsgi.sock;
 It says that Nginx should use a socket file, located at /var/www/demoapp/demoapp_uwsgi.sock to communicate with uWSGI. We still haven't configured uWSGI, thereforr the file doesn't exist, and Nginx returns the "bad gateway error". Let's fix this now.
@@ -144,7 +144,7 @@ Let's create a folder for log files, and make nginx its owner:
 Let's execute uWSGI and pass it the newly created configuration file:
 	sudo uwsgi --ini /var/www/demoapp/demoapp_uwsgi.ini
 Next, browse to your server. Now Nginx should be able to connect to uWSGI process, and display our very informative page:
-<Picture>
+![uwsgi](../images/nginx-flask-ubuntu/milestone_4.png "uwsgi")
 
 We are almost finished. The only thing left to do, is to configure uWSGI to run as a background service. That's a task of uWSGI Emperor.
 
