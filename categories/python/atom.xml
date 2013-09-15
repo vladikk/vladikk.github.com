@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python | Vladikk : Developer, IBloggable]]></title>
   <link href="http://www.vladikk.com/categories/python/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2013-09-15T23:59:22+03:00</updated>
+  <updated>2013-09-16T00:05:54+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -18,7 +18,7 @@
     <link href="http://www.vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/"/>
     <updated>2013-09-12T22:37:00+03:00</updated>
     <id>http://www.vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu</id>
-    <content type="html"><![CDATA[<p>Having spent the majority of my career in the Microsoft stake, lately I've decided to step out of my comfort zone and to dive into the world of open source software. The project I'm currently working on at my day job is a RESTful service. The service will be running on a commodity hardware, that should be able to scale horizontally as needed. To do the job I've decided to use Flask and Nginx. Flask is a lightweight Python web framework, and nginx is a highly stable web server, that works great on cheap hardware.</p>
+    <content type="html"><![CDATA[<p>Having spent the majority of my career in the Microsoft stack, lately I've decided to step out of my comfort zone and to dive into the world of open source software. The project I'm currently working on at my day job is a RESTful service. The service will be running on a commodity hardware, that should be able to scale horizontally as needed. To do the job I've decided to use Flask and Nginx. Flask is a lightweight Python web framework, and nginx is a highly stable web server, that works great on cheap hardware.</p>
 
 <p>In this post I will guide you through the process of installing and configuring nginx server to host Flask based applications. The OS I'll be using is Ubuntu 13.04.</p>
 
