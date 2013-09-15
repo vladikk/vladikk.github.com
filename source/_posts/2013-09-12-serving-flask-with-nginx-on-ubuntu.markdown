@@ -4,7 +4,7 @@ title: "Serving Flask with Nginx on Ubuntu"
 date: 2013-09-12 22:37
 comments: true
 categories: Python, Nginx
-published: false
+published: true
 keywords: python, flask, nginx, uwsgi, ubuntu, amazon, ec2, aws, tutorial
 description: 
 ---
