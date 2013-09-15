@@ -1,0 +1,665 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Serving Flask with Nginx - Vladikk : Developer, IBloggable</title>
+
+  <meta name="author" content="Vladik Khononov">
+  
+  <meta name="description" content="Vladik Khononov's blog about software architecture, development and design">
+  <meta name="keywords" content="python, flask, nginx, uwsgi, ubuntu, amazon, ec2, aws, tutorial">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Vladikk : Developer, IBloggable" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-40869819-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Vladikk : Developer, IBloggable</a></h1>
+  
+    <h2>Rants on software architecture, development and design</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.vladikk.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About me</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Serving Flask With Nginx</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-12T22:37:00+03:00" pubdate data-updated="true">Sep 12<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Having spent the majority of my career in the Microsoft stake, lately I&#8217;ve decided to step out of my comfort zone and to dive into the world of open source software. The project I&#8217;m currently working on at my day job is a RESTful service. The service will be running on a commodity hardware, that should be able to scale horizontally as needed. To do the job I&#8217;ve decided to use Flask and Nginx. Flask is a lightweight Python web framework, and nginx is a highly stable web server, that works great on cheap hardware.</p>
+
+<p>In this post I will guide you through the process of installing and configuring nginx server to host Flask based applications. The OS I&#8217;ll be using is Ubuntu 13.04.</p>
+
+<h2>Prerequisites</h2>
+
+<p>Before we install Nginx and other required software, let&#8217;s install some prerequisites. First, we will need PIP and Virtualenv:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get install python-setuptools
+</span><span class='line'>sudo easy_install pip
+</span><span class='line'>sudo pip install virtualenv
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To install nginx from apt-get, we have to add Nginx repositories apt-get sources:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>wget http://nginx.org/keys/nginx_signing.key
+</span><span class='line'>sudo apt-key add nginx_signing.key
+</span><span class='line'>rm nginx_signing.key
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;deb http://nginx.org/packages/ubuntu/ raring nginx&quot;</span> | sudo tee -a /etc/apt/sources.list
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;deb-src http://nginx.org/packages/ubuntu/ raring nginx&quot;</span> | sudo tee -a /etc/apt/sources.list
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><em>Note: At the time of this writing, I am using Ubuntu 13.04, therefore on lines 4 and 5 I&#8217;m using the codename &#8220;raring&#8221;. If you are running other version of Ubuntu, use your repository version instead. <a href="http://nginx.org/en/linux_packages.html#stable">More info on nginx.org</a></em></p>
+
+<p>Upgrade existing packages and make sure you have the required compilers and tools for uWSGI:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get upgrade
+</span><span class='line'>sudo apt-get install build-essential python python-dev
+</span></code></pre></td></tr></table></div></figure>
+
+
+<!-- more -->
+
+
+<h2>Nginx</h2>
+
+<p>Install and start Nginx:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get install nginx
+</span><span class='line'>sudo /etc/init.d/nginx start
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Nginx is a web server. It serves static files, however it cannot execute and host Python application. uWSGI fills that gap. Let&#8217;s install it first, and later we&#8217;ll configure nginx and uWSGI to talk to each other.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo pip install uwsgi
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Milestone #1</h3>
+
+<p>Browse to your server and you should get the Nginx greeting page:
+<img src="/images/nginx-flask-ubuntu/milestone_1.png" alt="nginx" /></p>
+
+<h2>Sample application</h2>
+
+<p>The application we will host is literally a &#8220;Hello, world!&#8221; application. It will serve only one page, and guess what text it will contain.
+All the application related files will be stored at the /var/www/demoapp folder. Let&#8217;s create this folder, and initialize a virtual environment in it:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo mkdir /var/www
+</span><span class='line'>sudo mkdir /var/www/demoapp
+</span><span class='line'><span class="nb">cd</span> /var/www/demoapp
+</span><span class='line'>sudo virtualenv venv
+</span><span class='line'>sudo venv/bin/pip install flask
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Create the hello.py file, with the following code:</p>
+
+<figure class='code'><figcaption><span>/var/www/demoapp/hello.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+</span><span class='line'><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="nd">@app.route</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+</span><span class='line'>    <span class="k">return</span> <span class="s">&quot;Hello World!&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span class='line'>    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">81</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Milestone #2</h3>
+
+<p>Let&#8217;s execute the script we&#8217;ve just created:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo venv/bin/python hello.py
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now you can browse to your server&#8217;s port 81 and see the app in action:
+<img src="/images/nginx-flask-ubuntu/milestone_1.png" alt="flask" />
+<em>Note: I&#8217;ve used port 81 because port 80 is already in use by nginx</em></p>
+
+<p>Currently the app is served by Flask&#8217;s built in web server. It is a great tool for development needs, but it is not recommended in production environment. Let&#8217;s configure nginx to do the heavy lifting.</p>
+
+<h2>Configuring Nginx</h2>
+
+<p>Let&#8217;s start by removing the Nginx&#8217;s default site configuration:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo rm /etc/nginx/conf.d/default.conf
+</span><span class='line'>sudo vim /var/www/demoapp/demoapp_nginx.conf
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Instead create a new configuration file for our application <strong>/var/www/demoapp/demoapp_nginx.conf</strong>:</p>
+
+<figure class='code'><figcaption><span>/var/www/demoapp/demoapp_nginx.conf</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>server {
+</span><span class='line'>    listen      80;
+</span><span class='line'>    server_name localhost;
+</span><span class='line'>    charset     utf-8;
+</span><span class='line'>    client_max_body_size 75M;
+</span><span class='line'>
+</span><span class='line'>    location / { try_files $uri @yourapplication; }
+</span><span class='line'>    location @yourapplication {
+</span><span class='line'>        include uwsgi_params;
+</span><span class='line'>        uwsgi_pass unix:/var/www/demoapp/demoapp_uwsgi.sock;
+</span><span class='line'>    }
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And symlink the new file to nginx&#8217;s configuration files directory and restart nginx:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo ln -s /var/www/demoapp/demoapp_nginx.conf /etc/nginx/conf.d/
+</span><span class='line'>sudo /etc/init.d/nginx restart
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Milestone #3</h3>
+
+<p>Browser to server&#8217;s public ip address, and you will be greeted by an error:
+<img src="/images/nginx-flask-ubuntu/milestone_3.png" alt="502" />
+No need to worry, this is a &#8220;good&#8221; error. It says that nginx uses the configuration file we just created, but it has a trouble connecting to our Python application host, uWSGI. The connection to uWSGI is defined in the configuration file at line #10:</p>
+
+<pre><code>uwsgi_pass unix:/var/www/demoapp/demoapp_uwsgi.sock;
+</code></pre>
+
+<p>It says that the communication between nginx and uWSGI is done via a socket file, that should be located at <em>/var/www/demoapp/demoapp_uwsgi.sock</em>. Since we still haven&#8217;t configured uWSGI yet, the file doesn&#8217;t exist, and Nginx returns the &#8220;bad gateway&#8221; error. Let&#8217;s fix this now.</p>
+
+<h2>Configuring uWSGI</h2>
+
+<p>Create a new uWSGI configuration file <strong>/var/www/demoapp/demoapp_uwsgi.ini</strong>:</p>
+
+<figure class='code'><figcaption><span>/var/www/demoapp/demoapp_uwsgi.ini</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>[uwsgi]
+</span><span class='line'>#application&#39;s base folder
+</span><span class='line'>base = /var/www/demoapp
+</span><span class='line'>
+</span><span class='line'>#python module to import
+</span><span class='line'>app = hello
+</span><span class='line'>module = %(app)
+</span><span class='line'>
+</span><span class='line'>home = %(base)/venv
+</span><span class='line'>pythonpath = %(base)
+</span><span class='line'>
+</span><span class='line'>#socket file&#39;s location
+</span><span class='line'>socket = /var/www/demoapp/%n.sock
+</span><span class='line'>
+</span><span class='line'>#permissions for the socket file
+</span><span class='line'>chmod-socket    = 666
+</span><span class='line'>
+</span><span class='line'>#the variable that holds a flask application inside the module imported at line #6
+</span><span class='line'>callable = app
+</span><span class='line'>
+</span><span class='line'>#location of log files
+</span><span class='line'>logto = /var/log/uwsgi/%n.log
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Let&#8217;s create a new directory for uwsgi log files:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo mkdir -p /var/log/uwsgi
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Milestone #4</h3>
+
+<p>Let&#8217;s execute uWSGI and pass it the newly created configuration file:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo uwsgi --ini /var/www/demoapp/demoapp_uwsgi.ini
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Next, browse to your server. Now nginx should be able to connect to uWSGI process:
+<img src="/images/nginx-flask-ubuntu/milestone_4.png" alt="uwsgi" /></p>
+
+<p>We are almost finished. The only thing left to do, is to configure uWSGI to run as a background service. That&#8217;s the duty of uWSGI Emperor.</p>
+
+<h2>uWSGI Emperor</h2>
+
+<p>uWSGI Emperor (quite a name, isn&#8217;t it?) is responsible for reading configuration files and spawing uWSGI processes to execute them.
+Create a new upstart configuration file to execute emperor - <strong>/etc/init/uwsgi.conf</strong>:</p>
+
+<figure class='code'><figcaption><span>/etc/init/uwsgi.conf</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>description <span class="s2">&quot;uWSGI&quot;</span>
+</span><span class='line'>start on runlevel <span class="o">[</span>2345<span class="o">]</span>
+</span><span class='line'>stop on runlevel <span class="o">[</span>06<span class="o">]</span>
+</span><span class='line'>respawn
+</span><span class='line'>
+</span><span class='line'>env <span class="nv">UWSGI</span><span class="o">=</span>/usr/local/bin/uwsgi
+</span><span class='line'>env <span class="nv">LOGTO</span><span class="o">=</span>/var/log/uwsgi/emperor.log
+</span><span class='line'>
+</span><span class='line'><span class="nb">exec</span> <span class="nv">$UWSGI</span> --master --emperor /etc/uwsgi/vassals --die-on-term --uid nginx --gid nginx --logto <span class="nv">$LOGTO</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The last line executes the uWSGI daemon and sets it to look for config files in the <strong>/etc/uwsgi/vassals</strong> folder. Let&#8217;s create this folder and symlink the configuration file we created earlier into it:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo mkdir /etc/uwsgi <span class="o">&amp;&amp;</span> sudo mkdir /etc/uwsgi/vassals
+</span><span class='line'>sudo ln -s /var/www/demoapp/demoapp_uwsgi.ini /etc/uwsgi/vassals
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Also, the last line states the the user that will be used to execute the daemon is nginx. For simplicity&#8217;s sake, let&#8217;s set him as the owner of the application and log folder:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo chown -R nginx:nginx /var/www/demoapp/
+</span><span class='line'>sudo chown -R nginx:nginx /var/log/uwsgi/
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we can start the uWSGI job:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo start uwsgi
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Finally, both Nginx and uWSGI are configured to correctly serve our application on system start up.</p>
+
+<h2>Troubleshooting</h2>
+
+<p>If something goes wrong, the first place to check is the log files. By default, nginx writes error message to the file <strong>/var/log/nginx/errors.log</strong>.</p>
+
+<p>We&#8217;ve configured uWSGI emperor to write it&#8217;s logs to <strong>/var/log/uwsgi/emperor.log</strong>. Also this folder contains separate log files for each configured application. In our case - <strong>/var/log/uwsgi/demoapp_uwsgi.log</strong>.</p>
+
+<h2>P.S. Hosting Multiple Applications</h2>
+
+<p>If you want to host multiple Flask applications on a single server, create a separate folder for each application, as we did earlier, and symlink nginx and uWSGI configuration files to the appropriate folder.</p>
+
+<h2>P.P.S. Deploying Applications with Distribute</h2>
+
+<p>To deploy Flask apps using <a href="https://pypi.python.org/pypi/distribute">distribute</a>, first follow the steps in <a href="http://flask.pocoo.org/docs/patterns/packages/#larger-applications">Flask documentation</a> to convert your application into a package. Next, copy the generated distribute setup package to the server, and use the virtual environment&#8217;s Python to install it. E.g.:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo /var/www/demoapp/venv/bin/python setup.py install
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And last but not least, the &#8220;app&#8221; property of uWSGI configuration&#8217;s file should be equal to name of the package that holds the Flask application.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Vladik Khononov</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-12T22:37:00+03:00" pubdate data-updated="true">Sep 12<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/flask/'>Flask</a>, <a class='category' href='/categories/nginx/'>Nginx</a>, <a class='category' href='/categories/python/'>Python</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/" data-via="vladikk" data-counturl="http://www.vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/06/11/json2csv/" title="Previous Post: JSON2CSV">&laquo; JSON2CSV</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/09/12/serving-flask-with-nginx-on-ubuntu/">Serving Flask with Nginx</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/11/json2csv/">JSON2CSV</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/09/sql2json/">Introducing SQL2JSON</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/01/unicode-file-names-in-python/">Unicode file names in Python 2.7</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/05/14/uncoupling-configuration-files/">Uncoupling Configuration Files</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/vladikk">@vladikk</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'vladikk',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section>
+  <h1>Twitter</h1>
+  <div id="twitter-profile" style="margin-top:0.5em;">
+    <p>
+      <strong>Vladik Khononov</strong> 
+      (<a href="http://twitter.com/vladikk">@vladikk</a>)
+    </p>
+    <p>Vladik Khononov's blog about software architecture, development and design</p>
+  </div>
+  <script type="text/javascript">
+    $.domReady(function(){
+        var container = $('#twitter-profile'),
+            user = "vladikk";
+        
+        function parseTwLinks(s) {
+          var twUrl = "http://www.twitter.com/"
+          s = s.replace(/ (@([\w]+))/g, function(match, p1, p2) {
+              return " <a href='"+twUrl+p2+"'>"+p1+"</a>"
+          }).replace(/ (#([\w]+))/g, function(match, p1, p2) {
+              return " <a href='"+twUrl+"#!/search?q=%23"+p2+"'>"+p1+"</a>"
+          })
+          return s
+        }
+
+        $.ajax({
+            url: "http://api.twitter.com/1/users/show.json?include_entities=false&screen_name="+user+"&callback=?"
+          , type: 'jsonp'
+          , error: function (err) { $('#twitter-profile').addClass('error');  }
+          , success: function(data) {
+              container.html('<img class="left" src="http://api.twitter.com/1/users/profile_image/'+user+'.json?size=bigger" alt="@'+user+'"><p><strong>'+data.name+'</strong> (<a href="http://twitter.com/'+user+'">@'+user+'</a>)<br/>'+data.location+'</p><p>'+parseTwLinks(data.description)+'</p>');
+            }
+        })
+      });
+  </script>
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Vladik Khononov -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'vladikk-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/';
+        var disqus_url = 'http://www.vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Python | Vladikk : Developer, IBloggable]]></title>
-  <link href="http://www.vladikk.com/categories/python/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Flask | Vladikk : Developer, IBloggable]]></title>
+  <link href="http://www.vladikk.com/categories/flask/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
   <updated>2013-09-15T23:59:22+03:00</updated>
   <id>http://www.vladikk.com/</id>
