@@ -25,14 +25,15 @@ We will use virtualenv to isolate our application's environment:
 
 To install Nginx from apt-get, we have to add Nginx repositories apt-get sources:
 	wget http://nginx.org/keys/nginx_signing.key
-	apt-key add nginx_signing.key
+	sudo apt-key add nginx_signing.key
 	rm nginx_signing.key
-	echo "deb http://nginx.org/packages/ubuntu/ raring nginx" >> /etc/apt/sources.list
-	echo "deb-src http://nginx.org/packages/ubuntu/ raring nginx" >> /etc/apt/sources.list
+
+	echo "deb http://nginx.org/packages/ubuntu/ raring nginx" | sudo tee -a /etc/apt/sources.list
+	echo "deb-src http://nginx.org/packages/ubuntu/ raring nginx" | sudo tee -a /etc/apt/sources.list
 (Note: At the time of this writing, I am using Ubuntu 13.04, therefore I'm using the codename "raring". If you are running other version, use your repository version instead. More info: http://nginx.org/en/linux_packages.html#stable)
 
 Update repositories and upgrade existing packages:
-	sudo apt-get update && apt-get upgrade
+	sudo apt-get update && sudo apt-get upgrade
 
 Packages required for uWSGI:
 	sudo apt-get install build-essential python python-dev
@@ -59,7 +60,7 @@ All the application related files will be stored at the /var/www/demoapp folder.
 	cd /var/www/demoapp
 	sudo virtualenv venv
 	. venv/bin/activate
-	sudo pip install Flask  //// <==== Fix this. It won't work with sudo
+	sudo venv/bin/pip install Flask  //// <==== Fix this. It won't work with sudo
 Create the hello.py file, with the following code:
 '''
 from flask import Flask
@@ -70,14 +71,13 @@ def hello():
     return "Hello World!"
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port=81)
 '''
-	sudo chown -R nginx:nginx /var/www/ <====== Fix this!!!
 
 ### Milestone #2
 Let's execute the script we just created:
-python hello.py  ////// <====== Fix this. Add host 0.0.0.0
-Now you can browse to your server's port 5000 and see the app in action:
+sudo venv/bin/python hello.py
+Now you can browse to your server's port 81 and see the app in action (I've used port 81 because port 80 is already in use by nginx):
 <Picture>
 The app is served by Flask's built in web server. It is a great tool for developing, but it is not recommended in production environment. Let's configure Nginx to do the heavy lifting.
 
@@ -103,8 +103,6 @@ server {
 '''
 And symlink it to Nginx configuration files' directory:
 	sudo ln -s /var/www/demoapp/demoapp_nginx.conf /etc/nginx/conf.d/
-All the files should be owned by the nginx user:
-	sudo chown -R nginx:nginx /var/www/
 Restart Nginx to reload configuration files:
 	sudo /etc/init.d/nginx restart
 
@@ -144,7 +142,7 @@ Let's create a folder for log files, and make nginx its owner:
 
 ### Milestone #4
 Let's execute uWSGI and pass it the newly created configuration file:
-	uwsgi --ini /var/www/demoapp/demoapp/_uwsgi.ini
+	sudo uwsgi --ini /var/www/demoapp/demoapp_uwsgi.ini
 Next, browse to your server. Now Nginx should be able to connect to uWSGI process, and display our very informative page:
 <Picture>
 
@@ -166,14 +164,29 @@ env LOGTO=/var/log/uwsgi/emperor.log
 
 exec $UWSGI --master --emperor /etc/uwsgi/vassals --die-on-term --uid nginx --gid nginx --logto $LOGTO
 '''
-Line #9 tells emperor to look for config files at the /etc/uwsgi/vassals folder. Let's create the folder:
+Line #9 executes the uwsgi daemon and passes arguments:
+1: Location of the directory in which the emperor should look for config files: /etc/uwsgi/vassals . Let's create this folder:
 	sudo mkdir /etc/uwsgi
 	sudo mkdir /etc/uwsgi/vassals
 And symlink our app's uwsgi config file into it:
 	sudo ln -s /var/www/demoapp/demoapp_uwsgi.ini /etc/uwsgi/vassals
+2: The user that will be used to execute the daemon is Nginx, therefore let's set him as the owner of the application and logs folder:
+	sudo chown -R nginx:nginx /var/www/demoapp/
+	sudo chown -R nginx:nginx /var/log/uwsgi/
+
 Now we can start the uWSGI job:
 	sudo start uwsgi
 
 ### Milestone #5
 Now both Nginx and uWSGI are configured to correctly server our application on system start up:
 <Picture>
+
+Troubleshooting
+---------------
+Nginx logs => /var/log/nginx/errors.log
+uWSGI logs => /var/log/uwsgi/emperor.log + indiviudual, per app logs
+
+Deeping in
+-----------
+Hosting multiple apps - create additional application directories, symlink Nginx and uWSGI configs to appropriate folders.
+Deploying Flask apps using distutil - package as large application, link to docs, module - package name.
