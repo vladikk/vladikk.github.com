@@ -195,6 +195,12 @@ Also, the last line states the the user that will be used to execute the daemon 
 	sudo chown -R nginx:nginx /var/www/demoapp/
 	sudo chown -R nginx:nginx /var/log/uwsgi/
 ```
+Since both, nginx and uWSGI, are now being run by the same user, we can make a security improvement to our uWSGI configuration. Open up the uwsgi config file and change the value of chmod-socket from **666** to **644**:
+``` text /var/www/demoapp/demoapp_uwsgi.ini
+...
+#permissions for the socket file
+chmod-socket    = 644
+```
 
 Now we can start the uWSGI job:
 ``` bash
