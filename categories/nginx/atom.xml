@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Nginx | Vladikk : Developer, IBloggable]]></title>
   <link href="http://www.vladikk.com/categories/nginx/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2013-09-16T11:25:41+03:00</updated>
+  <updated>2013-09-16T11:36:34+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -239,7 +239,15 @@ Also, the last line states the the user that will be used to execute the daemon 
 sudo chown -R nginx:nginx /var/log/uwsgi/
 </code></pre>
 
-<p>```</p>
+<p><code>
+Since both, nginx and uWSGI, are now being run by the same user, we can make a security improvement to our uWSGI configuration. Open up the uwsgi config file and change the value of chmod-socket from **666** to **644**:
+</code> text /var/www/demoapp/demoapp_uwsgi.ini
+...</p>
+
+<h1>permissions for the socket file</h1>
+
+<p>chmod-socket    = 644
+```</p>
 
 <p>Now we can start the uWSGI job:
 ``` bash</p>

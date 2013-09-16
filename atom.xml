@@ -4,7 +4,7 @@
   <title><![CDATA[Vladikk : Developer, IBloggable]]></title>
   <link href="http://www.vladikk.com/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2013-09-16T11:25:41+03:00</updated>
+  <updated>2013-09-16T11:36:34+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -316,6 +316,17 @@ Create a new upstart configuration file to execute emperor - <strong>/etc/init/u
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo chown -R nginx:nginx /var/www/demoapp/
 </span><span class='line'>sudo chown -R nginx:nginx /var/log/uwsgi/
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Since both, nginx and uWSGI, are now being run by the same user, we can make a security improvement to our uWSGI configuration. Open up the uwsgi config file and change the value of chmod-socket from <strong>666</strong> to <strong>644</strong>:</p>
+
+<figure class='code'><figcaption><span>/var/www/demoapp/demoapp_uwsgi.ini</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>...
+</span><span class='line'>#permissions for the socket file
+</span><span class='line'>chmod-socket    = 644
 </span></code></pre></td></tr></table></div></figure>
 
 
