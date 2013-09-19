@@ -3,7 +3,7 @@ layout: post
 title: "JSON2CSV"
 date: 2013-06-11 16:05
 comments: true
-categories: Python, JSON, CSV
+categories: Python JSON CSV
 keywords: json to csv, convert, converter, json, csv, python, open source
 description: Open source utility that converts json files to csv
 ---
