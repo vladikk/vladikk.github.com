@@ -225,3 +225,8 @@ To deploy Flask apps using [distribute](https://pypi.python.org/pypi/distribute)
 sudo /var/www/demoapp/venv/bin/python setup.py install
 ```
 And last but not least, the "app" property of uWSGI configuration's file should be equal to name of the package that holds the Flask application.
+
+P.P.P.S. Security Warning
+-------------------------
+In the discussion about this post on Reddit, a user named d'Anjou made a valid point that, under no circumstances, you should grant root privileges to software, that cannot be trusted 100%. And the software you install from PyPI cannot be trusted.
+This post is intended to guide you through the process of installing and configuring Nginx and uWSGI, however, on production environment you should setup a group of users, with proper permissions, and use it to both install and run the required software.
