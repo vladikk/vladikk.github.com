@@ -5,7 +5,7 @@ date: 2013-09-12 22:37
 comments: true
 categories: Python Nginx Flask
 published: true
-keywords: python, flask, nginx, uwsgi, ubuntu, amazon, ec2, aws, tutorial
+keywords: python, flask, nginx, uwsgi, ubuntu, amazon, ec2, aws, tutorial, example
 description: In this post I'll walk you through the process of installing and configuring the nginx server to host Flask applications.
 ---
 
