@@ -3,7 +3,7 @@ layout: post
 title: "Introducing SQL2JSON"
 date: 2013-06-09 13:38
 comments: true
-categories: mssql, c#, .net, json
+categories: MSSQL C# .NET JSON
 description: SQL2JSON a utility that captures execution result of a sql query to a json file
 keywords: mssql, c#, json, sql, sql2json, .net, open source, github, sql to json, sql 2 json, convert
 ---
