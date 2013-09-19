@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Flask | Vladikk : Developer, IBloggable]]></title>
   <link href="http://www.vladikk.com/categories/flask/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2013-09-19T21:49:04+03:00</updated>
+  <updated>2013-09-19T22:28:47+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -275,6 +275,11 @@ Finally, both Nginx and uWSGI are configured to correctly serve our application 
 sudo /var/www/demoapp/venv/bin/python setup.py install
 </code>
 And last but not least, the "app" property of uWSGI configuration's file should be equal to name of the package that holds the Flask application.</p>
+
+<h2>P.P.P.S. Security Warning</h2>
+
+<p>In the discussion about this post on Reddit, a user named d'Anjou made a valid point that, under no circumstances, you should grant root privileges to software, that cannot be trusted 100%. And the software you install from PyPI cannot be trusted.
+This post is intended to guide you through the process of installing and configuring Nginx and uWSGI, however, on production environment you should setup a group of users, with proper permissions, and use it to both install and run the required software.</p>
 ]]></content>
   </entry>
   
