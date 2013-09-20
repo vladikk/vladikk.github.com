@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Flask | Vladikk]]></title>
   <link href="http://www.vladikk.com/categories/flask/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2013-09-20T14:47:37+03:00</updated>
+  <updated>2013-09-20T14:54:48+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -109,8 +109,9 @@ def hello():</p>
 python hello.py
 </code>
 Now you can browse to your server's port 8080 and see the app in action:
-<img src="/images/nginx-flask-ubuntu/milestone_1.png" alt="flask" />
-<em>Note: I've used port 8080 because port 80 is already in use by nginx</em></p>
+<img src="/images/nginx-flask-ubuntu/milestone_2.png" alt="flask" /></p>
+
+<p><em>Note: I've used port 8080 because port 80 is already in use by nginx</em></p>
 
 <p>Currently the app is served by Flask's built in web server. It is a great tool for development and debugging needs, but it is not recommended in production environment. Let's configure nginx to do the heavy lifting.</p>
 
@@ -295,7 +296,7 @@ As a result, all static files located at <strong>/var/www/demoapp/static</strong
 
 <p>To deploy Flask apps using <a href="https://pypi.python.org/pypi/distribute">distribute</a>, first follow the steps in <a href="http://flask.pocoo.org/docs/patterns/packages/#larger-applications">Flask documentation</a> to convert your application into a package. Next, copy the generated distribute setup package to the server, and use the virtual environment's Python to install it. E.g.:
 <code>bash
-sudo /var/www/demoapp/venv/bin/python setup.py install
+python setup.py install
 </code>
 And last but not least, the "app" property of uWSGI configuration's file should be equal to name of the package that holds the Flask application.</p>
 ]]></content>
