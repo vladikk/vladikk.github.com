@@ -1,88 +1,96 @@
-$noise-bg: image-url('site-background.png') top left !default;
-$img-border: #666;
+$body-bg: white;
+$noise-bg: image-url('noise.png') top left !default;
 
 // Main Link Colors
-$link-color: darken(#F00, 10) !default;
-$link-color-hover: desaturate(darken($link-color, 30), 10) !default; // darken(#F00, 25) -- desaturate(darken($link-color, 40), 25) 
-$link-color-visited: desaturate(lighten($link-color, 15), 60) !default;
-$link-color-active: $link-color-visited !default;
+$link-color: lighten(black, 3) !default;
 
 // Main Section Colors
-$site-bg: white;
-$main-bg: transparent !default;
-$page-bg: transparent !default;
-
-$header-bg: transparent !default;
-$header-border: none !default;
-$title-color: #aaa !default;
-$subtitle-color: #000 !default;
-$header-color: #111;
-$header-link-color: lighten($link-color, 10);
-
-$text-color: #333 !default;
-$text-color-light: #888 !default;
+$text-color: #222 !default;
+$text-color-light: #aaa !default;
 $type-border: #ddd !default;
 
-/* Navigation */
-$nav-bg: transparent !default;
-$nav-bg-front: transparent !default;
-$nav-bg-back: transparent !default;
-$nav-color: $text-color !default;
-$nav-color-hover: $link-color !default;
-$nav-placeholder: desaturate(darken($text-color, 10), 15) !default;
-$nav-border: lighten($text-color-light, 38) !default;
-$nav-border-top: lighten($site-bg, 50) !default;
-$nav-border-bottom: $nav-border !default;
-$nav-border-left: $nav-border !default;
-$nav-border-right: #fff !default;
-
-/* Sidebar colors */
-$sidebar-bg: transparent !default;
-$sidebar-link-color: $link-color !default;
-$sidebar-link-color-hover: $link-color-hover !default;
-$sidebar-link-color-active: $link-color-active !default;
-$sidebar-color: change-color(mix($text-color, $text-color, 80), $hue: hue($text-color), $saturation: saturation($text-color)/2) !default;
-$sidebar-border: desaturate(darken($text-color, 7), 10) !default;
-$sidebar-border-hover: darken($text-color, 7) !default;
-$sidebar-link-color-subdued: lighten($sidebar-color, 20) !default;
-$sidebar-link-color-subdued-hover: $sidebar-link-color-hover !default;
-$twitter-status-link: lighten($sidebar-link-color-subdued, 15) !default;
-
-$footer-color: lighten($text-color-light, 10) !default;
-$footer-color-hover: $text-color-light !default;
-$footer-bg: transparent !default;
-$footer-bg-front: transparent !default;
-$footer-bg-back: transparent !default;
-$footer-border-top: darken($site-bg, 10) !default;
-$footer-border-bottom: none !default;
-$footer-link-color: darken($text-color-light, 38) !default;
-$footer-link-color-hover: darken($footer-color, 25) !default;
-$page-border-bottom: lighten($text-color-light, 38) !default;
-
-$article-border: $footer-border-top !default;
-
-
-/* Core theme application */
-
-a {
-  @include link-colors($link-color, $hover: $link-color-hover, $focus: $link-color-hover, $visited: $link-color-visited, $active: $link-color-active);
-}
-aside.sidebar a {
-  @include link-colors($sidebar-link-color, $hover: $sidebar-link-color-hover, $focus: $sidebar-link-color-hover, $active: $sidebar-link-color-active);
-}
-a {
-  @include transition(color .3s);
-}
-
-html {
-  background: $site-bg;
-}
+/* General rules */
 body {
-  > div {
-    background: $sidebar-bg;
-    > div {
-      background: $main-bg;
-      border-right: 1px solid $sidebar-border;
-    }
-  }
+  background-color: $body-bg;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+a, a:visited {
+  color: $link-color;
+  text-decoration: none;
+  outline: 0;
+}
+
+li {
+  line-height: 18px;
+  margin-bottom: 12px;
+}
+
+ul {
+  display: block;
+  list-style-type: none;
+}
+
+// Logo
+aside#logo {
+  background-color: red;
+}
+
+aside#logo div {
+  background-color: white;
+}
+
+aside#logo div a {
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background: red url(/images/star_large.png) center center no-repeat;
+  background-size: 100% 100%;
+}
+
+/* Menu */
+ul#menu a {
+  color: #999;
+}
+
+#octopress_linkback {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+/* Article rules */
+article a:link, article a:visited, article a:hover, article a:active {
+  text-decoration: none;
+  border-bottom: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  color: #002e03;
+}
+
+article h2 {
+  color: black;
+  text-decoration: none;
+  font-family: "Rokkitt", serif;
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+}
+
+article h2 a:link, article h2 a:hover, article h2 a:visited, article h2 a:active {
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid #CCC;
+  font-family: "Rokkitt", serif;
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
 }
