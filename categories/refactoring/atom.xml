@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: refactoring | Vladikk : Developer, IBloggable]]></title>
+  <title><![CDATA[Category: refactoring | Vladikk]]></title>
   <link href="http://www.vladikk.com/categories/refactoring/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2013-09-20T02:31:09+03:00</updated>
+  <updated>2013-09-20T10:53:22+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
-    
+    <email><![CDATA[vladik@khononov.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
