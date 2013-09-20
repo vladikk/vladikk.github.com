@@ -4,7 +4,7 @@
   <title><![CDATA[Vladikk]]></title>
   <link href="http://www.vladikk.com/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2013-09-20T11:34:55+03:00</updated>
+  <updated>2013-09-20T14:47:37+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -35,22 +35,12 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>To install nginx from apt-get, we have to add Nginx repositories apt-get sources:</p>
+<p>To install nginx from apt-get, we have to add Nginx repositories to apt-get sources:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>wget http://nginx.org/keys/nginx_signing.key
-</span><span class='line'>sudo apt-key add nginx_signing.key
-</span><span class='line'>rm nginx_signing.key
-</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;deb http://nginx.org/packages/ubuntu/ raring nginx&quot;</span> | sudo tee -a /etc/apt/sources.list
-</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;deb-src http://nginx.org/packages/ubuntu/ raring nginx&quot;</span> | sudo tee -a /etc/apt/sources.list
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo add-apt-repository ppa:nginx/stable
 </span></code></pre></td></tr></table></div></figure>
 
-
-<p><em>Note: At the time of this writing, I am using Ubuntu 13.04, therefore on lines 4 and 5 I&#8217;m using the codename &#8220;raring&#8221;. If you are running other version of Ubuntu, use your repository version instead. <a href="http://nginx.org/en/linux_packages.html#stable">More info on nginx.org</a></em></p>
 
 <p>Upgrade existing packages and make sure you have the required compilers and tools for uWSGI:</p>
 
@@ -94,14 +84,28 @@ All the application related files will be stored at the /var/www/demoapp folder.
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo mkdir /var/www
 </span><span class='line'>sudo mkdir /var/www/demoapp
-</span><span class='line'><span class="nb">cd</span> /var/www/demoapp
-</span><span class='line'>sudo virtualenv venv
-</span><span class='line'>sudo venv/bin/pip install flask
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Since we created the folder under root privileges, it is currently owned by the root user. Let&#8217;s change the ownership to the user you are logged in to (&#8220;ubuntu&#8221; in my case):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo chown -R ubuntu:ubuntu /var/www/demoapp/
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Create and activate a virtual environment, and install Flask into it:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> /var/www/demoapp
+</span><span class='line'>virtualenv venv
+</span><span class='line'>. venv/bin/activate
+</span><span class='line'>pip install flask
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -124,7 +128,7 @@ All the application related files will be stored at the /var/www/demoapp folder.
 </span><span class='line'>    <span class="k">return</span> <span class="s">&quot;Hello World!&quot;</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
-</span><span class='line'>    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">81</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -133,26 +137,26 @@ All the application related files will be stored at the /var/www/demoapp folder.
 <p>Let&#8217;s execute the script we&#8217;ve just created:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo venv/bin/python hello.py
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>python hello.py
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Now you can browse to your server&#8217;s port 81 and see the app in action:
+<p>Now you can browse to your server&#8217;s port 8080 and see the app in action:
 <img src="http://www.vladikk.com/images/nginx-flask-ubuntu/milestone_1.png" alt="flask" />
-<em>Note: I&#8217;ve used port 81 because port 80 is already in use by nginx</em></p>
+<em>Note: I&#8217;ve used port 8080 because port 80 is already in use by nginx</em></p>
 
-<p>Currently the app is served by Flask&#8217;s built in web server. It is a great tool for development needs, but it is not recommended in production environment. Let&#8217;s configure nginx to do the heavy lifting.</p>
+<p>Currently the app is served by Flask&#8217;s built in web server. It is a great tool for development and debugging needs, but it is not recommended in production environment. Let&#8217;s configure nginx to do the heavy lifting.</p>
 
 <h2>Configuring Nginx</h2>
 
 <p>Let&#8217;s start by removing the Nginx&#8217;s default site configuration:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo rm /etc/nginx/conf.d/default.conf
-</span><span class='line'>sudo vim /var/www/demoapp/demoapp_nginx.conf
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo rm /etc/nginx/sites-enabled/default
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p><strong>Note: If you installed a version of nginx from other repository, the default configuration file may be located at the /etc/nginx/conf.d folder.</strong></p>
 
 <p>Instead create a new configuration file for our application <strong>/var/www/demoapp/demoapp_nginx.conf</strong>:</p>
 
@@ -254,10 +258,12 @@ No need to worry, this is a &#8220;good&#8221; error. It says that nginx uses th
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Let&#8217;s create a new directory for uwsgi log files:</p>
+<p>Let&#8217;s create a new directory for uwsgi log files, and change its owner to your user:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo mkdir -p /var/log/uwsgi
+</span><span class='line'>sudo chown -R ubuntu:ubuntu /var/log/uwsgi
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -266,7 +272,7 @@ No need to worry, this is a &#8220;good&#8221; error. It says that nginx uses th
 <p>Let&#8217;s execute uWSGI and pass it the newly created configuration file:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo uwsgi --ini /var/www/demoapp/demoapp_uwsgi.ini
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>uwsgi --ini /var/www/demoapp/demoapp_uwsgi.ini
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -297,7 +303,7 @@ Create a new upstart configuration file to execute emperor - <strong>/etc/init/u
 </span><span class='line'>env <span class="nv">UWSGI</span><span class="o">=</span>/usr/local/bin/uwsgi
 </span><span class='line'>env <span class="nv">LOGTO</span><span class="o">=</span>/var/log/uwsgi/emperor.log
 </span><span class='line'>
-</span><span class='line'><span class="nb">exec</span> <span class="nv">$UWSGI</span> --master --emperor /etc/uwsgi/vassals --die-on-term --uid nginx --gid nginx --logto <span class="nv">$LOGTO</span>
+</span><span class='line'><span class="nb">exec</span> <span class="nv">$UWSGI</span> --master --emperor /etc/uwsgi/vassals --die-on-term --uid www-data --gid www-data --logto <span class="nv">$LOGTO</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -310,14 +316,16 @@ Create a new upstart configuration file to execute emperor - <strong>/etc/init/u
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Also, the last line states the the user that will be used to execute the daemon is nginx. For simplicity&#8217;s sake, let&#8217;s set him as the owner of the application and log folder:</p>
+<p>Also, the last line states the the user that will be used to execute the daemon is www-data. For simplicity&#8217;s sake, let&#8217;s set him as the owner of the application and log folders:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo chown -R nginx:nginx /var/www/demoapp/
-</span><span class='line'>sudo chown -R nginx:nginx /var/log/uwsgi/
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo chown -R www-data:www-data /var/www/demoapp/
+</span><span class='line'>sudo chown -R www-data:www-data /var/log/uwsgi/
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p><strong>Note: The nginx version we installed earlier uses the &#8220;www-data&#8221; user for executing nginx. Nginx versions from other repositories may use a user named &#8220;nginx&#8221; instead.</strong></p>
 
 <p>Since both, nginx and uWSGI, are now being run by the same user, we can make a security improvement to our uWSGI configuration. Open up the uwsgi config file and change the value of chmod-socket from <strong>666</strong> to <strong>644</strong>:</p>
 
@@ -345,11 +353,27 @@ Create a new upstart configuration file to execute emperor - <strong>/etc/init/u
 
 <p>We&#8217;ve configured uWSGI emperor to write it&#8217;s logs to <strong>/var/log/uwsgi/emperor.log</strong>. Also this folder contains separate log files for each configured application. In our case - <strong>/var/log/uwsgi/demoapp_uwsgi.log</strong>.</p>
 
-<h2>P.S. Hosting Multiple Applications</h2>
+<h2>Static Files</h2>
+
+<p>If your application has to serve static files, the following rule should be added to the <strong>demoapp_nginx.conf</strong> file:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>location /static {
+</span><span class='line'>    root /var/www/demoapp/;
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As a result, all static files located at <strong>/var/www/demoapp/static</strong> will be served by nginx.
+<em>(Bastianh, thanks for pointing this out)</em></p>
+
+<h2>Hosting Multiple Applications</h2>
 
 <p>If you want to host multiple Flask applications on a single server, create a separate folder for each application, as we did earlier, and symlink nginx and uWSGI configuration files to the appropriate folder.</p>
 
-<h2>P.P.S. Deploying Applications with Distribute</h2>
+<h2>Deploying Applications with Distribute</h2>
 
 <p>To deploy Flask apps using <a href="https://pypi.python.org/pypi/distribute">distribute</a>, first follow the steps in <a href="http://flask.pocoo.org/docs/patterns/packages/#larger-applications">Flask documentation</a> to convert your application into a package. Next, copy the generated distribute setup package to the server, and use the virtual environment&#8217;s Python to install it. E.g.:</p>
 
@@ -359,11 +383,6 @@ Create a new upstart configuration file to execute emperor - <strong>/etc/init/u
 
 
 <p>And last but not least, the &#8220;app&#8221; property of uWSGI configuration&#8217;s file should be equal to name of the package that holds the Flask application.</p>
-
-<h2>P.P.P.S. Security Warning</h2>
-
-<p>In the discussion about this post on Reddit, a user named d&#8217;Anjou made a valid point that, under no circumstances, you should grant root privileges to software, that cannot be trusted 100%. And the software you install from PyPI cannot be trusted.
-This post is intended to guide you through the process of installing and configuring Nginx and uWSGI, however, on production environment you should setup a group of users, with proper permissions, and use it to both install and run the required software.</p>
 ]]></content>
   </entry>
   

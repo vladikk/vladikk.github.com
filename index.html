@@ -158,22 +158,12 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>To install nginx from apt-get, we have to add Nginx repositories apt-get sources:</p>
+<p>To install nginx from apt-get, we have to add Nginx repositories to apt-get sources:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>wget http://nginx.org/keys/nginx_signing.key
-</span><span class='line'>sudo apt-key add nginx_signing.key
-</span><span class='line'>rm nginx_signing.key
-</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;deb http://nginx.org/packages/ubuntu/ raring nginx&quot;</span> | sudo tee -a /etc/apt/sources.list
-</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;deb-src http://nginx.org/packages/ubuntu/ raring nginx&quot;</span> | sudo tee -a /etc/apt/sources.list
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo add-apt-repository ppa:nginx/stable
 </span></code></pre></td></tr></table></div></figure>
 
-
-<p><em>Note: At the time of this writing, I am using Ubuntu 13.04, therefore on lines 4 and 5 I&#8217;m using the codename &#8220;raring&#8221;. If you are running other version of Ubuntu, use your repository version instead. <a href="http://nginx.org/en/linux_packages.html#stable">More info on nginx.org</a></em></p>
 
 <p>Upgrade existing packages and make sure you have the required compilers and tools for uWSGI:</p>
 
