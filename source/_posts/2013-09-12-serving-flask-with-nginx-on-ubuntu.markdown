@@ -92,7 +92,8 @@ Let's execute the script we've just created:
 python hello.py
 ```
 Now you can browse to your server's port 8080 and see the app in action:
-<img src="{{ root_url }}/images/nginx-flask-ubuntu/milestone_1.png" alt="flask" />
+<img src="{{ root_url }}/images/nginx-flask-ubuntu/milestone_2.png" alt="flask" />
+
 *Note: I've used port 8080 because port 80 is already in use by nginx*
 
 Currently the app is served by Flask's built in web server. It is a great tool for development and debugging needs, but it is not recommended in production environment. Let's configure nginx to do the heavy lifting.
@@ -243,6 +244,6 @@ Deploying Applications with Distribute
 --------------------------------------
 To deploy Flask apps using [distribute](https://pypi.python.org/pypi/distribute), first follow the steps in [Flask documentation](http://flask.pocoo.org/docs/patterns/packages/#larger-applications) to convert your application into a package. Next, copy the generated distribute setup package to the server, and use the virtual environment's Python to install it. E.g.:
 ``` bash
-sudo /var/www/demoapp/venv/bin/python setup.py install
+python setup.py install
 ```
 And last but not least, the "app" property of uWSGI configuration's file should be equal to name of the package that holds the Flask application.
