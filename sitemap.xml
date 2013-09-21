@@ -1,64 +1,60 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://www.vladikk.com/2012/07/22/intro/</loc>
-        <lastmod>2013-09-20T11:34:09+03:00</lastmod>
-    </url>
-    <url>
-        <loc>http://www.vladikk.com/2012/07/22/the-problem-with-pingdom/</loc>
-        <lastmod>2013-09-20T11:34:09+03:00</lastmod>
-    </url>
-    <url>
         <loc>http://www.vladikk.com/2012/08/23/disposing-objects-created-by-di-container/</loc>
-        <lastmod>2013-09-20T11:34:09+03:00</lastmod>
+        <lastmod>2013-09-21T15:54:29+03:00</lastmod>
     </url>
     <url>
         <loc>http://www.vladikk.com/2012/09/10/dependency-injection-patterns/</loc>
-        <lastmod>2013-09-20T11:34:09+03:00</lastmod>
+        <lastmod>2013-09-21T15:54:29+03:00</lastmod>
     </url>
     <url>
         <loc>http://www.vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/</loc>
-        <lastmod>2013-09-20T11:34:09+03:00</lastmod>
+        <lastmod>2013-09-21T15:54:29+03:00</lastmod>
     </url>
     <url>
         <loc>http://www.vladikk.com/2013/05/14/uncoupling-configuration-files/</loc>
-        <lastmod>2013-09-20T11:34:09+03:00</lastmod>
+        <lastmod>2013-09-21T15:54:29+03:00</lastmod>
     </url>
     <url>
         <loc>http://www.vladikk.com/2013/06/01/unicode-file-names-in-python/</loc>
-        <lastmod>2013-09-20T11:34:09+03:00</lastmod>
+        <lastmod>2013-09-21T15:54:29+03:00</lastmod>
     </url>
     <url>
         <loc>http://www.vladikk.com/2013/06/09/sql2json/</loc>
-        <lastmod>2013-09-20T11:34:09+03:00</lastmod>
+        <lastmod>2013-09-21T15:54:29+03:00</lastmod>
     </url>
     <url>
         <loc>http://www.vladikk.com/2013/06/11/json2csv/</loc>
-        <lastmod>2013-09-20T11:34:09+03:00</lastmod>
+        <lastmod>2013-09-21T15:54:29+03:00</lastmod>
     </url>
     <url>
         <loc>http://www.vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/</loc>
-        <lastmod>2013-09-20T14:54:46+03:00</lastmod>
+        <lastmod>2013-09-21T15:54:29+03:00</lastmod>
     </url>
     <url>
         <loc>http://www.vladikk.com/404.html</loc>
-        <lastmod>2013-09-20T11:34:09+03:00</lastmod>
+        <lastmod>2013-09-21T15:54:29+03:00</lastmod>
     </url>
     <url>
         <loc>http://www.vladikk.com/about/</loc>
-        <lastmod>2013-09-20T11:34:09+03:00</lastmod>
+        <lastmod>2013-09-21T15:54:29+03:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.vladikk.com/archives/</loc>
+        <lastmod>2013-09-21T15:54:29+03:00</lastmod>
     </url>
     <url>
         <loc>http://www.vladikk.com/blog/archives/</loc>
-        <lastmod>2013-09-20T14:54:46+03:00</lastmod>
+        <lastmod>2013-09-21T15:54:29+03:00</lastmod>
     </url>
     <url>
         <loc>http://www.vladikk.com/blog/categories/</loc>
-        <lastmod>2013-09-20T11:34:09+03:00</lastmod>
+        <lastmod>2013-09-21T15:54:29+03:00</lastmod>
     </url>
     <url>
         <loc>http://www.vladikk.com/</loc>
-        <lastmod>2013-09-20T14:54:46+03:00</lastmod>
+        <lastmod>2013-09-21T15:54:29+03:00</lastmod>
     </url>
     <url>
         <loc>http://www.vladikk.com/robots.txt</loc>
@@ -66,6 +62,6 @@
     </url>
     <url>
         <loc>http://www.vladikk.com/search.html</loc>
-        <lastmod>2013-09-20T11:34:09+03:00</lastmod>
+        <lastmod>2013-09-21T15:54:29+03:00</lastmod>
     </url>
 </urlset>
