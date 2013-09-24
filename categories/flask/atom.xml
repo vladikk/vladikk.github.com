@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Flask | Vladikk]]></title>
   <link href="http://www.vladikk.com/categories/flask/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2013-09-21T21:19:45+03:00</updated>
+  <updated>2013-09-24T11:40:51+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -34,7 +34,9 @@ sudo pip install virtualenv
 <p>To install nginx from apt-get, we have to add Nginx repositories to apt-get sources:
 <code>bash
 sudo add-apt-repository ppa:nginx/stable
-</code></p>
+</code>
+<em>Note: If the "add-apt-repository" command doesn't exist on your Ubuntu version, you need to install the "software-properties-common" package:
+sudo apt-get install software-properties-common (Thanks to get_with_it for mentioning it in the comments)</em></p>
 
 <p>Upgrade existing packages and make sure you have the required compilers and tools for uWSGI:
 <code>bash
