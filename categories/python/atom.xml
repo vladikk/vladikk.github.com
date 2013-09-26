@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python | Vladikk]]></title>
   <link href="http://www.vladikk.com/categories/python/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2013-09-24T11:40:51+03:00</updated>
+  <updated>2013-09-26T15:20:50+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -22,14 +22,7 @@
 
 <p>In this post I will guide you through the process of installing and configuring nginx server to host Flask based applications. The OS I'll be using is Ubuntu 13.04.</p>
 
-<h2>Prerequisites</h2>
-
-<p>Before we install Nginx and other required software, let's install some prerequisites. First, we will need PIP and Virtualenv:
-<code>bash
-sudo apt-get install python-setuptools
-sudo easy_install pip
-sudo pip install virtualenv
-</code></p>
+<h2>Nginx</h2>
 
 <p>To install nginx from apt-get, we have to add Nginx repositories to apt-get sources:
 <code>bash
@@ -38,16 +31,10 @@ sudo add-apt-repository ppa:nginx/stable
 <em>Note: If the "add-apt-repository" command doesn't exist on your Ubuntu version, you need to install the "software-properties-common" package:
 sudo apt-get install software-properties-common (Thanks to get_with_it for mentioning it in the comments)</em></p>
 
-<p>Upgrade existing packages and make sure you have the required compilers and tools for uWSGI:
+<p>Update and upgrade packages:
 <code>bash
 sudo apt-get update &amp;&amp; sudo apt-get upgrade
-sudo apt-get install build-essential python python-dev
 </code></p>
-
-<!-- more -->
-
-
-<h2>Nginx</h2>
 
 <p>Install and start Nginx:
 <code>bash
@@ -55,15 +42,13 @@ sudo apt-get install nginx
 sudo /etc/init.d/nginx start
 </code></p>
 
-<p>Nginx is a web server. It serves static files, however it cannot execute and host Python application. uWSGI fills that gap. Let's install it first, and later we'll configure nginx and uWSGI to talk to each other.
-<code>bash
-sudo pip install uwsgi
-</code></p>
-
 <h3>Milestone #1</h3>
 
 <p>Browse to your server and you should get the Nginx greeting page:
 <img src="/images/nginx-flask-ubuntu/milestone_1.png" alt="nginx" /></p>
+
+<!-- more -->
+
 
 <h2>Sample application</h2>
 
@@ -79,14 +64,20 @@ sudo mkdir /var/www/demoapp
 sudo chown -R ubuntu:ubuntu /var/www/demoapp/
 </code></p>
 
+<p>Install the virtualenv package:
+<code>bash
+sudo apt-get install python-virtualenv
+</code></p>
+
 <p>Create and activate a virtual environment, and install Flask into it:
 <code>bash
 cd /var/www/demoapp
 virtualenv venv
 . venv/bin/activate
 pip install flask
-</code>
-Create the hello.py file, with the following code:
+</code></p>
+
+<p>Create the hello.py file, with the following code:
 ``` python /var/www/demoapp/hello.py
 from flask import Flask
 app = Flask(<strong>name</strong>)</p>
@@ -115,7 +106,17 @@ Now you can browse to your server's port 8080 and see the app in action:
 
 <p><em>Note: I've used port 8080 because port 80 is already in use by nginx</em></p>
 
-<p>Currently the app is served by Flask's built in web server. It is a great tool for development and debugging needs, but it is not recommended in production environment. Let's configure nginx to do the heavy lifting.</p>
+<p>Currently the app is served by Flask's built in web server. It is a great tool for development and debugging needs, but it is not recommended in production environment. Let's install uWSGI and configure Nginx to do the heavy lifting.</p>
+
+<h2>uWSGI</h2>
+
+<p>Nginx is a web server. It serves static files, however it cannot execute and host Python application. uWSGI fills that gap. Let's install it first, and later we'll configure nginx and uWSGI to talk to each other.</p>
+
+<p>First, make sure you have the required compilers and tools, and then install uWSGI:
+<code>bash
+sudo apt-get install build-essential python python-dev
+pip install uwsgi
+</code></p>
 
 <h2>Configuring Nginx</h2>
 
@@ -228,7 +229,7 @@ start on runlevel [2345]
 stop on runlevel [06]
 respawn</p>
 
-<p>env UWSGI=/usr/local/bin/uwsgi
+<p>env UWSGI=/var/www/demoapp/venv/bin/uwsgi
 env LOGTO=/var/log/uwsgi/emperor.log</p>
 
 <p>exec $UWSGI --master --emperor /etc/uwsgi/vassals --die-on-term --uid www-data --gid www-data --logto $LOGTO

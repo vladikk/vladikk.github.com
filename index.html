@@ -108,18 +108,7 @@
 
 <p>In this post I will guide you through the process of installing and configuring nginx server to host Flask based applications. The OS I&#8217;ll be using is Ubuntu 13.04.</p>
 
-<h2>Prerequisites</h2>
-
-<p>Before we install Nginx and other required software, let&#8217;s install some prerequisites. First, we will need PIP and Virtualenv:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get install python-setuptools
-</span><span class='line'>sudo easy_install pip
-</span><span class='line'>sudo pip install virtualenv
-</span></code></pre></td></tr></table></div></figure>
-
+<h2>Nginx</h2>
 
 <p>To install nginx from apt-get, we have to add Nginx repositories to apt-get sources:</p>
 
@@ -131,14 +120,26 @@
 <p><em>Note: If the &#8220;add-apt-repository&#8221; command doesn&#8217;t exist on your Ubuntu version, you need to install the &#8220;software-properties-common&#8221; package:
 sudo apt-get install software-properties-common (Thanks to get_with_it for mentioning it in the comments)</em></p>
 
-<p>Upgrade existing packages and make sure you have the required compilers and tools for uWSGI:</p>
+<p>Update and upgrade packages:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get upgrade
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Install and start Nginx:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get upgrade
-</span><span class='line'>sudo apt-get install build-essential python python-dev
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get install nginx
+</span><span class='line'>sudo /etc/init.d/nginx start
 </span></code></pre></td></tr></table></div></figure>
 
+
+<h3>Milestone #1</h3>
+
+<p>Browse to your server and you should get the Nginx greeting page:
+<img src="/images/nginx-flask-ubuntu/milestone_1.png" alt="nginx" /></p>
 
 </div>
   
