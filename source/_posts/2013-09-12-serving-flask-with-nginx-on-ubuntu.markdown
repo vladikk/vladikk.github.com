@@ -14,43 +14,31 @@ Having spent the majority of my career in the Microsoft stack, lately I've decid
 
 In this post I will guide you through the process of installing and configuring nginx server to host Flask based applications. The OS I'll be using is Ubuntu 13.04.
 
-Prerequisites
--------------
-Before we install Nginx and other required software, let's install some prerequisites. First, we will need PIP and Virtualenv:
-``` bash
-sudo apt-get install python-setuptools
-sudo easy_install pip
-sudo pip install virtualenv
-```
-
+Nginx
+-----
 To install nginx from apt-get, we have to add Nginx repositories to apt-get sources:
 ``` bash
 sudo add-apt-repository ppa:nginx/stable
 ```
+*Note: If the "add-apt-repository" command doesn't exist on your Ubuntu version, you need to install the "software-properties-common" package:
+sudo apt-get install software-properties-common (Thanks to get_with_it for mentioning it in the comments)*
 
-Upgrade existing packages and make sure you have the required compilers and tools for uWSGI:
+Update and upgrade packages:
 ``` bash
 sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install build-essential python python-dev
 ```
-<!-- more -->
 
-Nginx
------
 Install and start Nginx:
 ``` bash
 sudo apt-get install nginx
 sudo /etc/init.d/nginx start
 ```
 
-Nginx is a web server. It serves static files, however it cannot execute and host Python application. uWSGI fills that gap. Let's install it first, and later we'll configure nginx and uWSGI to talk to each other.
-``` bash
-sudo pip install uwsgi
-```
-
 ### Milestone #1
 Browse to your server and you should get the Nginx greeting page:
 <img src="{{ root_url }}/images/nginx-flask-ubuntu/milestone_1.png" alt="nginx" />
+
+<!-- more -->
 
 Sample application
 ------------------
@@ -66,6 +54,11 @@ Since we created the folder under root privileges, it is currently owned by the 
 sudo chown -R ubuntu:ubuntu /var/www/demoapp/
 ```
 
+Install the virtualenv package:
+``` bash
+sudo apt-get install python-virtualenv
+```
+
 Create and activate a virtual environment, and install Flask into it:
 ``` bash
 cd /var/www/demoapp
@@ -73,6 +66,7 @@ virtualenv venv
 . venv/bin/activate
 pip install flask
 ```
+
 Create the hello.py file, with the following code:
 ``` python /var/www/demoapp/hello.py
 from flask import Flask
@@ -96,7 +90,17 @@ Now you can browse to your server's port 8080 and see the app in action:
 
 *Note: I've used port 8080 because port 80 is already in use by nginx*
 
-Currently the app is served by Flask's built in web server. It is a great tool for development and debugging needs, but it is not recommended in production environment. Let's configure nginx to do the heavy lifting.
+Currently the app is served by Flask's built in web server. It is a great tool for development and debugging needs, but it is not recommended in production environment. Let's install uWSGI and configure Nginx to do the heavy lifting.
+
+uWSGI
+-----
+Nginx is a web server. It serves static files, however it cannot execute and host Python application. uWSGI fills that gap. Let's install it first, and later we'll configure nginx and uWSGI to talk to each other.
+
+First, make sure you have the required compilers and tools, and then install uWSGI:
+``` bash
+sudo apt-get install build-essential python python-dev
+pip install uwsgi
+```
 
 Configuring Nginx
 -----------------
@@ -188,7 +192,7 @@ start on runlevel [2345]
 stop on runlevel [06]
 respawn
 
-env UWSGI=/usr/local/bin/uwsgi
+env UWSGI=/var/www/demoapp/venv/bin/bin/uwsgi
 env LOGTO=/var/log/uwsgi/emperor.log
 
 exec $UWSGI --master --emperor /etc/uwsgi/vassals --die-on-term --uid www-data --gid www-data --logto $LOGTO
