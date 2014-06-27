@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "HTML: Doing it Right"
+title: "Clean HTML: Doing it Right"
 date: 2014-06-27 12:13
 comments: true
 categories: [Web Design, HTML]
