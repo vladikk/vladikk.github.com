@@ -5,7 +5,8 @@ date: 2014-06-27 12:13
 comments: true
 categories: [Web Design, HTML]
 keywords: web design, html, javascript, css, separation of concerns, architecture, web
-description: 
+description:
+published: false 
 ---
 
 I've learned HTML way back in 1998, when tables ruled the world and only the cool kids knew that you can put an image inside of a marquee. There's been a lot of water under the bridge since then: divs defeated layers, rise and fall of IE, javascript became cool, but one annoying thing is still the same. When people learn web design they are taught HTML, CSS and JavaScript, but almost nothing on separation of concerts: what role each of those technologies play and when it should be used. In this post I'd like to fill that gap and to share what I've learned since 1998.
@@ -28,7 +29,7 @@ Line breaks (&lt;BR /&gt;) are often used to define spacing between elements or 
 	<br />
 	<div id="menu">...</div>
 
-The line break should only be used to denote the beginning of a new line *inside* of a paragraph. This tag should be used rarely, instead a text should be divided into paragraphs using the &lt;P&gt; tag:
+The line break should only be used to denote the beginning of a new line *inside* of a paragraph. It should be used as rarely, as you use shift+enter in your favorite word processor. Instead a text should be divided into paragraphs using the &lt;P&gt; tag:
 	<p>
 		Paragraph 1
 		...
@@ -70,7 +71,19 @@ This way the image is fully controlled from the CSS.
 *This example uses CSS3 which is still not fully supported in all browsers. There are [other methods](http://css-tricks.com/replace-the-image-in-an-img-with-css/) to achieve the same result in CSS2.*
 
 ### DIV and SPAN
-sdsf
+todo
+
+CSS: Design
+-----------
+Webpages display information and strive to do it in an aesthetic way. That's the job of CSS - controlling how the page should be rendered. Writing clean HTML allows you to completely control how the page is rendered just by editing the CSS file. The [CSS Zen Garden](http://www.csszengarden.com) is a great example.
+
+CSS3 has lots of improvements that allow not only control of the visual design, but also of the page's content. Of course, the content I'm talking about here is one that is a part of the page's look and feel. In the previous section we've already seen an example of images, but using CSS3 you can inject text also. This can be great for internationalization: you can define a CSS file for each language.
+
+### Leakages
+When the design concern is leaking from the CSS the maintenance of the page becomes much an thus should be avoided. Let's see how the design can leak into the HTML:
+	<table bgcolor="red">...</table>
+	<div style="color: blue">...</div>
+In this example two elements get their background color set inside the HTML file. The first one is set using an HTML attribute, and the second one is using a style attribute, which contains CSS as its value
 
 ### Common mistakes
 
