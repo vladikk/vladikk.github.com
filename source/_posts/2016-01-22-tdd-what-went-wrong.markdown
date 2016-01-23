@@ -62,10 +62,10 @@ Testing functional uses cases uncouples the tests from the implementation. It wi
 ## Good == Testable, but Testable != Good
 Ultimately, there is one more observation that I want to share, because it sums up all the aforementioned misconceptions.
 
-It is recognized that a well designed code is also a testable one. However, this relation is not commutative: well designed code is testable, but not all testable code is well designed. This claim can be easily proved by measuring.
+It is recognized that a well designed code is also a testable one. However, this relation is not commutative: well designed code is testable, but not all testable code is well designed. The proof is trivial:
 
-How can you measure how testable a code is? Easy — whether it has tests or not.
+* How can you identify a testable code? Easy — whether it has tests or not.
 
-How can you evaluate the design quality? Sorry, no shortcuts here — it is all about the context. A well-thought-out solution for one project, is an over-engineering for another. And an over-engineering at one domain, is a negligence for a more complicated one.
+* How can you evaluate the design quality? Sorry, no shortcuts here — it is all about the context. A well-thought-out solution for one project, is an over-engineering for another. And an over-engineering at one domain, is a negligence for a more complicated one.
 
 Therefore, even if the implementation is testable, it can still miss by a mile its problem and business domain. Tests can be written ahead of the implementation, but all software development endeavors should be kicked off by design with the business domain in mind.
