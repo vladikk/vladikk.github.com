@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Architecture | Vladikk]]></title>
   <link href="http://www.vladikk.com/categories/architecture/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2016-01-23T11:30:31+02:00</updated>
+  <updated>2016-01-23T12:15:09+02:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -78,11 +78,13 @@ unit tests, integration tests, and end-to-end tests. I don't believe that every 
 
 <p>Ultimately, there is one more observation that I want to share, because it sums up all the aforementioned misconceptions.</p>
 
-<p>It is recognized that a well designed code is also a testable one. However, this relation is not commutative: well designed code is testable, but not all testable code is well designed. This claim can be easily proved by measuring.</p>
+<p>It is recognized that a well designed code is also a testable one. However, this relation is not commutative: well designed code is testable, but not all testable code is well designed. The proof is trivial:</p>
 
-<p>How can you measure how testable a code is? Easy — whether it has tests or not.</p>
+<ul>
+<li><p>How can you identify a testable code? Easy — whether it has tests or not.</p></li>
+<li><p>How can you evaluate the design quality? Sorry, no shortcuts here — it is all about the context. A well-thought-out solution for one project, is an over-engineering for another. And an over-engineering at one domain, is a negligence for a more complicated one.</p></li>
+</ul>
 
-<p>How can you evaluate the design quality? Sorry, no shortcuts here — it is all about the context. A well-thought-out solution for one project, is an over-engineering for another. And an over-engineering at one domain, is a negligence for a more complicated one.</p>
 
 <p>Therefore, even if the implementation is testable, it can still miss by a mile its problem and business domain. Tests can be written ahead of the implementation, but all software development endeavors should be kicked off by design with the business domain in mind.</p>
 ]]></content>
