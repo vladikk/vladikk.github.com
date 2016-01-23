@@ -5,7 +5,7 @@ date: 2016-01-22 20:57
 comments: true
 categories: TDD Architecture DDD
 published: true
-keywords: TDD, tddisdead, #tddisdead, tests, software, design, architecture, DDD, domain driven design, test driven development, tdd is dead, DHH
+keywords: TDD, tdd2, TDD 2.0, tddisdead, #tddisdead, tddisnotdead, #tddisnotdead, tests, software, design, architecture, DDD, domain driven design, test driven development, tdd is dead, DHH
 
 description: In this post I'll analyze common misconceptions about TDD that lead to vast disappointments in the methodology, and discuss a number of reassessments that can solve the issues developers experience with TDD.
 ---
