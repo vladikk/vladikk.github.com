@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Architecture | Vladikk]]></title>
   <link href="http://www.vladikk.com/categories/architecture/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2016-01-23T13:21:07+02:00</updated>
+  <updated>2016-01-23T13:29:33+02:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -90,7 +90,7 @@ unit tests, integration tests, and end-to-end tests. I don't believe that every 
 
 <h2>P.S. TDD 2.0</h2>
 
-<p>TDD was "rediscovered" by Kent Beck over a decade ago. Maybe it's about time for TDD to be rediscovered again. In addition to Unit Tests, the new specification will relate to other automated test types, that weren't available back then. And of course, instead of working against, it should closely cooperate with the business domain.</p>
+<p>TDD was "rediscovered" by Kent Beck over a decade ago. Maybe it's about time for TDD to be rediscovered again. In addition to Unit Tests, the new specification should relate to other automated test types, that weren't available back then. And of course, instead of working against, it should closely cooperate with the business domain.</p>
 ]]></content>
   </entry>
   
