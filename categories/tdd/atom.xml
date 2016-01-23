@@ -4,7 +4,7 @@
   <title><![CDATA[Category: TDD | Vladikk]]></title>
   <link href="http://www.vladikk.com/categories/tdd/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2016-01-23T13:17:18+02:00</updated>
+  <updated>2016-01-23T13:21:07+02:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -86,7 +86,7 @@ unit tests, integration tests, and end-to-end tests. I don't believe that every 
 </ul>
 
 
-<p>Therefore, even if the implementation is testable, it can still miss by a mile its problem and business domain. Consequently, the missing "D" in TDD is the business/problem "Domain". That's why I believe that <a href="https://en.wikipedia.org/wiki/Domain-driven_design">Domain Driven Design</a>(DDD) is a prerequisite to Test Driven Development. The DDD methodology doesn't apply to complex domain models only - on the contrary, it defines a set of guidelines for choosing the best tool for the job, according to the problem domain. But that's a topic for a whole other post.</p>
+<p>Therefore, even if the implementation is testable, it can still miss by a mile its problem and business domain. Consequently, the missing "D" in TDD is the business/problem "Domain". That's why I believe that <a href="https://en.wikipedia.org/wiki/Domain-driven_design">Domain Driven Design</a>(DDD) is a prerequisite to Test Driven Development. The DDD methodology doesn't apply to complex domain models only - on the contrary, it provides a clear set of guidelines for choosing the best tool for the job, according to the problem domain. But that's a topic for a whole other post.</p>
 
 <h2>P.S. TDD 2.0</h2>
 
