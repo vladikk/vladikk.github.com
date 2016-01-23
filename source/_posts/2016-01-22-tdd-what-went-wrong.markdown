@@ -59,7 +59,7 @@ The definition of a unit I like the most, belongs to [Roy Osherove](http://artof
 
 Testing functional uses cases uncouples the tests from the implementation. It will make refactoring possible, and will require significantly less mocking. 
 
-## Good == Testable, but Testable != Good
+## The Missing "D" in TDD
 Ultimately, there is one more observation that I want to share, because it sums up all the aforementioned misconceptions.
 
 It is recognized that a well designed code is also a testable one. However, this relation is not commutative: well designed code is testable, but not all testable code is well designed. The proof is trivial:
@@ -68,4 +68,7 @@ It is recognized that a well designed code is also a testable one. However, this
 
 * How can you evaluate the design quality? Sorry, no shortcuts here — it is all about the context. A well-thought-out solution for one project, is an over-engineering for another. And an over-engineering at one domain, is a negligence for a more complicated one.
 
-Therefore, even if the implementation is testable, it can still miss by a mile its problem and business domain. Tests can be written ahead of the implementation, but all software development endeavors should be kicked off by design with the business domain in mind.
+Therefore, even if the implementation is testable, it can still miss by a mile its problem and business domain. Consequently, the missing "D" in TDD is the business/problem "Domain". That's why I believe that [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design)(DDD) is a prerequisite to Test Driven Development. The DDD methodology doesn't apply to complex domain models only - on the contrary, it defines a set of guidelines for choosing the best tool for the job, according to the problem domain. But that's a topic for a whole other post.
+
+## TDD 2.0
+TDD was "rediscovered" by Kent Beck over a decade ago. Maybe it's about time for TDD to be rediscovered again. In addition to Unit Tests, the new specification will relate to other automated test types, that weren't available back then. And of course, instead of working against, it should closely cooperate with the business domain.
