@@ -8,33 +8,33 @@ published: true
 keywords: DDD Europe, DDDEU, DDD, Domain Driven Design, Domain Driven Design Europe
 ---
 
-Last month I’ve had the pleasure of attending the Domain Driven Design Europe conference in Brussels. As I’ve tweeted before, this was the best conference I’ve ever attended. In this post I’d like to sum the things I’ve learned at the conference.
+Last month, I had the pleasure of attending the Domain Driven Design Europe conference in Brussels. As I’ve tweeted before, this was the best conference I’ve ever attended. In this post, I’d like to sum the things I’ve learned at the conference.
 
-## Its Not (Only) About Sessions
-It was the first time that I’ve attended a conference alone. Honestly, I was afraid that my introvertness will take over, and I’ll master wallflower imitation techniques between sessions. Fortunately, it didn’t happen. I felt at home the moment I left the hotel for the conference. From that moment on, and up until the very last moments of the conference, I met a lot of like minded people from all over the world - Belgium, Denmark, Germany, Austria, UK, Poland, Italy, France, USA, Finland, Switzerland, Netherlands, Romania, Bulgaria, and even from Israel.
+## It's Not (Only) About Sessions
+It was the first time I’ve attended a conference alone. Honestly, I was afraid that my introverted side would take over, and I’d master wallflower imitation techniques between sessions. Fortunately, it didn’t happen. I felt at home the moment I left the hotel for the conference. From that moment on, and up until the very last moments of the conference, I met a lot of like-minded people from all over the world - Belgium, Denmark, Germany, Austria, UK, Poland, Italy, France, USA, Finland, Switzerland, Netherlands, Romania, Bulgaria, and even from Israel.
 
-For me, the social part alone was worth the trip. And don’t get me wrong, the sessions were great, but the ability meet new friends, share experiences and ideas, get fresh perspectives, was priceless.
-And I’m yet to mention discussing Star Wars with Eric Evans, discovering that Vaughn Vernon knows Israel better than I do, catching up with Greg Young, and last but not least, drinking beer with Yves Reynhout — it is unbelievable how much I’ve learned from Yves that evening.
+For me, the social part, alone, was worth the trip. And don’t get me wrong, the sessions were great, but the ability to meet new friends, share experiences and ideas, and get fresh perspectives, was priceless.
+And I’m yet to mention discussing Star Wars with Eric Evans, discovering that Vaughn Vernon knows Israel better than I do, catching up with Greg Young, and last but not least, drinking beer with Yves Reynhout — it is unbelievable how much I learned from Yves that evening.
 
 Lesson learned: Go to conferences alone and meet new people.
 <!-- more -->
 
 ## The State of DDD
 There was one thing that saddened me during the conference — the state of DDD. Let me explain.
-I knew that in Israel DDD is no common knowledge. I was pretty sure that in Europe and the US, things are different and DDD is a popular and accepted practice. The moment I started meeting new people, I’ve got a feeling that this is far from truth. My surmise was confirmed when Vaughn took the stage to deliver his “oDDs & enDs” talk.
+I knew, that in Israel, DDD is not a common knowledge. I was pretty sure, that in Europe and the US, things are different, and DDD is a popular and accepted practice. The moment I started meeting new people, I got a feeling that this is far from truth. My surmise was confirmed when Vaughn took the stage to deliver his “oDDs & enDs” talk.
 
 Unfortunately, DDD is still in the underground, and it has a long road ahead to become a mainstream practice. To make it possible, the DDD community has to find a way to convince Eric to write the second edition of his seminal book.
 
 ## Sessions
-Although for me the sessions weren’t the critical part of the conference, they were great, nonetheless. The sessions that I liked the most:
+Although, for me, the sessions weren’t the critical part of the conference, they were great, nonetheless. The sessions that I liked the most:
 
 * Eric Evan’s keynote - Nothing to explain here. Just go watch it the moment it will be available online.
 * “A Board Game Night with Geeks” by Felienne Hermans - Even though the [DDD police](https://twitter.com/DDD_Borat/status/693021883571240960) was alert for this one, I really liked it. Felienne demonstrated the importance of choosing the right model and how crucial it is for solving problems.
-* “Jef & Tom's Awesome Modellathon” — It was the first time I tried event storming hands on, and boy, it was a great learning experience.
+* “Jef & Tom's Awesome Modellathon” — It was the first time I tried event storming hands-on, and boy, it was a great learning experience.
 * “Cognitive Cynefin” by Liz Keogh - I am a junkie for linguistics, and this session demonstrated DDD from a very unusual angle. The [DDD police](https://twitter.com/DDD_Borat/status/693021883571240960) was wide awake here as well,  but Eric came to Liz’s rescue.
-* “Interviewing Domain Experts: heuristics from the trenches” by Cyrille Martraire - This talk set the bar very high for the second day of the conference. Cyrille shared a lot of wisdom about talking to domain experts, in my opinion, a subject that deserves much more attention than it gets.
-* “oDDs & enDs” by Vaughn Vernon - Just as with Eric’s keynote, nothing to explain here - a must watch.
-* “A Decade of DDD, CQRS, Event Sourcing” by Greg Young - Both a very entertaining, and a very informative session. Greg confirmed something that I was suspecting for a long time - Event Sourcing is the patterns that provides the real business value, CQRS is just a stepping stone to implement it.
+* “Interviewing Domain Experts: Heuristics from the trenches” by Cyrille Martraire - This talk set the bar very high for the second day of the conference. Cyrille shared a lot of wisdom about talking to domain experts, in my opinion, a subject that deserves much more attention than it gets.
+* “oDDs & enDs” by Vaughn Vernon - Just as with Eric’s keynote, nothing to explain here - a must-watch.
+* “A Decade of DDD, CQRS, Event Sourcing” by Greg Young - A very entertaining and very informative session. Greg confirmed something that I was suspecting for a long time - Event Sourcing is the pattern that provides the real business value; CQRS is just a stepping stone to implement it.
 
 ## DDDEU 2017
-To sum up, DDDEU 2016 was a great conference. A huge kudo goes to Mathias Verraes, Shawn McCool, Stijn Volders, DDDBE, and everyone else involved, for making this happen. Can’t wait for DDDEU 2017 in Netherlands.
+To sum up, DDDEU 2016 was a great conference. A huge kudo goes to Mathias Verraes, Shawn McCool, Stijn Volders, DDDBE, and everyone else involved for making this happen. Can’t wait for DDDEU 2017 in Netherlands.
