@@ -37,4 +37,4 @@ Although, for me, the sessions weren’t the critical part of the conference, th
 * “A Decade of DDD, CQRS, Event Sourcing” by Greg Young - A very entertaining and very informative session. Greg confirmed something that I was suspecting for a long time - Event Sourcing is the pattern that provides the real business value; CQRS is just a stepping stone to implement it.
 
 ## DDDEU 2017
-To sum up, DDDEU 2016 was a great conference. A huge kudo goes to Mathias Verraes, Shawn McCool, Stijn Volders, DDDBE, and everyone else involved for making this happen. Can’t wait for DDDEU 2017 in Netherlands.
+To sum up, DDDEU 2016 was a great conference. A huge kudo goes to Mathias Verraes, Shawn McCool, Jeroen Gerits, DDDBE, and everyone else involved for making this happen. Can’t wait for DDDEU 2017 in Netherlands.
