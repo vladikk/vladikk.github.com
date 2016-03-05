@@ -34,7 +34,7 @@ Although, for me, the sessions weren’t the critical part of the conference, th
 * “Cognitive Cynefin” by Liz Keogh - I am a junkie for linguistics, and this session demonstrated DDD from a very unusual angle. The [DDD police](https://twitter.com/DDD_Borat/status/693021883571240960) was wide awake here as well,  but Eric came to Liz’s rescue.
 * “Interviewing Domain Experts: Heuristics from the trenches” by Cyrille Martraire - This talk set the bar very high for the second day of the conference. Cyrille shared a lot of wisdom about talking to domain experts, in my opinion, a subject that deserves much more attention than it gets.
 * “oDDs & enDs” by Vaughn Vernon - Just as with Eric’s keynote, nothing to explain here - a must-watch.
-* “A Decade of DDD, CQRS, Event Sourcing” by Greg Young - A very entertaining and very informative session. Greg confirmed something that I was suspecting for a long time - Event Sourcing is the pattern that provides the real business value; CQRS is just a stepping stone to implement it.
+* “A Decade of DDD, CQRS, Event Sourcing“ by Greg Young - A very entertaining and very informative session. Greg confirmed something that I was suspecting for a long time - Event Sourcing is the pattern that provides the real business value; CQRS is just a stepping stone to implement it.
 
 ## DDDEU 2017
 To sum up, DDDEU 2016 was a great conference. A huge kudo goes to Mathias Verraes, Shawn McCool, Jeroen Gerits, DDDBE, and everyone else involved for making this happen. Can’t wait for DDDEU 2017 in Netherlands.
