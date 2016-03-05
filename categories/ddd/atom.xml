@@ -4,7 +4,7 @@
   <title><![CDATA[Category: DDD | Vladikk]]></title>
   <link href="http://www.vladikk.com/categories/ddd/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2016-02-13T20:25:11+02:00</updated>
+  <updated>2016-03-05T17:05:28+02:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -50,7 +50,7 @@ I knew, that in Israel, DDD is not a common knowledge. I was pretty sure, that i
 <li>“Cognitive Cynefin” by Liz Keogh - I am a junkie for linguistics, and this session demonstrated DDD from a very unusual angle. The <a href="https://twitter.com/DDD_Borat/status/693021883571240960">DDD police</a> was wide awake here as well,  but Eric came to Liz’s rescue.</li>
 <li>“Interviewing Domain Experts: Heuristics from the trenches” by Cyrille Martraire - This talk set the bar very high for the second day of the conference. Cyrille shared a lot of wisdom about talking to domain experts, in my opinion, a subject that deserves much more attention than it gets.</li>
 <li>“oDDs &amp; enDs” by Vaughn Vernon - Just as with Eric’s keynote, nothing to explain here - a must-watch.</li>
-<li>“A Decade of DDD, CQRS, Event Sourcing” by Greg Young - A very entertaining and very informative session. Greg confirmed something that I was suspecting for a long time - Event Sourcing is the pattern that provides the real business value; CQRS is just a stepping stone to implement it.</li>
+<li>“A Decade of DDD, CQRS, Event Sourcing“ by Greg Young - A very entertaining and very informative session. Greg confirmed something that I was suspecting for a long time - Event Sourcing is the pattern that provides the real business value; CQRS is just a stepping stone to implement it.</li>
 </ul>
 
 

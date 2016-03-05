@@ -9,7 +9,7 @@
   <meta name="author" content="Vladik Khononov">
 
   
-  <meta name="description" content="Last month, I had the pleasure of attending the Domain Driven Design Europe conference in Brussels. As I’ve tweeted before, this was the best &hellip;">
+  <meta name="description" content="There is a simple question that can shed a lot of light on one’s competency in a given field: «On a scale of 1 to 10, please rate your knowledge of [ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,57 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2016/03/05/interviewing/">A Dirty Hack for Interviewing Job Candidates</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-03-05T16:59:00+02:00" pubdate data-updated="true">Mar 5<span>th</span>, 2016</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>There is a simple question that can shed a lot of light on one’s competency in a given field: «On a scale of 1 to 10, please rate your knowledge of [enter-name-of-the-field-here]».</p>
+
+<p>You should pay close attention to candidates that answer in the range of 5 to 7. Why? Science — that’s why. Enter the Dunning-Kruger effect.</p>
+
+<h2>The Dunning-Kruger Effect</h2>
+
+<p>The Dunning-Kruger effect is a cognitive bias which suggests that one cannot objectively assess his abilities. It’s all about the unknowns — things that you don’t know — but the question is whether you are aware of them.</p>
+
+<p>The less expertise you have in a given field, the more unknown unknowns you have. You are not able to objectively evaluate your knowledge, and, consequently, you are mistakenly assessing your abilities to be much higher than they actually are.</p>
+
+<p>This bias also works the other way around. The more expertise you have in a given field, the more known unknowns you have. This awareness of things that you do not know tricks you into humbling the assessment of your abilities.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2016/03/05/interviewing/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -672,87 +723,9 @@ For demonstration purposes we will work with a class called TextTranslator, that
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/08/23/disposing-objects-created-by-di-container/">Disposing Objects Created by DI Container</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-23T07:57:00+03:00" pubdate data-updated="true">Aug 23<span>rd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The general rule says that if you created an object, then it is your responsibility to dispose it. Things get a bit tricky when objects are created by a dependency injection container. The responsibility of containers is to construct objects and inject the dependencies they need. An error I’ve seen people doing again and again is to dispose objects that were injected into an object via constructor or property injection. Consider the class “Foo” that requires an instance of class “Bar”:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">Foo</span> <span class="p">:</span> <span class="n">IDisposable</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">protected</span> <span class="n">Bar</span> <span class="n">bar</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">public</span> <span class="nf">Foo</span><span class="p">(</span><span class="n">Bar</span> <span class="n">bar</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">bar</span> <span class="p">=</span> <span class="n">bar</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="k">public</span> <span class="k">void</span> <span class="nf">Dispose</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="n">bar</span><span class="p">.</span><span class="n">Dispose</span><span class="p">();</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">Program</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="kt">var</span> <span class="n">foo</span> <span class="p">=</span> <span class="n">container</span><span class="p">.</span><span class="n">Resolve</span><span class="p">&lt;</span><span class="n">Foo</span><span class="p">&gt;();</span>
-</span><span class='line'>        <span class="p">...</span>
-</span><span class='line'>        <span class="n">foo</span><span class="p">.</span><span class="n">Dispose</span><span class="p">();</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The problem with this approach is that the “Foo” class will know too much about the environment it runs in. At least it will think it does. An instance of “Foo” can’t and shouldn’t know who passed in the instance of “Bar”, and what he intends to do with it after the instance of “Foo” will be disposed.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2012/08/23/disposing-objects-created-by-di-container/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
     
     <a href="archives">Blog Archives</a>
     
@@ -785,6 +758,10 @@ For demonstration purposes we will work with a class called TextTranslator, that
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2016/03/05/interviewing/">A Dirty Hack for Interviewing Job Candidates</a>
+      </li>
+    
+      <li class="post">
         <a href="/2016/02/12/dddeu-2016/">DDDEU 2016 Impressions</a>
       </li>
     
@@ -798,10 +775,6 @@ For demonstration purposes we will work with a class called TextTranslator, that
     
       <li class="post">
         <a href="/2013/06/11/json2csv/">JSON2CSV</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/09/sql2json/">Introducing SQL2JSON</a>
       </li>
     
   </ul>
