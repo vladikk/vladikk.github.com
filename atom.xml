@@ -4,7 +4,7 @@
   <title><![CDATA[Vladikk]]></title>
   <link href="http://www.vladikk.com/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2016-03-06T20:37:44+02:00</updated>
+  <updated>2016-03-07T10:56:22+02:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -14,21 +14,21 @@
 
   
   <entry>
-    <title type="html"><![CDATA[A Dirty Hack for Interviewing Job Candidates]]></title>
+    <title type="html"><![CDATA[A Quick and Dirty Hack for Interviewing Job Candidates]]></title>
     <link href="http://www.vladikk.com/2016/03/05/interviewing/"/>
     <updated>2016-03-05T16:59:00+02:00</updated>
     <id>http://www.vladikk.com/2016/03/05/interviewing</id>
-    <content type="html"><![CDATA[<p>There is a simple question that can shed a lot of light on one’s competency in a given field: «On a scale of 1 to 10, please rate your knowledge of [enter-name-of-the-field-here]».</p>
+    <content type="html"><![CDATA[<p>One simple question can shed a lot of light on one’s competency in a given field: &#8220;On a scale of 1 to 10, please rate your knowledge of [enter-name-of-the-field-here]&#8221;.</p>
 
 <p>One can assume that the higher the grade, the better. But that’s not the case at all. Why? Science — that’s why. Enter the Dunning-Kruger effect.</p>
 
 <h2>The Dunning-Kruger Effect</h2>
 
-<p>The Dunning-Kruger effect is a cognitive bias which suggests that one cannot objectively assess his abilities. It’s all about the unknowns — things that you don’t know — but the question is whether you are aware of them.</p>
+<p>The Dunning-Kruger effect is a cognitive bias that suggests that one cannot objectively assess one&#8217;s own abilities. It’s all about the unknowns — things that you don’t know — and whether you&#8217;re aware of them.</p>
 
-<p>The less expertise you have in a given field, the more unknown unknowns you have. You are not able to objectively evaluate your knowledge, and, consequently, you are mistakenly assessing your abilities to be much higher than they actually are.</p>
+<p>The less expertise you have in a given field, the more unknown unknowns you have. You cannot objectively evaluate your knowledge, and, consequently, you are mistakenly assessing your abilities to be much higher than they actually are.</p>
 
-<p>This bias also works the other way around. The more expertise you have in a given field, the more known unknowns you have. This awareness of things that you do not know tricks you into humbling the assessment of your abilities.</p>
+<p>This bias also works the other way around. The more expertise you have in a given field, the more known unknowns you have. This awareness of things you don&#8217;t know tricks you into making a more humbling the assessment of your abilities.</p>
 
 <!-- more -->
 
@@ -37,15 +37,11 @@
 
 <h2>What Answers to Look For?</h2>
 
-<p>According to the Dunning-Kruger effect, it safe to say that you should beware of the answers below 4, or above 8. And run for your life if the answer is greater than 10.</p>
+<p>According to the Dunning-Kruger effect, it&#8217;s safe to say that you should beware of the answers that rate below 4 or above 8. And run for your life if the answer is greater than 10!</p>
 
 <p>The 5-7 range is the sweet spot.</p>
 
-<p>Also, there is one more answer to look for: an inquiry to define the level of competency at the rate of 10.</p>
-
-<h2>Note to Job Seekers</h2>
-
-<p>Please don’t take any advice here, as the interviewer’s level of competency will define his interpretation of the answer — the Dunning-Kruger effect all over again, this time from the opposite perspective.</p>
+<p>Also, there&#8217;s one more answer to look for: an inquiry to define what level of competency merits a 10.</p>
 ]]></content>
   </entry>
   
