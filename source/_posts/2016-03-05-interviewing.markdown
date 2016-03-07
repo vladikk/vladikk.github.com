@@ -16,7 +16,7 @@ The Dunning-Kruger effect is a cognitive bias that suggests that one cannot obje
 
 The less expertise you have in a given field, the more unknown unknowns you have. You cannot objectively evaluate your knowledge, and, consequently, you are mistakenly assessing your abilities to be much higher than they actually are.
 
-This bias also works the other way around. The more expertise you have in a given field, the more known unknowns you have. This awareness of things you don't know tricks you into making a more humbling the assessment of your abilities.
+This bias also works the other way around. The more expertise you have in a given field, the more known unknowns you have. This awareness of things you don't know tricks you into making a more humbling assessment of your abilities.
 
 <!-- more -->
 
