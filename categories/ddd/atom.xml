@@ -4,7 +4,7 @@
   <title><![CDATA[Category: DDD | Vladikk]]></title>
   <link href="http://www.vladikk.com/categories/ddd/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2016-04-05T22:22:07+03:00</updated>
+  <updated>2016-04-05T22:26:06+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Tackling Complexity in the Heart of Domain-Driven Design]]></title>
+    <title type="html"><![CDATA[Tackling Complexity in the Heart of DDD]]></title>
     <link href="http://www.vladikk.com/2016/04/05/tackling-complexity-ddd/"/>
     <updated>2016-04-05T19:14:00+03:00</updated>
     <id>http://www.vladikk.com/2016/04/05/tackling-complexity-ddd</id>
