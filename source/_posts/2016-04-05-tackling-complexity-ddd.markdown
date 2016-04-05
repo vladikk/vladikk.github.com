@@ -7,8 +7,6 @@ categories: Thoughts DDD Architecture
 keywords: Domain-Driven Design, DDD, DDDesign, software, architecture, methodology, bounded context, ubiquitous language, patterns, complexity
 ---
 
-> "If you can't explain it simply, you don't understand it well enough." - Albert Einstein
-
 Let’s do a little experiment: try to explain the gist of Domain-Driven Design to someone who has no clue about it. This is not an easy thing to do, especially to do it succinctly. Heck, I struggle with it too. Bounded contexts, entities, repositories, domain events, value objects, domains, aggregates, repositories, etc… where do you even start?
 
 To find the hidden order in the apparent chaos, I want to analyze the DDD methodology from a rather unusual perspective — to apply Domain-Driven Design to Domain-Driven Design itself. It should deal with complex domains, right?
