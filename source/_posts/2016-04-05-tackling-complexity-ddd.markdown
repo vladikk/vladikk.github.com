@@ -62,9 +62,11 @@ The decoupling of Domain-Driven Design from the tactical modeling patterns can h
 
 ### 1. Reduced Complexity
 This mind map by Eric Evans depicts the patterns that constitute the Domain-Driven Design methodology:
+
 <img src="{{ root_url }}/images/ddd/ddd-patterns.png" alt="Domain-Driven Design Patterns" />
 
 And this is how it will look if we drop the tactical modeling patterns:
+
 <img src="{{ root_url }}/images/ddd/ddd-patterns2.png" alt="Domain-Driven Design Patterns" />
 
 Shabang! Which one do you think will be easier to grasp and explain?
