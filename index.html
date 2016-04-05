@@ -9,7 +9,7 @@
   <meta name="author" content="Vladik Khononov">
 
   
-  <meta name="description" content="One simple question can shed a lot of light on one’s competency in a given field: &#8220;On a scale of 1 to 10, please rate your knowledge of [enter- &hellip;">
+  <meta name="description" content="&#8220;If you can&#8217;t explain it simply, you don&#8217;t understand it well enough.&#8221; - Albert Einstein Let’s do a little experiment: try to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,57 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2016/04/05/tackling-complexity-ddd/">Tackling Complexity in the Heart of Domain-Driven Design</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-04-05T19:14:00+03:00" pubdate data-updated="true">Apr 5<span>th</span>, 2016</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><blockquote><p>&#8220;If you can&#8217;t explain it simply, you don&#8217;t understand it well enough.&#8221; - Albert Einstein</p></blockquote>
+
+<p>Let’s do a little experiment: try to explain the gist of Domain-Driven Design to someone who has no clue about it. This is not an easy thing to do, especially to do it succinctly. Heck, I struggle with it too. Bounded contexts, entities, repositories, domain events, value objects, domains, aggregates, repositories, etc… where do you even start?</p>
+
+<p>To find the hidden order in the apparent chaos, I want to analyze the DDD methodology from a rather unusual perspective — to apply Domain-Driven Design to Domain-Driven Design itself. It should deal with complex domains, right?</p>
+
+<p>Let’s start by identifying the core domain: what is DDD’s main competitive advantage, and what are its means of achieving it?</p>
+
+<h2>The Core Domain: Ubiquitous Language</h2>
+
+<p>In «Domain-Driven Design: Tackling Complexity in the Heart of Software» (the Blue Book), Eric Evans argues that poor collaboration between domain experts and software development teams causes many development endeavors to fail. DDD aims to increase the success rates by bridging this collaboration and communication gap.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2016/04/05/tackling-complexity-ddd/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -664,65 +715,6 @@ a leaky abstraction.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/09/10/dependency-injection-patterns/">Dependency Injection Patterns</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-10T13:55:00+03:00" pubdate data-updated="true">Sep 10<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Choosing the right pattern for implementing dependency injection is an important task and can affect your class’s usability and functionality. In this post I’ll overview 3 patterns of implementing dependency injection - constructor injection, property injection, builder (Joshua Bloch’s pattern, not GoF pattern).
-For demonstration purposes we will work with a class called TextTranslator, that requires 3 dependencies: TextReader, TranslationService and TextWriter:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">TextTranslator</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="k">protected</span> <span class="n">TextReader</span> <span class="n">textReader</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">protected</span> <span class="n">TranslationService</span> <span class="n">translationService</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">protected</span> <span class="n">TextWriter</span> <span class="n">textWriter</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The sample code will be written in C#, but the examples are applicable to Java and other object oriented languages.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2012/09/10/dependency-injection-patterns/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -758,6 +750,10 @@ For demonstration purposes we will work with a class called TextTranslator, that
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2016/04/05/tackling-complexity-ddd/">Tackling Complexity in the Heart of Domain-Driven Design</a>
+      </li>
+    
+      <li class="post">
         <a href="/2016/03/05/interviewing/">A Quick and Dirty Hack for Interviewing Job Candidates</a>
       </li>
     
@@ -771,10 +767,6 @@ For demonstration purposes we will work with a class called TextTranslator, that
     
       <li class="post">
         <a href="/2013/09/12/serving-flask-with-nginx-on-ubuntu/">Serving Flask with Nginx</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/11/json2csv/">JSON2CSV</a>
       </li>
     
   </ul>

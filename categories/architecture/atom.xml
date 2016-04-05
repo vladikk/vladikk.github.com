@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Architecture | Vladikk]]></title>
   <link href="http://www.vladikk.com/categories/architecture/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2016-03-07T11:55:53+02:00</updated>
+  <updated>2016-04-05T19:27:46+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -12,6 +12,114 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Tackling Complexity in the Heart of Domain-Driven Design]]></title>
+    <link href="http://www.vladikk.com/2016/04/05/tackling-complexity-ddd/"/>
+    <updated>2016-04-05T19:14:00+03:00</updated>
+    <id>http://www.vladikk.com/2016/04/05/tackling-complexity-ddd</id>
+    <content type="html"><![CDATA[<blockquote><p>"If you can't explain it simply, you don't understand it well enough." - Albert Einstein</p></blockquote>
+
+<p>Let’s do a little experiment: try to explain the gist of Domain-Driven Design to someone who has no clue about it. This is not an easy thing to do, especially to do it succinctly. Heck, I struggle with it too. Bounded contexts, entities, repositories, domain events, value objects, domains, aggregates, repositories, etc… where do you even start?</p>
+
+<p>To find the hidden order in the apparent chaos, I want to analyze the DDD methodology from a rather unusual perspective — to apply Domain-Driven Design to Domain-Driven Design itself. It should deal with complex domains, right?</p>
+
+<p>Let’s start by identifying the core domain: what is DDD’s main competitive advantage, and what are its means of achieving it?</p>
+
+<h2>The Core Domain: Ubiquitous Language</h2>
+
+<p>In «Domain-Driven Design: Tackling Complexity in the Heart of Software» (the Blue Book), Eric Evans argues that poor collaboration between domain experts and software development teams causes many development endeavors to fail. DDD aims to increase the success rates by bridging this collaboration and communication gap.</p>
+
+<!-- more -->
+
+
+<p>To allow fluent sharing of knowledge, DDD calls for cultivating a shared, business-oriented language - Ubiquitous Language. This language should resemble the business domain: its terms, entities, and processes.</p>
+
+<p>The Ubiquitous Language should be extensively used throughout all stages of the project. All communication should be done in the Ubiquitous Language. All documentation should be formulated in it. Even the code should also "speak" the Ubiquitous Language.</p>
+
+<p>Many methodologies strive to reduce risks and increase success rates of software projects, but since Ubiquitous Language is DDD’s means of achieving it, I consider it as the Core Domain of Domain-Driven Design.</p>
+
+<p>Defining a Ubiquitous Language is not a trivial thing to do. Since software doesn't cope well with ambiguity, each Ubiquitous Language’s term should have exactly one meaning. Unfortunately, that's not how human languages work — words often bear different meanings in different contexts. To overcome this hurdle, and alleviate the process of cultivating a rigorous language, another DDD pattern is employed - Bounded Context.</p>
+
+<h2>Supporting Sub-Domain: Bounded Contexts</h2>
+
+<p>To prevent terms from having multiple meanings, DDD requires each language to have a strict applicability context — Bounded Context. This pattern defines a specific boundary, inside of which the Ubiquitous Language can be used freely, but outside of it, the language’s terms may have completely different meanings.</p>
+
+<p>Although the Bounded Context pattern is an essential part of Domain-Driven Design, I consider it a Supporting Sub-Domain, since its purpose is to support the formation of a Ubiquitous Language - the Core Domain.</p>
+
+<p>As I mentioned earlier, the code should also "speak" the Ubiquitous Language of the Bounded Context in which it is implemented. But how do you implement a business domain in code? There is no one-size-fits-all pattern for implementing a business domain. Multiple options are available, and that's our next stop. But be warned - holy cows are about to get injured...</p>
+
+<h2>Generic Sub-Domain: Domain Implementation</h2>
+
+<p>These patterns provide different ways of implementing the business domain's logic:</p>
+
+<ol>
+<li>Transaction Script</li>
+<li>Active Record</li>
+<li>Domain Model</li>
+<li>Event-Sourced Domain Model</li>
+</ol>
+
+
+<p>Each of these patterns suits a different level of domain complexity. The pattern you choose, should be expressive enough to reify the Ubiquitous Language in code. It is crucial to point out this decision is not set in stone. As the business evolves and the Ubiquitous Language's complexity grows, the implementation pattern can be upgraded to a more elaborate one.</p>
+
+<p>The aforementioned four patterns of business domain implementation are the ones with which I am currently familiar.</p>
+
+<p>Indeed, there are may be others of which I am currently unaware.</p>
+
+<p>New ones may be invented in the future.</p>
+
+<p>Their implementation differs greatly in various programming paradigms.</p>
+
+<p>Some best fit a certain programming paradigm but are complex to implement in others.</p>
+
+<p>With all this volatility in mind, are they an essential part of Domain-Driven Design?</p>
+
+<p>Since the Domain-Driven Design methodology cannot encompass all business domain implementation patterns, this know-how can, and should be, borrowed from other sources. For example, the Transaction Script, Active Record, and even Domain Model are described in Martin Fowler’s «Patterns of Enterprise Application Architecture» book. By definition, the ability to rely on «off-the-shelf» solutions makes them a Generic Sub-Domain. Yes, even the Domain Model pattern.</p>
+
+<h2>Implications</h2>
+
+<p>The decoupling of Domain-Driven Design from the tactical modeling patterns can have positive, far-reaching implications on DDD's accessibility and adoption rates. I want to elaborate on three of them: reducing DDD's complexity, widening its applicability, and the ability to gain a huge amount of traction by jumping on the Microservices bandwagon.</p>
+
+<h3>1. Reduced Complexity</h3>
+
+<p>This mind map by Eric Evans depicts the patterns that constitute the Domain-Driven Design methodology:
+<img src="/images/ddd/ddd-patterns.png" alt="Domain-Driven Design Patterns" /></p>
+
+<p>And this is how it will look if we drop the tactical modeling patterns:
+<img src="/images/ddd/ddd-patterns2.png" alt="Domain-Driven Design Patterns" /></p>
+
+<p>Shabang! Which one do you think will be easier to grasp and explain?</p>
+
+<p>Decoupling of DDD from the Tactical Modeling patterns will prevent the multitude of misconceptions and difficulties many newcomers experience. For example, reading the first four chapters of the Blue Book and having a feeling they have got a strong understanding of DDD. And speaking of the Blue Book, many complain that it doesn't provide enough code samples. Well, guess what? Once DDD is decoupled from the Tactical Modeling patterns, it no longer requires any code samples at all. It is a pure system modeling methodology that can be applied in any technology stack and any software paradigm.</p>
+
+<h3>2. Wider Applicability</h3>
+
+<p>I strongly disagree with the notion that Domain-Driven Design should be applied solely to complex projects. This notion is driven by the strong coupling of DDD to the Domain Model pattern. Once we break this coupling, a whole new world of possibilities opens up:</p>
+
+<h4>Communication</h4>
+
+<p>No matter how simple the business domain is, if team members use different terminology for the same artifacts, sooner or later they will find themselves in the realm of accidental complexity. The Ubiquitous Language pattern prevents this scenario and yields a clear communication medium between all team members.</p>
+
+<h4>Business Growth</h4>
+
+<p>A domain's complexity increases more often than it decreases. This possibility of growth is highest for the so-called not complex projects. Once this happens, the implementation pattern decision should be rethought and adapted to the new complexity levels.</p>
+
+<h3>3. Microservices</h3>
+
+<p>Microservices are red hot nowadays. Widening the applicability of DDD to more project types will allow many microservices-based solutions to harness the invaluable DDD tools: The Bounded Context pattern provides a business-driven way of dividing a system into a set of independent services, and the Structure Map is a great way to map the services’ topology and interaction patterns between them.</p>
+
+<h2>"Are You Nuts?"</h2>
+
+<p>That's probably what you are thinking right now. However, I don't think that my proposition, to take the Tactical Patterns out of DDD, is as crazy as it initially sounds. Back at the DDD Europe 2016 conference, Eric Evans himself stated that the Domain Model implementation described in the Blue Book was intended to be <em>a</em> way of implementing a <em>Domain Model</em>, but many mistook it as <em>the</em> way of implementing <em>Domain-Driven Design</em>. See, the Tactical Modeling patterns were never intended to be the one and only true way of doing DDD, but many consider them as such. They produce extraneous noise and detract attention away from the most important and unique-to-DDD material.</p>
+
+<p>Also, you cannot say that the Domain-Driven Design methodology is in its perfect state, and has no reason to change. Unfortunately, its low adoption rates speak volumes of its current state. DDD deserves way more attention than it gets. The Blue Book came out more than a decade ago, and since then the methodology has barely changed. I believe that it should change; not because it is bad, on the contrary, because it is great, but it has much, much more potential than it has realized.</p>
+
+<h2>Final Thoughts</h2>
+
+<p>In no way did I intend was to derogate the importance of Tactical Modeling. Quite the opposite - this subject deserves much more attention than it gets. However, it should be in its own context. There are many more patterns, besides the Domain Model, and more ways to implement them, than can fit in a single DDD book. These patterns can be implemented even on non-DDD projects, and a project can follow the DDD principles, even if its implementation has no aggregates in it.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[TDD: What Went Wrong…Or Did It?]]></title>
