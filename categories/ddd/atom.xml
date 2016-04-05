@@ -4,7 +4,7 @@
   <title><![CDATA[Category: DDD | Vladikk]]></title>
   <link href="http://www.vladikk.com/categories/ddd/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2016-04-05T19:31:17+03:00</updated>
+  <updated>2016-04-05T19:32:54+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -81,11 +81,13 @@
 
 <h3>1. Reduced Complexity</h3>
 
-<p>This mind map by Eric Evans depicts the patterns that constitute the Domain-Driven Design methodology:
-<img src="/images/ddd/ddd-patterns.png" alt="Domain-Driven Design Patterns" /></p>
+<p>This mind map by Eric Evans depicts the patterns that constitute the Domain-Driven Design methodology:</p>
 
-<p>And this is how it will look if we drop the tactical modeling patterns:
-<img src="/images/ddd/ddd-patterns2.png" alt="Domain-Driven Design Patterns" /></p>
+<p><img src="/images/ddd/ddd-patterns.png" alt="Domain-Driven Design Patterns" /></p>
+
+<p>And this is how it will look if we drop the tactical modeling patterns:</p>
+
+<p><img src="/images/ddd/ddd-patterns2.png" alt="Domain-Driven Design Patterns" /></p>
 
 <p>Shabang! Which one do you think will be easier to grasp and explain?</p>
 
