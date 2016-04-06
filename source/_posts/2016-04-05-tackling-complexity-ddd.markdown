@@ -92,3 +92,6 @@ Also, you cannot say that the Domain-Driven Design methodology is in its perfect
 
 ## Final Thoughts
 In no way did I intend to denigrate the importance of Tactical Modeling. Quite the opposite: this subject deserves much more attention than it gets. But in its own context. There are many more patterns besides the Domain Model, and more ways to implement them, than can fit in a single DDD book. Moreover, these patterns can be implemented even on non-DDD projects, and a project can follow the DDD principles even if it doesn't have a single aggregate in it.
+
+## What do you think?
+I'd love to hear your opinion on this in the comments. 
