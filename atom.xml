@@ -4,7 +4,7 @@
   <title><![CDATA[Vladikk]]></title>
   <link href="http://www.vladikk.com/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2016-04-06T08:57:46+03:00</updated>
+  <updated>2016-04-06T20:56:39+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -118,6 +118,10 @@
 <h2>Final Thoughts</h2>
 
 <p>In no way did I intend to denigrate the importance of Tactical Modeling. Quite the opposite: this subject deserves much more attention than it gets. But in its own context. There are many more patterns besides the Domain Model, and more ways to implement them, than can fit in a single DDD book. Moreover, these patterns can be implemented even on non-DDD projects, and a project can follow the DDD principles even if it doesn&#8217;t have a single aggregate in it.</p>
+
+<h2>What do you think?</h2>
+
+<p>I&#8217;d love to hear your opinion on this in the comments.</p>
 ]]></content>
   </entry>
   
