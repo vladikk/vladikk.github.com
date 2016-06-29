@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>JSON2CSV - Vladikk</title>
+  <title>Finding Proper Scopes for Unit Tests - Vladikk</title>
   <meta name="author" content="Vladik Khononov">
 
   
-  <meta name="description" content="Open source utility that converts json files to csv">
-  <meta name="keywords" content="json to csv, convert, converter, json, csv, python, open source">
+  <meta name="description" content="In my previous ||rant|| post on TDD I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow &hellip;">
+  <meta name="keywords" content="TDD, Test Driven Development, NDepend, Unit Testing, Cyclomatic Complexity, Agile, Software craftsmanship">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.vladikk.com/2013/06/11/json2csv/">
+  <link rel="canonical" href="http://www.vladikk.com/2016/06/29/test-scopes/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -78,7 +78,7 @@
   
   <header>
     
-      <h1 class="entry-title">JSON2CSV</h1>
+      <h1 class="entry-title">Finding Proper Scopes for Unit Tests</h1>
     
     
       <p class="meta">
@@ -94,23 +94,22 @@
   
 
 
-<time datetime="2013-06-11T16:05:00+03:00" pubdate data-updated="true">Jun 11<span>th</span>, 2013</time>
+<time datetime="2016-06-29T21:47:00+03:00" pubdate data-updated="true">Jun 29<span>th</span>, 2016</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Last week I&#8217;ve needed a utility to convert a file containing json data to csv. I found many online solutions, but for some weird reason they didn&#8217;t support nested objects and arrays. So I wrote one, this time in python.
-Grab it here - <a href="https://github.com/vladikk/json2csv">Github repository</a>.</p>
+<div class="entry-content"><p>In my previous ||rant|| <a href="http://vladikk.com/2016/01/22/tdd-what-went-wrong/">post on TDD</a> I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.</p>
 
-<h2>Usage</h2>
+<h2>Cyclomatic Complexity</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>python json2csv.py "input_file.json" "output_file.csv"</span></code></pre></td></tr></table></div></figure>
+<p>Cyclomatic complexity is a software metric, used to indicate the complexity of a program. We can use this measurement to measure the complexity of a class or a method, and choose a suitable testing strategy. <!-- more --> If the cyclomatic complexity is too high for the testing unit, the testing scope is too wide, and should be narrowed. This heuristic may sound easy in theory, but its no picnic to verify it in practice. Luckily, there are tools that were invented for that kind of heavy lifting. Enter <a href="http://www.ndepend.com/">NDepend</a>.</p>
 
+<h2>Automatically Testing Test Scopes</h2>
 
-<p>If you pass in the following json file:</p>
+<p><a href="http://www.ndepend.com/">NDepend</a> is an excellent static analysis tool for the .Net platform. In addition to the abundance of built in tests, NDepend allows writing custom queries to check code quality. The following is an example of a CQL query that returns test methods with a scope that should narrowed:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -133,40 +132,35 @@ Grab it here - <a href="https://github.com/vladikk/json2csv">Github repository</
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
 <span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">[</span>
-</span><span class='line'>  <span class="p">{</span>
-</span><span class='line'>      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span class='line'>      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span>
-</span><span class='line'>          <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;john&quot;</span><span class="p">,</span>
-</span><span class='line'>          <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;johnson&quot;</span>
-</span><span class='line'>      <span class="p">},</span>
-</span><span class='line'>      <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
-</span><span class='line'>      <span class="nt">&quot;languages&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;c#&quot;</span><span class="p">,</span> <span class="s2">&quot;vb&quot;</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span> <span class="p">]</span>
-</span><span class='line'>   <span class="p">},</span>
-</span><span class='line'>   <span class="p">{</span>
-</span><span class='line'>      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-</span><span class='line'>      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span>
-</span><span class='line'>          <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;scott&quot;</span><span class="p">,</span>
-</span><span class='line'>          <span class="nt">&quot;middle&quot;</span><span class="p">:</span> <span class="s2">&quot;scottster&quot;</span><span class="p">,</span>
-</span><span class='line'>          <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;scottson&quot;</span>
-</span><span class='line'>      <span class="p">},</span>
-</span><span class='line'>      <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">29</span><span class="p">,</span>
-</span><span class='line'>      <span class="nt">&quot;languages&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;objective-c&quot;</span><span class="p">,</span> <span class="s2">&quot;c++&quot;</span> <span class="p">]</span>
-</span><span class='line'>   <span class="p">}</span>
-</span><span class='line'><span class="p">]</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">from</span> <span class="n">m</span> <span class="k">in</span> <span class="n">JustMyCode</span><span class="p">.</span><span class="n">Methods</span>
+</span><span class='line'><span class="k">where</span>  <span class="n">m</span><span class="p">.</span><span class="n">CyclomaticComplexity</span> <span class="p">&gt;</span> <span class="m">30</span> <span class="p">||</span>
+</span><span class='line'>      <span class="n">m</span><span class="p">.</span><span class="n">ILCyclomaticComplexity</span> <span class="p">&gt;</span> <span class="m">60</span> <span class="p">||</span>
+</span><span class='line'>      <span class="n">m</span><span class="p">.</span><span class="n">ILNestingDepth</span> <span class="p">&gt;</span> <span class="m">6</span>
+</span><span class='line'><span class="n">let</span> <span class="n">indirectTestTypes</span> <span class="p">=</span> <span class="n">m</span><span class="p">.</span><span class="n">MethodsCallingMe</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">FillIterative</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="n">c</span><span class="p">.</span><span class="n">SelectMany</span><span class="p">(</span><span class="n">m1</span> <span class="p">=&gt;</span> <span class="n">m1</span><span class="p">.</span><span class="n">MethodsCallingMe</span><span class="p">))</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">DefinitionDomain</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">m1</span> <span class="p">=&gt;</span> <span class="n">m1</span><span class="p">.</span><span class="n">ParentAssembly</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">&quot;Tests&quot;</span><span class="p">))</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">m1</span> <span class="p">=&gt;</span> <span class="n">m1</span><span class="p">.</span><span class="n">ParentType</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">Distinct</span><span class="p">()</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">ToArray</span><span class="p">()</span>
+</span><span class='line'><span class="n">let</span> <span class="n">directTestTypes</span> <span class="p">=</span> <span class="n">m</span><span class="p">.</span><span class="n">MethodsCallingMe</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">m1</span> <span class="p">=&gt;</span> <span class="n">m1</span><span class="p">.</span><span class="n">ParentAssembly</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">&quot;Tests&quot;</span><span class="p">))</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">m1</span> <span class="p">=&gt;</span> <span class="n">m1</span><span class="p">.</span><span class="n">ParentType</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">Distinct</span><span class="p">()</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">ToArray</span><span class="p">()</span>
+</span><span class='line'><span class="k">orderby</span> <span class="n">m</span><span class="p">.</span><span class="n">CyclomaticComplexity</span> <span class="k">descending</span><span class="p">,</span>
+</span><span class='line'>      <span class="n">m</span><span class="p">.</span><span class="n">ILCyclomaticComplexity</span> <span class="k">descending</span><span class="p">,</span>
+</span><span class='line'>      <span class="n">m</span><span class="p">.</span><span class="n">ILNestingDepth</span> <span class="k">descending</span>
+</span><span class='line'><span class="k">select</span> <span class="k">new</span> <span class="p">{</span>
+</span><span class='line'>      <span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">.</span><span class="n">CyclomaticComplexity</span><span class="p">,</span>
+</span><span class='line'>      <span class="n">m</span><span class="p">.</span><span class="n">ILCyclomaticComplexity</span><span class="p">,</span>
+</span><span class='line'>      <span class="n">m</span><span class="p">.</span><span class="n">ILNestingDepth</span><span class="p">,</span> <span class="n">indirectTestTypes</span><span class="p">,</span> <span class="n">directTestTypes</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>You&#8217;ll get the following csv file:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='text'><span class='line'>age,  id,    languages_0,    languages_1,    languages_2,    name_first, name_last,  name_middle
-</span><span class='line'>27,   1,      c#,             vb,             python,         john,       johnson,
-</span><span class='line'>29,   2,      objective-c,    c++,            ,               scott,      scottson,   scottster
-</span></code></pre></td></tr></table></div></figure>
-
+<p>Actually, I&#8217;ve just started using NDepend, and so far it is an invaluable tool in software architect&#8217;s toolbox. In my next post I&#8217;ll show how this tool can automate more code checking chores.</p>
 </div>
 
 
@@ -189,12 +183,12 @@ Grab it here - <a href="https://github.com/vladikk/json2csv">Github repository</
   
 
 
-<time datetime="2013-06-11T16:05:00+03:00" pubdate data-updated="true">Jun 11<span>th</span>, 2013</time>
+<time datetime="2016-06-29T21:47:00+03:00" pubdate data-updated="true">Jun 29<span>th</span>, 2016</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/categories/csv/'>CSV</a>, <a class='category' href='/categories/json/'>JSON</a>, <a class='category' href='/categories/python/'>Python</a>
+    <a class='category' href='/categories/tdd/'>TDD</a>
   
 </span>
 
@@ -203,7 +197,7 @@ Grab it here - <a href="https://github.com/vladikk/json2csv">Github repository</
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.vladikk.com/2013/06/11/json2csv/" data-via="vladikk" data-counturl="http://www.vladikk.com/2013/06/11/json2csv/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.vladikk.com/2016/06/29/test-scopes/" data-via="vladikk" data-counturl="http://www.vladikk.com/2016/06/29/test-scopes/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -216,10 +210,8 @@ Grab it here - <a href="https://github.com/vladikk/json2csv">Github repository</
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/06/09/sql2json/" title="Previous Post: Introducing SQL2JSON">&laquo; Introducing SQL2JSON</a>
+        <a class="basic-alignment left" href="/2016/04/05/tackling-complexity-ddd/" title="Previous Post: Tackling Complexity in the Heart of DDD">&laquo; Tackling Complexity in the Heart of DDD</a>
       
-      
-        <a class="basic-alignment right" href="/2013/09/12/serving-flask-with-nginx-on-ubuntu/" title="Next Post: Serving Flask with Nginx">Serving Flask with Nginx &raquo;</a>
       
     </p>
   </footer>
@@ -332,8 +324,8 @@ Grab it here - <a href="https://github.com/vladikk/json2csv">Github repository</
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.vladikk.com/2013/06/11/json2csv/';
-        var disqus_url = 'http://www.vladikk.com/2013/06/11/json2csv/';
+        var disqus_identifier = 'http://www.vladikk.com/2016/06/29/test-scopes/';
+        var disqus_url = 'http://www.vladikk.com/2016/06/29/test-scopes/';
         var disqus_script = 'embed.js';
       
     (function () {

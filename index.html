@@ -9,7 +9,7 @@
   <meta name="author" content="Vladik Khononov">
 
   
-  <meta name="description" content="Let’s do a little experiment: try to explain the gist of Domain-Driven Design to someone who has no clue about it. This, especially doing it &hellip;">
+  <meta name="description" content="In my previous ||rant|| post on TDD I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2016/06/29/test-scopes/">Finding Proper Scopes for Unit Tests</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-06-29T21:47:00+03:00" pubdate data-updated="true">Jun 29<span>th</span>, 2016</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In my previous ||rant|| <a href="http://vladikk.com/2016/01/22/tdd-what-went-wrong/">post on TDD</a> I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.</p>
+
+<h2>Cyclomatic Complexity</h2>
+
+<p>Cyclomatic complexity is a software metric, used to indicate the complexity of a program. We can use this measurement to measure the complexity of a class or a method, and choose a suitable testing strategy. </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2016/06/29/test-scopes/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -646,73 +689,6 @@ Configuration files are external dependencies. As other external dependencies, i
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/10/15/learning-from-mistakes-leaky-abstractions/">Learning From Mistakes: Leaky Abstractions</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-15T03:10:00+02:00" pubdate data-updated="true">Oct 15<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>On the project I’m working on I’ve had a requirement to store and read files
-from the file system. Alse the files had to be accessible from the web.</p>
-
-<p>Having a gut feeling that the infrastructure may change as the business will
-grow, I decided to hide operations on the file system behind an interface:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">public</span> <span class="k">interface</span> <span class="n">IFilesStorage</span> <span class="p">{</span>
-</span><span class='line'>    <span class="kt">string</span> <span class="nf">StoreFile</span><span class="p">(</span><span class="n">Stream</span> <span class="n">stream</span><span class="p">,</span> <span class="kt">string</span> <span class="n">fileName</span><span class="p">);</span>
-</span><span class='line'>    <span class="n">Stream</span> <span class="nf">GetFile</span><span class="p">(</span><span class="kt">string</span> <span class="n">virtualPath</span><span class="p">);</span>
-</span><span class='line'>    <span class="kt">string</span> <span class="nf">GetFileUrl</span><span class="p">(</span><span class="kt">string</span> <span class="n">virtualPath</span><span class="p">);</span>
-</span><span class='line'>    <span class="kt">string</span> <span class="nf">GetFilePath</span><span class="p">(</span><span class="kt">string</span> <span class="n">virtualPath</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>As it looks, if someday I’ll need to switch from the file
-system to another storage mechanism, I’ll be able to do get the
-job done by writing another implementation of the interface.
-Right? Wrong! The requirement did come in - I’ve had to store
-the files in S3. And only then I realised that IFilesStorage is
-a leaky abstraction.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2012/10/15/learning-from-mistakes-leaky-abstractions/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -748,6 +724,10 @@ a leaky abstraction.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2016/06/29/test-scopes/">Finding Proper Scopes for Unit Tests</a>
+      </li>
+    
+      <li class="post">
         <a href="/2016/04/05/tackling-complexity-ddd/">Tackling Complexity in the Heart of DDD</a>
       </li>
     
@@ -761,10 +741,6 @@ a leaky abstraction.</p>
     
       <li class="post">
         <a href="/2016/01/22/tdd-what-went-wrong/">TDD: What Went Wrong…Or Did It?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/09/12/serving-flask-with-nginx-on-ubuntu/">Serving Flask with Nginx</a>
       </li>
     
   </ul>

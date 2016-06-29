@@ -4,7 +4,7 @@
   <title><![CDATA[Category: TDD | Vladikk]]></title>
   <link href="http://www.vladikk.com/categories/tdd/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2016-04-06T20:56:39+03:00</updated>
+  <updated>2016-06-29T22:02:21+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Finding Proper Scopes for Unit Tests]]></title>
+    <link href="http://www.vladikk.com/2016/06/29/test-scopes/"/>
+    <updated>2016-06-29T21:47:00+03:00</updated>
+    <id>http://www.vladikk.com/2016/06/29/test-scopes</id>
+    <content type="html"><![CDATA[<p>In my previous ||rant|| <a href="http://vladikk.com/2016/01/22/tdd-what-went-wrong/">post on TDD</a> I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.</p>
+
+<h2>Cyclomatic Complexity</h2>
+
+<p>Cyclomatic complexity is a software metric, used to indicate the complexity of a program. We can use this measurement to measure the complexity of a class or a method, and choose a suitable testing strategy. <!-- more --> If the cyclomatic complexity is too high for the testing unit, the testing scope is too wide, and should be narrowed. This heuristic may sound easy in theory, but its no picnic to verify it in practice. Luckily, there are tools that were invented for that kind of heavy lifting. Enter <a href="http://www.ndepend.com/">NDepend</a>.</p>
+
+<h2>Automatically Testing Test Scopes</h2>
+
+<p><a href="http://www.ndepend.com/">NDepend</a> is an excellent static analysis tool for the .Net platform. In addition to the abundance of built in tests, NDepend allows writing custom queries to check code quality. The following is an example of a CQL query that returns test methods with a scope that should narrowed:</p>
+
+<p>``` csharp
+from m in JustMyCode.Methods
+where   m.CyclomaticComplexity > 30 ||</p>
+
+<pre><code>    m.ILCyclomaticComplexity &gt; 60 ||
+    m.ILNestingDepth &gt; 6
+</code></pre>
+
+<p>let indirectTestTypes = m.MethodsCallingMe</p>
+
+<pre><code>    .FillIterative(c =&gt; c.SelectMany(m1 =&gt; m1.MethodsCallingMe))
+    .DefinitionDomain
+    .Where(m1 =&gt; m1.ParentAssembly.Name.Contains("Tests"))
+    .Select(m1 =&gt; m1.ParentType)
+    .Distinct()
+    .ToArray()
+</code></pre>
+
+<p>let directTestTypes = m.MethodsCallingMe</p>
+
+<pre><code>    .Where(m1 =&gt; m1.ParentAssembly.Name.Contains("Tests"))
+    .Select(m1 =&gt; m1.ParentType)
+    .Distinct()
+    .ToArray()
+</code></pre>
+
+<p>orderby m.CyclomaticComplexity descending,</p>
+
+<pre><code>    m.ILCyclomaticComplexity descending,
+    m.ILNestingDepth descending
+</code></pre>
+
+<p>select new {</p>
+
+<pre><code>    m, m.CyclomaticComplexity, 
+    m.ILCyclomaticComplexity,
+    m.ILNestingDepth, indirectTestTypes, directTestTypes
+</code></pre>
+
+<p>```</p>
+
+<p>Actually, I've just started using NDepend, and so far it is an invaluable tool in software architect's toolbox. In my next post I'll show how this tool can automate more code checking chores.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[TDD: What Went Wrong…Or Did It?]]></title>

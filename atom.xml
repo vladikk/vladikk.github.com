@@ -4,7 +4,7 @@
   <title><![CDATA[Vladikk]]></title>
   <link href="http://www.vladikk.com/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2016-04-06T20:56:39+03:00</updated>
+  <updated>2016-06-29T22:02:21+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -12,6 +12,74 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Finding Proper Scopes for Unit Tests]]></title>
+    <link href="http://www.vladikk.com/2016/06/29/test-scopes/"/>
+    <updated>2016-06-29T21:47:00+03:00</updated>
+    <id>http://www.vladikk.com/2016/06/29/test-scopes</id>
+    <content type="html"><![CDATA[<p>In my previous ||rant|| <a href="http://vladikk.com/2016/01/22/tdd-what-went-wrong/">post on TDD</a> I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.</p>
+
+<h2>Cyclomatic Complexity</h2>
+
+<p>Cyclomatic complexity is a software metric, used to indicate the complexity of a program. We can use this measurement to measure the complexity of a class or a method, and choose a suitable testing strategy. <!-- more --> If the cyclomatic complexity is too high for the testing unit, the testing scope is too wide, and should be narrowed. This heuristic may sound easy in theory, but its no picnic to verify it in practice. Luckily, there are tools that were invented for that kind of heavy lifting. Enter <a href="http://www.ndepend.com/">NDepend</a>.</p>
+
+<h2>Automatically Testing Test Scopes</h2>
+
+<p><a href="http://www.ndepend.com/">NDepend</a> is an excellent static analysis tool for the .Net platform. In addition to the abundance of built in tests, NDepend allows writing custom queries to check code quality. The following is an example of a CQL query that returns test methods with a scope that should narrowed:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">from</span> <span class="n">m</span> <span class="k">in</span> <span class="n">JustMyCode</span><span class="p">.</span><span class="n">Methods</span>
+</span><span class='line'><span class="k">where</span>  <span class="n">m</span><span class="p">.</span><span class="n">CyclomaticComplexity</span> <span class="p">&gt;</span> <span class="m">30</span> <span class="p">||</span>
+</span><span class='line'>      <span class="n">m</span><span class="p">.</span><span class="n">ILCyclomaticComplexity</span> <span class="p">&gt;</span> <span class="m">60</span> <span class="p">||</span>
+</span><span class='line'>      <span class="n">m</span><span class="p">.</span><span class="n">ILNestingDepth</span> <span class="p">&gt;</span> <span class="m">6</span>
+</span><span class='line'><span class="n">let</span> <span class="n">indirectTestTypes</span> <span class="p">=</span> <span class="n">m</span><span class="p">.</span><span class="n">MethodsCallingMe</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">FillIterative</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="n">c</span><span class="p">.</span><span class="n">SelectMany</span><span class="p">(</span><span class="n">m1</span> <span class="p">=&gt;</span> <span class="n">m1</span><span class="p">.</span><span class="n">MethodsCallingMe</span><span class="p">))</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">DefinitionDomain</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">m1</span> <span class="p">=&gt;</span> <span class="n">m1</span><span class="p">.</span><span class="n">ParentAssembly</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">&quot;Tests&quot;</span><span class="p">))</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">m1</span> <span class="p">=&gt;</span> <span class="n">m1</span><span class="p">.</span><span class="n">ParentType</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">Distinct</span><span class="p">()</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">ToArray</span><span class="p">()</span>
+</span><span class='line'><span class="n">let</span> <span class="n">directTestTypes</span> <span class="p">=</span> <span class="n">m</span><span class="p">.</span><span class="n">MethodsCallingMe</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">m1</span> <span class="p">=&gt;</span> <span class="n">m1</span><span class="p">.</span><span class="n">ParentAssembly</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">&quot;Tests&quot;</span><span class="p">))</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">m1</span> <span class="p">=&gt;</span> <span class="n">m1</span><span class="p">.</span><span class="n">ParentType</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">Distinct</span><span class="p">()</span>
+</span><span class='line'>      <span class="p">.</span><span class="n">ToArray</span><span class="p">()</span>
+</span><span class='line'><span class="k">orderby</span> <span class="n">m</span><span class="p">.</span><span class="n">CyclomaticComplexity</span> <span class="k">descending</span><span class="p">,</span>
+</span><span class='line'>      <span class="n">m</span><span class="p">.</span><span class="n">ILCyclomaticComplexity</span> <span class="k">descending</span><span class="p">,</span>
+</span><span class='line'>      <span class="n">m</span><span class="p">.</span><span class="n">ILNestingDepth</span> <span class="k">descending</span>
+</span><span class='line'><span class="k">select</span> <span class="k">new</span> <span class="p">{</span>
+</span><span class='line'>      <span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">.</span><span class="n">CyclomaticComplexity</span><span class="p">,</span>
+</span><span class='line'>      <span class="n">m</span><span class="p">.</span><span class="n">ILCyclomaticComplexity</span><span class="p">,</span>
+</span><span class='line'>      <span class="n">m</span><span class="p">.</span><span class="n">ILNestingDepth</span><span class="p">,</span> <span class="n">indirectTestTypes</span><span class="p">,</span> <span class="n">directTestTypes</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Actually, I&#8217;ve just started using NDepend, and so far it is an invaluable tool in software architect&#8217;s toolbox. In my next post I&#8217;ll show how this tool can automate more code checking chores.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Tackling Complexity in the Heart of DDD]]></title>
