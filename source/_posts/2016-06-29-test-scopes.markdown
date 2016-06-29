@@ -7,7 +7,7 @@ categories: TDD
 keywords: TDD, Test Driven Development, NDepend, Unit Testing, Cyclomatic Complexity, Agile, Software craftsmanship
 ---
  
-In my previous ||rant|| [post on TDD](http://vladikk.com/2016/01/22/tdd-what-went-wrong/) I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.
+In my previous <strike>rant</strike> [post on TDD](http://vladikk.com/2016/01/22/tdd-what-went-wrong/) I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.
 
 ## Cyclomatic Complexity
 Cyclomatic complexity is a software metric, used to indicate the complexity of a program. We can use this measurement to measure the complexity of a class or a method, and choose a suitable testing strategy. <!-- more --> If the cyclomatic complexity is too high for the testing unit, the testing scope is too wide, and should be narrowed. This heuristic may sound easy in theory, but its no picnic to verify it in practice. Luckily, there are tools that were invented for that kind of heavy lifting. Enter [NDepend](http://www.ndepend.com/).
