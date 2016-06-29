@@ -4,7 +4,7 @@
   <title><![CDATA[Category: TDD | Vladikk]]></title>
   <link href="http://www.vladikk.com/categories/tdd/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2016-06-29T22:02:21+03:00</updated>
+  <updated>2016-06-29T22:10:53+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -18,7 +18,7 @@
     <link href="http://www.vladikk.com/2016/06/29/test-scopes/"/>
     <updated>2016-06-29T21:47:00+03:00</updated>
     <id>http://www.vladikk.com/2016/06/29/test-scopes</id>
-    <content type="html"><![CDATA[<p>In my previous ||rant|| <a href="http://vladikk.com/2016/01/22/tdd-what-went-wrong/">post on TDD</a> I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.</p>
+    <content type="html"><![CDATA[<p>In my previous <strike>rant</strike> <a href="http://vladikk.com/2016/01/22/tdd-what-went-wrong/">post on TDD</a> I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.</p>
 
 <h2>Cyclomatic Complexity</h2>
 
