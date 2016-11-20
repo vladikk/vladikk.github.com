@@ -4,7 +4,7 @@
   <title><![CDATA[Vladikk]]></title>
   <link href="http://www.vladikk.com/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2016-06-29T22:12:37+03:00</updated>
+  <updated>2016-11-20T21:26:11+02:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[SQS Exactly-Once Processing is a Hoax]]></title>
+    <link href="http://www.vladikk.com/2016/11/20/sqs-fifo/"/>
+    <updated>2016-11-20T21:20:00+02:00</updated>
+    <id>http://www.vladikk.com/2016/11/20/sqs-fifo</id>
+    <content type="html"><![CDATA[<p>Dear AWS, love you to death, but your recent announcement of <a href="https://aws.amazon.com/about-aws/whats-new/2016/11/amazon-sqs-introduces-fifo-queues-with-exactly-once-processing-and-lower-prices-for-standard-queues/">FIFO Queues with Exactly-Once Processing</a>, is not only misleading, but also harmful. I&#8217;ve instructed everyone at our company to ignore this announcement, and use the standard queues instead. Let me show you why.</p>
+
+<h2>SQS Message Processing Model</h2>
+
+<p>The process of working with messages in SQS queues follows the following 3 steps:</p>
+
+<ol>
+<li>Dequeue a message</li>
+<li>Process the message</li>
+<li>Delete the message</li>
+</ol>
+
+
+<p>With the recent announcement, step 1, the dequeueing of a message, can no longer return the same message more than once. Also, it should return the messages strictly in the order they were received in. This is definitely a step up, but it is not enough. Let’s consider the following two cases.</p>
+
+<!-- more -->
+
+
+<h3>Message Processing Fails</h3>
+
+<p>This is actually a very simple one. Let’s say your message processing code strongly depends on message ordering. The process dequeued the message, but the processing failed, and the operation should be retried. What will happen until the visibility timeout of the messages expires? - The messages, that came <em>after</em> it, are going to be <em>dequeued in the meantime</em>. Therefore, if you depend on ordering, you better make sure your message processing code is ready to handle this scenario.</p>
+
+<h3>Message Deletion Fails</h3>
+
+<p>Now, let’s say that a message was processed successfully(step #2), but just before the delete message call(step #3), the process failed. Failed for any reason - network outage, spot instance died, or the cleaning lady pulled the plug. What will happen after the visibility timeout for the message expires? - The very same message will be <em>dequeued again</em>, and it will be <em>processed again</em>. Therefore, the message deduplication code in the message processing transaction should take care of this scenario, whether the SQS queue is a good ol’ one, or a new shiny FIFO queue.</p>
+
+<h2>Bottom Line</h2>
+
+<p>I strongly encourage you to ignore SQS FIFO queues, and instead use the standard SQS queues. They are cheaper, not limited, and most importantly, they are making the limitations of distributed systems explicit.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Finding Proper Scopes for Unit Tests]]></title>

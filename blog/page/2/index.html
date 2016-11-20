@@ -9,8 +9,7 @@
   <meta name="author" content="Vladik Khononov">
 
   
-  <meta name="description" content="On the project I’m working on I’ve had a requirement to store and read files
-from the file system. Alse the files had to be accessible from the web. &hellip;">
+  <meta name="description" content="Tight coupling is a known source for inflexible and hard to test code. In this post I want to talk about a rather unexpected source of tight coupling &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +75,76 @@ from the file system. Alse the files had to be accessible from the web. &hellip;
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/05/14/uncoupling-configuration-files/">Uncoupling Configuration Files</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-14T17:34:00+03:00" pubdate data-updated="true">May 14<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Tight coupling is a known source for inflexible and hard to test code. In this post I want to talk about a rather unexpected source of tight coupling - configuration files.
+Configuration files are external dependencies. As other external dependencies, its infrastructure may change in the future, and it should be easily mocked for unit testing. Modern software frameworks provide means for easy access to the values stored in configuration files. In the .NET framework configuration files can be accessed using the ConfigurationManager:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+</span><span class='line'><span class="nt">&lt;configuration&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;appSettings&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">&quot;Foo&quot;</span> <span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">&quot;Bar&quot;</span> <span class="na">value=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/appSettings&gt;</span>
+</span><span class='line'><span class="nt">&lt;/configuration&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="kt">int</span> <span class="n">foo</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSetttings</span><span class="p">[</span><span class="err">“</span><span class="n">Foo</span><span class="err">”</span><span class="p">]);</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">bar</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="err">“</span><span class="n">Bar</span><span class="err">”</span><span class="p">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ConfigurationManager makes it trivial to access data in the config file, however in most cases it also introduces various code smells that make the code tight coupled and hard to test. In the next sections I’ll introduce a simple class and will use it to demonstrate the code smells and violations of principles of clean object oriented design. The code will be gradually refactored to a better and cleaner solution.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2013/05/14/uncoupling-configuration-files/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -318,6 +387,10 @@ For demonstration purposes we will work with a class called TextTranslator, that
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2016/11/20/sqs-fifo/">SQS Exactly-Once Processing is a Hoax</a>
+      </li>
+    
+      <li class="post">
         <a href="/2016/06/29/test-scopes/">Finding Proper Scopes for Unit Tests</a>
       </li>
     
@@ -331,10 +404,6 @@ For demonstration purposes we will work with a class called TextTranslator, that
     
       <li class="post">
         <a href="/2016/02/12/dddeu-2016/">DDDEU 2016 Impressions</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2016/01/22/tdd-what-went-wrong/">TDD: What Went Wrong…Or Did It?</a>
       </li>
     
   </ul>

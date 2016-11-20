@@ -9,7 +9,7 @@
   <meta name="author" content="Vladik Khononov">
 
   
-  <meta name="description" content="In my previous rant post on TDD I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - &hellip;">
+  <meta name="description" content="Dear AWS, love you to death, but your recent announcement of FIFO Queues with Exactly-Once Processing, is not only misleading, but also harmful. I&# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,60 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2016/11/20/sqs-fifo/">SQS Exactly-Once Processing Is a Hoax</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-11-20T21:20:00+02:00" pubdate data-updated="true">Nov 20<span>th</span>, 2016</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Dear AWS, love you to death, but your recent announcement of <a href="https://aws.amazon.com/about-aws/whats-new/2016/11/amazon-sqs-introduces-fifo-queues-with-exactly-once-processing-and-lower-prices-for-standard-queues/">FIFO Queues with Exactly-Once Processing</a>, is not only misleading, but also harmful. I&#8217;ve instructed everyone at our company to ignore this announcement, and use the standard queues instead. Let me show you why.</p>
+
+<h2>SQS Message Processing Model</h2>
+
+<p>The process of working with messages in SQS queues follows the following 3 steps:</p>
+
+<ol>
+<li>Dequeue a message</li>
+<li>Process the message</li>
+<li>Delete the message</li>
+</ol>
+
+
+<p>With the recent announcement, step 1, the dequeueing of a message, can no longer return the same message more than once. Also, it should return the messages strictly in the order they were received in. This is definitely a step up, but it is not enough. Let’s consider the following two cases.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2016/11/20/sqs-fifo/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -619,76 +673,6 @@ You can grab it from <a href="https://github.com/vladikk/sql2json">Github reposi
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/05/14/uncoupling-configuration-files/">Uncoupling Configuration Files</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-14T17:34:00+03:00" pubdate data-updated="true">May 14<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Tight coupling is a known source for inflexible and hard to test code. In this post I want to talk about a rather unexpected source of tight coupling - configuration files.
-Configuration files are external dependencies. As other external dependencies, its infrastructure may change in the future, and it should be easily mocked for unit testing. Modern software frameworks provide means for easy access to the values stored in configuration files. In the .NET framework configuration files can be accessed using the ConfigurationManager:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
-</span><span class='line'><span class="nt">&lt;configuration&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;appSettings&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">&quot;Foo&quot;</span> <span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">&quot;Bar&quot;</span> <span class="na">value=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/appSettings&gt;</span>
-</span><span class='line'><span class="nt">&lt;/configuration&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="kt">int</span> <span class="n">foo</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSetttings</span><span class="p">[</span><span class="err">“</span><span class="n">Foo</span><span class="err">”</span><span class="p">]);</span>
-</span><span class='line'><span class="kt">int</span> <span class="n">bar</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="err">“</span><span class="n">Bar</span><span class="err">”</span><span class="p">]);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>ConfigurationManager makes it trivial to access data in the config file, however in most cases it also introduces various code smells that make the code tight coupled and hard to test. In the next sections I’ll introduce a simple class and will use it to demonstrate the code smells and violations of principles of clean object oriented design. The code will be gradually refactored to a better and cleaner solution.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/05/14/uncoupling-configuration-files/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -724,6 +708,10 @@ Configuration files are external dependencies. As other external dependencies, i
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2016/11/20/sqs-fifo/">SQS Exactly-Once Processing is a Hoax</a>
+      </li>
+    
+      <li class="post">
         <a href="/2016/06/29/test-scopes/">Finding Proper Scopes for Unit Tests</a>
       </li>
     
@@ -737,10 +725,6 @@ Configuration files are external dependencies. As other external dependencies, i
     
       <li class="post">
         <a href="/2016/02/12/dddeu-2016/">DDDEU 2016 Impressions</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2016/01/22/tdd-what-went-wrong/">TDD: What Went Wrong…Or Did It?</a>
       </li>
     
   </ul>

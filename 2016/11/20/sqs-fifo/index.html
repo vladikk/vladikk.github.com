@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: configs - Vladikk</title>
+  <title>SQS Exactly-Once Processing is a Hoax - Vladikk</title>
   <meta name="author" content="Vladik Khononov">
 
   
-  <meta name="description" content="Category: configs">
-  
+  <meta name="description" content="Dear AWS, love you to death, but your recent announcement of FIFO Queues with Exactly-Once Processing, is not only misleading, but also harmful. I&# &hellip;">
+  <meta name="keywords" content="AWS, SQS, Amazon, Cloud, Exactly-Once, FIFO, Hoax, Distributed Systems, Software Architecture">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.vladikk.comcategories/configs/">
+  <link rel="canonical" href="http://www.vladikk.com/2016/11/20/sqs-fifo/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -74,36 +74,123 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Configs</h1>
+    
+      <h1 class="entry-title">SQS Exactly-Once Processing Is a Hoax</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-11-20T21:20:00+02:00" pubdate data-updated="true">Nov 20<span>th</span>, 2016</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>Dear AWS, love you to death, but your recent announcement of <a href="https://aws.amazon.com/about-aws/whats-new/2016/11/amazon-sqs-introduces-fifo-queues-with-exactly-once-processing-and-lower-prices-for-standard-queues/">FIFO Queues with Exactly-Once Processing</a>, is not only misleading, but also harmful. I&#8217;ve instructed everyone at our company to ignore this announcement, and use the standard queues instead. Let me show you why.</p>
 
-  
-  <h2>2013</h2>
+<h2>SQS Message Processing Model</h2>
 
-<article>
-  
-<h1><a href="/2013/05/14/uncoupling-configuration-files/">Uncoupling Configuration Files</a></h1>
-<time datetime="2013-05-14T17:34:00+03:00" pubdate><span class='month'>May</span> <span class='day'>14</span> <span class='year'>2013</span></time>
+<p>The process of working with messages in SQS queues follows the following 3 steps:</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/categories/c-number/'>c#</a>, <a class='category' href='/categories/configs/'>configs</a>, <a class='category' href='/categories/managing-dependencies/'>managing dependencies</a>, <a class='category' href='/categories/refactoring/'>refactoring</a>, <a class='category' href='/categories/unit-testing/'>unit testing</a></span>
-</footer>
+<ol>
+<li>Dequeue a message</li>
+<li>Process the message</li>
+<li>Delete the message</li>
+</ol>
 
 
-</article>
+<p>With the recent announcement, step 1, the dequeueing of a message, can no longer return the same message more than once. Also, it should return the messages strictly in the order they were received in. This is definitely a step up, but it is not enough. Let’s consider the following two cases.</p>
 
+<!-- more -->
+
+
+<h3>Message Processing Fails</h3>
+
+<p>This is actually a very simple one. Let’s say your message processing code strongly depends on message ordering. The process dequeued the message, but the processing failed, and the operation should be retried. What will happen until the visibility timeout of the messages expires? - The messages, that came <em>after</em> it, are going to be <em>dequeued in the meantime</em>. Therefore, if you depend on ordering, you better make sure your message processing code is ready to handle this scenario.</p>
+
+<h3>Message Deletion Fails</h3>
+
+<p>Now, let’s say that a message was processed successfully(step #2), but just before the delete message call(step #3), the process failed. Failed for any reason - network outage, spot instance died, or the cleaning lady pulled the plug. What will happen after the visibility timeout for the message expires? - The very same message will be <em>dequeued again</em>, and it will be <em>processed again</em>. Therefore, the message deduplication code in the message processing transaction should take care of this scenario, whether the SQS queue is a good ol’ one, or a new shiny FIFO queue.</p>
+
+<h2>Bottom Line</h2>
+
+<p>I strongly encourage you to ignore SQS FIFO queues, and instead use the standard SQS queues. They are cheaper, not limited, and most importantly, they are making the limitations of distributed systems explicit.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Vladik Khononov</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-11-20T21:20:00+02:00" pubdate data-updated="true">Nov 20<span>th</span>, 2016</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/aws/'>AWS</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.vladikk.com/2016/11/20/sqs-fifo/" data-via="vladikk" data-counturl="http://www.vladikk.com/2016/11/20/sqs-fifo/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2016/06/29/test-scopes/" title="Previous Post: Finding Proper Scopes for Unit Tests">&laquo; Finding Proper Scopes for Unit Tests</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -205,7 +292,10 @@
       var disqus_shortname = 'vladikk-blog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.vladikk.com/2016/11/20/sqs-fifo/';
+        var disqus_url = 'http://www.vladikk.com/2016/11/20/sqs-fifo/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
