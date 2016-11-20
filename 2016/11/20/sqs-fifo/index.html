@@ -121,11 +121,11 @@
 
 <h3>Message Processing Fails</h3>
 
-<p>This is actually a very simple one. Let’s say your message processing code strongly depends on message ordering. The process dequeued the message, but the processing failed, and the operation should be retried. What will happen until the visibility timeout of the messages expires? - The messages, that came <em>after</em> it, are going to be <em>dequeued in the meantime</em>. Therefore, if you depend on ordering, you better make sure your message processing code is ready to handle this scenario.</p>
+<p>This is actually a very simple one. Let’s say your message processing code depends on message ordering. After a message was dequeued, its processing has failed, and the operation should be retried. What will happen until the visibility timeout of the message expires? - The messages, that came <em>after</em> it, are going to be <em>dequeued in the meantime</em>. Therefore, if you depend on ordering, you better make sure your message processing code is ready to handle this scenario.</p>
 
 <h3>Message Deletion Fails</h3>
 
-<p>Now, let’s say that a message was processed successfully(step #2), but just before the delete message call(step #3), the process failed. Failed for any reason - network outage, spot instance died, or the cleaning lady pulled the plug. What will happen after the visibility timeout for the message expires? - The very same message will be <em>dequeued again</em>, and it will be <em>processed again</em>. Therefore, the message deduplication code in the message processing transaction should take care of this scenario, whether the SQS queue is a good ol’ one, or a new shiny FIFO queue.</p>
+<p>Now, let’s say that a message was processed successfully(step #2), but just before the delete message call(step #3), the process has failed. Failed for any reason - network outage, spot instance died, or the cleaning lady pulled the plug. What will happen after the visibility timeout for the message expires? - The very same message will be <em>dequeued again</em>, and it will be <em>processed again</em>. Therefore, the message deduplication code in the message processing transaction should be there and take care of this scenario, whether the SQS queue is a good ol’ one, or a new shiny FIFO queue.</p>
 
 <h2>Bottom Line</h2>
 
