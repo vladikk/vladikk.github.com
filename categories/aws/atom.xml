@@ -4,7 +4,7 @@
   <title><![CDATA[Category: AWS | Vladikk]]></title>
   <link href="http://www.vladikk.com/categories/aws/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2016-11-20T21:42:06+02:00</updated>
+  <updated>2016-11-20T22:08:40+02:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -46,7 +46,7 @@
 
 <h2>Bottom Line</h2>
 
-<p>I strongly encourage you to ignore SQS FIFO queues, and instead use the standard SQS queues. They are cheaper, not limited, and most importantly, they are making the limitations of distributed systems explicit.</p>
+<p>As I've just show you, even if SQS returns every message exactly once, and in perfect order, message duplication and reordering can still occur due to the nature of distributed systems. Therefore, I strongly encourage you to ignore SQS FIFO queues, and instead use the standard SQS queues. They are cheaper, not limited, and most importantly, they are making the limitations of distributed systems explicit.</p>
 ]]></content>
   </entry>
   

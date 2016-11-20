@@ -129,7 +129,7 @@
 
 <h2>Bottom Line</h2>
 
-<p>I strongly encourage you to ignore SQS FIFO queues, and instead use the standard SQS queues. They are cheaper, not limited, and most importantly, they are making the limitations of distributed systems explicit.</p>
+<p>As I&#8217;ve just show you, even if SQS returns every message exactly once, and in perfect order, message duplication and reordering can still occur due to the nature of distributed systems. Therefore, I strongly encourage you to ignore SQS FIFO queues, and instead use the standard SQS queues. They are cheaper, not limited, and most importantly, they are making the limitations of distributed systems explicit.</p>
 </div>
 
 
