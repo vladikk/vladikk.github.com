@@ -9,7 +9,7 @@
   <meta name="author" content="Vladik Khononov">
 
   
-  <meta name="description" content="Dear AWS, love you to death, but your recent announcement of FIFO Queues with Exactly-Once Processing, is not only misleading, but also harmful. I&# &hellip;">
+  <meta name="description" content="Dear AWS, Love you to death, but your recent announcement of FIFO Queues with Exactly-Once Processing is not only misleading – it’s also harmful. I&# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -104,7 +104,9 @@
   </header>
 
 
-  <div class="entry-content"><p>Dear AWS, love you to death, but your recent announcement of <a href="https://aws.amazon.com/about-aws/whats-new/2016/11/amazon-sqs-introduces-fifo-queues-with-exactly-once-processing-and-lower-prices-for-standard-queues/">FIFO Queues with Exactly-Once Processing</a>, is not only misleading, but also harmful. I&#8217;ve instructed everyone at our company to ignore this announcement, and use the standard queues instead. Let me show you why.</p>
+  <div class="entry-content"><p>Dear AWS,</p>
+
+<p>Love you to death, but your recent announcement of <a href="https://aws.amazon.com/about-aws/whats-new/2016/11/amazon-sqs-introduces-fifo-queues-with-exactly-once-processing-and-lower-prices-for-standard-queues/">FIFO Queues with Exactly-Once Processing</a> is not only misleading – it’s also harmful. I&#8217;ve instructed everyone at our company to ignore this announcement and use the standard queues instead. Let me tell you why.</p>
 
 <h2>SQS Message Processing Model</h2>
 
@@ -117,7 +119,7 @@
 </ol>
 
 
-<p>With the recent announcement, step 1, the dequeueing of a message, can no longer return the same message more than once. Also, it should return the messages strictly in the order they were received in. This is definitely a step up, but it is not enough. Let’s consider the following two cases.</p>
+<p>With the recent announcement, Step 1, the dequeueing of a message, can no longer return the same message more than once. Also, it should return the messages strictly in the order they were received. This is definitely a step up, but it is not enough. Let’s consider the following two cases.</p>
 
 </div>
   
