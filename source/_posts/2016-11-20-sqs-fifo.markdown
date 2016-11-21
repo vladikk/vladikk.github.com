@@ -7,7 +7,9 @@ categories: AWS
 keywords: AWS, SQS, Amazon, Cloud, Exactly-Once, FIFO, Hoax, Distributed Systems, Software Architecture
 ---
  
-Dear AWS, love you to death, but your recent announcement of [FIFO Queues with Exactly-Once Processing](https://aws.amazon.com/about-aws/whats-new/2016/11/amazon-sqs-introduces-fifo-queues-with-exactly-once-processing-and-lower-prices-for-standard-queues/), is not only misleading, but also harmful. I've instructed everyone at our company to ignore this announcement, and use the standard queues instead. Let me show you why.
+Dear AWS,
+
+Love you to death, but your recent announcement of [FIFO Queues with Exactly-Once Processing](https://aws.amazon.com/about-aws/whats-new/2016/11/amazon-sqs-introduces-fifo-queues-with-exactly-once-processing-and-lower-prices-for-standard-queues/) is not only misleading – it’s also harmful. I've instructed everyone at our company to ignore this announcement and use the standard queues instead. Let me tell you why.
 
 ## SQS Message Processing Model
 The process of working with messages in SQS queues follows the following 3 steps:
@@ -16,15 +18,15 @@ The process of working with messages in SQS queues follows the following 3 steps
 2. Process the message
 3. Delete the message
 
-With the recent announcement, step 1, the dequeueing of a message, can no longer return the same message more than once. Also, it should return the messages strictly in the order they were received in. This is definitely a step up, but it is not enough. Let’s consider the following two cases.
+With the recent announcement, Step 1, the dequeueing of a message, can no longer return the same message more than once. Also, it should return the messages strictly in the order they were received. This is definitely a step up, but it is not enough. Let’s consider the following two cases.
 
 <!-- more -->
 
 ### Message Processing Fails
-This is actually a very simple one. Let’s say your message processing code depends on message ordering. After a message was dequeued, its processing has failed, and the operation should be retried. What will happen until the visibility timeout of the message expires? - The messages, that came *after* it, are going to be *dequeued in the meantime*. Therefore, if you depend on ordering, you better make sure your message processing code is ready to handle this scenario.
+This is actually a simple one. Let’s say your message processing code strongly depends on message ordering. After a message was dequeued, its processing has failed, and the operation should be retried. What will happen until the visibility timeout of the messages expires? - The messages that came *after* it will be *dequeued in the meantime*. Therefore, if you depend on ordering, you'd better make sure your message processing code is ready to handle this scenario.
 
 ### Message Deletion Fails
-Now, let’s say that a message was processed successfully(step #2), but just before the delete message call(step #3), the process has failed. Failed for any reason - network outage, spot instance died, or the cleaning lady pulled the plug. What will happen after the visibility timeout for the message expires? - The very same message will be *dequeued again*, and it will be *processed again*. Therefore, the message deduplication code in the message processing transaction should be there and take care of this scenario, whether the SQS queue is a good ol’ one, or a new shiny FIFO queue.
+Now, let’s say a message was processed successfully (Step 2), but just before the delete message call (Step 3), the process failed. It failed for whatever reason – there was a network outage, or the cleaning lady pulled the plug. What will happen after the visibility timeout for the message expires? The very same message will be *dequeued again*, and it will be *processed again*. Therefore, the message deduplication code in the message-processing transaction should take care of this scenario, whether the SQS queue is a good ol’ one or a shiny new FIFO queue.
 
 ## Bottom Line
-As I've just show you, even if SQS returns every message exactly once, and in perfect order, message duplication and reordering can still occur due to the nature of distributed systems. Therefore, I strongly encourage you to ignore SQS FIFO queues, and instead use the standard SQS queues. They are cheaper, not limited, and most importantly, they are making the limitations of distributed systems explicit.
+As I've just shown you, even if SQS returns every message exactly once, and in perfect order, message duplication and reordering can still occur due to the nature of distributed systems. Therefore, I strongly encourage you to ignore SQS FIFO queues, and instead use the standard SQS queues. They are cheaper, not limited, and most importantly, they make the limitations of distributed systems explicit.
