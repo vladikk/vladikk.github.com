@@ -7,6 +7,8 @@ categories: Thoughts DDD Architecture
 keywords: Domain-Driven Design, DDD, DDDesign, software, architecture, methodology, bounded context, ubiquitous language, patterns, complexity, domain model, structure map, active record, event sourcing, cqrs
 ---
 
+<img src="{{ root_url }}/images/ddd/title-img.jpg" alt="Tackling Complexity in the Heart of Domain-Driven Design" />
+
 Let’s do a little experiment: try to explain the gist of Domain-Driven Design to someone who has no clue about it. This, especially doing it succinctly, is not easy. Heck, I struggle with it myself. Bounded contexts, entities, repositories, domain events, value objects, domains, aggregates, repositories… where do you even start?
 
 To find the order in the apparent chaos, I want to analyze the DDD methodology from a rather unusual perspective — by applying Domain-Driven Design to Domain-Driven Design itself. After all, this methodology is intended to deal with complex domains, isn’t it?
