@@ -9,7 +9,7 @@
   <meta name="author" content="Vladik Khononov">
 
   
-  <meta name="description" content="Dear AWS, Love you to death, but your recent announcement of FIFO Queues with Exactly-Once Processing is not only misleading – it’s also harmful. I&# &hellip;">
+  <meta name="description" content="The CQRS pattern can do wonders: it can maximize scalability, performance, security, and it can even “beat” the CAP theorem. Nonetheless, CQRS &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,58 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2017/03/20/tackling-complexity-in-cqrs/">Tackling Complexity in CQRS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-03-20T20:37:00+02:00" pubdate data-updated="true">Mar 20<span>th</span>, 2017</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/images/cqrs/title-img.jpg" alt="Tackling Complexity in CQRS" /></p>
+
+<p>The CQRS pattern can do wonders: it can maximize scalability, performance, security, and it can even <a href="http://codebetter.com/gregyoung/2010/02/20/cqrs-and-cap-theorem/">“beat” the CAP theorem</a>. Nonetheless, CQRS gained itself a controversial name because of the complexity it introduces. For instance, <a href="https://martinfowler.com/bliki/CQRS.html">in his article on CQRS</a>, Martin Fowler argues that the pattern should be applied sparingly and even cautiously:</p>
+
+<ul>
+<li>“… for most systems CQRS adds risky complexity”</li>
+<li>“… you should be very cautious about using CQRS”</li>
+<li>“So while CQRS is a pattern that&#8217;s good to have in the toolbox, beware that it is difficult to use well and you can easily chop off important bits if you mishandle it.”</li>
+</ul>
+
+
+<p>From my point of view, the CQRS induced complexity is largely accidental, and thus can be avoided. To illustrate my point, I want to discuss the goal of CQRS, and then analyze 3 common sources of accidental complexities in CQRS based systems.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2017/03/20/tackling-complexity-in-cqrs/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -614,67 +666,6 @@ You can grab it from <a href="https://github.com/vladikk/sql2json">Github reposi
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/06/01/unicode-file-names-in-python/">Unicode File Names in Python 2.7</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-01T14:58:00+03:00" pubdate data-updated="true">Jun 1<span>st</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Today I wrote a small script to find and delete duplicate files. To do this task I needed to iterate over files in a specific folder, and calculate md5 checksum for each file:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">for</span> <span class="n">folder</span><span class="p">,</span> <span class="n">subs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-</span><span class='line'>    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-</span><span class='line'>        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-</span><span class='line'>          <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
-</span><span class='line'>              <span class="o">...</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If the source folder contains a file or a folder with unicode characters in it, execution of the code results in this bummer:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="ne">IOError</span><span class="p">:</span> <span class="p">[</span><span class="n">Errno</span> <span class="mi">22</span><span class="p">]</span> <span class="n">invalid</span> <span class="n">mode</span> <span class="p">(</span><span class="s">&#39;rb&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">filename</span><span class="p">:</span> <span class="s">&#39;files</span><span class="se">\\</span><span class="s">????????? ????? ????????.txt&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/06/01/unicode-file-names-in-python/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -710,6 +701,10 @@ You can grab it from <a href="https://github.com/vladikk/sql2json">Github reposi
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2017/03/20/tackling-complexity-in-cqrs/">Tackling Complexity in CQRS</a>
+      </li>
+    
+      <li class="post">
         <a href="/2016/11/20/sqs-fifo/">SQS Exactly-Once Processing is a Hoax</a>
       </li>
     
@@ -723,10 +718,6 @@ You can grab it from <a href="https://github.com/vladikk/sql2json">Github reposi
     
       <li class="post">
         <a href="/2016/03/05/interviewing/">A Quick and Dirty Hack for Interviewing Job Candidates</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2016/02/12/dddeu-2016/">DDDEU 2016 Impressions</a>
       </li>
     
   </ul>
@@ -769,7 +760,7 @@ You can grab it from <a href="https://github.com/vladikk/sql2json">Github reposi
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2016 - Vladik Khononov -
+  Copyright &copy; 2017 - Vladik Khononov -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
