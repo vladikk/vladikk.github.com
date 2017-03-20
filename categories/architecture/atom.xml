@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Architecture | Vladikk]]></title>
   <link href="http://www.vladikk.com/categories/architecture/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2017-03-20T16:09:55+02:00</updated>
+  <updated>2017-03-20T20:19:19+02:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -123,15 +123,15 @@
 
 <h2>CQRS: Decomplexified</h2>
 
-<p>I want to sum it all up by drawing a diagram of the CQRS pattern:</p>
+<p>I want to sum it all up with a diagram of CQRS:</p>
 
 <p><img src="/images/cqrs/cqrs-diagram.png" alt="CQRS diagram" /></p>
 
-<p>This diagram differs greatly from other diagrams you can find, if you google for “CQRS diagram”:</p>
+<p>This diagram differs from other diagrams you can find on the web:</p>
 
 <p><img src="/images/cqrs/google-cqrs.png" alt="Other CQRS diagrams" /></p>
 
-<p>This is is the CQRS pattern the way I see and implement it. Use it if you need to represent entities in different models. Don't cripple your architecture with one-way commands. Use separate storage mechanisms for the write and read models only if one won’t do. Project using events only if your business domain justifies usage of Event Sourcing, in other case use state based projections.</p>
+<p>This is is the CQRS pattern the way I see, and implement it. Commands have responses. Projection mechanism defined abstractly without any implementation details. Inside it may be based on events, or on state, or even a database view. And finally, there  is no glimpse of Event Sourcing. Model the system’s business logic as required by the business domain: Active Record, Domain Model, or Event Sourced Domain Model.</p>
 
 <p>As every correctly applied tool, CQRS should reduce complexity, not induce it. If your architecture’s complexity grows, you’re doing something wrong.</p>
 ]]></content>
