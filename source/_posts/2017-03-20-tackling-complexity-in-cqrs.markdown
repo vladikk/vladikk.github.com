@@ -6,7 +6,7 @@ comments: true
 published: true
 categories: Architecture DDD
 keywords: CQRS, CQS, Command Query Responsibility Segregation, Event Sourcing, Complexity, Beginners, Domain-Driven Design, DDD, DDDesign, software, architecture, methodology, bounded context, ubiquitous language, patterns, domain model
-description: 
+description: The CQRS pattern can do wonders - it can maximize scalability, performance, security, and it can even “beat” the CAP theorem. Nonetheless, CQRS gained itself a controversial name because of the complexity it introduces. In this post I want to show why this complexity is accidental, and 3 ways to tackle it
 ---
 
 <img src="{{ root_url }}/images/cqrs/title-img.jpg" alt="Tackling Complexity in CQRS" />
