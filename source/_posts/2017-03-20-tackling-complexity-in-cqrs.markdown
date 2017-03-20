@@ -89,14 +89,14 @@ The Microservices hype has attracted lots of attention to CQRS: if you have a se
 This is not always bad, but in many cases this might be a signal to take step back and reconsider your decomposition strategy. Chances are that your services are too fine grained, and do not reflect business domain’s boundaries. If this is the case, you can reduce your architecture’s complexity greatly by realigning services boundaries with their corresponding business domains.
 
 ## CQRS: Decomplexified
-I want to sum it all up by drawing a diagram of the CQRS pattern:
+I want to sum it all up with a diagram of CQRS:
 
 <img src="{{ root_url }}/images/cqrs/cqrs-diagram.png" alt="CQRS diagram" />
 
-This diagram differs greatly from other diagrams you can find, if you google for “CQRS diagram”:
+This diagram differs from other diagrams you can find on the web:
 
 <img src="{{ root_url }}/images/cqrs/google-cqrs.png" alt="Other CQRS diagrams" />
 
-This is is the CQRS pattern the way I see and implement it. Use it if you need to represent entities in different models. Don't cripple your architecture with one-way commands. Use separate storage mechanisms for the write and read models only if one won’t do. Project using events only if your business domain justifies usage of Event Sourcing, in other case use state based projections.
+This is is the CQRS pattern the way I see, and implement it. Commands have responses. Projection mechanism defined abstractly without any implementation details. Inside it may be based on events, or on state, or even a database view. And finally, there  is no glimpse of Event Sourcing. Model the system’s business logic as required by the business domain: Active Record, Domain Model, or Event Sourced Domain Model.
 
 As every correctly applied tool, CQRS should reduce complexity, not induce it. If your architecture’s complexity grows, you’re doing something wrong.
