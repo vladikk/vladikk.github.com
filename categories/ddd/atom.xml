@@ -4,7 +4,7 @@
   <title><![CDATA[Category: DDD | Vladikk]]></title>
   <link href="http://www.vladikk.com/categories/ddd/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2017-03-20T23:00:23+02:00</updated>
+  <updated>2017-03-20T23:08:45+02:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -142,9 +142,7 @@
     <link href="http://www.vladikk.com/2016/04/05/tackling-complexity-ddd/"/>
     <updated>2016-04-05T19:14:00+03:00</updated>
     <id>http://www.vladikk.com/2016/04/05/tackling-complexity-ddd</id>
-    <content type="html"><![CDATA[<p><img src="/images/ddd/title-img.jpg" alt="Tackling Complexity in the Heart of Domain-Driven Design" /></p>
-
-<p>Let’s do a little experiment: try to explain the gist of Domain-Driven Design to someone who has no clue about it. This, especially doing it succinctly, is not easy. Heck, I struggle with it myself. Bounded contexts, entities, repositories, domain events, value objects, domains, aggregates, repositories… where do you even start?</p>
+    <content type="html"><![CDATA[<p>Let’s do a little experiment: try to explain the gist of Domain-Driven Design to someone who has no clue about it. This, especially doing it succinctly, is not easy. Heck, I struggle with it myself. Bounded contexts, entities, repositories, domain events, value objects, domains, aggregates, repositories… where do you even start?</p>
 
 <p>To find the order in the apparent chaos, I want to analyze the DDD methodology from a rather unusual perspective — by applying Domain-Driven Design to Domain-Driven Design itself. After all, this methodology is intended to deal with complex domains, isn’t it?</p>
 
