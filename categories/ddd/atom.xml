@@ -4,7 +4,7 @@
   <title><![CDATA[Category: DDD | Vladikk]]></title>
   <link href="http://www.vladikk.com/categories/ddd/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2017-03-23T09:23:16+02:00</updated>
+  <updated>2017-03-23T17:47:52+02:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -38,7 +38,7 @@
 
 <p>The goal of CQRS is to enable representation of the same data using multiple models. Not scalability, not availability, not security, not performance. Same data in multiple models. That's it. The rest is byproducts. Don't believe me? Listen to <a href="https://youtu.be/LDW0QWie21s?t=448">Greg Young's talk at the DDDEU2016 conference</a>, where he says that CQRS was invented to support implementation of Event Sourcing. And, as you probably know, the Event Sourcing model is awesome for writing data, but terrible for reading. That's why he needed CQRS back then: <em>to represent the same data in multiple models</em>.</p>
 
-<p>How does CQRS achieve this goal? By making sure only one model serves as the source of truth, and all changes are committed to this model only.</p>
+<p>How does CQRS achieve this goal? By making sure that only one model serves as the source of truth, and all changes are committed to this model only.</p>
 
 <p>Let’s see how this understanding can help us tackle some complexities.</p>
 
