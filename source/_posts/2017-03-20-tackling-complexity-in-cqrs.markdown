@@ -24,7 +24,7 @@ From my point of view, the CQRS-induced complexity is largely accidental, and th
 ## The Goal of CQRS
 The goal of CQRS is to enable representation of the same data using multiple models. Not scalability, not availability, not security, not performance. Same data in multiple models. That's it. The rest is byproducts. Don't believe me? Listen to [Greg Young's talk at the DDDEU2016 conference](https://youtu.be/LDW0QWie21s?t=448), where he says that CQRS was invented to support implementation of Event Sourcing. And, as you probably know, the Event Sourcing model is awesome for writing data, but terrible for reading. That's why he needed CQRS back then: *to represent the same data in multiple models*.
 
-How does CQRS achieve this goal? By making sure only one model serves as the source of truth, and all changes are committed to this model only.
+How does CQRS achieve this goal? By making sure that only one model serves as the source of truth, and all changes are committed to this model only.
 
 Let’s see how this understanding can help us tackle some complexities.
 
