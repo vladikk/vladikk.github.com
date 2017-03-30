@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Nginx - Vladikk</title>
+  <title>Apachi NiFi: Enabling Unicode Support - Vladikk</title>
   <meta name="author" content="Vladik Khononov">
 
   
-  <meta name="description" content="Category: Nginx">
-  
+  <meta name="description" content="If you&#8217;re using Apache NiFi to move data around, you might stumble upon Unicode characters turning into question marks. For example, the &hellip;">
+  <meta name="keywords" content="nifi, unicode, utf8, utf-8, executesql">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.vladikk.comcategories/nginx/">
+  <link rel="canonical" href="http://www.vladikk.com/2017/03/30/nifi-unicode/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -74,36 +74,107 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Nginx</h1>
+    
+      <h1 class="entry-title">Apachi NiFi: Enabling Unicode Support</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-03-30T12:27:00+03:00" pubdate data-updated="true">Mar 30<span>th</span>, 2017</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>If you&#8217;re using Apache NiFi to move data around, you might stumble upon Unicode characters turning into question marks. For example, the ExecuteSQL processor does that.</p>
 
-  
-  <h2>2013</h2>
+<p>To fix this you have to set JVM&#8217;s default encoding to UTF-8. There are two ways of doing it:</p>
 
-<article>
-  
-<h1><a href="/2013/09/12/serving-flask-with-nginx-on-ubuntu/">Serving Flask with Nginx</a></h1>
-<time datetime="2013-09-12T22:37:00+03:00" pubdate><span class='month'>Sep</span> <span class='day'>12</span> <span class='year'>2013</span></time>
+<ol>
+<li><p>Set default encoding using the JAVA_TOOL_OPTIONS environment variable:
+ <code>
+ export JAVA_TOOL_OPTIONS=-Dfile.encoding=utf8
+</code></p></li>
+<li><p>Add default encoding parameter to NiFi&#8217;s bootstrap.conf file:
+ <code>
+ java.arg.8=-Dfile.encoding=UTF8
+</code></p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/categories/flask/'>Flask</a>, <a class='category' href='/categories/nginx/'>Nginx</a>, <a class='category' href='/categories/python/'>Python</a></span>
-</footer>
+<p> Of course, adjust the argument&#8217;s number according to your configuration.</p></li>
+</ol>
 
 
-</article>
-
+<p>That&#8217;s it, no more question marks.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Vladik Khononov</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-03-30T12:27:00+03:00" pubdate data-updated="true">Mar 30<span>th</span>, 2017</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.vladikk.com/2017/03/30/nifi-unicode/" data-via="vladikk" data-counturl="http://www.vladikk.com/2017/03/30/nifi-unicode/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2017/03/20/tackling-complexity-in-cqrs/" title="Previous Post: Tackling Complexity in CQRS">&laquo; Tackling Complexity in CQRS</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -205,7 +276,10 @@
       var disqus_shortname = 'vladikk-blog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.vladikk.com/2017/03/30/nifi-unicode/';
+        var disqus_url = 'http://www.vladikk.com/2017/03/30/nifi-unicode/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
