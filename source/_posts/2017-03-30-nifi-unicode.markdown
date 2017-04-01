@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Apachi NiFi: Enabling Unicode Support"
+title: "Apache NiFi: Enabling Unicode Support"
 date: 2017-03-30 12:27
 comments: true
 keywords: nifi, unicode, utf8, utf-8, executesql
