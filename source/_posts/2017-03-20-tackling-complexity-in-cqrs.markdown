@@ -83,6 +83,8 @@ If you use a relational database, and all you need is to represent its data in d
 
 These ways to project models may not be cool and sexy, but they work. I’ve seen quite a few projects that have employed them, and they worked like a charm, without unjustifiably drowning in Event Sourcing related complexity.
 
+Wait, did I just suggest to ignore Event Sourcing at all costs because it is complex? Hell no! Event Sourcing is one of the most important tools in  your toolbox. But as any tool, use it in its context - business domains that bring business value: Core Subdomains. On the other hand, Generic and Supporting subdomains, that are simple enough to be implemented with Transaction Script or Active Record patterns, can still benefit from CQRS. In such case, employ the simplest tool that will do the job, and rip the benefits of CQRS using State Based Projections.
+
 ## Complexity Trap #3: Too Much of a Good Thing
 The Microservices hype has attracted lots of attention to CQRS: if you have a set of independent services that need to query each other’s data, [CQRS is the common solution](https://www.ibm.com/developerworks/cloud/library/cl-build-app-using-microservices-and-cqrs-trs/). However, I’ve seen this approach produce monstrous data flow diagrams of services projecting lots of data between them.
 
