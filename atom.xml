@@ -4,7 +4,7 @@
   <title><![CDATA[Vladikk]]></title>
   <link href="http://www.vladikk.com/atom.xml" rel="self"/>
   <link href="http://www.vladikk.com/"/>
-  <updated>2017-04-01T17:15:07+03:00</updated>
+  <updated>2017-04-02T12:37:05+03:00</updated>
   <id>http://www.vladikk.com/</id>
   <author>
     <name><![CDATA[Vladik Khononov]]></name>
@@ -141,6 +141,8 @@
 <p>If you use a relational database, and all you need is to represent its data in different models, database views will work great. Yep, a perfectly valid CQRS system can be implemented in the database. Probably the least sexiest solution - but not only does it work, it also naturally follows the CQRS pattern.</p>
 
 <p>These ways to project models may not be cool and sexy, but they work. I’ve seen quite a few projects that have employed them, and they worked like a charm, without unjustifiably drowning in Event Sourcing related complexity.</p>
+
+<p>Wait, did I just suggest to ignore Event Sourcing at all costs because it is complex? Hell no! Event Sourcing is one of the most important tools in  your toolbox. But as any tool, it should be used in its context - business domains that bring business value. I.e. Core Subdomains in DDD lingo. For other domains, that are way simpler, but can still benefit from CQRS, stick to the simplest tool that will do the job - Transaction Script or Active Record, and rip the benefits of CQRS using State Based Projections.</p>
 
 <h2>Complexity Trap #3: Too Much of a Good Thing</h2>
 
