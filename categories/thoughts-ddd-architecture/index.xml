@@ -25,12 +25,6 @@
 
 &lt;p&gt;To find the order in the apparent chaos, I want to analyze the DDD methodology from a rather unusual perspective — by applying Domain-Driven Design to Domain-Driven Design itself. After all, this methodology is intended to deal with complex domains, isn’t it?&lt;/p&gt;
 
-&lt;p&gt;Let’s start by identifying the core domain: what is DDD’s main competitive advantage, and what are its means of achieving it?&lt;/p&gt;
-
-&lt;h2 id=&#34;the-core-domain-ubiquitous-language&#34;&gt;The Core Domain: Ubiquitous Language&lt;/h2&gt;
-
-&lt;p&gt;In &amp;ldquo;Domain-Driven Design: Tackling Complexity in the Heart of Software&amp;rdquo;(the Blue Book), Eric Evans argues that poor collaboration between domain experts and software development teams causes many development endeavors to fail. DDD aims to increase the success rates by bridging this collaboration and communication gap.&lt;/p&gt;
-
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
