@@ -1,6 +1,0 @@
-[submodule ".themes/BlogTheme"]
-	path = .themes/BlogTheme
-	url = https://github.com/rastersize/BlogTheme.git
-[submodule ".themes/octoflat"]
-	path = .themes/octoflat
-	url = https://github.com/alexgaribay/octoflat
