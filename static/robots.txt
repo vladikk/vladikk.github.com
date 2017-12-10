@@ -4,4 +4,4 @@ layout: nil
 User-agent: *
 Disallow: 
 
-Sitemap: http://vladikk/sitemap.xml 
+Sitemap: http://vladikk.com/sitemap.xml 

@@ -8,7 +8,7 @@ pygmentsUseClasses: true
 pygmentCodeFences: true
 disqusShortname: vladikk-blog
 googleAnalytics: UA-40869819-1
-publishDir: ../blog.public
+publishDir: ../blog-public
 Params:
   subtitle: Random rants on software design
   logo: images/me.jpg
