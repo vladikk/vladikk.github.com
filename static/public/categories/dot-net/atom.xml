@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: .NET | Vladikk]]></title>
+  <link href="http://www.vladikk.com/categories/dot-net/atom.xml" rel="self"/>
+  <link href="http://www.vladikk.com/"/>
+  <updated>2017-04-02T12:59:08+03:00</updated>
+  <id>http://www.vladikk.com/</id>
+  <author>
+    <name><![CDATA[Vladik Khononov]]></name>
+    <email><![CDATA[vladik@khononov.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing SQL2JSON]]></title>
+    <link href="http://www.vladikk.com/2013/06/09/sql2json/"/>
+    <updated>2013-06-09T13:38:00+03:00</updated>
+    <id>http://www.vladikk.com/2013/06/09/sql2json</id>
+    <content type="html"><![CDATA[<p>If you'll ever try to generate JSON file using Sql Server's Management Studio, probably there'll be lots of pain in your future. If you wanna save the pain, you can use SQL2JSON, an open source project I started last week.</p>
+
+<p>The idea was born out of a need to generate a huge JSON file containing data from MSSQL database. After seeing our DBA struggling with formatting, escaping weird characters and unicode strings, I decided to write a small utility that will do just that - execute a sql query and capture its results as a json file.
+You can grab it from <a href="https://github.com/vladikk/sql2json">Github repository</a>.</p>
+
+<h2>Usage</h2>
+
+<p>Suppose you have a table called "users" with the following records:</p>
+
+<p><code>
+|user_id | first_name | last_name
+|--------|------------|----------
+|1       | john       | johnson
+|2       | scott      | scottson
+|3       | paul       | paulson
+</code></p>
+
+<!-- more -->
+
+
+<h3>Example #1 - Simplest Case</h3>
+
+<p><code>
+sql2json.exe -cs="Data Source=.;Initial Catalog=DB1;User Id=usr;Password=pwd;" -sql="select * from users" -output="users.json"
+</code></p>
+
+<p>``` json users.json
+[</p>
+
+<pre><code>{ "user_id": 1, "first_name": "john", "last_name": "johnson"},
+{ "user_id": 2, "first_name": "scott", "last_name": "scottson"},
+{ "user_id": 3, "first_name": "paul", "last_name": "paulson"}
+</code></pre>
+
+<p>]
+```</p>
+
+<h3>Example #2 - Nested Objects</h3>
+
+<p>This example demonstrates the use of delimiters to build a json string containing nested objects</p>
+
+<p><code>
+sql2json.exe -cs="Data Source=.;Initial Catalog=DB1;User Id=usr;Password=pwd;" -sql="select user_id, first_name as 'name::first', last_name as 'name::last' from users" -output="users.json"
+</code></p>
+
+<p>``` json users.json
+[</p>
+
+<pre><code>{
+    "user_id": 1,
+    "name": { "first": "john", "last": "johnson" }
+},
+{
+    "user_id": 2,
+    "name": { "first": "scott", "last": "scottson" }
+},
+{
+    "user_id": 3,
+    "name": { "first": "paul", "last": "paulson" }
+}
+</code></pre>
+
+<p>]
+```</p>
+
+<h2>Advanced Scenarios</h2>
+
+<p>If you need to include custom calculations or aggregations in your JSON objects you can either pre-calculate them in your sql query, or if you are more adventurous, you can write your own implementation of ITransformer to execute the required logic.</p>
+]]></content>
+  </entry>
+  
+</feed>

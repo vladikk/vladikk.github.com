@@ -1,0 +1,44 @@
+baseURL: http://www.vladikk.com
+disablePathToLower: true
+languageCode: en-us
+title: Vladikk
+theme: beautifulhugo
+DefaultContentLanguage: en
+pygmentsUseClasses: true
+pygmentCodeFences: true
+disqusShortname: vladikk-blog
+googleAnalytics: UA-40869819-1
+publishDir: ../blog.public
+Params:
+  subtitle: Random rants on software design
+  logo: images/me.jpg
+  favicon: favicon.ico
+  dateFormat: 'January 2, 2006'
+  commit: false
+  rss: true
+  comments: true
+Author:
+  name: Vladik Khononov
+  website: vladikk.com
+  email: vladik@khononov.com
+  facebook: vladikk
+  github: vladikk
+  twitter: vladikk
+  linkedin: vladikkhononov
+  stackoverflow: users/1736215/vladikk
+  instagram: vladikkk
+  telegram: vladik_kh
+menu:
+  main:
+    - name: Writing
+      url: ''
+      weight: 1
+    - name: Speaking
+      url: page/speaking/
+      weight: 2
+    - name: About
+      url: page/about/
+      weight: 4
+    - name: Contact me
+      url: page/contact/
+      weight: 4
