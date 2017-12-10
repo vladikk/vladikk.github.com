@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Container | Vladikk]]></title>
+  <link href="http://www.vladikk.com/categories/container/atom.xml" rel="self"/>
+  <link href="http://www.vladikk.com/"/>
+  <updated>2017-04-02T12:59:08+03:00</updated>
+  <id>http://www.vladikk.com/</id>
+  <author>
+    <name><![CDATA[Vladik Khononov]]></name>
+    <email><![CDATA[vladik@khononov.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Disposing Objects Created by DI Container]]></title>
+    <link href="http://www.vladikk.com/2012/08/23/disposing-objects-created-by-di-container/"/>
+    <updated>2012-08-23T07:57:00+03:00</updated>
+    <id>http://www.vladikk.com/2012/08/23/disposing-objects-created-by-di-container</id>
+    <content type="html"><![CDATA[<p>The general rule says that if you created an object, then it is your responsibility to dispose it. Things get a bit tricky when objects are created by a dependency injection container. The responsibility of containers is to construct objects and inject the dependencies they need. An error I’ve seen people doing again and again is to dispose objects that were injected into an object via constructor or property injection. Consider the class “Foo” that requires an instance of class “Bar”:
+``` c#
+public class Foo : IDisposable {</p>
+
+<pre><code>protected Bar bar;  
+public Foo(Bar bar) {  
+    this.bar = bar;  
+}  
+public void Dispose() {  
+    bar.Dispose();  
+}  
+</code></pre>
+
+<p>}</p>
+
+<p>public class Program {</p>
+
+<pre><code>static void Main() {  
+    var foo = container.Resolve&lt;Foo&gt;();  
+    ...  
+    foo.Dispose();  
+}  
+</code></pre>
+
+<p>}<br/>
+```
+The problem with this approach is that the “Foo” class will know too much about the environment it runs in. At least it will think it does. An instance of “Foo” can’t and shouldn’t know who passed in the instance of “Bar”, and what he intends to do with it after the instance of “Foo” will be disposed.</p>
+
+<!-- more -->
+
+
+<p>So who should dispose “Bar”? As I said in the beginning of the post, if you created an instance, then you should dispose it. In our case, a dependency injection container has created an object and its dependencies, and therefore it should be responsible for disposing them. Usually containers will have a special method for disposing objects, for example “TearDown” in Unity and “Release” in Windsor.
+Let’s see what the correct disposal strategy will look like in our Foo &amp; Bar case:
+``` c#
+public class Foo : IDisposable {</p>
+
+<pre><code>protected Bar bar;  
+public Foo(Bar bar) {  
+    this.bar = bar;  
+}  
+public void Dispose() { }  
+</code></pre>
+
+<p>}</p>
+
+<p>public class Program {</p>
+
+<pre><code>static void Main() {  
+    var foo = container.Resolve&lt;Foo&gt;();  
+    ...  
+    container.TearDown(foo);  
+}  
+</code></pre>
+
+<p>}<br/>
+```
+Note: Microsoft being Microsoft, didn’t implement the TearDown method correctly in their Unity framework. Out of the box, the method only disposes the passed object, and ignores the dependencies it created to construct it. The best solution to this issue is to use Rory Primrose’s <a href="http://www.neovolve.com/post/2010/06/18/Unity-Extension-For-Disposing-Build-Trees-On-TearDown.aspx">plugin that implements the absent functionality</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

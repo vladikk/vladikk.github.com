@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tdd Architecture Ddd on Vladikk</title>
+    <link>http://www.vladikk.com/categories/tdd-architecture-ddd/</link>
+    <description>Recent content in Tdd Architecture Ddd on Vladikk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
+    <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
+    <lastBuildDate>Fri, 22 Jan 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://www.vladikk.com/categories/tdd-architecture-ddd/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TDD: What Went Wrong…Or Did It?</title>
+      <link>http://www.vladikk.com/2016/01/22/tdd-what-went-wrong/</link>
+      <pubDate>Fri, 22 Jan 2016 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>http://www.vladikk.com/2016/01/22/tdd-what-went-wrong/</guid>
+      <description>&lt;p&gt;Test Driven Development has been praised by our industry&amp;rsquo;s aficionados for a long time. However, lately there have been many harsh words said towards TDD, as it’s being blamed for causing bad software design and not keeping many of its promises. This trend culminated in David Heinemeierhansson’s post &lt;a href=&#34;http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html&#34;&gt;“TDD is dead. Long live testing”&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;How is it possible, that the same technique, which is so advantageous to so many developers, is so disastrous to others?
+In this post I want to talk about 3 misconceptions that might explain this phenomenon.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start with the subtlest and most destructive one.&lt;/p&gt;
+
+&lt;h2 id=&#34;1-tdd-is-not-test-driven-design&#34;&gt;1. TDD is NOT “Test-Driven Design”&lt;/h2&gt;
+
+&lt;p&gt;TDD stands for “Test Driven &lt;strong&gt;&lt;em&gt;Development&lt;/em&gt;&lt;/strong&gt;”. Unfortunately, many misinterpret this as “Test Driven &lt;strong&gt;&lt;em&gt;Design&lt;/em&gt;&lt;/strong&gt;”. This inaccuracy may sound innocent, but believe me, it isn&amp;rsquo;t. Let me explain.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Managing Dependencies on Vladikk</title>
+    <link>http://www.vladikk.com/categories/managing-dependencies/</link>
+    <description>Recent content in Managing Dependencies on Vladikk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
+    <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
+    <lastBuildDate>Tue, 14 May 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://www.vladikk.com/categories/managing-dependencies/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Uncoupling Configuration Files</title>
+      <link>http://www.vladikk.com/2013/05/14/uncoupling-configuration-files/</link>
+      <pubDate>Tue, 14 May 2013 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>http://www.vladikk.com/2013/05/14/uncoupling-configuration-files/</guid>
+      <description>&lt;p&gt;Tight coupling is a known source for inflexible and hard to test code. In this post I want to talk about a rather unexpected source of tight coupling - configuration files.
+Configuration files are external dependencies. As other external dependencies, its infrastructure may change in the future, and it should be easily mocked for unit testing. Modern software frameworks provide means for easy access to the values stored in configuration files. In the .NET framework configuration files can be accessed using the ConfigurationManager:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot;?&amp;gt;
+&amp;lt;configuration&amp;gt;
+  &amp;lt;appSettings&amp;gt;
+    &amp;lt;add key=&amp;quot;Foo&amp;quot; value=&amp;quot;1&amp;quot;/&amp;gt;
+    &amp;lt;add key=&amp;quot;Bar&amp;quot; value=&amp;quot;2&amp;quot;/&amp;gt;
+  &amp;lt;/appSettings&amp;gt;
+&amp;lt;/configuration&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;int foo = int.Parse(ConfigurationManager.AppSetttings[“Foo”]);
+int bar = int.Parse(ConfigurationManager.AppSettings[“Bar”]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ConfigurationManager makes it trivial to access data in the config file, however in most cases it also introduces various code smells that make the code tight coupled and hard to test. In the next sections I’ll introduce a simple class and will use it to demonstrate the code smells and violations of principles of clean object oriented design. The code will be gradually refactored to a better and cleaner solution.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

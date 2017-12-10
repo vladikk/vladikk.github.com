@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://www.vladikk.com/sitemap.xml 

@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Learning From Mistakes: Leaky Abstractions - Vladikk</title>
+  <meta name="author" content="Vladik Khononov">
+
+  
+  <meta name="description" content="On the project I’m working on I’ve had a requirement to store and read files
+from the file system. Alse the files had to be accessible from the web. &hellip;">
+  <meta name="keywords" content="leaky abstraction, design, oop, ood, objection oriented design, code smell">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+   <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Vladikk" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-40869819-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+</hgroup>
+
+</header>
+  <!-- <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.vladikk.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav> -->
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Learning From Mistakes: Leaky Abstractions</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-15T03:10:00+02:00" pubdate data-updated="true">Oct 15<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>On the project I’m working on I’ve had a requirement to store and read files
+from the file system. Alse the files had to be accessible from the web.</p>
+
+<p>Having a gut feeling that the infrastructure may change as the business will
+grow, I decided to hide operations on the file system behind an interface:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">public</span> <span class="k">interface</span> <span class="n">IFilesStorage</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kt">string</span> <span class="nf">StoreFile</span><span class="p">(</span><span class="n">Stream</span> <span class="n">stream</span><span class="p">,</span> <span class="kt">string</span> <span class="n">fileName</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">Stream</span> <span class="nf">GetFile</span><span class="p">(</span><span class="kt">string</span> <span class="n">virtualPath</span><span class="p">);</span>
+</span><span class='line'>    <span class="kt">string</span> <span class="nf">GetFileUrl</span><span class="p">(</span><span class="kt">string</span> <span class="n">virtualPath</span><span class="p">);</span>
+</span><span class='line'>    <span class="kt">string</span> <span class="nf">GetFilePath</span><span class="p">(</span><span class="kt">string</span> <span class="n">virtualPath</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As it looks, if someday I’ll need to switch from the file
+system to another storage mechanism, I’ll be able to do get the
+job done by writing another implementation of the interface.
+Right? Wrong! The requirement did come in - I’ve had to store
+the files in S3. And only then I realised that IFilesStorage is
+a leaky abstraction.</p>
+
+<!-- more -->
+
+
+<p>The problem lies in the last method, GetFilePath. This method
+leaks out the implementation detail, that each file has a path
+which can be used to access the file from the file system. Of
+course, other storage mechanisms can’t provide such
+functionality. This bummer makes switching storage mechanism
+nearly impossible.</p>
+
+<p>From a <a href="http://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29">SOLID</a> point of view, this issue can be seen as a
+violation of the Liskov substitution principle: the file system
+based implementation of the interface cannot be replaced by
+another implementation, as it will break the correctness of the
+application.</p>
+
+<p>The solution was to drop the problematic method and get rid of
+the dependancy on file paths in the system.</p>
+
+<p>Lesson learned: having abstractions will make the code more testable,
+but if you’re aiming for supple design, make
+sure your abstractions don’t leak out details about the
+underlying architecture.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Vladik Khononov</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-15T03:10:00+02:00" pubdate data-updated="true">Oct 15<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/design/'>Design</a>, <a class='category' href='/categories/leaky-abstraction/'>Leaky abstraction</a>, <a class='category' href='/categories/ood/'>OOD</a>, <a class='category' href='/categories/oop/'>OOP</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/" data-via="vladikk" data-counturl="http://www.vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2012/09/10/dependency-injection-patterns/" title="Previous Post: Dependency Injection Patterns">&laquo; Dependency Injection Patterns</a>
+      
+      
+        <a class="basic-alignment right" href="/2013/05/14/uncoupling-configuration-files/" title="Next Post: Uncoupling Configuration Files">Uncoupling Configuration Files &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <div class="profilepic">
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		$.domReady(function(){
+			$('.profilepic').append("<img src='http://www.gravatar.com/avatar/" + MD5("vladik@khononov.com") + "?s=160' alt='Profile Picture' style='width: 223px;' />");
+		});
+	</script>
+</div>
+<section>
+  <ul id="recent_posts">
+      <li class="post">
+      <a href="http://www.vladikk.com" alt="Home"><img src="/images/Home.png"></a>
+      <a href="http://www.vladikk.com/archives/" alt="Archives"><img src="/images/Calendar.png"></a>
+      
+      <a href="mailto:vladik@khononov.com" alt="E-Mail"><img src="/images/Envelope.png"></a>
+      
+      <a href="http://www.vladikk.com/atom.xml" alt="subscribe feed"><img src="/images/rss.png"></a>
+      </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2017/03/30/nifi-unicode/">Apache NiFi: Enabling Unicode Support</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2017/03/20/tackling-complexity-in-cqrs/">Tackling Complexity in CQRS</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2016/11/20/sqs-fifo/">SQS Exactly-Once Processing is a Hoax</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2016/06/29/test-scopes/">Finding Proper Scopes for Unit Tests</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2016/04/05/tackling-complexity-ddd/">Tackling Complexity in the Heart of DDD</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/vladikk">@vladikk</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'vladikk',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - Vladik Khononov -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'vladikk-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/';
+        var disqus_url = 'http://www.vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

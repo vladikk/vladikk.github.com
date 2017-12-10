@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tdd on Vladikk</title>
+    <link>http://www.vladikk.com/categories/tdd/</link>
+    <description>Recent content in Tdd on Vladikk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
+    <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
+    <lastBuildDate>Wed, 29 Jun 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://www.vladikk.com/categories/tdd/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Finding Proper Scopes for Unit Tests</title>
+      <link>http://www.vladikk.com/2016/06/29/test-scopes/</link>
+      <pubDate>Wed, 29 Jun 2016 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>http://www.vladikk.com/2016/06/29/test-scopes/</guid>
+      <description>&lt;p&gt;In my previous &lt;strike&gt;rant&lt;/strike&gt; &lt;a href=&#34;http://vladikk.com/2016/01/22/tdd-what-went-wrong/&#34;&gt;post on TDD&lt;/a&gt; I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aws on Vladikk</title>
+    <link>http://www.vladikk.com/categories/aws/</link>
+    <description>Recent content in Aws on Vladikk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
+    <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
+    <lastBuildDate>Sun, 20 Nov 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://www.vladikk.com/categories/aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SQS Exactly-Once Processing is a Hoax</title>
+      <link>http://www.vladikk.com/2016/11/20/sqs-fifo/</link>
+      <pubDate>Sun, 20 Nov 2016 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>http://www.vladikk.com/2016/11/20/sqs-fifo/</guid>
+      <description>&lt;p&gt;Dear AWS,&lt;/p&gt;
+
+&lt;p&gt;Love you to death, but your recent announcement of &lt;a href=&#34;https://aws.amazon.com/about-aws/whats-new/2016/11/amazon-sqs-introduces-fifo-queues-with-exactly-once-processing-and-lower-prices-for-standard-queues/&#34;&gt;FIFO Queues with Exactly-Once Processing&lt;/a&gt; is not only misleading – it’s also harmful. I&amp;rsquo;ve instructed everyone at our company to ignore this announcement and use the standard queues instead. Let me tell you why.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

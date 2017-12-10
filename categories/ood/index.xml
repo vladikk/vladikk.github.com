@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ood on Vladikk</title>
+    <link>http://www.vladikk.com/categories/ood/</link>
+    <description>Recent content in Ood on Vladikk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
+    <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
+    <lastBuildDate>Mon, 15 Oct 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://www.vladikk.com/categories/ood/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Learning From Mistakes: Leaky Abstractions</title>
+      <link>http://www.vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/</link>
+      <pubDate>Mon, 15 Oct 2012 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>http://www.vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/</guid>
+      <description>&lt;p&gt;On the project I’m working on I’ve had a requirement to store and read files
+from the file system. Alse the files had to be accessible from the web.&lt;/p&gt;
+
+&lt;p&gt;Having a gut feeling that the infrastructure may change as the business will
+grow, I decided to hide operations on the file system behind an interface:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c#&#34;&gt;public interface IFilesStorage {
+    string StoreFile(Stream stream, string fileName);
+    Stream GetFile(string virtualPath);
+    string GetFileUrl(string virtualPath);
+    string GetFilePath(string virtualPath);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As it looks, if someday I’ll need to switch from the file
+system to another storage mechanism, I’ll be able to do get the
+job done by writing another implementation of the interface.
+Right? Wrong! The requirement did come in - I’ve had to store
+the files in S3. And only then I realised that IFilesStorage is
+a leaky abstraction.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Dependency Injection Patterns</title>
+      <link>http://www.vladikk.com/2012/09/10/dependency-injection-patterns/</link>
+      <pubDate>Mon, 10 Sep 2012 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>http://www.vladikk.com/2012/09/10/dependency-injection-patterns/</guid>
+      <description>&lt;p&gt;Choosing the right pattern for implementing dependency injection is an important task and can affect your class’s usability and functionality. In this post I’ll overview 3 patterns of implementing dependency injection - constructor injection, property injection, builder (Joshua Bloch’s pattern, not GoF pattern).
+For demonstration purposes we will work with a class called TextTranslator, that requires 3 dependencies: TextReader, TranslationService and TextWriter:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c#&#34;&gt;public class TextTranslator
+{
+    protected TextReader textReader;
+    protected TranslationService translationService;
+    protected TextWriter textWriter;    
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The sample code will be written in C#, but the examples are applicable to Java and other object oriented languages.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

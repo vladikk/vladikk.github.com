@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Vladikk</title>
+    <link>http://www.vladikk.com/categories/python/</link>
+    <description>Recent content in Python on Vladikk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
+    <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
+    <lastBuildDate>Sat, 01 Jun 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://www.vladikk.com/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Unicode file names in Python 2.7</title>
+      <link>http://www.vladikk.com/2013/06/01/unicode-file-names-in-python/</link>
+      <pubDate>Sat, 01 Jun 2013 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>http://www.vladikk.com/2013/06/01/unicode-file-names-in-python/</guid>
+      <description>&lt;p&gt;Today I wrote a small script to find and delete duplicate files. To do this task I needed to iterate over files in a specific folder, and calculate md5 checksum for each file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;for folder, subs, files in os.walk(path):
+    for filename in files:
+        file_path = os.path.join(folder, filename)
+	        with open(file_path, &#39;rb&#39;) as fh:
+	        	...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If the source folder contains a file or a folder with unicode characters in it, execution of the code results in this bummer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;IOError: [Errno 22] invalid mode (&#39;rb&#39;) or filename: &#39;files\\????????? ????? ????????.txt&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

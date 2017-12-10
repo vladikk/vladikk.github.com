@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Serving Flask with Nginx</title>
+  <meta property="og:title" content="Serving Flask with Nginx" />
+  <meta name="twitter:title" content="Serving Flask with Nginx" />
+  <meta name="description" content="In this post I&#39;ll walk you through the process of installing and configuring the nginx server to host Flask applications.">
+  <meta property="og:description" content="In this post I&#39;ll walk you through the process of installing and configuring the nginx server to host Flask applications.">
+  <meta name="twitter:description" content="In this post I&#39;ll walk you through the process of installing and configuring the nginx server to host Flask applications.">
+  <meta name="author" content="Vladik Khononov"/>
+  <link href='http://www.vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="http://www.vladikk.com/images/me.jpg" />
+  <meta name="twitter:image" content="http://www.vladikk.com/images/me.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@vladikk" />
+  <meta name="twitter:creator" content="@vladikk" />
+  <meta property="og:url" content="http://www.vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vladikk" />
+
+  <meta name="generator" content="Hugo 0.31.1" />
+  <link rel="canonical" href="http://www.vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/" />
+  <link rel="alternate" href="" type="application/rss+xml" title="Vladikk">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://www.vladikk.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://www.vladikk.com/css/highlighting.css" />
+  <link rel="stylesheet" href="http://www.vladikk.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://www.vladikk.com/css/highlight.min.css" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-40869819-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.vladikk.com">Vladikk</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Writing" href="/">Writing</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Speaking" href="/page/speaking/">Speaking</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Contact me" href="/page/contact/">Contact me</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Vladikk" href="http://www.vladikk.com">
+            <img class="avatar-img" src="http://www.vladikk.com/images/me.jpg" alt="Vladikk" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Serving Flask with Nginx</h1>
+                
+                
+                  <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on September 12, 2013
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 7 min (1299 mots)
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Having spent the majority of my career in the Microsoft stack, lately I&rsquo;ve decided to step out of my comfort zone and to dive into the world of open source software. The project I&rsquo;m currently working on at my day job is a RESTful service. The service will be running on a commodity hardware, that should be able to scale horizontally as needed. To do the job I&rsquo;ve decided to use Flask and Nginx. Flask is a lightweight Python web framework, and nginx is a highly stable web server, that works great on cheap hardware.</p>
+
+<p>In this post I will guide you through the process of installing and configuring nginx server to host Flask based applications. The OS I&rsquo;ll be using is Ubuntu 13.04.</p>
+
+<p></p>
+
+<h2 id="nginx">Nginx</h2>
+
+<p>To install nginx from apt-get, we have to add Nginx repositories to apt-get sources:</p>
+
+<pre><code class="language-bash">sudo add-apt-repository ppa:nginx/stable
+</code></pre>
+
+<p><em>Note: If the &ldquo;add-apt-repository&rdquo; command doesn&rsquo;t exist on your Ubuntu version, you need to install the &ldquo;software-properties-common&rdquo; package:
+sudo apt-get install software-properties-common (Thanks to get_with_it for mentioning it in the comments)</em></p>
+
+<p>Update and upgrade packages:</p>
+
+<pre><code class="language-bash">sudo apt-get update &amp;&amp; sudo apt-get upgrade
+</code></pre>
+
+<p>Install and start Nginx:</p>
+
+<pre><code class="language-bash">sudo apt-get install nginx
+sudo /etc/init.d/nginx start
+</code></pre>
+
+<h3 id="milestone-1">Milestone #1</h3>
+
+<p>Browse to your server and you should get the Nginx greeting page:
+<img src="/images/nginx-flask-ubuntu/milestone_1.png" alt="nginx" /></p>
+
+<h2 id="sample-application">Sample application</h2>
+
+<p>The application we will host is literally a &ldquo;Hello, world!&rdquo; application. It will serve only one page, and guess what text it will contain.
+All the application related files will be stored at the /var/www/demoapp folder. Let&rsquo;s create this folder, and initialize a virtual environment in it:</p>
+
+<pre><code class="language-bash">sudo mkdir /var/www
+sudo mkdir /var/www/demoapp
+</code></pre>
+
+<p>Since we created the folder under root privileges, it is currently owned by the root user. Let&rsquo;s change the ownership to the user you are logged in to (&ldquo;ubuntu&rdquo; in my case):</p>
+
+<pre><code class="language-bash">sudo chown -R ubuntu:ubuntu /var/www/demoapp/
+</code></pre>
+
+<p>Install the virtualenv package:</p>
+
+<pre><code class="language-bash">sudo apt-get install python-virtualenv
+</code></pre>
+
+<p>Create and activate a virtual environment, and install Flask into it:</p>
+
+<pre><code class="language-bash">cd /var/www/demoapp
+virtualenv venv
+. venv/bin/activate
+pip install flask
+</code></pre>
+
+<p>Create as simple Flask application:</p>
+
+<p>/var/www/demoapp/hello.py</p>
+
+<pre><code class="language-python">from flask import Flask
+app = Flask(__name__)
+
+@app.route(&quot;/&quot;)
+def hello():
+    return &quot;Hello World!&quot;
+
+if __name__ == &quot;__main__&quot;:
+    app.run(host='0.0.0.0', port=8080)
+</code></pre>
+
+<h3 id="milestone-2">Milestone #2</h3>
+
+<p>Let&rsquo;s execute the script we&rsquo;ve just created:</p>
+
+<pre><code class="language-bash">python hello.py
+</code></pre>
+
+<p>Now you can browse to your server&rsquo;s port 8080 and see the app in action:
+<img src="/images/nginx-flask-ubuntu/milestone_2.png" alt="flask" /></p>
+
+<p><em>Note: I&rsquo;ve used port 8080 because port 80 is already in use by nginx</em></p>
+
+<p>Currently the app is served by Flask&rsquo;s built in web server. It is a great tool for development and debugging needs, but it is not recommended in production environment. Let&rsquo;s install uWSGI and configure Nginx to do the heavy lifting.</p>
+
+<h2 id="uwsgi">uWSGI</h2>
+
+<p>Nginx is a web server. It serves static files, however it cannot execute and host Python application. uWSGI fills that gap. Let&rsquo;s install it first, and later we&rsquo;ll configure nginx and uWSGI to talk to each other.</p>
+
+<p>First, make sure you have the required compilers and tools, and then install uWSGI:</p>
+
+<pre><code class="language-bash">sudo apt-get install build-essential python python-dev
+pip install uwsgi
+</code></pre>
+
+<h2 id="configuring-nginx">Configuring Nginx</h2>
+
+<p>Let&rsquo;s start by removing the Nginx&rsquo;s default site configuration:</p>
+
+<pre><code class="language-bash">sudo rm /etc/nginx/sites-enabled/default 
+</code></pre>
+
+<p><strong>Note: If you installed a version of nginx from other repository, the default configuration file may be located at the /etc/nginx/conf.d folder.</strong></p>
+
+<p>Instead create a new configuration file for our application <strong>/var/www/demoapp/demoapp_nginx.conf</strong>:</p>
+
+<pre><code class="language-text">server {
+    listen      80;
+    server_name localhost;
+    charset     utf-8;
+    client_max_body_size 75M;
+
+    location / { try_files $uri @yourapplication; }
+    location @yourapplication {
+        include uwsgi_params;
+        uwsgi_pass unix:/var/www/demoapp/demoapp_uwsgi.sock;
+    }    
+}
+</code></pre>
+
+<p>And symlink the new file to nginx&rsquo;s configuration files directory and restart nginx:</p>
+
+<pre><code class="language-bash">sudo ln -s /var/www/demoapp/demoapp_nginx.conf /etc/nginx/conf.d/
+sudo /etc/init.d/nginx restart
+</code></pre>
+
+<h3 id="milestone-3">Milestone #3</h3>
+
+<p>Browser to server&rsquo;s public ip address, and you will be greeted by an error:
+<img src="/images/nginx-flask-ubuntu/milestone_3.png" alt="502" />
+No need to worry, this is a &ldquo;good&rdquo; error. It says that nginx uses the configuration file we just created, but it has a trouble connecting to our Python application host, uWSGI. The connection to uWSGI is defined in the configuration file at line #10:
+    uwsgi_pass unix:/var/www/demoapp/demoapp_uwsgi.sock;
+It says that the communication between nginx and uWSGI is done via a socket file, that should be located at <em>/var/www/demoapp/demoapp_uwsgi.sock</em>. Since we still haven&rsquo;t configured uWSGI yet, the file doesn&rsquo;t exist, and Nginx returns the &ldquo;bad gateway&rdquo; error. Let&rsquo;s fix this now.</p>
+
+<h2 id="configuring-uwsgi">Configuring uWSGI</h2>
+
+<p>Create a new uWSGI configuration file <strong>/var/www/demoapp/demoapp_uwsgi.ini</strong>:</p>
+
+<pre><code class="language-text">[uwsgi]
+#application's base folder
+base = /var/www/demoapp
+
+#python module to import
+app = hello
+module = %(app)
+
+home = %(base)/venv
+pythonpath = %(base)
+
+#socket file's location
+socket = /var/www/demoapp/%n.sock
+
+#permissions for the socket file
+chmod-socket    = 666
+
+#the variable that holds a flask application inside the module imported at line #6
+callable = app
+
+#location of log files
+logto = /var/log/uwsgi/%n.log
+
+</code></pre>
+
+<p>Let&rsquo;s create a new directory for uwsgi log files, and change its owner to your user:</p>
+
+<pre><code class="language-bash">sudo mkdir -p /var/log/uwsgi
+sudo chown -R ubuntu:ubuntu /var/log/uwsgi
+</code></pre>
+
+<h3 id="milestone-4">Milestone #4</h3>
+
+<p>Let&rsquo;s execute uWSGI and pass it the newly created configuration file:</p>
+
+<pre><code class="language-bash">uwsgi --ini /var/www/demoapp/demoapp_uwsgi.ini
+</code></pre>
+
+<p>Next, browse to your server. Now nginx should be able to connect to uWSGI process:
+<img src="/images/nginx-flask-ubuntu/milestone_4.png" alt="uwsgi" /></p>
+
+<p>We are almost finished. The only thing left to do, is to configure uWSGI to run as a background service. That&rsquo;s the duty of uWSGI Emperor.</p>
+
+<h2 id="uwsgi-emperor">uWSGI Emperor</h2>
+
+<p>uWSGI Emperor (quite a name, isn&rsquo;t it?) is responsible for reading configuration files and spawing uWSGI processes to execute them.
+Create a new upstart configuration file to execute emperor - <strong>/etc/init/uwsgi.conf</strong>:</p>
+
+<pre><code class="language-bash">description &quot;uWSGI&quot;
+start on runlevel [2345]
+stop on runlevel [06]
+respawn
+
+env UWSGI=/var/www/demoapp/venv/bin/uwsgi
+env LOGTO=/var/log/uwsgi/emperor.log
+
+exec $UWSGI --master --emperor /etc/uwsgi/vassals --die-on-term --uid www-data --gid www-data --logto $LOGTO
+</code></pre>
+
+<p>The last line executes the uWSGI daemon and sets it to look for config files in the <strong>/etc/uwsgi/vassals</strong> folder. Let&rsquo;s create this folder and symlink the configuration file we created earlier into it:</p>
+
+<pre><code class="language-bash">sudo mkdir /etc/uwsgi &amp;&amp; sudo mkdir /etc/uwsgi/vassals
+sudo ln -s /var/www/demoapp/demoapp_uwsgi.ini /etc/uwsgi/vassals
+</code></pre>
+
+<p>Also, the last line states the the user that will be used to execute the daemon is www-data. For simplicity&rsquo;s sake, let&rsquo;s set him as the owner of the application and log folders:</p>
+
+<pre><code class="language-bash">sudo chown -R www-data:www-data /var/www/demoapp/
+sudo chown -R www-data:www-data /var/log/uwsgi/
+</code></pre>
+
+<p><strong>Note: The nginx version we installed earlier uses the &ldquo;www-data&rdquo; user for executing nginx. Nginx versions from other repositories may use a user named &ldquo;nginx&rdquo; instead.</strong></p>
+
+<p>Since both, nginx and uWSGI, are now being run by the same user, we can make a security improvement to our uWSGI configuration. Open up the uwsgi config file(/var/www/demoapp/demoapp_uwsgi.ini) and change the value of chmod-socket from <strong>666</strong> to <strong>644</strong>:</p>
+
+<pre><code class="language-text">...
+#permissions for the socket file
+chmod-socket    = 644
+</code></pre>
+
+<p>Now we can start the uWSGI job:</p>
+
+<pre><code class="language-bash">sudo start uwsgi
+</code></pre>
+
+<p>Finally, both Nginx and uWSGI are configured to correctly serve our application on system start up.</p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>If something goes wrong, the first place to check is the log files. By default, nginx writes error message to the file <strong>/var/log/nginx/errors.log</strong>.</p>
+
+<p>We&rsquo;ve configured uWSGI emperor to write it&rsquo;s logs to <strong>/var/log/uwsgi/emperor.log</strong>. Also this folder contains separate log files for each configured application. In our case - <strong>/var/log/uwsgi/demoapp_uwsgi.log</strong>.</p>
+
+<h2 id="static-files">Static Files</h2>
+
+<p>If your application has to serve static files, the following rule should be added to the <strong>demoapp_nginx.conf</strong> file:</p>
+
+<pre><code class="language-text">location /static {
+    root /var/www/demoapp/;
+}
+</code></pre>
+
+<p>As a result, all static files located at <strong>/var/www/demoapp/static</strong> will be served by nginx.
+<em>(Bastianh, thanks for pointing this out)</em></p>
+
+<h2 id="hosting-multiple-applications">Hosting Multiple Applications</h2>
+
+<p>If you want to host multiple Flask applications on a single server, create a separate folder for each application, as we did earlier, and symlink nginx and uWSGI configuration files to the appropriate folder.</p>
+
+<h2 id="deploying-applications-with-distribute">Deploying Applications with Distribute</h2>
+
+<p>To deploy Flask apps using <a href="https://pypi.python.org/pypi/distribute">distribute</a>, first follow the steps in <a href="http://flask.pocoo.org/docs/patterns/packages/#larger-applications">Flask documentation</a> to convert your application into a package. Next, copy the generated distribute setup package to the server, and use the virtual environment&rsquo;s Python to install it. E.g.:</p>
+
+<pre><code class="language-bash">python setup.py install
+</code></pre>
+
+<p>And last but not least, the &ldquo;app&rdquo; property of uWSGI configuration&rsquo;s file should be equal to name of the package that holds the Flask application.</p>
+      </article>
+
+      <hr/>
+      <div id="share">
+      If you liked this post, please share it with your friends and colleagues:
+      <p><div class="addthis_inline_share_toolbox"></div></p>
+    </div>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="http://www.vladikk.com/2013/06/11/json2csv/" data-toggle="tooltip" data-placement="top" title="JSON2CSV">&larr; Previous Post</a>
+          </li>
+        
+        
+          <li class="next">
+            <a href="http://www.vladikk.com/2016/01/22/tdd-what-went-wrong/" data-toggle="tooltip" data-placement="top" title="TDD: What Went Wrong…Or Did It?">Next Post &rarr;</a>
+          </li>
+        
+      </ul>
+
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladikk-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:vladik@khononov.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/vladikk" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/vladikk" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/vladikk" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/vladikkhononov" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/1736215/vladikk" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/vladikkk" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://telegram.me/vladik_kh" title="Telegram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-telegram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="vladikk.com">Vladik Khononov</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://www.vladikk.com">Vladikk</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.31.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://www.vladikk.com/js/main.js"></script>
+<script src="http://www.vladikk.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="http://www.vladikk.com/js/load-photoswipe.js"></script>
+
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a2d0cd9bc54813f"></script>
+
+  </body>
+</html>
+

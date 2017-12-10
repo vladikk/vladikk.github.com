@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Posts</title>
+  <meta property="og:title" content="Posts" />
+  <meta name="twitter:title" content="Posts" />
+  <meta name="author" content="Vladik Khononov"/>
+  <link href='http://www.vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="http://www.vladikk.com/images/me.jpg" />
+  <meta name="twitter:image" content="http://www.vladikk.com/images/me.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@vladikk" />
+  <meta name="twitter:creator" content="@vladikk" />
+  <meta property="og:url" content="http://www.vladikk.com/post/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vladikk" />
+
+  <meta name="generator" content="Hugo 0.31.1" />
+  <link rel="canonical" href="http://www.vladikk.com/post/" />
+  <link rel="alternate" href="http://www.vladikk.com/post/index.xml" type="application/rss+xml" title="Vladikk">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://www.vladikk.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://www.vladikk.com/css/highlighting.css" />
+  <link rel="stylesheet" href="http://www.vladikk.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://www.vladikk.com/css/highlight.min.css" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-40869819-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.vladikk.com">Vladikk</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Writing" href="/">Writing</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Speaking" href="/page/speaking/">Speaking</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Contact me" href="/page/contact/">Contact me</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Vladikk" href="http://www.vladikk.com">
+            <img class="avatar-img" src="http://www.vladikk.com/images/me.jpg" alt="Vladikk" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  <header class="header-section ">
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="page-heading">
+              <h1>Posts</h1>
+              <hr class="small">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="posts-list">
+          
+            <article class="post-preview">
+              <a href="http://www.vladikk.com/2017/03/30/nifi-unicode/">
+                <h2 class="post-title">Apache NiFi: Enabling Unicode Support</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on March 30, 2017
+              </p>
+              <div class="post-entry">
+                
+                  <p>If you&rsquo;re using Apache NiFi to move data around, you might stumble upon Unicode characters turning into question marks. For example, the ExecuteSQL processor does that. To fix this you have to set JVM&rsquo;s default encoding to UTF-8.</p>
+
+<p></p>
+                  <a href="http://www.vladikk.com/2017/03/30/nifi-unicode/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://www.vladikk.com/2017/03/20/tackling-complexity-in-cqrs/">
+                <h2 class="post-title">Tackling Complexity in CQRS</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on March 20, 2017
+              </p>
+              <div class="post-entry">
+                
+                  <p><img src="/images/cqrs/title-img.jpg" alt="Tackling Complexity in CQRS" /></p>
+
+<p>The CQRS pattern can do wonders: it can maximize scalability, performance, security, and even <a href="http://codebetter.com/gregyoung/2010/02/20/cqrs-and-cap-theorem/">“beat” the CAP theorem</a>. Nonetheless, CQRS has acquired a controversial name because of the complexity it introduces. For instance, <a href="https://martinfowler.com/bliki/CQRS.html">in his article on CQRS</a>, Martin Fowler argues that the pattern should be applied sparingly and even cautiously:</p>
+
+<ul>
+<li>“… for most systems CQRS adds risky complexity”</li>
+<li>“… you should be very cautious about using CQRS”</li>
+<li>“So while CQRS is a pattern that&rsquo;s good to have in the toolbox, beware that it is difficult to use well and you can easily chop off important bits if you mishandle it.”</li>
+</ul>
+
+<p>From my point of view, the CQRS-induced complexity is largely accidental, and thus can be avoided. To illustrate my point, I want to discuss the goal of CQRS, and then analyze 3 common sources of accidental complexity in CQRS-based systems.</p>
+
+<p></p>
+                  <a href="http://www.vladikk.com/2017/03/20/tackling-complexity-in-cqrs/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://www.vladikk.com/2016/11/20/sqs-fifo/">
+                <h2 class="post-title">SQS Exactly-Once Processing is a Hoax</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on November 20, 2016
+              </p>
+              <div class="post-entry">
+                
+                  <p>Dear AWS,</p>
+
+<p>Love you to death, but your recent announcement of <a href="https://aws.amazon.com/about-aws/whats-new/2016/11/amazon-sqs-introduces-fifo-queues-with-exactly-once-processing-and-lower-prices-for-standard-queues/">FIFO Queues with Exactly-Once Processing</a> is not only misleading – it’s also harmful. I&rsquo;ve instructed everyone at our company to ignore this announcement and use the standard queues instead. Let me tell you why.</p>
+
+<p></p>
+                  <a href="http://www.vladikk.com/2016/11/20/sqs-fifo/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://www.vladikk.com/2016/06/29/test-scopes/">
+                <h2 class="post-title">Finding Proper Scopes for Unit Tests</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on June 29, 2016
+              </p>
+              <div class="post-entry">
+                
+                  <p>In my previous <strike>rant</strike> <a href="http://vladikk.com/2016/01/22/tdd-what-went-wrong/">post on TDD</a> I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.</p>
+
+<p></p>
+                  <a href="http://www.vladikk.com/2016/06/29/test-scopes/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://www.vladikk.com/2016/04/05/tackling-complexity-ddd/">
+                <h2 class="post-title">Tackling Complexity in the Heart of DDD</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on April 5, 2016
+              </p>
+              <div class="post-entry">
+                
+                  <p><img src="/images/ddd/title-img.jpg" alt="Tackling Complexity in the Heart of Domain-Driven Design" /></p>
+
+<p>Let’s do a little experiment: try to explain the gist of Domain-Driven Design to someone who has no clue about it. This, especially doing it succinctly, is not easy. Heck, I struggle with it myself. Bounded contexts, entities, domain events, value objects, domains, aggregates, repositories… where do you even start?</p>
+
+<p>To find the order in the apparent chaos, I want to analyze the DDD methodology from a rather unusual perspective — by applying Domain-Driven Design to Domain-Driven Design itself. After all, this methodology is intended to deal with complex domains, isn’t it?</p>
+
+<p>Let’s start by identifying the core domain: what is DDD’s main competitive advantage, and what are its means of achieving it?</p>
+
+<h2 id="the-core-domain-ubiquitous-language">The Core Domain: Ubiquitous Language</h2>
+
+<p>In &ldquo;Domain-Driven Design: Tackling Complexity in the Heart of Software&rdquo;(the Blue Book), Eric Evans argues that poor collaboration between domain experts and software development teams causes many development endeavors to fail. DDD aims to increase the success rates by bridging this collaboration and communication gap.</p>
+
+<p></p>
+                  <a href="http://www.vladikk.com/2016/04/05/tackling-complexity-ddd/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://www.vladikk.com/2016/03/05/interviewing/">
+                <h2 class="post-title">A Quick and Dirty Hack for Interviewing Job Candidates</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on March 5, 2016
+              </p>
+              <div class="post-entry">
+                
+                  <p>One simple question can shed a lot of light on one’s competency in a given field: &ldquo;On a scale of 1 to 10, please rate your knowledge of [enter-name-of-the-field-here]&ldquo;.</p>
+
+<p>One can assume that the higher the grade, the better. But that’s not the case at all. Why? Science — that’s why. Enter the Dunning-Kruger effect.</p>
+
+<h2 id="the-dunning-kruger-effect">The Dunning-Kruger Effect</h2>
+
+<p>The Dunning-Kruger effect is a cognitive bias that suggests that one cannot objectively assess one&rsquo;s own abilities. It’s all about the unknowns — things that you don’t know — and whether you&rsquo;re aware of them.</p>
+
+<p>The less expertise you have in a given field, the more unknown unknowns you have. You cannot objectively evaluate your knowledge, and, consequently, you are mistakenly assessing your abilities to be much higher than they actually are.</p>
+
+<p>This bias also works the other way around. The more expertise you have in a given field, the more known unknowns you have. This awareness of things you don&rsquo;t know tricks you into making a more humbling assessment of your abilities.</p>
+
+<p></p>
+                  <a href="http://www.vladikk.com/2016/03/05/interviewing/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://www.vladikk.com/2016/02/12/dddeu-2016/">
+                <h2 class="post-title">DDDEU 2016 Impressions</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on February 12, 2016
+              </p>
+              <div class="post-entry">
+                
+                  <p>Last month, I had the pleasure of attending the Domain Driven Design Europe conference in Brussels. As I’ve tweeted before, this was the best conference I’ve ever attended. In this post, I’d like to sum the things I’ve learned at the conference.</p>
+
+<h2 id="it-s-not-only-about-sessions">It&rsquo;s Not (Only) About Sessions</h2>
+
+<p>It was the first time I’ve attended a conference alone. Honestly, I was afraid that my introverted side would take over, and I’d master wallflower imitation techniques between sessions. Fortunately, it didn’t happen. I felt at home the moment I left the hotel for the conference. From that moment on, and up until the very last moments of the conference, I met a lot of like-minded people from all over the world - Belgium, Denmark, Germany, Austria, UK, Poland, Italy, France, USA, Finland, Switzerland, Netherlands, Romania, Bulgaria, and even from Israel.</p>
+
+<p>For me, the social part, alone, was worth the trip. And don’t get me wrong, the sessions were great, but the ability to meet new friends, share experiences and ideas, and get fresh perspectives, was priceless.
+And I’m yet to mention discussing Star Wars with Eric Evans, discovering that Vaughn Vernon knows Israel better than I do, catching up with Greg Young, and last but not least, drinking beer with Yves Reynhout — it is unbelievable how much I learned from Yves that evening.</p>
+
+<p>Lesson learned: Go to conferences alone and meet new people.
+</p>
+                  <a href="http://www.vladikk.com/2016/02/12/dddeu-2016/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://www.vladikk.com/2016/01/22/tdd-what-went-wrong/">
+                <h2 class="post-title">TDD: What Went Wrong…Or Did It?</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on January 22, 2016
+              </p>
+              <div class="post-entry">
+                
+                  <p>Test Driven Development has been praised by our industry&rsquo;s aficionados for a long time. However, lately there have been many harsh words said towards TDD, as it’s being blamed for causing bad software design and not keeping many of its promises. This trend culminated in David Heinemeierhansson’s post <a href="http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html">“TDD is dead. Long live testing”</a>.</p>
+
+<p>How is it possible, that the same technique, which is so advantageous to so many developers, is so disastrous to others?
+In this post I want to talk about 3 misconceptions that might explain this phenomenon.</p>
+
+<p>Let&rsquo;s start with the subtlest and most destructive one.</p>
+
+<h2 id="1-tdd-is-not-test-driven-design">1. TDD is NOT “Test-Driven Design”</h2>
+
+<p>TDD stands for “Test Driven <strong><em>Development</em></strong>”. Unfortunately, many misinterpret this as “Test Driven <strong><em>Design</em></strong>”. This inaccuracy may sound innocent, but believe me, it isn&rsquo;t. Let me explain.</p>
+
+<p></p>
+                  <a href="http://www.vladikk.com/2016/01/22/tdd-what-went-wrong/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://www.vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/">
+                <h2 class="post-title">Serving Flask with Nginx</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on September 12, 2013
+              </p>
+              <div class="post-entry">
+                
+                  <p>Having spent the majority of my career in the Microsoft stack, lately I&rsquo;ve decided to step out of my comfort zone and to dive into the world of open source software. The project I&rsquo;m currently working on at my day job is a RESTful service. The service will be running on a commodity hardware, that should be able to scale horizontally as needed. To do the job I&rsquo;ve decided to use Flask and Nginx. Flask is a lightweight Python web framework, and nginx is a highly stable web server, that works great on cheap hardware.</p>
+
+<p>In this post I will guide you through the process of installing and configuring nginx server to host Flask based applications. The OS I&rsquo;ll be using is Ubuntu 13.04.</p>
+
+<p></p>
+                  <a href="http://www.vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://www.vladikk.com/2013/06/11/json2csv/">
+                <h2 class="post-title">JSON2CSV</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on June 11, 2013
+              </p>
+              <div class="post-entry">
+                
+                  <p>Last week I&rsquo;ve needed a utility to convert a file containing json data to csv. I found many online solutions, but for some weird reason they didn&rsquo;t support nested objects and arrays. So I wrote one, this time in python.</p>
+
+<p></p>
+                  <a href="http://www.vladikk.com/2013/06/11/json2csv/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+        </div>
+        
+          <ul class="pager main-pager">
+            
+            
+              <li class="next">
+                <a href="/post/page/2/">Older Posts &rarr;</a>
+              </li>
+            
+          </ul>
+        
+      </div>
+    </div>
+  </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:vladik@khononov.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/vladikk" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/vladikk" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/vladikk" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/vladikkhononov" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/1736215/vladikk" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/vladikkk" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://telegram.me/vladik_kh" title="Telegram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-telegram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="http://www.vladikk.com/post/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="vladikk.com">Vladik Khononov</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://www.vladikk.com">Vladikk</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.31.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://www.vladikk.com/js/main.js"></script>
+<script src="http://www.vladikk.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="http://www.vladikk.com/js/load-photoswipe.js"></script>
+
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a2d0cd9bc54813f"></script>
+
+  </body>
+</html>
+
