@@ -18,10 +18,10 @@ In this post I want to talk about 3 misconceptions that might explain this pheno
 
 Let's start with the subtlest and most destructive one.
 
+<!--more-->
+
 ## 1. TDD is NOT “Test-Driven Design”
 TDD stands for “Test Driven ***Development***”. Unfortunately, many misinterpret this as “Test Driven ___Design___”. This inaccuracy may sound innocent, but believe me, it isn't. Let me explain.
-
-<!--more-->
 
 Test Driven Design implies that automatic tests should drive your software design decisions. Seriously? With all due respect, automatic tests are no end goal for developing software. The true goal is delivering projects on time, on budget, and most importantly, meeting all quality requirements. That's where all your design and development efforts should be aimed at.
 
