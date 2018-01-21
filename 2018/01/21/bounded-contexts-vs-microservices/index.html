@@ -5,9 +5,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Design</title>
-  <meta property="og:title" content="Design" />
-  <meta name="twitter:title" content="Design" />
+  <title>Bounded Contexts are NOT Microservices</title>
+  <meta property="og:title" content="Bounded Contexts are NOT Microservices" />
+  <meta name="twitter:title" content="Bounded Contexts are NOT Microservices" />
+  <meta name="description" content="
+
+I’ve always considered Domain-Driven Design’s Bounded Context as a guideline for defining the boundaries of Microservices. I was wrong. Not only is this heuristic flawed, but Bounded Contexts are the exact opposite of Microservices! To explain this point of view, I’ll start with a quick refresh of what Bounded Contexts are; then I’ll discuss the relationship between Bounded Contexts and Microservices.
+
+">
+  <meta property="og:description" content="
+
+I’ve always considered Domain-Driven Design’s Bounded Context as a guideline for defining the boundaries of Microservices. I was wrong. Not only is this heuristic flawed, but Bounded Contexts are the exact opposite of Microservices! To explain this point of view, I’ll start with a quick refresh of what Bounded Contexts are; then I’ll discuss the relationship between Bounded Contexts and Microservices.
+
+">
+  <meta name="twitter:description" content="
+
+I’ve always considered Domain-Driven Design’s Bounded Context as a guideline for defining the boundaries of Microservices. I was wrong. Not only is this heuristic flawed, but Bounded Contexts are …">
   <meta name="author" content="Vladik Khononov"/>
   <link href='http://www.vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="http://www.vladikk.com/images/me.jpg" />
@@ -15,13 +28,13 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@vladikk" />
   <meta name="twitter:creator" content="@vladikk" />
-  <meta property="og:url" content="http://www.vladikk.com/categories/design/" />
+  <meta property="og:url" content="http://www.vladikk.com/2018/01/21/bounded-contexts-vs-microservices/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vladikk" />
 
   <meta name="generator" content="Hugo 0.31.1" />
-  <link rel="canonical" href="http://www.vladikk.com/categories/design/" />
-  <link rel="alternate" href="http://www.vladikk.com/categories/design/index.xml" type="application/rss+xml" title="Vladikk">
+  <link rel="canonical" href="http://www.vladikk.com/2018/01/21/bounded-contexts-vs-microservices/" />
+  <link rel="alternate" href="" type="application/rss+xml" title="Vladikk">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -31,7 +44,7 @@
   <link rel="stylesheet" href="http://www.vladikk.com/css/pygment_highlights.css" />
   <link rel="stylesheet" href="http://www.vladikk.com/css/highlight.min.css" /> jopa!
 
- 
+ <meta name="keywords" content="Domain-Driven Design, DDD, Microservices, Architecture, Bounded Contexts, Decomposition">
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
@@ -156,14 +169,34 @@ ga('send', 'pageview');
 
 
     
+  
+  
+  
+
+
+
+
+  
+
   <header class="header-section ">
+    
     <div class="intro-header no-img">
+      
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
-              <h1>#Design</h1>
-              <hr class="small">
+            <div class="post-heading">
+              <h1>Bounded Contexts are NOT Microservices</h1>
+                
+                
+                  <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on January 21, 2018
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 4 min (713 mots)
+  
+</span>
+
+
+                
             </div>
           </div>
         </div>
@@ -171,60 +204,112 @@ ga('send', 'pageview');
     </div>
   </header>
 
+
     
-  <div class="container" role="main">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        
-        <div class="posts-list">
-          
-            <article class="post-preview">
-              <a href="http://www.vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/">
-                <h2 class="post-title">Learning From Mistakes: Leaky Abstractions</h2>
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><img src="/images/bc-ms/rebel-scum.jpg" alt="Rebel scum" /></p>
 
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on October 15, 2012
-              </p>
-              <div class="post-entry">
-                
-                  <p>On the project I’m working on I’ve had a requirement to store and read files
-from the file system. Alse the files had to be accessible from the web.</p>
-
-<p>Having a gut feeling that the infrastructure may change as the business will
-grow, I decided to hide operations on the file system behind an interface:</p>
-
-<pre><code class="language-c#">public interface IFilesStorage {
-    string StoreFile(Stream stream, string fileName);
-    Stream GetFile(string virtualPath);
-    string GetFileUrl(string virtualPath);
-    string GetFilePath(string virtualPath);
-}
-</code></pre>
-
-<p>As it looks, if someday I’ll need to switch from the file
-system to another storage mechanism, I’ll be able to do get the
-job done by writing another implementation of the interface.
-Right? Wrong! The requirement did come in - I’ve had to store
-the files in S3. And only then I realised that IFilesStorage is
-a leaky abstraction.</p>
+<p>I’ve always considered Domain-Driven Design’s Bounded Context as a guideline for defining the boundaries of Microservices. I was wrong. Not only is this heuristic flawed, but Bounded Contexts are the exact opposite of Microservices! To explain this point of view, I’ll start with a quick refresh of what Bounded Contexts are; then I’ll discuss the relationship between Bounded Contexts and Microservices.</p>
 
 <p></p>
-                  <a href="http://www.vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/" class="post-read-more">[Read More]</a>
-                
-              </div>
 
-              
+<h2 id="crash-course-in-domain-driven-design-and-bounded-contexts">Crash Course in Domain-Driven Design and Bounded Contexts</h2>
 
-            </article>
-          
-        </div>
+<p>In &ldquo;Domain-Driven Design: Tackling Complexity in the Heart of Software&rdquo;, Eric Evans argues that poor collaboration between domain experts and software development teams causes many development efforts to fail. DDD aims to increase the success rates by bridging this collaboration and communication gap.</p>
+
+<h3 id="ubiquitous-language">Ubiquitous Language</h3>
+
+<p>To allow for the fluent sharing of knowledge, DDD calls for cultivation of a shared, business-domain-oriented language: Ubiquitous Language. This language should resemble the business domain, its terms, entities, and processes. The Ubiquitous Language should be extensively used throughout the project. All communication should be done in the Ubiquitous Language, and all documentation should be formulated in it. Even the code should &ldquo;speak&rdquo; the Ubiquitous Language as well. The Ubiquitous Language becomes the model of the business domain implemented in code.</p>
+
+<h3 id="bounded-contexts">Bounded Contexts</h3>
+
+<p>Defining a Ubiquitous Language is not a trivial task. Since software doesn&rsquo;t cope well with ambiguity, each Ubiquitous Language term should have exactly one meaning. Unfortunately, that&rsquo;s not how human languages work — words often have different meanings in different contexts. To overcome this hurdle, DDD requires each language to have a strict applicability context. This context is called a Bounded Context. It defines a boundary, inside of which a Ubiquitous Language can be used freely. Outside of it, the language’s terms may have different meanings.</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>Those “meanings” can differ in multiple ways. First, the same term might describe completely different things. Martin Fowler has a nifty example of such a case: He relates how, when he worked for an electrical utility, the word “meter” had different meanings in different parts of the organization. In one department, it referred to the connection between the grid and a location. Others understood “meter” as the connection between the grid and the customer, or, of course, a physical meter attached to a house to measure electrical consumption.</p>
+
+<p>Second, different stakeholders might represent the same business entity in different models. For example, an Advertising Campaign is a complex entity with many rules and invariants for campaign managers; but for sales agents, an Advertising Campaign is merely a data structure that describes a subset of its metadata. Those are two differently models, and thus belong to two different Bounded Contexts.</p>
+
+<p>Finally, since in Domain-Driven Design the language is the model, and vice versa, each Bounded Context defines the applicability context of a specific model. A model is only valid in its Bounded Context.</p>
+
+<p>What does it all mean in the context of Microservices?</p>
+
+<h2 id="microservices">Microservices</h2>
+
+<p>In the context of Microservices, it means one simple thing: a Bounded Context is the exact opposite of a Microservice!</p>
+
+<p>A Bounded Context defines the boundaries of the biggest services possible: services that won’t have any conflicting models inside of them. If you cross the boundary, those conflicting models will eventually lead to a big ball of mud. If you follow the Bounded Context strictly, you will get monoliths. Those will be “good” monoliths, since there won’t be any conflicting models in them, but still, they are not Microservices. But if you decompose the Bounded Context further, you’ll find those sought-after Microservices. However, neither Domain-Driven Design in general, nor Bounded Contexts in particular, do not provide any guidance on how to do it.</p>
+
+<p><img src="/images/bc-ms/monolith-vs-ms.jpg" alt="" /></p>
+
+<p>A big monolith and a small monolith, from Domain-Driven Design perspective, are perfectly valid Bounded Contexts, as long as they don&rsquo;t have any conflicting models in them. Therefore, A Microservice is a Bounded Context, but not vice versa. Not every Bounded Context is a Microservice.</p>
+
+<p><img src="/images/bc-ms/diagram.jpg" alt="Bounded Contexts are not Microservices" /></p>
+
+<h2 id="maybe-subdomains">&hellip; Maybe Subdomains?</h2>
+
+<p>No.</p>
+
+<p>Aligning Bounded Contexts with business subdomains is another popular heuristic for decomposing systems into Microservices. However, even Subdomains can be decomposed further.</p>
+
+<p>Hence, aligning Bounded Contexts with business subdomains is not a recipe for decomposing a system into Microservices either.</p>
+
+<h2 id="what-then">What Then?</h2>
+
+<p>But if Bounded Contexts are not Microservices, then what are those Microservices? That’s going to be the topic of my next post.</p>
+      </article>
+
+      <hr/>
+      <div id="share">
+      If you liked this post, please share it with your friends and colleagues:
+      <p><div class="addthis_inline_share_toolbox"></div></p>
+    </div>
+
+      <ul class="pager blog-pager">
         
-      </div>
+          <li class="previous">
+            <a href="http://www.vladikk.com/2017/03/30/nifi-unicode/" data-toggle="tooltip" data-placement="top" title="Apache NiFi: Enabling Unicode Support">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladikk-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+        
+      
+
     </div>
   </div>
+</div>
 
     <footer>
   <div class="container">
@@ -298,7 +383,7 @@ a leaky abstraction.</p>
               </li>
           
           <li>
-            <a href="http://www.vladikk.com/categories/design/index.xml" title="RSS">
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>

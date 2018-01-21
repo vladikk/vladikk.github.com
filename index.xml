@@ -8,10 +8,23 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
-    <lastBuildDate>Thu, 30 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://www.vladikk.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bounded Contexts are NOT Microservices</title>
+      <link>http://www.vladikk.com/2018/01/21/bounded-contexts-vs-microservices/</link>
+      <pubDate>Sun, 21 Jan 2018 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>http://www.vladikk.com/2018/01/21/bounded-contexts-vs-microservices/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://www.vladikk.com/images/bc-ms/rebel-scum.jpg&#34; alt=&#34;Rebel scum&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I’ve always considered Domain-Driven Design’s Bounded Context as a guideline for defining the boundaries of Microservices. I was wrong. Not only is this heuristic flawed, but Bounded Contexts are the exact opposite of Microservices! To explain this point of view, I’ll start with a quick refresh of what Bounded Contexts are; then I’ll discuss the relationship between Bounded Contexts and Microservices.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Apache NiFi: Enabling Unicode Support</title>
@@ -41,19 +54,6 @@
 &lt;/ul&gt;
 
 &lt;p&gt;From my point of view, the CQRS-induced complexity is largely accidental, and thus can be avoided. To illustrate my point, I want to discuss the goal of CQRS, and then analyze 3 common sources of accidental complexity in CQRS-based systems.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>SQS Exactly-Once Processing is a Hoax</title>
-      <link>http://www.vladikk.com/2016/11/20/sqs-fifo/</link>
-      <pubDate>Sun, 20 Nov 2016 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/2016/11/20/sqs-fifo/</guid>
-      <description>&lt;p&gt;Dear AWS,&lt;/p&gt;
-
-&lt;p&gt;Love you to death, but your recent announcement of &lt;a href=&#34;https://aws.amazon.com/about-aws/whats-new/2016/11/amazon-sqs-introduces-fifo-queues-with-exactly-once-processing-and-lower-prices-for-standard-queues/&#34;&gt;FIFO Queues with Exactly-Once Processing&lt;/a&gt; is not only misleading – it’s also harmful. I&amp;rsquo;ve instructed everyone at our company to ignore this announcement and use the standard queues instead. Let me tell you why.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -347,15 +347,15 @@ When I&amp;rsquo;m not geeking out, I read lots of books, photograph nature, and
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
       <guid>http://www.vladikk.com/page/speaking/</guid>
-      <description>01/20/2018: DDD Europe 2018 Tackling Complexity in Marketing Systems Location: Amsterdam, Netherlands
+      <description>18/04/2018: TestCon Moscow 2018 How to Make TDD Work Location: Moscow, Russia
+Language: Russian
+01/02/2018: DDD Europe 2018 Tackling Complexity in Marketing Systems Location: Amsterdam, Netherlands
 Language: English
 13/12/2017: Code Europe 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems NDepend - Siri for Software Engineers Location: Wroclaw, Poland
 Language: English
 17/11/2017: ISTA 2017 How to Tame TDD Location: Sofia, Bulgaria
 Language: English
-20/10/2017: KanDDDinsky Tackling Complexity in DDD, CQRS, and Event Sourcing Location: Berlin, Germany
-Language: English
-21/09/2017: Explore DDD Tackling Complexity In Large-Scale Marketing Systems Location: Denver, CO, USA</description>
+20/10/2017: KanDDDinsky Tackling Complexity in DDD, CQRS, and Event Sourcing Location: Berlin, Germany</description>
     </item>
     
   </channel>
