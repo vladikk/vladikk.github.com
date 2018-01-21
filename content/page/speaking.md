@@ -3,7 +3,14 @@ title: Speaking
 comments: false
 ---
 
-### 01/20/2018: DDD Europe 2018
+### 18/04/2018: TestCon Moscow 2018
+#### How to Make TDD Work
+
+Location: Moscow, Russia
+
+Language: Russian
+
+### 01/02/2018: DDD Europe 2018
 #### Tackling Complexity in Marketing Systems
 
 Location: Amsterdam, Netherlands

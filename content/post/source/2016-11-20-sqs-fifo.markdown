@@ -6,6 +6,7 @@ keywords: AWS, SQS, Amazon, Cloud, Exactly-Once, FIFO, Hoax, Distributed Systems
   Software Architecture
 title: SQS Exactly-Once Processing is a Hoax
 url: /2016/11/20/sqs-fifo/
+draft: true
 ---
 
 Dear AWS,
