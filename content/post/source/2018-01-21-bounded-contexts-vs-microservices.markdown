@@ -24,7 +24,7 @@ Defining a Ubiquitous Language is not a trivial task. Since software doesn't cop
 ### Examples
 Those “meanings” can differ in multiple ways. First, the same term might describe completely different things. Martin Fowler has a nifty example of such a case: He relates how, when he worked for an electrical utility, the word “meter” had different meanings in different parts of the organization. In one department, it referred to the connection between the grid and a location. Others understood “meter” as the connection between the grid and the customer, or, of course, a physical meter attached to a house to measure electrical consumption.  
 
-Second, different stakeholders might represent the same business entity in different models. For example, an Advertising Campaign is a complex entity with many rules and invariants for campaign managers; but for sales agents, an Advertising Campaign is merely a data structure that describes a subset of its metadata. Those are two differently models, and thus belong to two different Bounded Contexts.
+Second, different stakeholders might represent the same business entity in different models. For example, an Advertising Campaign is a complex entity with many rules and invariants for campaign managers; but for sales agents, an Advertising Campaign is merely a data structure that describes a subset of its metadata. Those are two different models, and thus belong to two different Bounded Contexts.
 
 Finally, since in Domain-Driven Design the language is the model, and vice versa, each Bounded Context defines the applicability context of a specific model. A model is only valid in its Bounded Context.
 
