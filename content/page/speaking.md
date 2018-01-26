@@ -10,6 +10,13 @@ Location: Moscow, Russia
 
 Language: Russian
 
+### 05/04/2018: SFI Academic IT Festival
+#### Microservices: In Search of the Perfect Boundaries
+
+Location: Kraków, Poland
+
+Language: English
+
 ### 01/02/2018: DDD Europe 2018
 #### Tackling Complexity in Marketing Systems
 

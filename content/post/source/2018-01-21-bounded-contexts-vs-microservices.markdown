@@ -49,4 +49,4 @@ Aligning Bounded Contexts with business subdomains is another popular heuristic 
 Hence, aligning Bounded Contexts with business subdomains is not a recipe for decomposing a system into Microservices either. 
 
 ## What Then?
-But if Bounded Contexts are not Microservices, then what are those Microservices? That’s going to be the topic of my next post.
+But if Bounded Contexts are not Microservices, then what are those Microservices? That’s going to be the topic of my next post on Microservices.
