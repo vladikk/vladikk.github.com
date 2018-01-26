@@ -1,5 +1,4 @@
 ---
-categories: Architecture DDD
 comments: true
 date: 2017-03-20T00:00:00Z
 description: CQRS is a great tool. However CQRS gained itself a controversial name
@@ -12,6 +11,7 @@ published: true
 title: Tackling Complexity in CQRS
 url: /2017/03/20/tackling-complexity-in-cqrs/
 share_img: /images/cqrs/title-img.jpg
+categories: [Domain-Driven Design, CQRS, Architecture]
 ---
 
 <img src="/images/cqrs/title-img.jpg" alt="Tackling Complexity in CQRS" />

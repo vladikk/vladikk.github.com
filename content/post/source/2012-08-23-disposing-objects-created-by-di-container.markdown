@@ -1,10 +1,4 @@
 ---
-categories:
-- C#
-- Container
-- Dependency Injection
-- Dispose
-- Unity
 comments: true
 date: 2012-08-23T00:00:00Z
 description: How to properly dispose instances that were created by a dependency injection

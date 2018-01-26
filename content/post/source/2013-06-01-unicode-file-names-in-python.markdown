@@ -1,5 +1,4 @@
 ---
-categories: python
 comments: true
 date: 2013-06-01T00:00:00Z
 description: solving an issue with accessing files and folders with unicode characters
@@ -7,6 +6,7 @@ description: solving an issue with accessing files and folders with unicode char
 keywords: python, unicode, utf8, utf-8, 2.7
 title: Unicode file names in Python 2.7
 url: /2013/06/01/unicode-file-names-in-python/
+categories: [Python]
 ---
 
 Today I wrote a small script to find and delete duplicate files. To do this task I needed to iterate over files in a specific folder, and calculate md5 checksum for each file:

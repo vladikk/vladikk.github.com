@@ -1,5 +1,4 @@
 ---
-categories: MSSQL C# .NET JSON
 comments: true
 date: 2013-06-09T00:00:00Z
 description: SQL2JSON a utility that captures execution result of a sql query to a
@@ -8,6 +7,7 @@ keywords: mssql, c#, json, sql, sql2json, .net, open source, github, sql to json
   sql 2 json, convert
 title: Introducing SQL2JSON
 url: /2013/06/09/sql2json/
+categories: [OSS]
 ---
 
 If you'll ever try to generate JSON file using Sql Server's Management Studio, probably there'll be lots of pain in your future. If you wanna save the pain, you can use SQL2JSON, an open source project I started last week.

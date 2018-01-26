@@ -1,5 +1,4 @@
 ---
-categories: TDD Architecture DDD
 comments: true
 date: 2016-01-22T00:00:00Z
 description: In this post I'll analyze common misconceptions about TDD that lead to
@@ -9,6 +8,7 @@ keywords: TDD, tdd2, TDD 2.0, tddisdead,
 published: true
 title: 'TDD: What Went Wrong…Or Did It?'
 url: /2016/01/22/tdd-what-went-wrong/
+categories: [TDD, Domain-Driven Design]
 ---
 
 Test Driven Development has been praised by our industry's aficionados for a long time. However, lately there have been many harsh words said towards TDD, as it’s being blamed for causing bad software design and not keeping many of its promises. This trend culminated in David Heinemeierhansson’s post [“TDD is dead. Long live testing”](http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html).

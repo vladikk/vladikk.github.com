@@ -1,5 +1,4 @@
 ---
-categories: Thoughts DDD Architecture
 comments: true
 date: 2016-04-05T00:00:00Z
 keywords: Domain-Driven Design, DDD, DDDesign, software, architecture, methodology,
@@ -8,6 +7,7 @@ keywords: Domain-Driven Design, DDD, DDDesign, software, architecture, methodolo
 title: Tackling Complexity in the Heart of DDD
 url: /2016/04/05/tackling-complexity-ddd/
 share_img: /images/ddd/title-img.jpg
+categories: [Domain-Driven Design, Architecture]
 ---
 
 <img src="/images/ddd/title-img.jpg" alt="Tackling Complexity in the Heart of Domain-Driven Design" />

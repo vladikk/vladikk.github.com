@@ -4,6 +4,7 @@ date: 2017-03-30T00:00:00Z
 keywords: nifi, unicode, utf8, utf-8, executesql
 title: 'Apache NiFi: Enabling Unicode Support'
 url: /2017/03/30/nifi-unicode/
+categories: [Misc]
 ---
 
 If you're using Apache NiFi to move data around, you might stumble upon Unicode characters turning into question marks. For example, the ExecuteSQL processor does that. To fix this you have to set JVM's default encoding to UTF-8.

@@ -1,11 +1,11 @@
 ---
-categories: Conferences DDD
 comments: true
 date: 2016-02-12T00:00:00Z
 keywords: DDD Europe, DDDEU, DDD, Domain Driven Design, Domain Driven Design Europe
 published: true
 title: DDDEU 2016 Impressions
 url: /2016/02/12/dddeu-2016/
+categories: [Domain-Driven Design, Misc]
 ---
 
 Last month, I had the pleasure of attending the Domain Driven Design Europe conference in Brussels. As I’ve tweeted before, this was the best conference I’ve ever attended. In this post, I’d like to sum the things I’ve learned at the conference.

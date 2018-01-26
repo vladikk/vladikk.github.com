@@ -1,5 +1,4 @@
 ---
-categories: Python Nginx Flask
 comments: true
 date: 2013-09-12T00:00:00Z
 description: In this post I'll walk you through the process of installing and configuring
@@ -8,6 +7,7 @@ keywords: python, flask, nginx, uwsgi, ubuntu, amazon, ec2, aws, tutorial, examp
 published: true
 title: Serving Flask with Nginx
 url: /2013/09/12/serving-flask-with-nginx-on-ubuntu/
+categories: [Python]
 ---
 
 Having spent the majority of my career in the Microsoft stack, lately I've decided to step out of my comfort zone and to dive into the world of open source software. The project I'm currently working on at my day job is a RESTful service. The service will be running on a commodity hardware, that should be able to scale horizontally as needed. To do the job I've decided to use Flask and Nginx. Flask is a lightweight Python web framework, and nginx is a highly stable web server, that works great on cheap hardware.

@@ -1,10 +1,4 @@
 ---
-categories:
-- managing dependencies
-- configs
-- c#
-- unit testing
-- refactoring
 comments: true
 date: 2013-05-14T00:00:00Z
 description: null

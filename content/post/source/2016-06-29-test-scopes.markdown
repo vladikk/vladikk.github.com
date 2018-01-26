@@ -6,6 +6,7 @@ keywords: TDD, Test Driven Development, NDepend, Unit Testing, Cyclomatic Comple
   Agile, Software craftsmanship
 title: Finding Proper Scopes for Unit Tests
 url: /2016/06/29/test-scopes/
+categories: [TDD, Architecture]
 ---
 
 In my previous <strike>rant</strike> [post on TDD](http://vladikk.com/2016/01/22/tdd-what-went-wrong/) I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.

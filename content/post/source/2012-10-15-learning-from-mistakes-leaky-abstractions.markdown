@@ -1,9 +1,4 @@
 ---
-categories:
-- Leaky abstraction
-- Design
-- OOP
-- OOD
 comments: true
 date: 2012-10-15T00:00:00Z
 description: null
