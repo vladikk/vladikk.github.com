@@ -14,164 +14,65 @@
     
     
     <item>
-      <title>Architecture Ddd</title>
-      <link>http://www.vladikk.com/categories/architecture-ddd/</link>
+      <title>Architecture</title>
+      <link>http://www.vladikk.com/categories/architecture/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/architecture-ddd/</guid>
+      <guid>http://www.vladikk.com/categories/architecture/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>C#</title>
-      <link>http://www.vladikk.com/categories/c#/</link>
-      <pubDate>Tue, 14 May 2013 00:00:00 +0000</pubDate>
+      <title>Cqrs</title>
+      <link>http://www.vladikk.com/categories/cqrs/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/c#/</guid>
+      <guid>http://www.vladikk.com/categories/cqrs/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Conferences Ddd</title>
-      <link>http://www.vladikk.com/categories/conferences-ddd/</link>
-      <pubDate>Fri, 12 Feb 2016 00:00:00 +0000</pubDate>
+      <title>Domain Driven Design</title>
+      <link>http://www.vladikk.com/categories/domain-driven-design/</link>
+      <pubDate>Sun, 21 Jan 2018 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/conferences-ddd/</guid>
+      <guid>http://www.vladikk.com/categories/domain-driven-design/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Configs</title>
-      <link>http://www.vladikk.com/categories/configs/</link>
-      <pubDate>Tue, 14 May 2013 00:00:00 +0000</pubDate>
+      <title>Microservices</title>
+      <link>http://www.vladikk.com/categories/microservices/</link>
+      <pubDate>Sun, 21 Jan 2018 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/configs/</guid>
+      <guid>http://www.vladikk.com/categories/microservices/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Container</title>
-      <link>http://www.vladikk.com/categories/container/</link>
-      <pubDate>Thu, 23 Aug 2012 00:00:00 +0000</pubDate>
+      <title>Misc</title>
+      <link>http://www.vladikk.com/categories/misc/</link>
+      <pubDate>Thu, 30 Mar 2017 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/container/</guid>
+      <guid>http://www.vladikk.com/categories/misc/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Dependency Injection</title>
-      <link>http://www.vladikk.com/categories/dependency-injection/</link>
-      <pubDate>Mon, 10 Sep 2012 00:00:00 +0000</pubDate>
+      <title>Oss</title>
+      <link>http://www.vladikk.com/categories/oss/</link>
+      <pubDate>Tue, 11 Jun 2013 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/dependency-injection/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Design</title>
-      <link>http://www.vladikk.com/categories/design/</link>
-      <pubDate>Mon, 15 Oct 2012 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/design/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dispose</title>
-      <link>http://www.vladikk.com/categories/dispose/</link>
-      <pubDate>Thu, 23 Aug 2012 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/dispose/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Leaky Abstraction</title>
-      <link>http://www.vladikk.com/categories/leaky-abstraction/</link>
-      <pubDate>Mon, 15 Oct 2012 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/leaky-abstraction/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Managing Dependencies</title>
-      <link>http://www.vladikk.com/categories/managing-dependencies/</link>
-      <pubDate>Tue, 14 May 2013 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/managing-dependencies/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mssql C# .Net Json</title>
-      <link>http://www.vladikk.com/categories/mssql-c#-.net-json/</link>
-      <pubDate>Sun, 09 Jun 2013 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/mssql-c#-.net-json/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ood</title>
-      <link>http://www.vladikk.com/categories/ood/</link>
-      <pubDate>Mon, 15 Oct 2012 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/ood/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Oop</title>
-      <link>http://www.vladikk.com/categories/oop/</link>
-      <pubDate>Mon, 15 Oct 2012 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/oop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Patterns</title>
-      <link>http://www.vladikk.com/categories/patterns/</link>
-      <pubDate>Mon, 10 Sep 2012 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/patterns/</guid>
+      <guid>http://www.vladikk.com/categories/oss/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
       <link>http://www.vladikk.com/categories/python/</link>
-      <pubDate>Sat, 01 Jun 2013 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python Json Csv</title>
-      <link>http://www.vladikk.com/categories/python-json-csv/</link>
-      <pubDate>Tue, 11 Jun 2013 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/python-json-csv/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python Nginx Flask</title>
-      <link>http://www.vladikk.com/categories/python-nginx-flask/</link>
       <pubDate>Thu, 12 Sep 2013 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/python-nginx-flask/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Refactoring</title>
-      <link>http://www.vladikk.com/categories/refactoring/</link>
-      <pubDate>Tue, 14 May 2013 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/refactoring/</guid>
+      <guid>http://www.vladikk.com/categories/python/</guid>
       <description></description>
     </item>
     
@@ -181,51 +82,6 @@
       <pubDate>Wed, 29 Jun 2016 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
       <guid>http://www.vladikk.com/categories/tdd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tdd Architecture Ddd</title>
-      <link>http://www.vladikk.com/categories/tdd-architecture-ddd/</link>
-      <pubDate>Fri, 22 Jan 2016 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/tdd-architecture-ddd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Thoughts</title>
-      <link>http://www.vladikk.com/categories/thoughts/</link>
-      <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/thoughts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Thoughts Ddd Architecture</title>
-      <link>http://www.vladikk.com/categories/thoughts-ddd-architecture/</link>
-      <pubDate>Tue, 05 Apr 2016 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/thoughts-ddd-architecture/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Unit Testing</title>
-      <link>http://www.vladikk.com/categories/unit-testing/</link>
-      <pubDate>Tue, 14 May 2013 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/unit-testing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Unity</title>
-      <link>http://www.vladikk.com/categories/unity/</link>
-      <pubDate>Thu, 23 Aug 2012 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/categories/unity/</guid>
       <description></description>
     </item>
     

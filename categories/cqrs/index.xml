@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cqrs on Vladikk</title>
+    <link>http://www.vladikk.com/categories/cqrs/</link>
+    <description>Recent content in Cqrs on Vladikk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
+    <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
+    <lastBuildDate>Mon, 20 Mar 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://www.vladikk.com/categories/cqrs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tackling Complexity in CQRS</title>
+      <link>http://www.vladikk.com/2017/03/20/tackling-complexity-in-cqrs/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>http://www.vladikk.com/2017/03/20/tackling-complexity-in-cqrs/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://www.vladikk.com/images/cqrs/title-img.jpg&#34; alt=&#34;Tackling Complexity in CQRS&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The CQRS pattern can do wonders: it can maximize scalability, performance, security, and even &lt;a href=&#34;http://codebetter.com/gregyoung/2010/02/20/cqrs-and-cap-theorem/&#34;&gt;“beat” the CAP theorem&lt;/a&gt;. Nonetheless, CQRS has acquired a controversial name because of the complexity it introduces. For instance, &lt;a href=&#34;https://martinfowler.com/bliki/CQRS.html&#34;&gt;in his article on CQRS&lt;/a&gt;, Martin Fowler argues that the pattern should be applied sparingly and even cautiously:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“… for most systems CQRS adds risky complexity”&lt;/li&gt;
+&lt;li&gt;“… you should be very cautious about using CQRS”&lt;/li&gt;
+&lt;li&gt;“So while CQRS is a pattern that&amp;rsquo;s good to have in the toolbox, beware that it is difficult to use well and you can easily chop off important bits if you mishandle it.”&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;From my point of view, the CQRS-induced complexity is largely accidental, and thus can be avoided. To illustrate my point, I want to discuss the goal of CQRS, and then analyze 3 common sources of accidental complexity in CQRS-based systems.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

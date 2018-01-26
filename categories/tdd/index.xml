@@ -24,5 +24,21 @@
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>TDD: What Went Wrong…Or Did It?</title>
+      <link>http://www.vladikk.com/2016/01/22/tdd-what-went-wrong/</link>
+      <pubDate>Fri, 22 Jan 2016 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>http://www.vladikk.com/2016/01/22/tdd-what-went-wrong/</guid>
+      <description>&lt;p&gt;Test Driven Development has been praised by our industry&amp;rsquo;s aficionados for a long time. However, lately there have been many harsh words said towards TDD, as it’s being blamed for causing bad software design and not keeping many of its promises. This trend culminated in David Heinemeierhansson’s post &lt;a href=&#34;http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html&#34;&gt;“TDD is dead. Long live testing”&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;How is it possible, that the same technique, which is so advantageous to so many developers, is so disastrous to others?
+In this post I want to talk about 3 misconceptions that might explain this phenomenon.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start with the subtlest and most destructive one.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>

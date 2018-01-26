@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Misc on Vladikk</title>
+    <link>http://www.vladikk.com/categories/misc/</link>
+    <description>Recent content in Misc on Vladikk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
+    <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
+    <lastBuildDate>Thu, 30 Mar 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://www.vladikk.com/categories/misc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Apache NiFi: Enabling Unicode Support</title>
+      <link>http://www.vladikk.com/2017/03/30/nifi-unicode/</link>
+      <pubDate>Thu, 30 Mar 2017 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>http://www.vladikk.com/2017/03/30/nifi-unicode/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re using Apache NiFi to move data around, you might stumble upon Unicode characters turning into question marks. For example, the ExecuteSQL processor does that. To fix this you have to set JVM&amp;rsquo;s default encoding to UTF-8.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A Quick and Dirty Hack for Interviewing Job Candidates</title>
+      <link>http://www.vladikk.com/2016/03/05/interviewing/</link>
+      <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>http://www.vladikk.com/2016/03/05/interviewing/</guid>
+      <description>&lt;p&gt;One simple question can shed a lot of light on one’s competency in a given field: &amp;ldquo;On a scale of 1 to 10, please rate your knowledge of [enter-name-of-the-field-here]&amp;ldquo;.&lt;/p&gt;
+
+&lt;p&gt;One can assume that the higher the grade, the better. But that’s not the case at all. Why? Science — that’s why. Enter the Dunning-Kruger effect.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-dunning-kruger-effect&#34;&gt;The Dunning-Kruger Effect&lt;/h2&gt;
+
+&lt;p&gt;The Dunning-Kruger effect is a cognitive bias that suggests that one cannot objectively assess one&amp;rsquo;s own abilities. It’s all about the unknowns — things that you don’t know — and whether you&amp;rsquo;re aware of them.&lt;/p&gt;
+
+&lt;p&gt;The less expertise you have in a given field, the more unknown unknowns you have. You cannot objectively evaluate your knowledge, and, consequently, you are mistakenly assessing your abilities to be much higher than they actually are.&lt;/p&gt;
+
+&lt;p&gt;This bias also works the other way around. The more expertise you have in a given field, the more known unknowns you have. This awareness of things you don&amp;rsquo;t know tricks you into making a more humbling assessment of your abilities.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>DDDEU 2016 Impressions</title>
+      <link>http://www.vladikk.com/2016/02/12/dddeu-2016/</link>
+      <pubDate>Fri, 12 Feb 2016 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>http://www.vladikk.com/2016/02/12/dddeu-2016/</guid>
+      <description>&lt;p&gt;Last month, I had the pleasure of attending the Domain Driven Design Europe conference in Brussels. As I’ve tweeted before, this was the best conference I’ve ever attended. In this post, I’d like to sum the things I’ve learned at the conference.&lt;/p&gt;
+
+&lt;h2 id=&#34;it-s-not-only-about-sessions&#34;&gt;It&amp;rsquo;s Not (Only) About Sessions&lt;/h2&gt;
+
+&lt;p&gt;It was the first time I’ve attended a conference alone. Honestly, I was afraid that my introverted side would take over, and I’d master wallflower imitation techniques between sessions. Fortunately, it didn’t happen. I felt at home the moment I left the hotel for the conference. From that moment on, and up until the very last moments of the conference, I met a lot of like-minded people from all over the world - Belgium, Denmark, Germany, Austria, UK, Poland, Italy, France, USA, Finland, Switzerland, Netherlands, Romania, Bulgaria, and even from Israel.&lt;/p&gt;
+
+&lt;p&gt;For me, the social part, alone, was worth the trip. And don’t get me wrong, the sessions were great, but the ability to meet new friends, share experiences and ideas, and get fresh perspectives, was priceless.
+And I’m yet to mention discussing Star Wars with Eric Evans, discovering that Vaughn Vernon knows Israel better than I do, catching up with Greg Young, and last but not least, drinking beer with Yves Reynhout — it is unbelievable how much I learned from Yves that evening.&lt;/p&gt;
+
+&lt;p&gt;Lesson learned: Go to conferences alone and meet new people.
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
