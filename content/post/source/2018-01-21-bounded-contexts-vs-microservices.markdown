@@ -4,6 +4,7 @@ date: 2018-01-21T00:00:00Z
 keywords: Domain-Driven Design, DDD, Microservices, Architecture, Bounded Contexts, Decomposition
 title: 'Bounded Contexts are NOT Microservices'
 url: /2018/01/21/bounded-contexts-vs-microservices/
+share_img: /images/bc-ms/rebel-scum.jpg
 ---
 
 <img src="/images/bc-ms/rebel-scum.jpg" alt="Rebel scum" />

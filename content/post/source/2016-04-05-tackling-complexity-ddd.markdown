@@ -7,6 +7,7 @@ keywords: Domain-Driven Design, DDD, DDDesign, software, architecture, methodolo
   map, active record, event sourcing, cqrs
 title: Tackling Complexity in the Heart of DDD
 url: /2016/04/05/tackling-complexity-ddd/
+share_img: /images/ddd/title-img.jpg
 ---
 
 <img src="/images/ddd/title-img.jpg" alt="Tackling Complexity in the Heart of Domain-Driven Design" />

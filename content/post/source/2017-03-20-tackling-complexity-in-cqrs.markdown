@@ -11,6 +11,7 @@ keywords: CQRS, CQS, Command Query Responsibility Segregation, Event Sourcing, C
 published: true
 title: Tackling Complexity in CQRS
 url: /2017/03/20/tackling-complexity-in-cqrs/
+share_img: /images/cqrs/title-img.jpg
 ---
 
 <img src="/images/cqrs/title-img.jpg" alt="Tackling Complexity in CQRS" />
