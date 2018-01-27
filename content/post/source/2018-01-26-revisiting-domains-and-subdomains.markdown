@@ -4,7 +4,7 @@ date: 2018-01-26T00:00:00Z
 keywords: Domain-Driven Design, DDD, Core Domain, Core Subdomain, Generic, Supporting Microservices, Architecture, Bounded Contexts, Decomposition
 title: 'DDD: Subdomains Revisited'
 url: /2018/01/26/ddd-subdomains-revisited/
-draft: true
+draft: false
 categories: [Domain-Driven Design]
 share_img: /images/domains/title-img.jpg
 ---
