@@ -8,10 +8,27 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
-    <lastBuildDate>Sun, 21 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://www.vladikk.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DDD: Subdomains Revisited</title>
+      <link>http://www.vladikk.com/2018/01/26/ddd-subdomains-revisited/</link>
+      <pubDate>Fri, 26 Jan 2018 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>http://www.vladikk.com/2018/01/26/ddd-subdomains-revisited/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://www.vladikk.com/images/domains/title-img.jpg&#34; alt=&#34;DDD: Subdomains Revisited&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I have quite a few friends in the DDD community. Fortunately, or not, we always tend to disagree on the definitions of such basic terms as Domains and Subdomains. In this post, I want to think aloud and outline my thoughts on the subject.&lt;/p&gt;
+
+&lt;h2 id=&#34;disclaimer&#34;&gt;Disclaimer&lt;/h2&gt;
+
+&lt;p&gt;As I just said, some of the things I’m about to write are my opinion only. Many of you might disagree with some of them. Hey – the last time we spoke about it, Eric and Vaughn were not fans of my theory. But, nevertheless, it is based on my 7-year long DDD journey at our company, and it works for me. Most importantly, I believe it might work for you as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Bounded Contexts are NOT Microservices</title>

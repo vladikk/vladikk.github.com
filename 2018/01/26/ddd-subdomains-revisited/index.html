@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>DDD: Subdomains Revisited</title>
+  <meta property="og:title" content="DDD: Subdomains Revisited" />
+  <meta name="twitter:title" content="DDD: Subdomains Revisited" />
+  <meta name="description" content="
+
+I have quite a few friends in the DDD community. Fortunately, or not, we always tend to disagree on the definitions of such basic terms as Domains and Subdomains. In this post, I want to think aloud and outline my thoughts on the subject.
+
+Disclaimer
+
+As I just said, some of the things I’m about to write are my opinion only. Many of you might disagree with some of them. Hey – the last time we spoke about it, Eric and Vaughn were not fans of my theory. But, nevertheless, it is based on my 7-year long DDD journey at our company, and it works for me. Most importantly, I believe it might work for you as well.
+
+">
+  <meta property="og:description" content="
+
+I have quite a few friends in the DDD community. Fortunately, or not, we always tend to disagree on the definitions of such basic terms as Domains and Subdomains. In this post, I want to think aloud and outline my thoughts on the subject.
+
+Disclaimer
+
+As I just said, some of the things I’m about to write are my opinion only. Many of you might disagree with some of them. Hey – the last time we spoke about it, Eric and Vaughn were not fans of my theory. But, nevertheless, it is based on my 7-year long DDD journey at our company, and it works for me. Most importantly, I believe it might work for you as well.
+
+">
+  <meta name="twitter:description" content="
+
+I have quite a few friends in the DDD community. Fortunately, or not, we always tend to disagree on the definitions of such basic terms as Domains and Subdomains. In this post, I want to think aloud …">
+  <meta name="author" content="Vladik Khononov"/>
+  <link href='http://www.vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="http://www.vladikk.com/images/domains/title-img.jpg" />
+  <meta name="twitter:image" content="http://www.vladikk.com/images/domains/title-img.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@vladikk" />
+  <meta name="twitter:creator" content="@vladikk" />
+  <meta property="og:url" content="http://www.vladikk.com/2018/01/26/ddd-subdomains-revisited/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vladikk" />
+
+  <meta name="generator" content="Hugo 0.31.1" />
+  <link rel="canonical" href="http://www.vladikk.com/2018/01/26/ddd-subdomains-revisited/" />
+  <link rel="alternate" href="" type="application/rss+xml" title="Vladikk">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://www.vladikk.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://www.vladikk.com/css/highlighting.css" />
+  <link rel="stylesheet" href="http://www.vladikk.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://www.vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="Domain-Driven Design, DDD, Core Domain, Core Subdomain, Generic, Supporting Microservices, Architecture, Bounded Contexts, Decomposition">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-40869819-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.vladikk.com">Vladikk</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Writing" href="/">Writing</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Speaking" href="/page/speaking/">Speaking</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Contact me" href="/page/contact/">Contact me</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Vladikk" href="http://www.vladikk.com">
+            <img class="avatar-img" src="http://www.vladikk.com/images/me.jpg" alt="Vladikk" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>DDD: Subdomains Revisited</h1>
+                
+                
+                  <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on January 26, 2018
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 8 min (1638 mots)
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><img src="/images/domains/title-img.jpg" alt="DDD: Subdomains Revisited" /></p>
+
+<p>I have quite a few friends in the DDD community. Fortunately, or not, we always tend to disagree on the definitions of such basic terms as Domains and Subdomains. In this post, I want to think aloud and outline my thoughts on the subject.</p>
+
+<h2 id="disclaimer">Disclaimer</h2>
+
+<p>As I just said, some of the things I’m about to write are my opinion only. Many of you might disagree with some of them. Hey – the last time we spoke about it, Eric and Vaughn were not fans of my theory. But, nevertheless, it is based on my 7-year long DDD journey at our company, and it works for me. Most importantly, I believe it might work for you as well.</p>
+
+<p></p>
+
+<h2 id="domains">Domains</h2>
+
+<p>The term “Domain” defines a company’s overall business area. For example, at Internovus, we manage marketing for our clients. We come up with marketing strategies, buy advertisement spaces, produce creatives, run advertising campaigns, contact leads and close sales. We bring new customers to our clients. Therefore, our Domain is Customer Acquisition. The Domain of Netflix is Entertainment. Of course, a company can work in different overarching domains. For example, Amazon started in Retail, but currently Cloud Computing is Amazon’s Domain as well.</p>
+
+<h2 id="subdomains">Subdomains</h2>
+
+<p>To achieve its goals, a company must work in multiple subdomains. They are called subdomains because by themselves they aren’t enough for the company to succeed; together, they add up the company’s business domain.</p>
+
+<p>For example, Internovus must manage creative materials, purchase ad spaces, manage campaigns, optimize the campaigns, and manage our finances. We need to execute all those activities to achieve success in our business domain, which is Customer Acquisition.</p>
+
+<p><img src="/images/domains/subdomains.png" alt="Domain and its Subdomains" /></p>
+
+<h2 id="subdomain-types">Subdomain Types</h2>
+
+<p>Not all subdomains are created equal. They can be categorized into three types: Generic, Core, and Supporting.</p>
+
+<h3 id="generic-subdomains">Generic Subdomains</h3>
+
+<p>Generic subdomains are those things that all companies do the same way. Those are considered “solved” problems.</p>
+
+<p>There are known best practices on how to implement such subdomains. At Internovus, we have to implement identity and access management. Luckily, we don’t have to invent ways to implement it. Our industry has already solved this problem, and these solutions are more secure and battle-tested than whatever we can come up with in a reasonable time to market.</p>
+
+<p>Also, legal requirements might constrain us and prescribe a solution as well. For example, take our accounting subdomain. Legal and regulation requirements prescribe how our finances should be managed. All companies do it in the same way.</p>
+
+<p>More than that, instead of implementing known solutions ourselves, they can be adopted as open-source projects, or purchased as existing off-the-shelf products.</p>
+
+<h3 id="core-subdomains">Core Subdomains</h3>
+
+<p>Core subdomains are the secret sauce of your organization. Those are the things no else does, or does in different ways. They bring competitive advantage to your company.
+Companies want competitive advantages with high barriers to entry. No one will invest in something that their competitors might quickly copy. Therefore, by their nature, Core subdomains are complex. Their business logic is complex, and usually it changes often, as it’s being optimized over time.</p>
+
+<p>Technical solutions should match the business complexity of Core subdomains. You want to implement the most sophisticated business logic modeling patterns here. You want to analyze and optimize your algorithms’ business performance. To do that, you’ll need to assign your best people to work on them. You don’t want to take chances with Core subdomains.
+There might be solutions available on the market, but you don’t want to buy them. By definition, in Core subdomains you’re doing something different from your competitors. If you weren’t, then you’d have no competitive advantage.</p>
+
+<p>For example, at Internovus, we make sure we optimize the heck out of our advertising campaigns. We want to spend the least, but yet acquire the most leads. And we have ways of doing that. Instead of implementing our own solution, we could by an off-the-shelf product. They exist. But that would miss the point. By definition, we manage and optimize those advertising campaigns differently than our competitors.</p>
+
+<h3 id="supporting-subdomains">Supporting Subdomains</h3>
+
+<p>Supporting subdomains, like Generic subdomains, do not offer any competitive edge for the company. On the other hand, there are no existing off-the-shelf solutions. Although Supporting subdomains do not provide a competitive edge, they are required for implementing a Core subdomain. Therefore, a company must roll out its own implementation of its Supporting subdomains.</p>
+
+<p>For example, Internovus has a Creatives Catalog. This system manages all the banners, landing pages, and other creative materials produced by our design studio. We don’t make any money from the way we catalog those files. But since there isn’t any existing product to answer our needs, we had to implement it ourselves.</p>
+
+<p>Since Supporting subdomains don’t provide us with any competitive advantage, they shouldn’t be complex. Their business logic should be simple enough to be rolled out with some rapid application development framework, or outsourced altogether for offshore development.</p>
+
+<p>But what if the business logic is complex, full of rules, algorithms and invariants? The business people might have gotten over-creative with their requirements. Since this subdomain provides no competitive advantage, this complexity is accidental and should be simplified.</p>
+
+<p>But what if it can’t be simplified? That’s where things get interesting. If a supporting domain is complex, and there are reasons for its complexity, then it might be a Core subdomain in disguise. The business might gain an additional competitive edge from this subdomain.</p>
+
+<h3 id="sidenote-domains-vs-subdomains">Sidenote: Domains Vs. Subdomains</h3>
+
+<p>In the Blue Book, the terms domain and subdomain are used interchangeably (for example, “Core Domain” and “Generic Subdomain”). In my opinion, this wording causes confusion; therefore, I prefer to use Domain to define a company’s frame of business, and Subdomains to define distinct business areas required to achieve success in the company’s Domain.</p>
+
+<h3 id="sidenote-assessing-complexity">Sidenote: Assessing Complexity</h3>
+
+<p>This way of categorizing subdomains relies heavily on the level of their business logic’s complexity. But where do you draw the line between simple and complex business logic? Unfortunately, I’m not aware of a scale that can provide an objective answer. However, these heuristics may help you sense the difference:</p>
+
+<ul>
+<li>Does the system resemble a CRUD interface, and is it described by the Domain Experts in CRUD terms? - Simple</li>
+<li>Does the business logic revolve around input validation? - Simple</li>
+<li>Do you have complex algorithms and calculations? - Complex</li>
+<li>Do you have business rules and invariants that should be enforced? - Complex</li>
+<li>What would be the cyclomatic complexity of the resulting code? Does it have many distinct execution scenarios? - Complex</li>
+</ul>
+
+<p>And finally, as with effort, some things are easier to estimate in relative values. Once you have some Core and Supporting subdomains, other subdomains could be estimated in relation to their complexities.</p>
+
+<p>It is also important to note that a subdomain&rsquo;s complexity is not an absolute value. It depends heavily on the given company&rsquo;s needs. For example, the aforementioned Creatives Catalog is quite simple for Internovus - we just need a way to catalog those files. But for another company, that would specialize in some smart way of managing and indexing creative materials, it would have been orders of magnitude more complex. Consequently, Creatives Catalog would be a Core subdomain of such company.</p>
+
+<h2 id="special-cases">Special Cases</h2>
+
+<p>Of course, a company may have multiple Core subdomains if it’s doing multiple things differently from its competitors. In the case of Internovus, Campaign Optimization, Lead Prioritization, Agents’ Commissions Management are only three of our Core subdomains.</p>
+
+<p>There might be no Core subdomains to be implemented in the software. For example, in one of our side-businesses, we had only Supporting and Generic subdomains. The competitive edge of that venture lay in a completely different dimension - leveraging our existing relationships with other companies. Therefore, look carefully and identify those cases. Do not over-engineer the solution if it provides no business value.</p>
+
+<h2 id="but-that-s-not-what-the-blue-book-says">BUT THAT’S NOT WHAT THE BLUE BOOK SAYS!</h2>
+
+<p><img src="/images/domains/damn.jpg" alt="Frankly me dear, I don't give a damn" /></p>
+
+<p>“All models are wrong, but some are useful.” In the DDD community, we tend to repeat this quote like a mantra, but forget to apply it to our own problems and techniques. My view of Domains and Subdomains is not an absolute truth, just a model. Some say it’s wrong. Of course, all models are wrong! But I find it useful in many different ways.</p>
+
+<h3 id="easy-categorization">Easy Categorization</h3>
+
+<p>Putting the emphasis on the business logic’s complexity streamlines the process of categorizing subdomains. To do that categorization, ask yourself:</p>
+
+<p>Can you buy/adopt an off-the-shelf product without compromising the company’s competitive advantage? - Generic Subdomain.</p>
+
+<p>Is the business logic simple? - Supporting Subdomain.</p>
+
+<p>Finally, if you can’t buy a product, and the subdomains’ business logic is complex, then it’s a Core Subdomain.</p>
+
+<p><img src="/images/domains/flowchart.png" alt="Subdomain Categorization Flowchart" /></p>
+
+<h3 id="aligning-business-and-technical-complexities">Aligning Business and Technical Complexities</h3>
+
+<p>This way of categorizing Subdomains allows you to align the complexity of a technical solution with the complexity of the business subdomain.</p>
+
+<p>For Core subdomains, use the heavy artillery. Implement the Domain Model or Event-Sourced Domain Model pattern. You need their ability to tackle complexity.</p>
+
+<p>For Supporting subdomains, use simple solutions. Transaction Script or Active Record patterns are enough. Also, these are the subdomains you can outsource without jeopardizing the business.</p>
+
+<p>And of course, Generic subdomains are cheaper to buy or adopt than to implement yourself.</p>
+
+<h3 id="dialog-with-the-business">Dialog With the Business</h3>
+
+<p>You can describe this model to business people in no time. Once you do, you can help optimize the company’s efforts by simplifying extraneously complex Supporting Subdomains.</p>
+
+<p>Also, you can help your business discover new competitive advantages. If a Supporting subdomain is complex, and there are valid reasons for this complexity, then by identifying those domains you help your organization to be more profitable.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>This way of identifying Subdomains has proved to be the most beneficial for me. It does differ from “what the Blue Book says” – but for the aforementioned reasons, I find this method to be very useful. Hence, I encourage you to give it a try and share your results.</p>
+      </article>
+
+      <hr/>
+      <div id="share">
+      If you liked this post, please share it with your friends and colleagues:
+      <p><div class="addthis_inline_share_toolbox"></div></p>
+    </div>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="http://www.vladikk.com/2018/01/21/bounded-contexts-vs-microservices/" data-toggle="tooltip" data-placement="top" title="Bounded Contexts are NOT Microservices">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladikk-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:vladik@khononov.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/vladikk" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/vladikk" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/vladikk" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/vladikkhononov" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/1736215/vladikk" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/vladikkk" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://telegram.me/vladik_kh" title="Telegram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-telegram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="vladikk.com">Vladik Khononov</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;
+          2018
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://www.vladikk.com">Vladikk</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.31.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://www.vladikk.com/js/main.js"></script>
+<script src="http://www.vladikk.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="http://www.vladikk.com/js/load-photoswipe.js"></script>
+
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a2d0cd9bc54813f"></script>
+
+  </body>
+</html>
+
