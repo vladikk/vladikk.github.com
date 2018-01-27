@@ -74,14 +74,14 @@ This way of categorizing subdomains relies heavily on the level of their busines
 
 And finally, as with effort, some things are easier to estimate in relative values. Once you have some Core and Supporting subdomains, other subdomains could be estimated in relation to their complexities.
 
-It is also important to note that a subdomain's complexity is not an absolute value. It depends heavily on the given company's needs. For example, the aforementioned Creatives Catalog is quite simple for Internovus - we just need a way to catalog those files. But for another company, that would specialize in some smart way of managing and indexing creative materials, it would have been orders of magnitude more complex. Consequently, Creatives Catalog would be a Core subdomain of such company.
+It's also important to note that a subdomain's complexity is not an absolute value. It depends heavily on the given company's needs. For example, the aforementioned Creatives Catalog is quite simple for Internovus – we just need a way to catalog those files. But for another company, specialized in some smart way of managing and indexing creative materials, the same job would be orders of magnitude more complex. Consequently, the Creatives Catalog would be a Core subdomain of that company.
 
 ## Special Cases
 Of course, a company may have multiple Core subdomains if it’s doing multiple things differently from its competitors. In the case of Internovus, Campaign Optimization, Lead Prioritization, Agents’ Commissions Management are only three of our Core subdomains.
 
 There might be no Core subdomains to be implemented in the software. For example, in one of our side-businesses, we had only Supporting and Generic subdomains. The competitive edge of that venture lay in a completely different dimension - leveraging our existing relationships with other companies. Therefore, look carefully and identify those cases. Do not over-engineer the solution if it provides no business value.
 
-## BUT THAT’S NOT WHAT THE BLUE BOOK SAYS!
+## BUT THAT’S NOT WHAT THE BLUE BOOK SAYS!!!
 <img src="/images/domains/damn.jpg" alt="Frankly me dear, I don't give a damn" />
 
 “All models are wrong, but some are useful.” In the DDD community, we tend to repeat this quote like a mantra, but forget to apply it to our own problems and techniques. My view of Domains and Subdomains is not an absolute truth, just a model. Some say it’s wrong. Of course, all models are wrong! But I find it useful in many different ways.
