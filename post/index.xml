@@ -15,10 +15,10 @@
     
     <item>
       <title>Revisiting the Basics of Domain-Driven Design</title>
-      <link>http://www.vladikk.com/2018/01/26/ddd-subdomains-revisited/</link>
+      <link>http://www.vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/</link>
       <pubDate>Fri, 26 Jan 2018 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/2018/01/26/ddd-subdomains-revisited/</guid>
+      <guid>http://www.vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;http://www.vladikk.com/images/domains/title-img.jpg&#34; alt=&#34;Revisiting the Basics of Domain-Driven Design&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I have quite a few friends in the DDD community. Fortunately, or not, we always tend to disagree on the definitions of such basic terms as Domains and Subdomains. In this post, I want to think aloud and outline my thoughts on the subject.&lt;/p&gt;
