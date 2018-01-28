@@ -15,14 +15,14 @@ One simple question can shed a lot of light on one’s competency in a given fie
 
 One can assume that the higher the grade, the better. But that’s not the case at all. Why? Science — that’s why. Enter the Dunning-Kruger effect.
 
+<!--more-->
+
 ## The Dunning-Kruger Effect
 The Dunning-Kruger effect is a cognitive bias that suggests that one cannot objectively assess one's own abilities. It’s all about the unknowns — things that you don’t know — and whether you're aware of them.
 
 The less expertise you have in a given field, the more unknown unknowns you have. You cannot objectively evaluate your knowledge, and, consequently, you are mistakenly assessing your abilities to be much higher than they actually are.
 
 This bias also works the other way around. The more expertise you have in a given field, the more known unknowns you have. This awareness of things you don't know tricks you into making a more humbling assessment of your abilities.
-
-<!--more-->
 
 A more formal explanation can be found on [Wikipedia](https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect).
 
