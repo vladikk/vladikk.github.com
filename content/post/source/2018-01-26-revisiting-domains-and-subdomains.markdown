@@ -9,7 +9,7 @@ categories: [Domain-Driven Design]
 share_img: /images/domains/title-img.jpg
 ---
 
-<img src="/images/domains/title-img.jpg" alt="DDD: Subdomains Revisited" />
+<img src="/images/domains/title-img.jpg" alt="Revisiting the Basics of Domain-Driven Design" />
 
 I have quite a few friends in the DDD community. Fortunately, or not, we always tend to disagree on the definitions of such basic terms as Domains and Subdomains. In this post, I want to think aloud and outline my thoughts on the subject.
 

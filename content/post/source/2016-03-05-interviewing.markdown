@@ -6,7 +6,10 @@ keywords: Job interviews, head hunting, dunning-kruger effect, dunning, kruger, 
 title: A Quick and Dirty Hack for Interviewing Job Candidates
 url: /2016/03/05/interviewing/
 categories: [Misc]
+share_img: /images/interviewing/title-img.jpg
 ---
+
+<img src="/images/interviewing/title-img.jpg" alt="A Quick and Dirty Hack for Interviewing Job Candidates" />
 
 One simple question can shed a lot of light on one’s competency in a given field: "On a scale of 1 to 10, please rate your knowledge of [enter-name-of-the-field-here]".
 
