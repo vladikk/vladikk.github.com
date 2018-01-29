@@ -32,6 +32,8 @@ Location: Wroclaw, Poland
 
 Language: English
 
+Recording: [Youtube](https://www.youtube.com/watch?v=h_HjtYAH0AI)
+
 ### 17/11/2017: ISTA 2017
 #### How to Tame TDD
 
