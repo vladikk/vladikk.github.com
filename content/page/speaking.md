@@ -3,6 +3,13 @@ title: Speaking
 comments: false
 ---
 
+### 08/05/2017: Codemotion - Amsterdam 2018
+#### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
+
+Location: Amsterdam, Netherlands
+
+Language: English
+
 ### 18/04/2018: TestCon Moscow 2018
 #### How to Make TDD Work
 
