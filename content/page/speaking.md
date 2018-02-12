@@ -3,10 +3,17 @@ title: Speaking
 comments: false
 ---
 
-### 08/05/2017: Codemotion - Amsterdam 2018
+### 08/05/2018: Codemotion - Amsterdam 2018
 #### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
 
 Location: Amsterdam, Netherlands
+
+Language: English
+
+### 26/04/2018: DDD eXchange 2018
+#### Bounded Contexts, Microservices, and Everything In Between
+
+Location: London, UK
 
 Language: English
 
