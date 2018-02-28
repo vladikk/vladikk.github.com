@@ -11,7 +11,7 @@ share_img: /images/microservices/title-img.jpg
 
 <img src="/images/microservices/title-img.jpg" alt="Tackling Complexity in Microservices" />
 
-Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Quite a few of them ended up worse than they were before - in the realms of distributed monoliths. Why?
+Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Unfortunately, many of them ended up worse off than they were before - in the realm of distributed monoliths. Why?
 
 > “If I had an hour to solve a problem I'd spend 55 minutes thinking about  the problem and 5 minutes thinking about solutions” - Albert Einstein
 
@@ -39,15 +39,15 @@ A naive approach would be for each microservice to expose only one public operat
 
 In the case of our backlog management service, a “naive” microservice would look like this:
 
-<img src="/images/microservices/single-method.png" alt="Single method per Microservice" />
+<img src="/images/microservices/single-method.png" alt="Single method per microservice" />
 
-This decomposition would make sense if we were in the business of delivering Microservices. But we aren’t. Independent microservices do not provide any value for our clients. They only do this when they are composed into working systems – and that’s what we’re paid for. 
+This decomposition would make sense if we were in the business of delivering microservices. But we aren’t. Independent microservices do not provide any value for our clients. They only do this when they are composed into working systems – and that’s what we’re paid for. 
 
 Let’s see what would happen if we were to compose a backlog management system out of the "naive" set of microservices.
 
 Since we want well-behaved microservices, each of them would have its own database:
 
-<img src="/images/microservices/naive.png" alt="Naive decomposition into Microservices" />
+<img src="/images/microservices/naive.png" alt="Naive decomposition into microservices" />
 
 And since all those databases manipulate the same set of business entities, the data should be replicated and synchronized across many of them. For that purpose, the services will have to expose their data in some way – let’s say, by means of raising events:
 
@@ -68,7 +68,7 @@ The microservices architecture is the decomposition of a *system* into a set of 
 
 The *threshold* upon which the system can be decomposed is *defined by the use cases of the system* that the *microservices are a part of*.
 
-This definition supports the known fact that each Microservice should have its own database. That’s because in other the case, one of the services would have to expose its database as its public interface. And this huge public interface would make it a *macro*-service.
+This definition supports the known fact that each microservice should have its own database. That’s because in other the case, one of the services would have to expose its database as its public interface. And this huge public interface would make it a *macro*-service.
 
 ## P.S.
 If you're attending [DDDX 2018](https://skillsmatter.com/conferences/9396-ddd-exchange-2018), I invite you to join my session ["Bounded Contexts, Microservices, and Everything in Between”](https://skillsmatter.com/conferences/9396-ddd-exchange-2018#program), where I'll talk about decomposition strategies and heuristics of finding the dreaded decomposition threshold that you shall not pass.
