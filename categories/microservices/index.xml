@@ -21,7 +21,7 @@
       <guid>http://www.vladikk.com/2018/02/28/microservices/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;http://www.vladikk.com/images/microservices/title-img.jpg&#34; alt=&#34;Tackling Complexity in Microservices&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Quite a few of them ended up worse than they were before - in the realms of distributed monoliths. Why?&lt;/p&gt;
+&lt;p&gt;Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Unfortunately, many of them ended up worse off than they were before - in the realm of distributed monoliths. Why?&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;“If I had an hour to solve a problem I&amp;rsquo;d spend 55 minutes thinking about  the problem and 5 minutes thinking about solutions” - Albert Einstein&lt;/p&gt;

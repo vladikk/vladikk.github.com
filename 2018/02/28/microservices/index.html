@@ -10,7 +10,7 @@
   <meta name="twitter:title" content="Tackling Complexity in Microservices" />
   <meta name="description" content="
 
-Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Quite a few of them ended up worse than they were before - in the realms of distributed monoliths. Why?
+Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Unfortunately, many of them ended up worse off than they were before - in the realm of distributed monoliths. Why?
 
 
 “If I had an hour to solve a problem I&rsquo;d spend 55 minutes thinking about  the problem and 5 minutes thinking about solutions” - Albert Einstein
@@ -21,7 +21,7 @@ In my opinion, this quote is the key to solving most of the issues we have when 
 ">
   <meta property="og:description" content="
 
-Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Quite a few of them ended up worse than they were before - in the realms of distributed monoliths. Why?
+Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Unfortunately, many of them ended up worse off than they were before - in the realm of distributed monoliths. Why?
 
 
 “If I had an hour to solve a problem I&rsquo;d spend 55 minutes thinking about  the problem and 5 minutes thinking about solutions” - Albert Einstein
@@ -222,7 +222,7 @@ ga('send', 'pageview');
       <article role="main" class="blog-post">
         <p><img src="/images/microservices/title-img.jpg" alt="Tackling Complexity in Microservices" /></p>
 
-<p>Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Quite a few of them ended up worse than they were before - in the realms of distributed monoliths. Why?</p>
+<p>Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Unfortunately, many of them ended up worse off than they were before - in the realm of distributed monoliths. Why?</p>
 
 <blockquote>
 <p>“If I had an hour to solve a problem I&rsquo;d spend 55 minutes thinking about  the problem and 5 minutes thinking about solutions” - Albert Einstein</p>
@@ -254,15 +254,15 @@ ga('send', 'pageview');
 
 <p>In the case of our backlog management service, a “naive” microservice would look like this:</p>
 
-<p><img src="/images/microservices/single-method.png" alt="Single method per Microservice" /></p>
+<p><img src="/images/microservices/single-method.png" alt="Single method per microservice" /></p>
 
-<p>This decomposition would make sense if we were in the business of delivering Microservices. But we aren’t. Independent microservices do not provide any value for our clients. They only do this when they are composed into working systems – and that’s what we’re paid for.</p>
+<p>This decomposition would make sense if we were in the business of delivering microservices. But we aren’t. Independent microservices do not provide any value for our clients. They only do this when they are composed into working systems – and that’s what we’re paid for.</p>
 
 <p>Let’s see what would happen if we were to compose a backlog management system out of the &ldquo;naive&rdquo; set of microservices.</p>
 
 <p>Since we want well-behaved microservices, each of them would have its own database:</p>
 
-<p><img src="/images/microservices/naive.png" alt="Naive decomposition into Microservices" /></p>
+<p><img src="/images/microservices/naive.png" alt="Naive decomposition into microservices" /></p>
 
 <p>And since all those databases manipulate the same set of business entities, the data should be replicated and synchronized across many of them. For that purpose, the services will have to expose their data in some way – let’s say, by means of raising events:</p>
 
@@ -284,7 +284,7 @@ ga('send', 'pageview');
 
 <p>The <em>threshold</em> upon which the system can be decomposed is <em>defined by the use cases of the system</em> that the <em>microservices are a part of</em>.</p>
 
-<p>This definition supports the known fact that each Microservice should have its own database. That’s because in other the case, one of the services would have to expose its database as its public interface. And this huge public interface would make it a <em>macro</em>-service.</p>
+<p>This definition supports the known fact that each microservice should have its own database. That’s because in other the case, one of the services would have to expose its database as its public interface. And this huge public interface would make it a <em>macro</em>-service.</p>
 
 <h2 id="p-s">P.S.</h2>
 
