@@ -29,7 +29,7 @@ Here is an example of a backlog management service:
 
 <img src="/images/microservices/backlog-service.png" alt="Example" />
 
-Now let’s see what makes a Service a *Micro*service.
+Now let’s see what makes a service a microservice.
 
 ## What is a Microservice?
 If a service is a mechanism that enables access to one or more publicly executable operations, then a microservice is a service with a “micro” public interface. It provides as few public operations as possible - literally, a “micro”-service.
