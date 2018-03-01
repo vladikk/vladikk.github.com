@@ -19,7 +19,7 @@ In my opinion, this quote is the key to solving most of the issues we have when 
 
 <!--more-->
 
-Before we delve into microservices, let’s start from the beginning and talk about the term “Service”.
+Before we delve into microservices, let’s start from the beginning and talk about the term “service”.
 
 ## What is a Service?
 
