@@ -32,7 +32,11 @@ Here is an example of a backlog management service:
 Now let’s see what makes a Service a *Micro*service.
 
 ## What is a Microservice?
-If a service is a mechanism that enables access to one or more publicly executable operations, then a microservice is a service with a “micro” public interface. It provides as few public operations as possible - literally, a “micro”-service. Sounds simple? It isn’t.
+If a service is a mechanism that enables access to one or more publicly executable operations, then a microservice is a service with a “micro” public interface. It provides as few public operations as possible - literally, a “micro”-service.
+
+The reason for this heuristic is autonomy. That's what we are looking for by implementing this architectural style - autonomous services. However, a service cannot be fully autonomous and independent from its environment. Such service wouldn't have any public interfaces at all, and consequently wouldn't be able to receive or expose any data; fully autonomous, but useless. However, we can increase autonomy by limiting the service's and its clients' reasons for change: the smaller the public interface the less coupled the service to its environment, and thus more autonomous.
+
+Designing services in such a way that minimizes their public interfaces sounds simple, right? It isn’t.
 
 ## From Microservices to Systems
 A naive approach would be for each microservice to expose only one public operation. You can’t have a smaller service than that, right?
