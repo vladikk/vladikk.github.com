@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2018-02-28T00:00:00Z
-keywords: Microservices, Domain-Driven Design, DDD, Architecture, Bounded Contexts, Decomposition, Distributed Systems
+keywords: Microservices, Domain-Driven Design, DDD, Architecture, Bounded Contexts, Decomposition, Distributed Systems, Definition
 title: 'Tackling Complexity in Microservices'
 url: /2018/02/28/microservices/
 draft: false
