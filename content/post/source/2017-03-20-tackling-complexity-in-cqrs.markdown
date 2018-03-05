@@ -109,3 +109,10 @@ This diagram differs from other diagrams you can find on the web:
 This is the CQRS pattern the way I both see and implement it. Commands have responses. The projection mechanism defined is abstractly without any implementation details. Inside it may be based on events, or on state, or even a database view. And finally, there  is no glimpse of Event Sourcing. Model the system’s business logic as required by the business domain: Active Record, Domain Model, or Event Sourced Domain Model.
 
 As with every correctly applied tool, CQRS should reduce complexity, not induce it. If your architecture’s complexity grows, you’re doing something wrong.
+
+<br/>
+### All Posts in the "Tackling Complexity" Series
+
+* [Tackling Complexity in Microservices](/2018/02/28/microservices/)
+* [Tackling Complexity in CQRS](/2017/03/20/tackling-complexity-in-cqrs/)
+* [Tackling Complexity in Domain-Driven Design](/2016/04/05/tackling-complexity-ddd/)
