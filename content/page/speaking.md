@@ -24,6 +24,13 @@ Location: Moscow, Russia
 
 Language: Russian
 
+### 13/04/2018: Codemotion - Rome 2018
+#### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
+
+Location: Rome, Italy
+
+Language: English
+
 ### 05/04/2018: SFI Academic IT Festival
 #### Microservices: In Search of the Perfect Boundaries
 
