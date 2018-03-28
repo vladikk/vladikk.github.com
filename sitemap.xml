@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://www.vladikk.com/2018/03/28/ios-apn-bug/</loc>
+    <lastmod>2018-03-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.vladikk.com/2018/02/28/microservices/</loc>
     <lastmod>2018-02-28T00:00:00+00:00</lastmod>
   </url>
@@ -149,7 +154,7 @@
   
   <url>
     <loc>http://www.vladikk.com/post/</loc>
-    <lastmod>2018-02-28T00:00:00+00:00</lastmod>
+    <lastmod>2018-03-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -180,7 +185,7 @@
   
   <url>
     <loc>http://www.vladikk.com/</loc>
-    <lastmod>2018-02-28T00:00:00+00:00</lastmod>
+    <lastmod>2018-03-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -5,47 +5,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Tackling Complexity in Microservices</title>
-  <meta property="og:title" content="Tackling Complexity in Microservices" />
-  <meta name="twitter:title" content="Tackling Complexity in Microservices" />
-  <meta name="description" content="
-
-Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Unfortunately, many of them ended up worse off than they were before - in the realm of distributed monoliths. Why?
-
-
-“If I had an hour to solve a problem I&rsquo;d spend 55 minutes thinking about  the problem and 5 minutes thinking about solutions” - Albert Einstein
-
-
-In my opinion, this quote is the key to solving most of the issues we have when designing microservices-based systems. We rush into solutions without ensuring we know what exactly a microservice is. In this post, I’d like to take a stab at answering this question.
-
-">
-  <meta property="og:description" content="
-
-Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Unfortunately, many of them ended up worse off than they were before - in the realm of distributed monoliths. Why?
-
-
-“If I had an hour to solve a problem I&rsquo;d spend 55 minutes thinking about  the problem and 5 minutes thinking about solutions” - Albert Einstein
-
-
-In my opinion, this quote is the key to solving most of the issues we have when designing microservices-based systems. We rush into solutions without ensuring we know what exactly a microservice is. In this post, I’d like to take a stab at answering this question.
-
-">
-  <meta name="twitter:description" content="
-
-Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable …">
+  <title>IOS 11: Fixing APN Configuration Issues</title>
+  <meta property="og:title" content="IOS 11: Fixing APN Configuration Issues" />
+  <meta name="twitter:title" content="IOS 11: Fixing APN Configuration Issues" />
+  <meta name="description" content="So a few days ago I’ve decided to move to another cellular carrier. I pushed the new sim-card in, and got greeted with “Could not activate cellular data network”. First instinct was to install the new carrier’s APN configuration profile, but this resulted in another bummer: “Only one APN configuration can be installed at a time”. Ok, so I have to delete the previous carrier’s profile. Settings -&gt; General -&gt; Profiles …and there weren’t any profiles: “No profiles are currently installed”.">
+  <meta property="og:description" content="So a few days ago I’ve decided to move to another cellular carrier. I pushed the new sim-card in, and got greeted with “Could not activate cellular data network”. First instinct was to install the new carrier’s APN configuration profile, but this resulted in another bummer: “Only one APN configuration can be installed at a time”. Ok, so I have to delete the previous carrier’s profile. Settings -&gt; General -&gt; Profiles …and there weren’t any profiles: “No profiles are currently installed”.">
+  <meta name="twitter:description" content="So a few days ago I’ve decided to move to another cellular carrier. I pushed the new sim-card in, and got greeted with “Could not activate cellular data network”. First instinct was to install the new …">
   <meta name="author" content="Vladik Khononov"/>
   <link href='http://www.vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta property="og:image" content="http://www.vladikk.com/images/microservices/title-img.jpg" />
-  <meta name="twitter:image" content="http://www.vladikk.com/images/microservices/title-img.jpg" />
+  <meta property="og:image" content="http://www.vladikk.com/images/me.jpg" />
+  <meta name="twitter:image" content="http://www.vladikk.com/images/me.jpg" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@vladikk" />
   <meta name="twitter:creator" content="@vladikk" />
-  <meta property="og:url" content="http://www.vladikk.com/2018/02/28/microservices/" />
+  <meta property="og:url" content="http://www.vladikk.com/2018/03/28/ios-apn-bug/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vladikk" />
 
   <meta name="generator" content="Hugo 0.31.1" />
-  <link rel="canonical" href="http://www.vladikk.com/2018/02/28/microservices/" />
+  <link rel="canonical" href="http://www.vladikk.com/2018/03/28/ios-apn-bug/" />
   <link rel="alternate" href="" type="application/rss+xml" title="Vladikk">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -54,7 +32,7 @@ Microservices have taken our industry by storm. Teams around the world have ditc
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
   <link rel="stylesheet" href="http://www.vladikk.com/css/highlighting.css" />
   <link rel="stylesheet" href="http://www.vladikk.com/css/pygment_highlights.css" />
-  <link rel="stylesheet" href="http://www.vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="Microservices, Domain-Driven Design, DDD, Architecture, Bounded Contexts, Decomposition, Distributed Systems, Definition">
+  <link rel="stylesheet" href="http://www.vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="ios, 11, ios11, bug, apn,">
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
@@ -196,12 +174,12 @@ ga('send', 'pageview');
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
-              <h1>Tackling Complexity in Microservices</h1>
+              <h1>IOS 11: Fixing APN Configuration Issues</h1>
                 
                 
                   <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on February 28, 2018
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 4 min (812 mots)
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on March 28, 2018
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 2 min (238 mots)
   
 </span>
 
@@ -220,89 +198,21 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p><img src="/images/microservices/title-img.jpg" alt="Tackling Complexity in Microservices" /></p>
+        <p>So a few days ago I’ve decided to move to another cellular carrier. I pushed the new sim-card in, and got greeted with “Could not activate cellular data network”. First instinct was to install the new carrier’s APN configuration profile, but this resulted in another bummer: “Only one APN configuration can be installed at a time”. Ok, so I have to delete the previous carrier’s profile. Settings -&gt; General -&gt; Profiles …and there weren’t any profiles: “No profiles are currently installed”. Wat?</p>
 
-<p>Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Unfortunately, many of them ended up worse off than they were before - in the realm of distributed monoliths. Why?</p>
+<p>So out of desperation I tried to erase the phone, and set it up as a new - problem solved. Restored my data from backup - problem restored as well. But I wasn’t really up to installing everything from scratch.</p>
 
-<blockquote>
-<p>“If I had an hour to solve a problem I&rsquo;d spend 55 minutes thinking about  the problem and 5 minutes thinking about solutions” - Albert Einstein</p>
-</blockquote>
+<p>To make matters a bit more complicated, the new carrier’s sim was set to block displaying APN configuration (Settings -&gt; Cellular -&gt; Cellular Data Options -&gt; Cellular Network). Luckily, <a href="https://forums.macrumors.com/threads/apn-help-problem-after-upgrading-to-ios7.1642124/">another iOS bug</a> allowed to see the data:</p>
 
-<p>In my opinion, this quote is the key to solving most of the issues we have when designing microservices-based systems. We rush into solutions without ensuring we know what exactly a microservice is. In this post, I’d like to take a stab at answering this question.</p>
+<p><img src="/images/iosbug/badapn.jpg" alt="" width="300"/></p>
 
-<p></p>
+<p>Ok. So the MMS APN was setup correctly, however the cellular data APN reverted back to the one of the previous carrier. No wonder it couldn’t activate cellular data network.</p>
 
-<p>Before we delve into microservices, let’s start from the beginning and talk about the term “service”.</p>
+<p>After some more googling, <a href="https://discussions.apple.com/thread/8143573">I found that there is a file</a>, that might be cause this issue:
+com.apple.managedCarrier.plist</p>
 
-<h2 id="what-is-a-service">What is a Service?</h2>
+<p>And it did. I used the <a href="http://www.icopybot.com/itunes-backup-manager.htm">iBackupBot</a> software to analyze the iPhone’s backup file, found the file, deleted it, restored the phone from the modified backup, and voila - problem solved!</p>
 
-<p>According to the [OASIS definition], a service is a mechanism that enables access to one or more capabilities. In our case, these capabilities might be executing commands, querying, or raising events. All of them make up a service’s public interface.</p>
-
-<p>Here is an example of a backlog management service:</p>
-
-<p><img src="/images/microservices/backlog-service.png" alt="Example" /></p>
-
-<p>Now let’s see what makes a service a microservice.</p>
-
-<h2 id="what-is-a-microservice">What is a Microservice?</h2>
-
-<p>If a service is a mechanism that enables access to one or more publicly executable operations, then a microservice is a service with a “micro” public interface. It provides as few public operations as possible - literally, a “micro”-service.</p>
-
-<p>The reason for this heuristic is autonomy. That&rsquo;s what we are looking for when we implement this architectural style – autonomous services. However, a service cannot be fully autonomous and independent from its environment. Such a service wouldn&rsquo;t have any public interfaces at all, and consequently wouldn&rsquo;t be able to receive or expose any data. It would be fully autonomous, but useless. However, we can increase autonomy by limiting the service&rsquo;s and its clients&rsquo; reasons for change: the smaller the public interface, the less coupled the service is to its environment. Thus, it is more autonomous.</p>
-
-<p>Designing services in such a way that minimizes their public interfaces sounds simple, right? It&rsquo;s not.</p>
-
-<h2 id="from-microservices-to-systems">From Microservices to Systems</h2>
-
-<p>A naive approach would be for each microservice to expose only one public operation. You can’t have a smaller service than that, right?</p>
-
-<p>In the case of our backlog management service, a “naive” microservice would look like this:</p>
-
-<p><img src="/images/microservices/single-method.png" alt="Single method per microservice" /></p>
-
-<p>This decomposition would make sense if we were in the business of delivering microservices. But we aren’t. Independent microservices do not provide any value for our clients. They only do this when they are composed into working systems – and that’s what we’re paid for.</p>
-
-<p>Let’s see what would happen if we were to compose a backlog management system out of the &ldquo;naive&rdquo; set of microservices.</p>
-
-<p>Since we want well-behaved microservices, each of them would have its own database:</p>
-
-<p><img src="/images/microservices/naive.png" alt="Naive decomposition into microservices" /></p>
-
-<p>And since all those databases manipulate the same set of business entities, the data should be replicated and synchronized across many of them. For that purpose, the services will have to expose their data in some way – let’s say, by means of raising events:</p>
-
-<p><img src="/images/microservices/events.png" alt="Event based integration" /></p>
-
-<p>And that’s how the data would flow between them (Warning! Graphic content) :</p>
-
-<p><img src="/images/microservices/interactions.png" alt="Event based interactions" /></p>
-
-<p>We started with one public operation per service, but to implement the system&rsquo;s Use-Cases we ended up with an average of 4.75 methods per service. Moreover, the system&rsquo;s total number of public operations went from 8 to 38! And to make matters even worse, some of them would even have to participate in distributed transactions. So much for autonomous, independently deployable, and manageable microservices. Blurg!</p>
-
-<p>Let’s see what happened here. We went way too far with decomposing the system into services. I don’t even call them microservices! To support the system’s use cases, the public interfaces of those services grew out of control, and the integrations between them skyrocketed. This accidental interface complexity led us straight into the dead-end called a Distributed Monolith.</p>
-
-<p>Therefore&hellip;</p>
-
-<h2 id="what-are-microservices">What Are Microservices?</h2>
-
-<p>The microservices architecture is the decomposition of a <em>system</em> into a set of <em>services</em>, such that all <em>services</em> will have <em>minimal public interfaces</em>.</p>
-
-<p>The <em>threshold</em> upon which the system can be decomposed is <em>defined by the use cases of the system</em> that the <em>microservices are a part of</em>.</p>
-
-<p>This definition supports the known fact that each microservice should have its own database. That’s because in other the case, one of the services would have to expose its database as its public interface. And this huge public interface would make it a <em>macro</em>-service.</p>
-
-<h2 id="p-s">P.S.</h2>
-
-<p>If you&rsquo;re attending <a href="https://skillsmatter.com/conferences/9396-ddd-exchange-2018">DDDX 2018</a>, I invite you to join my session <a href="https://skillsmatter.com/conferences/9396-ddd-exchange-2018#program">&ldquo;Bounded Contexts, Microservices, and Everything in Between”</a>, where I&rsquo;ll talk about decomposition strategies and heuristics of finding the dreaded decomposition threshold that you shall not pass.</p>
-
-<p><br/></p>
-
-<h3 id="all-posts-in-the-tackling-complexity-series">All Posts in the &ldquo;Tackling Complexity&rdquo; Series</h3>
-
-<ul>
-<li><a href="/2018/02/28/microservices/">Tackling Complexity in Microservices</a></li>
-<li><a href="/2017/03/20/tackling-complexity-in-cqrs/">Tackling Complexity in CQRS</a></li>
-<li><a href="/2016/04/05/tackling-complexity-ddd/">Tackling Complexity in Domain-Driven Design</a></li>
-</ul>
       </article>
 
       <hr/>
@@ -314,13 +224,9 @@ ga('send', 'pageview');
       <ul class="pager blog-pager">
         
           <li class="previous">
-            <a href="http://www.vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/" data-toggle="tooltip" data-placement="top" title="Revisiting the Basics of Domain-Driven Design">&larr; Previous Post</a>
+            <a href="http://www.vladikk.com/2018/02/28/microservices/" data-toggle="tooltip" data-placement="top" title="Tackling Complexity in Microservices">&larr; Previous Post</a>
           </li>
         
-        
-          <li class="next">
-            <a href="http://www.vladikk.com/2018/03/28/ios-apn-bug/" data-toggle="tooltip" data-placement="top" title="IOS 11: Fixing APN Configuration Issues">Next Post &rarr;</a>
-          </li>
         
       </ul>
 

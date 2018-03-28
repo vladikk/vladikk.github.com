@@ -8,10 +8,19 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
-    <lastBuildDate>Wed, 28 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://www.vladikk.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>IOS 11: Fixing APN Configuration Issues</title>
+      <link>http://www.vladikk.com/2018/03/28/ios-apn-bug/</link>
+      <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>http://www.vladikk.com/2018/03/28/ios-apn-bug/</guid>
+      <description>So a few days ago I’ve decided to move to another cellular carrier. I pushed the new sim-card in, and got greeted with “Could not activate cellular data network”. First instinct was to install the new carrier’s APN configuration profile, but this resulted in another bummer: “Only one APN configuration can be installed at a time”. Ok, so I have to delete the previous carrier’s profile. Settings -&amp;gt; General -&amp;gt; Profiles …and there weren’t any profiles: “No profiles are currently installed”.</description>
+    </item>
     
     <item>
       <title>Tackling Complexity in Microservices</title>
