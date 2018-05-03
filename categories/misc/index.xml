@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Misc on Vladikk</title>
-    <link>https://www.vladikk.com/categories/misc/</link>
+    <link>https://vladikk.com/categories/misc/</link>
     <description>Recent content in Misc on Vladikk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,15 +10,15 @@
     <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
     <lastBuildDate>Thu, 30 Mar 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.vladikk.com/categories/misc/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vladikk.com/categories/misc/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Apache NiFi: Enabling Unicode Support</title>
-      <link>https://www.vladikk.com/2017/03/30/nifi-unicode/</link>
+      <link>https://vladikk.com/2017/03/30/nifi-unicode/</link>
       <pubDate>Thu, 30 Mar 2017 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://www.vladikk.com/2017/03/30/nifi-unicode/</guid>
+      <guid>https://vladikk.com/2017/03/30/nifi-unicode/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;re using Apache NiFi to move data around, you might stumble upon Unicode characters turning into question marks. For example, the ExecuteSQL processor does that. To fix this you have to set JVM&amp;rsquo;s default encoding to UTF-8.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -26,11 +26,11 @@
     
     <item>
       <title>A Quick and Dirty Hack for Interviewing Job Candidates</title>
-      <link>https://www.vladikk.com/2016/03/05/interviewing/</link>
+      <link>https://vladikk.com/2016/03/05/interviewing/</link>
       <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://www.vladikk.com/2016/03/05/interviewing/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://www.vladikk.com/images/interviewing/title-img.jpg&#34; alt=&#34;A Quick and Dirty Hack for Interviewing Job Candidates&#34; /&gt;&lt;/p&gt;
+      <guid>https://vladikk.com/2016/03/05/interviewing/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/interviewing/title-img.jpg&#34; alt=&#34;A Quick and Dirty Hack for Interviewing Job Candidates&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;One simple question can shed a lot of light on one’s competency in a given field: &amp;ldquo;On a scale of 1 to 10, please rate your knowledge of [enter-name-of-the-field-here]&amp;ldquo;.&lt;/p&gt;
 
@@ -41,10 +41,10 @@
     
     <item>
       <title>DDDEU 2016 Impressions</title>
-      <link>https://www.vladikk.com/2016/02/12/dddeu-2016/</link>
+      <link>https://vladikk.com/2016/02/12/dddeu-2016/</link>
       <pubDate>Fri, 12 Feb 2016 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://www.vladikk.com/2016/02/12/dddeu-2016/</guid>
+      <guid>https://vladikk.com/2016/02/12/dddeu-2016/</guid>
       <description>&lt;p&gt;Last month, I had the pleasure of attending the Domain Driven Design Europe conference in Brussels. As I’ve tweeted before, this was the best conference I’ve ever attended. In this post, I’d like to sum the things I’ve learned at the conference.&lt;/p&gt;
 
 &lt;h2 id=&#34;it-s-not-only-about-sessions&#34;&gt;It&amp;rsquo;s Not (Only) About Sessions&lt;/h2&gt;

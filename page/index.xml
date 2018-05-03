@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on Vladikk</title>
-    <link>https://www.vladikk.com/page/</link>
+    <link>https://vladikk.com/page/</link>
     <description>Recent content in Pages on Vladikk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
     
-	<atom:link href="https://www.vladikk.com/page/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vladikk.com/page/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About me</title>
-      <link>https://www.vladikk.com/page/about/</link>
+      <link>https://vladikk.com/page/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://www.vladikk.com/page/about/</guid>
+      <guid>https://vladikk.com/page/about/</guid>
       <description>Having over 18 years of experience in the software industry, I&amp;rsquo;ve worked across multiple business domains, including advertisement, healthcare, telecommunications, and customer acquisition. Currently I serve as the Chief Architect for Internovus, where I&amp;rsquo;m in charge of large-scale projects, and an international developers team.
 My main areas of interest are Domain-Driven Design, Distributed Systems, Cloud Computing and building effective teams.
 When I&amp;rsquo;m not geeking out, I read lots of books, photograph nature, and repair my r/c aircrafts.</description>
@@ -25,29 +25,29 @@ When I&amp;rsquo;m not geeking out, I read lots of books, photograph nature, and
     
     <item>
       <title>Contact Me</title>
-      <link>https://www.vladikk.com/page/contact/</link>
+      <link>https://vladikk.com/page/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://www.vladikk.com/page/contact/</guid>
+      <guid>https://vladikk.com/page/contact/</guid>
       <description>For any type of enquiry, you can contact me via either of the methods below:
  Email: vladik at khononov.com Twitter: @vladikk Github: vladikk Facebook: vladikk Linkedin: vladikkhononov  </description>
     </item>
     
     <item>
       <title>Reading</title>
-      <link>https://www.vladikk.com/page/reading/</link>
+      <link>https://vladikk.com/page/reading/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://www.vladikk.com/page/reading/</guid>
+      <guid>https://vladikk.com/page/reading/</guid>
       <description>A More Beautiful Question: The Power of Inquiry to Spark Breakthrough Ideas The Goal: A Process of Ongoing ImprovementBeyond the Goal: Eliyahu Goldratt Speaks on the Theory of Constraints (Your Coach In A Box)The Choice, Revised EditionDomain-Driven Design: Tackling Complexity in the Heart of SoftwareImplementing Domain-Driven DesignScrum: The Art of Doing Twice the Work in Half the TimeFlow: Living at the Peak of Your AbilitiesThe Phoenix Project: A Novel About IT, DevOps, and Helping Your Business WinSapiens: A Brief History of HumankindThe Obstacle Is the Way: The Timeless Art of Turning Trials into TriumphSimple Rules: How to Thrive in a Complex WorldGetting to Yes: Negotiating Agreement Without Giving InBorn to Run: A Hidden Tribe, Superathletes, and the Greatest Race the World Has Never SeenThe Lean Startup: How Today&amp;rsquo;s Entrepreneurs Use Continuous Innovation to Create Radically Successful BusinessesBusiness Model Generation: A Handbook for Visionaries, Game Changers, and ChallengersDrive: The Surprising Truth About What Motivates UsEnterprise Integration Patterns: Designing, Building, and Deploying Messaging SolutionsWorking Effectively with Legacy CodePatterns of Enterprise Application ArchitectureThinking, Fast and Slow</description>
     </item>
     
     <item>
       <title>Speaking</title>
-      <link>https://www.vladikk.com/page/speaking/</link>
+      <link>https://vladikk.com/page/speaking/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://www.vladikk.com/page/speaking/</guid>
+      <guid>https://vladikk.com/page/speaking/</guid>
       <description>08/05/2018: Codemotion - Amsterdam 2018 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems Location: Amsterdam, Netherlands
 Language: English
 26/04/2018: DDD eXchange 2018 Bounded Contexts, Microservices, and Everything In Between Location: London, UK

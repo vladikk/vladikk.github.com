@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Oss on Vladikk</title>
-    <link>https://www.vladikk.com/categories/oss/</link>
+    <link>https://vladikk.com/categories/oss/</link>
     <description>Recent content in Oss on Vladikk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,15 +10,15 @@
     <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
     <lastBuildDate>Tue, 11 Jun 2013 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.vladikk.com/categories/oss/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vladikk.com/categories/oss/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>JSON2CSV</title>
-      <link>https://www.vladikk.com/2013/06/11/json2csv/</link>
+      <link>https://vladikk.com/2013/06/11/json2csv/</link>
       <pubDate>Tue, 11 Jun 2013 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://www.vladikk.com/2013/06/11/json2csv/</guid>
+      <guid>https://vladikk.com/2013/06/11/json2csv/</guid>
       <description>&lt;p&gt;Last week I&amp;rsquo;ve needed a utility to convert a file containing json data to csv. I found many online solutions, but for some weird reason they didn&amp;rsquo;t support nested objects and arrays. So I wrote one, this time in python.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -26,10 +26,10 @@
     
     <item>
       <title>Introducing SQL2JSON</title>
-      <link>https://www.vladikk.com/2013/06/09/sql2json/</link>
+      <link>https://vladikk.com/2013/06/09/sql2json/</link>
       <pubDate>Sun, 09 Jun 2013 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://www.vladikk.com/2013/06/09/sql2json/</guid>
+      <guid>https://vladikk.com/2013/06/09/sql2json/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;ll ever try to generate JSON file using Sql Server&amp;rsquo;s Management Studio, probably there&amp;rsquo;ll be lots of pain in your future. If you wanna save the pain, you can use SQL2JSON, an open source project I started last week.&lt;/p&gt;
 
 &lt;p&gt;The idea was born out of a need to generate a huge JSON file containing data from MSSQL database. After seeing our DBA struggling with formatting, escaping weird characters and unicode strings, I decided to write a small utility that will do just that - execute a sql query and capture its results as a json file.&lt;/p&gt;

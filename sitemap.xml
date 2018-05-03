@@ -3,188 +3,188 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.vladikk.com/2018/03/28/ios-apn-bug/</loc>
+    <loc>https://vladikk.com/2018/03/28/ios-apn-bug/</loc>
     <lastmod>2018-03-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2018/02/28/microservices/</loc>
+    <loc>https://vladikk.com/2018/02/28/microservices/</loc>
     <lastmod>2018-02-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/</loc>
+    <loc>https://vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/</loc>
     <lastmod>2018-01-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2018/01/21/bounded-contexts-vs-microservices/</loc>
+    <loc>https://vladikk.com/2018/01/21/bounded-contexts-vs-microservices/</loc>
     <lastmod>2018-01-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2017/03/30/nifi-unicode/</loc>
+    <loc>https://vladikk.com/2017/03/30/nifi-unicode/</loc>
     <lastmod>2017-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2017/03/20/tackling-complexity-in-cqrs/</loc>
+    <loc>https://vladikk.com/2017/03/20/tackling-complexity-in-cqrs/</loc>
     <lastmod>2017-03-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2016/06/29/test-scopes/</loc>
+    <loc>https://vladikk.com/2016/06/29/test-scopes/</loc>
     <lastmod>2016-06-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2016/04/05/tackling-complexity-ddd/</loc>
+    <loc>https://vladikk.com/2016/04/05/tackling-complexity-ddd/</loc>
     <lastmod>2016-04-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2016/03/05/interviewing/</loc>
+    <loc>https://vladikk.com/2016/03/05/interviewing/</loc>
     <lastmod>2016-03-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2016/02/12/dddeu-2016/</loc>
+    <loc>https://vladikk.com/2016/02/12/dddeu-2016/</loc>
     <lastmod>2016-02-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2016/01/22/tdd-what-went-wrong/</loc>
+    <loc>https://vladikk.com/2016/01/22/tdd-what-went-wrong/</loc>
     <lastmod>2016-01-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/</loc>
+    <loc>https://vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/</loc>
     <lastmod>2013-09-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2013/06/11/json2csv/</loc>
+    <loc>https://vladikk.com/2013/06/11/json2csv/</loc>
     <lastmod>2013-06-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2013/06/09/sql2json/</loc>
+    <loc>https://vladikk.com/2013/06/09/sql2json/</loc>
     <lastmod>2013-06-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2013/06/01/unicode-file-names-in-python/</loc>
+    <loc>https://vladikk.com/2013/06/01/unicode-file-names-in-python/</loc>
     <lastmod>2013-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2013/05/14/uncoupling-configuration-files/</loc>
+    <loc>https://vladikk.com/2013/05/14/uncoupling-configuration-files/</loc>
     <lastmod>2013-05-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/</loc>
+    <loc>https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/</loc>
     <lastmod>2012-10-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2012/09/10/dependency-injection-patterns/</loc>
+    <loc>https://vladikk.com/2012/09/10/dependency-injection-patterns/</loc>
     <lastmod>2012-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/2012/08/23/disposing-objects-created-by-di-container/</loc>
+    <loc>https://vladikk.com/2012/08/23/disposing-objects-created-by-di-container/</loc>
     <lastmod>2012-08-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/page/about/</loc>
+    <loc>https://vladikk.com/page/about/</loc>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/categories/architecture/</loc>
+    <loc>https://vladikk.com/categories/architecture/</loc>
     <lastmod>2017-03-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/categories/</loc>
+    <loc>https://vladikk.com/categories/</loc>
     <lastmod>2017-03-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/page/contact/</loc>
+    <loc>https://vladikk.com/page/contact/</loc>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/categories/cqrs/</loc>
+    <loc>https://vladikk.com/categories/cqrs/</loc>
     <lastmod>2017-03-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/categories/domain-driven-design/</loc>
+    <loc>https://vladikk.com/categories/domain-driven-design/</loc>
     <lastmod>2018-02-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/categories/microservices/</loc>
+    <loc>https://vladikk.com/categories/microservices/</loc>
     <lastmod>2018-02-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/categories/misc/</loc>
+    <loc>https://vladikk.com/categories/misc/</loc>
     <lastmod>2017-03-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/categories/oss/</loc>
+    <loc>https://vladikk.com/categories/oss/</loc>
     <lastmod>2013-06-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/page/</loc>
+    <loc>https://vladikk.com/page/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/post/</loc>
+    <loc>https://vladikk.com/post/</loc>
     <lastmod>2018-03-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/categories/python/</loc>
+    <loc>https://vladikk.com/categories/python/</loc>
     <lastmod>2013-09-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/page/reading/</loc>
+    <loc>https://vladikk.com/page/reading/</loc>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/page/speaking/</loc>
+    <loc>https://vladikk.com/page/speaking/</loc>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/tags/</loc>
+    <loc>https://vladikk.com/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/categories/tdd/</loc>
+    <loc>https://vladikk.com/categories/tdd/</loc>
     <lastmod>2016-06-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.vladikk.com/</loc>
+    <loc>https://vladikk.com/</loc>
     <lastmod>2018-03-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
