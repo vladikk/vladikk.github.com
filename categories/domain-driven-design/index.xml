@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Domain Driven Design on Vladikk</title>
-    <link>http://www.vladikk.com/categories/domain-driven-design/</link>
+    <link>https://www.vladikk.com/categories/domain-driven-design/</link>
     <description>Recent content in Domain Driven Design on Vladikk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,16 +10,16 @@
     <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
     <lastBuildDate>Wed, 28 Feb 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://www.vladikk.com/categories/domain-driven-design/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.vladikk.com/categories/domain-driven-design/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Tackling Complexity in Microservices</title>
-      <link>http://www.vladikk.com/2018/02/28/microservices/</link>
+      <link>https://www.vladikk.com/2018/02/28/microservices/</link>
       <pubDate>Wed, 28 Feb 2018 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/2018/02/28/microservices/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://www.vladikk.com/images/microservices/title-img.jpg&#34; alt=&#34;Tackling Complexity in Microservices&#34; /&gt;&lt;/p&gt;
+      <guid>https://www.vladikk.com/2018/02/28/microservices/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.vladikk.com/images/microservices/title-img.jpg&#34; alt=&#34;Tackling Complexity in Microservices&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Unfortunately, many of them ended up worse off than they were before - in the realm of distributed monoliths. Why?&lt;/p&gt;
 
@@ -34,11 +34,11 @@
     
     <item>
       <title>Revisiting the Basics of Domain-Driven Design</title>
-      <link>http://www.vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/</link>
+      <link>https://www.vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/</link>
       <pubDate>Fri, 26 Jan 2018 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://www.vladikk.com/images/domains/title-img.jpg&#34; alt=&#34;Revisiting the Basics of Domain-Driven Design&#34; /&gt;&lt;/p&gt;
+      <guid>https://www.vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.vladikk.com/images/domains/title-img.jpg&#34; alt=&#34;Revisiting the Basics of Domain-Driven Design&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I have quite a few friends in the DDD community. Fortunately, or not, we always tend to disagree on the definitions of such basic terms as Domains and Subdomains. In this post, I want to think aloud and outline my thoughts on the subject.&lt;/p&gt;
 
@@ -51,11 +51,11 @@
     
     <item>
       <title>Bounded Contexts are NOT Microservices</title>
-      <link>http://www.vladikk.com/2018/01/21/bounded-contexts-vs-microservices/</link>
+      <link>https://www.vladikk.com/2018/01/21/bounded-contexts-vs-microservices/</link>
       <pubDate>Sun, 21 Jan 2018 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/2018/01/21/bounded-contexts-vs-microservices/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://www.vladikk.com/images/bc-ms/rebel-scum.jpg&#34; alt=&#34;Rebel scum&#34; /&gt;&lt;/p&gt;
+      <guid>https://www.vladikk.com/2018/01/21/bounded-contexts-vs-microservices/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.vladikk.com/images/bc-ms/rebel-scum.jpg&#34; alt=&#34;Rebel scum&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I’ve always considered Domain-Driven Design’s Bounded Context as a guideline for defining the boundaries of Microservices. I was wrong. Not only is this heuristic flawed, but Bounded Contexts are the exact opposite of Microservices! To explain this point of view, I’ll start with a quick refresh of what Bounded Contexts are; then I’ll discuss the relationship between Bounded Contexts and Microservices.&lt;/p&gt;
 
@@ -64,11 +64,11 @@
     
     <item>
       <title>Tackling Complexity in CQRS</title>
-      <link>http://www.vladikk.com/2017/03/20/tackling-complexity-in-cqrs/</link>
+      <link>https://www.vladikk.com/2017/03/20/tackling-complexity-in-cqrs/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/2017/03/20/tackling-complexity-in-cqrs/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://www.vladikk.com/images/cqrs/title-img.jpg&#34; alt=&#34;Tackling Complexity in CQRS&#34; /&gt;&lt;/p&gt;
+      <guid>https://www.vladikk.com/2017/03/20/tackling-complexity-in-cqrs/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.vladikk.com/images/cqrs/title-img.jpg&#34; alt=&#34;Tackling Complexity in CQRS&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The CQRS pattern can do wonders: it can maximize scalability, performance, security, and even &lt;a href=&#34;http://codebetter.com/gregyoung/2010/02/20/cqrs-and-cap-theorem/&#34;&gt;“beat” the CAP theorem&lt;/a&gt;. Nonetheless, CQRS has acquired a controversial name because of the complexity it introduces. For instance, &lt;a href=&#34;https://martinfowler.com/bliki/CQRS.html&#34;&gt;in his article on CQRS&lt;/a&gt;, Martin Fowler argues that the pattern should be applied sparingly and even cautiously:&lt;/p&gt;
 
@@ -85,11 +85,11 @@
     
     <item>
       <title>Tackling Complexity in the Heart of DDD</title>
-      <link>http://www.vladikk.com/2016/04/05/tackling-complexity-ddd/</link>
+      <link>https://www.vladikk.com/2016/04/05/tackling-complexity-ddd/</link>
       <pubDate>Tue, 05 Apr 2016 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/2016/04/05/tackling-complexity-ddd/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://www.vladikk.com/images/ddd/title-img.jpg&#34; alt=&#34;Tackling Complexity in the Heart of Domain-Driven Design&#34; /&gt;&lt;/p&gt;
+      <guid>https://www.vladikk.com/2016/04/05/tackling-complexity-ddd/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.vladikk.com/images/ddd/title-img.jpg&#34; alt=&#34;Tackling Complexity in the Heart of Domain-Driven Design&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Let’s do a little experiment: try to explain the gist of Domain-Driven Design to someone who has no clue about it. This, especially doing it succinctly, is not easy. Heck, I struggle with it myself. Bounded contexts, entities, domain events, value objects, domains, aggregates, repositories… where do you even start?&lt;/p&gt;
 
@@ -100,10 +100,10 @@
     
     <item>
       <title>DDDEU 2016 Impressions</title>
-      <link>http://www.vladikk.com/2016/02/12/dddeu-2016/</link>
+      <link>https://www.vladikk.com/2016/02/12/dddeu-2016/</link>
       <pubDate>Fri, 12 Feb 2016 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/2016/02/12/dddeu-2016/</guid>
+      <guid>https://www.vladikk.com/2016/02/12/dddeu-2016/</guid>
       <description>&lt;p&gt;Last month, I had the pleasure of attending the Domain Driven Design Europe conference in Brussels. As I’ve tweeted before, this was the best conference I’ve ever attended. In this post, I’d like to sum the things I’ve learned at the conference.&lt;/p&gt;
 
 &lt;h2 id=&#34;it-s-not-only-about-sessions&#34;&gt;It&amp;rsquo;s Not (Only) About Sessions&lt;/h2&gt;
@@ -119,10 +119,10 @@ And I’m yet to mention discussing Star Wars with Eric Evans, discovering that 
     
     <item>
       <title>TDD: What Went Wrong…Or Did It?</title>
-      <link>http://www.vladikk.com/2016/01/22/tdd-what-went-wrong/</link>
+      <link>https://www.vladikk.com/2016/01/22/tdd-what-went-wrong/</link>
       <pubDate>Fri, 22 Jan 2016 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>http://www.vladikk.com/2016/01/22/tdd-what-went-wrong/</guid>
+      <guid>https://www.vladikk.com/2016/01/22/tdd-what-went-wrong/</guid>
       <description>&lt;p&gt;Test Driven Development has been praised by our industry&amp;rsquo;s aficionados for a long time. However, lately there have been many harsh words said towards TDD, as it’s being blamed for causing bad software design and not keeping many of its promises. This trend culminated in David Heinemeierhansson’s post &lt;a href=&#34;http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html&#34;&gt;“TDD is dead. Long live testing”&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;How is it possible, that the same technique, which is so advantageous to so many developers, is so disastrous to others?
