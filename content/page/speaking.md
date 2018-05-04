@@ -17,6 +17,10 @@ Location: London, UK
 
 Language: English
 
+Recording: [Skillsmatter](https://skillsmatter.com/skillscasts/11493-functional-cqrs)
+
+Slides: [Speakerdeck](https://speakerdeck.com/vladikk/microservices-bounded-contexts-and-everything-in-between)
+
 ### 18/04/2018: TestCon Moscow 2018
 #### How to Make TDD Work
 
