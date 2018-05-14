@@ -3,12 +3,21 @@ title: Speaking
 comments: false
 ---
 
+### 08/05/2018: KanDDDinsky 2018
+#### Bounded Contexts, Microservices, and Everything In Between
+
+Location: Berlin, Germany
+
+Language: English
+
 ### 08/05/2018: Codemotion - Amsterdam 2018
 #### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
 
 Location: Amsterdam, Netherlands
 
 Language: English
+
+Slides: [Speakerdeck](https://speakerdeck.com/vladikk/7-years-of-ddd-tackling-complexity-in-marketing-systems)
 
 ### 26/04/2018: DDD eXchange 2018
 #### Bounded Contexts, Microservices, and Everything In Between
@@ -34,6 +43,8 @@ Language: Russian
 Location: Rome, Italy
 
 Language: English
+
+Slides: [Speakerdeck](https://speakerdeck.com/vladikk/7-years-of-ddd-tackling-complexity-in-marketing-systems)
 
 ### 05/04/2018: SFI Academic IT Festival
 #### Microservices: In Search of the Perfect Boundaries
