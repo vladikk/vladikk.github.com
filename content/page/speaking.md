@@ -3,7 +3,7 @@ title: Speaking
 comments: false
 ---
 
-### 08/05/2018: KanDDDinsky 2018
+### 18/10/2018: KanDDDinsky 2018
 #### Bounded Contexts, Microservices, and Everything In Between
 
 Location: Berlin, Germany
