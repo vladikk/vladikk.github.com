@@ -10,6 +10,13 @@ Location: Berlin, Germany
 
 Language: English
 
+### 19/09/2018: NDC {Sydney}
+#### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
+
+Location: Sydney, Australia
+
+Language: English
+
 ### 08/05/2018: Codemotion - Amsterdam 2018
 #### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
 
