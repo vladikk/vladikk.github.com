@@ -10,12 +10,26 @@ Location: Berlin, Germany
 
 Language: English
 
+### 10/10/2018: Big Data Moscow 2018
+#### Embracing Polyglot Persistence Via CQRS
+
+Location: Moscow, Russia
+
+Language: Russian
+
 ### 19/09/2018: NDC {Sydney}
 #### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
 
 Location: Sydney, Australia
 
 Language: English
+
+### 12/06/2018: DDD-IL
+#### Domain-Driven Design: Illustrated 101
+
+Location: Tel Aviv, Israel
+
+Language: Hebrew
 
 ### 08/05/2018: Codemotion - Amsterdam 2018
 #### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
