@@ -356,9 +356,7 @@ public class Program {
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
       <guid>https://vladikk.com/page/about/</guid>
-      <description>Having over 18 years of experience in the software industry, I&amp;rsquo;ve worked across multiple business domains, including advertisement, healthcare, telecommunications, and customer acquisition. Currently I serve as the Chief Architect for Internovus, where I&amp;rsquo;m in charge of large-scale projects, and an international developers team.
-My main areas of interest are Domain-Driven Design, Distributed Systems, Cloud Computing and building effective teams.
-When I&amp;rsquo;m not geeking out, I read lots of books, photograph nature, and repair my r/c aircrafts.</description>
+      <description>I’m a software developer with nearly 20 years of industry experience. During the years I worked for companies large and small, in roles ranging from Software Engineer to Chief Architect. When away from work, I maintain an active media career as public speaker and blogger. I’m speaking and writing on topics such as Microservices, Domain-Driven Design, and more. Alongside the media work, I have a keen professional interest in Distributed Systems, Software Architecture, and Software Design in general.</description>
     </item>
     
     <item>
