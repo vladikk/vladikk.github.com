@@ -4,13 +4,11 @@ subtitle: WTFAY
 comments: false
 ---
 
-Having over 18 years of experience in the software industry, I've worked across multiple business domains, including advertisement, healthcare, telecommunications, and customer acquisition. Currently I serve as the Chief Architect for Internovus, where I'm in charge of large-scale projects, and an international developers team.
+I’m a software developer with nearly 20 years of industry experience. During the years I worked for companies large and small, in roles ranging from Software Engineer to Chief Architect. 
 
-My main areas of interest are Domain-Driven Design, Distributed Systems, Cloud Computing and building effective teams.
+When away from work, I maintain an active media career as public speaker and blogger. I’m speaking and writing on topics such as Microservices, Domain-Driven Design, and more. Alongside the media work, I have a keen professional interest in Distributed Systems, Software Architecture, and Software Design in general. 
 
-When I'm not geeking out, I read lots of books, photograph nature, and repair my r/c aircrafts.
-
-For any type of enquiry, you can contact me via either of the methods below:
+In the remaining time, I read lots of books, fly R/C aircrafts, and rescue troubled animals. 
 
 * Email: vladik at khononov.com
 * Twitter: [@vladikk](http://twitter.com/vladikk)
