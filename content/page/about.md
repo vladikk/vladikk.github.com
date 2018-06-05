@@ -10,6 +10,8 @@ When away from work, I maintain an active media career as public speaker and blo
 
 In the remaining time, I read lots of books, fly R/C aircrafts, and rescue troubled animals. 
 
+I always welcome professional enquiries, and can be contacted via either of the methods below:
+
 * Email: vladik at khononov.com
 * Twitter: [@vladikk](http://twitter.com/vladikk)
 * Github: [vladikk](http://github.com/vladikk)
