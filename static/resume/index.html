@@ -1,0 +1,446 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Vladik Khononov | Software Architect, Speaker, Blogger, Mentor | vladik@khononov.com</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<style>
+		/* 
+		html5doctor.com Reset Stylesheet
+		v1.6.1
+		Last Updated: 2010-09-17
+		Author: Richard Clark - http://richclarkdesign.com 
+		Twitter: @rich_clark
+		*/
+
+		html, body, div, span, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		abbr, address, cite, code,
+		del, dfn, em, img, ins, kbd, q, samp,
+		small, strong, sub, sup, var,
+		b, i,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, figcaption, figure, 
+		footer, header, hgroup, menu, nav, section, summary,
+		time, mark, audio, video {
+		    margin:0;
+		    padding:0;
+		    border:0;
+		    outline:0;
+		    font-size:100%;
+		    vertical-align:baseline;
+		    background:transparent;
+		}
+
+		body {
+		    line-height:1;
+		}
+
+		article,aside,details,figcaption,figure,
+		footer,header,hgroup,menu,nav,section { 
+			display:block;
+		}
+
+		nav ul {
+		    list-style:none;
+		}
+
+		blockquote, q {
+		    quotes:none;
+		}
+
+		blockquote:before, blockquote:after,
+		q:before, q:after {
+		    content:'';
+		    content:none;
+		}
+
+		a {
+		    margin:0;
+		    padding:0;
+		    font-size:100%;
+		    vertical-align:baseline;
+		    background:transparent;
+		}
+
+		/* change colours to suit your needs */
+		ins {
+		    background-color:#ff9;
+		    color:#000;
+		    text-decoration:none;
+		}
+
+		/* change colours to suit your needs */
+		mark {
+		    background-color:#ff9;
+		    color:#000; 
+		    font-style:italic;
+		    font-weight:bold;
+		}
+
+		del {
+		    text-decoration: line-through;
+		}
+
+		abbr[title], dfn[title] {
+		    border-bottom:1px dotted;
+		    cursor:help;
+		}
+
+		table {
+		    border-collapse:collapse;
+		    border-spacing:0;
+		}
+
+		/* change border colour to suit your needs */
+		hr {
+		    display:block;
+		    height:1px;
+		    border-top:1px solid #cccccc;
+		    padding:0;
+		    margin:0;
+		}
+
+		input, select {
+		    vertical-align:middle;
+		}
+	</style>
+	<style>
+		html, body {
+			font-family: Georgia;
+			color: #444;
+		}
+
+		.cv {
+			text-align: left;
+			box-sizing: border-box;
+			width: 200mm;
+			padding: 1cm;
+			margin: 80px auto;
+			background: #f5f5f5;
+			border: solid #666;
+			border-width: 8px 0 2px 0;
+		}
+
+		h1, h2, h3, h4 {
+			color: #444;
+			font-weight: normal;
+			font-family: Futura, "Century Gothic", AppleGothic, sans-serif;
+			line-height: 1.5em;
+		}
+
+		h1 {
+			font-size: 35px;
+			text-transform: uppercase;
+			letter-spacing: 3px;
+		}
+
+		h2 {
+			font-size: 12px;
+			margin-bottom: 5px;
+			font-style: italic;
+		}
+
+		.cv {
+			
+		}
+
+		.header {
+			margin: 40px 0px;
+			position: relative;
+			line-height: 1.4em;
+			width: 65%;
+			display: inline-block;
+		}
+
+		.contact-info {
+			margin: 46px 0px;
+		}
+
+		a {
+			color: #990003;
+		}
+
+		.contact-info {
+			text-align: left;
+			line-height: 1.4em;
+			font-family: 'Hoefler Text', Times New Roman, Times, serif;
+			color: #444;
+			width: 30%;
+			float: right;
+			display: inline-block;
+		}
+
+		.header,
+		.contact-info {
+		}
+
+		.contact-info span {
+			display: block;
+		}
+
+		.header h2 {
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		}
+
+		.cv-body {
+			position: relative;
+		}
+
+		.cv-body h2 {
+			font-size: 20px;
+			color: #333;
+			font-family: arial,helvetica,clean,sans-serif;
+			width: 20%;
+			float: left;
+			top: 200px;
+			clear: both;
+		}
+
+		.cv-body h2,
+		.cv-body h3,
+		.cv-body p {
+			line-height: 25px;
+			vertical-align: text-top;
+		}
+
+		.cv-body h2 + * {
+			padding-top: 20px;
+		}
+
+		.cv-body h2 {
+			padding-top: 20px;
+		}
+
+		.cv-body h3,
+		.cv-body p,
+		.cv-body ul {
+			width: 80%;
+			float: right;
+			text-align: left;
+			line-height: 25px;
+		}
+
+		.cv-body p,
+		.cv-body h3,
+		.cv-body li {
+			font-size: 16px;
+			margin-bottom: 5px;
+		}
+
+		.cv-body h2::before,
+		.cv-body h2 + *::before {
+		    display: inline-block;
+		    content: "";
+		    border-top: 1px solid #ccc;
+		    margin: 20px 0px 10px;
+		    width: 100%;
+		    transform: translateY(-1rem);
+		}
+
+		.cv-body :first-child::before {
+			display: none;
+			margin: 0px;
+			border-style: none;
+		}
+
+		.cv-body :first-child + *::before {
+			display: none;
+			margin: 0px;
+			border-style: none;
+		}
+
+		.cv-body h3 {
+			margin-top: 20px;
+		}
+
+		.cv-body h2 + h3 {
+			margin-top: 0px;
+		}
+
+		.cv-body p {
+			display: inline-block;
+		}
+
+		.cv-body ul {
+			list-style: none;
+		}
+
+		.footer {
+			clear: both;
+			text-align: center;
+			padding-top: 50px;
+			padding-bottom: 30px;
+		}
+
+		hr {
+			display: none;
+		}
+
+		@media print {
+			.cv {
+				margin: 0px;
+				border-style: none;
+				background-color: #fff;
+			}
+
+			.header {
+				margin: 20px 0px;
+			}
+
+			.contact-info {
+				margin: 26px 0px;
+			}
+
+			.cv-body {
+				margin-top: -20px;
+			}
+
+			.cv-body p,
+			.cv-body h3,
+			.cv-body li {
+				font-size: 14px;
+				margin-bottom: 3px;
+			}
+
+			.footer {
+				padding-top: 30px;
+				padding-bottom: 0px;
+			}
+
+			hr {
+				display: block;
+				visibility: hidden;
+				page-break-after: always;
+			}
+
+			.header h1,
+			.header h2 {
+				letter-spacing: 0px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="cv">
+		<div class="header">
+			<h1>Vladik Khononov</h1>
+			<h2>Software Architect, Speaker, Blogger, Mentor</h2>
+		</div>
+		<div class="contact-info">
+			<span class="email"><a href="mailto:vladik@khononov.com">vladik@khononov.com</a></span>
+			<span class="phonenumber">+972-50-765-7534</span>
+			<span class="twitter"><a href="http://twitter.com/vladikk">@vladikk</a></span>
+		</div>
+		<div class="cv-body">
+			<h2>Profile</h2>
+
+<p>I’m a software engineer with nearly 20 years of industry experience. During the years I worked for companies large and small, in roles ranging from Software Engineer to Chief Architect.</p>
+
+<p>When away from work, I maintain an active media career as public speaker and blogger. I am speaking and writing on topics such as Microservices, Domain-Driven Design, and more. Alongside the media work, I have a keen professional interest in Distributed Systems, Software Architecture, and Software Design in general.</p>
+
+<p>In the remaining time, I read lots of books, fly R/C aircrafts, and rescue troubled animals.</p>
+
+<h2>Skills</h2>
+
+<h3>Software Architecture and Design</h3>
+
+<p>Domain-Driven Design, Microservices, CQRS, Event Sourcing, Distributed Systems Design, Event-Driven Architecture, SOA</p>
+
+<h3>Cloud Computing</h3>
+
+<p>Amazon Web Services, Digital Ocean</p>
+
+<h3>Platforms and Programming Languages</h3>
+
+<p>.NET &amp; .NET Core (C# &amp; F#), Python, NodeJS (JavaScript, CoffeeScript, TypeScript), Swift</p>
+
+<h3>Databases</h3>
+
+<p>PostgreSQL, DynamoDB, MSSQL, Redis, MongoDB, Redshift</p>
+
+<h3>Development Methodologies</h3>
+
+<p>Test-Driven Development, Behavior-Driven Development</p>
+
+<h2>Education</h2>
+
+<h3>The Open University of Israel</h3>
+
+<p>Dual Major, Management and Computer Sciences, 2011 (with <em>distinction</em>)</p>
+
+<hr />
+
+<h2>Experience</h2>
+
+<h3>Invesus Group - Chief Architect (2017-Present)</h3>
+
+<p>In 2017 Internovus was merged with Invesus, and I was promoted to the Chief Architect position of the Invesus group (Internovus, Naxex). In addition to my duties at Internovus, at Invesus I’m in charge of mentoring and helping teams to migrate legacy codebases into a Microservices and AWS Cloud based solutions.</p>
+
+<h3>Internovus - Chief Architect (2011-Present)</h3>
+
+<p>Internovus is a large scale online advertising and marketing company. As the first employee of the company I was in charge of both strategic and tactical software design and architecture.</p>
+
+<p>We embraced AWS Cloud and Domain-Driven Design from the company's day one. We also employed state of the art technologies and architectural styles, such as Microservices, Serverless Computing, Event Sourcing, CQRS, Event-Driven Architecture, polyglot persistence, machine learning, and others.</p>
+
+<p>In addition to my engineering duties, I built and managed international RND teams, mentored junior software developers and architects, and am in charge of research and technical guidance for the company.</p>
+
+<h3>Malam Team - Senior Software Engineer (2005-2011)</h3>
+
+<p>Right after I demobilized from the army, I started working as a junior software engineer for one of Israel's largest outsourcing companies - Malam. I worked on numerous strategic projects for  MSN, Cellcom, Coca Cola, Keshet, and other companies.</p>
+
+<h3>Israel Air Force - Software and IT Engineer (2001-2005)</h3>
+
+<p>During my army service I served as an IT manager for the Human Resources department. I was in charge of building and maintaining information management systems (Magic, MS Access), administrating databases, and supporting the department's hardware.</p>
+
+<p>During the service I was honored as an <em>outstanding</em> soldier.</p>
+
+<h3>Beit Tochna Ve Makhshev - Web Developer (2000-2001)</h3>
+
+<p>During my high school years I worked as a web developer for a small chain of computer stores.</p>
+
+<p>I was in charge of building websites for local shops and small businesses.</p>
+
+<hr />
+
+<h2>Blog</h2>
+
+<p><a href="https://vladikk.com">vladikk.com</a></p>
+
+<h2>Recent Personal Projects</h2>
+
+<h3>Design Heuristics for Service Boundaries</h3>
+
+<h3>7 Years of Domain-Driven Design (Book)</h3>
+
+<h2>Public Speaking</h2>
+
+<ul>
+<li><a href="https://bit.ly/2wRdEzp">Bounded Contexts, Microservices, and Everything in Between (DDDx)</a></li>
+<li><a href="https://bit.ly/2Ijs807">7 Years of Domain-Driven Design (Code Europe)</a></li>
+<li><a href="http://vladikk.com/page/speaking">Full Speaking Profile</a></li>
+</ul>
+
+<h2>Publications</h2>
+
+<p>Devops: Exploring the Value of Microblogging, Cutter IT, Jan 2012</p>
+
+<h2>Human Languages</h2>
+
+<ul>
+<li>English - Fluent</li>
+<li>Hebrew - Fluent</li>
+<li>Russian - Mother tongue</li>
+</ul>
+
+		</div>
+		<div class="footer">
+			Vladik Khononov &mdash; <a href="mailto:vladik@khononov.com">vladik@khononov.com</a> &mdash; +972-50-765-7534
+		</div>
+	</div>
+</body>
+</html>
