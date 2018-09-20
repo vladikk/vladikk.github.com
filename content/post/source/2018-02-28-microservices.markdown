@@ -75,7 +75,7 @@ The *threshold* upon which the system can be decomposed is *defined by the use c
 This definition supports the known fact that each microservice should have its own database. That’s because in other the case, one of the services would have to expose its database as its public interface. And this huge public interface would make it a *macro*-service.
 
 ## P.S.
-If you're attending [DDDX 2018](https://skillsmatter.com/conferences/9396-ddd-exchange-2018), I invite you to join my session ["Bounded Contexts, Microservices, and Everything in Between”](https://skillsmatter.com/conferences/9396-ddd-exchange-2018#program), where I'll talk about decomposition strategies and heuristics of finding the dreaded decomposition threshold that you shall not pass.
+["Bounded Contexts, Microservices, and Everything in Between"](https://skillsmatter.com/skillscasts/11493-functional-cqrs): the talk I gave at the DDDX 2018 conference, where I spoke on this topic - what exactly Microservices are, strategies for decomposing systems into services, and heuristics for finding Microservice boundaries.
 
 <br/>
 ### All Posts in the "Tackling Complexity" Series
