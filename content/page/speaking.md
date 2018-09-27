@@ -3,6 +3,20 @@ title: Speaking
 comments: false
 ---
 
+### 04/02/2019: O'Reilly Software Architecture Conference 2019
+#### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
+
+Location: NYC, USA
+
+Language: English
+
+### 05/11/2018: µCon London 2018
+#### Bounded Contexts, Microservices, and Everything In Between
+
+Location: London, UK
+
+Language: English
+
 ### 29/10/2018: O'Reilly Software Architecture Conference 2018
 #### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
 
