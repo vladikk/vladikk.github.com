@@ -45,13 +45,6 @@ Location: Sydney, Australia
 
 Language: English
 
-### 12/06/2018: DDD-IL
-#### Domain-Driven Design: Illustrated 101
-
-Location: Tel Aviv, Israel
-
-Language: Hebrew
-
 ### 08/05/2018: Codemotion - Amsterdam 2018
 #### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
 
