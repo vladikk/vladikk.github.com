@@ -17,6 +17,10 @@ Location: London, UK
 
 Language: English
 
+Recording: [SkillsCast](https://skillsmatter.com/skillscasts/12765-microservices-bounded-contexts-and-everything-in-between)
+
+Slides: [Speakerdeck](https://speakerdeck.com/vladikk/bounded-contexts-microservices-and-everything-in-between)
+
 ### 29/10/2018: O'Reilly Software Architecture Conference 2018
 #### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
 
@@ -24,12 +28,18 @@ Location: London, UK
 
 Language: English
 
+Recording: [Safari Books Online](https://www.safaribooksonline.com/api/v1/book/9781492025917/chapter-content/video323643.html)
+
+Slides: [Speakerdeck](https://speakerdeck.com/vladikk/7-years-of-domain-driven-design)
+
 ### 18/10/2018: KanDDDinsky 2018
 #### Bounded Contexts, Microservices, and Everything In Between
 
 Location: Berlin, Germany
 
 Language: English
+
+Slides: [Speakerdeck](https://speakerdeck.com/vladikk/bounded-contexts-microservices-and-everything-in-between)
 
 ### 10/10/2018: Big Data Moscow 2018
 #### Embracing Polyglot Persistence Via CQRS
@@ -44,6 +54,10 @@ Language: Russian
 Location: Sydney, Australia
 
 Language: English
+
+Recording: [Youtube](https://youtu.be/DIu1FLD8CsE)
+
+Slides: [Speakerdeck](https://speakerdeck.com/vladikk/7-years-of-domain-driven-design)
 
 ### 08/05/2018: Codemotion - Amsterdam 2018
 #### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
