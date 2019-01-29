@@ -10,7 +10,6 @@ share_img: /images/zen/header.jpg
 
 <img src="/images/zen/header.jpg" alt="The Zen of Software Engineering" />
 
-
 There is a pet peeve of mine, that lately I’m encountering way too often: the condition I call __Silverbulletitis__. This virus spreads among developers on many levels — juniors, seniors, and even architects. In this post I’d like talk about why this condition is dangerous, and how it can be treated.
 
 ## Symptoms
