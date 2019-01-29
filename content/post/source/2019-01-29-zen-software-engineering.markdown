@@ -2,15 +2,16 @@
 comments: true
 date: 2019-01-29T00:00:00Z
 keywords: software engineering, software design, software architecture, design patterns, design principles, ddd, cqrs, engineering, design, software, architecture
-title: 'The Zen of Software Engineering'
+title: 'Zen of Software Engineering'
 url: /2019/01/29/zen-software-engineering/
 draft: false
+categories: [Domain-Driven Design]
 share_img: /images/zen/header.jpg
 ---
 
 <img src="/images/zen/header.jpg" alt="The Zen of Software Engineering" />
 
-There is a pet peeve of mine, that lately I’m encountering way too often: the condition I call __Silverbulletitis__. This virus spreads among developers on many levels — juniors, seniors, and even architects. In this post I’d like talk about why this condition is dangerous, and how it can be treated.
+There is a pet peeve of mine, that I’m encountering way too often: the condition I call __Silverbulletitis__. This virus spreads among developers on many levels — juniors, seniors, and even architects. In this post I’d like talk about why this condition is dangerous, and how it can be treated.
 
 ## Symptoms
 All too often you can hear statements that some tool or technique is bad, but another one is the greatest thing since sliced bread. E.g.:
