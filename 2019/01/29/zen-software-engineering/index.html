@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>The Zen of Software Engineering</title>
+  <meta property="og:title" content="The Zen of Software Engineering" />
+  <meta name="twitter:title" content="The Zen of Software Engineering" />
+  <meta name="description" content="&hellip;or silverbulletitis, and its treatment
+There is a pet peeve of mine, that lately I’m encountering way too often: the condition I call Silverbulletitis. This virus spreads among developers on many levels — juniors, seniors, and even architects. In this post I’d like talk about why this condition is dangerous, and how it can be treated.
+Symptoms All too often you can hear statements that some tool or technique is bad, but another one is the greatest thing since sliced bread.">
+  <meta property="og:description" content="&hellip;or silverbulletitis, and its treatment
+There is a pet peeve of mine, that lately I’m encountering way too often: the condition I call Silverbulletitis. This virus spreads among developers on many levels — juniors, seniors, and even architects. In this post I’d like talk about why this condition is dangerous, and how it can be treated.
+Symptoms All too often you can hear statements that some tool or technique is bad, but another one is the greatest thing since sliced bread.">
+  <meta name="twitter:description" content="&hellip;or silverbulletitis, and its treatment
+There is a pet peeve of mine, that lately I’m encountering way too often: the condition I call Silverbulletitis. This virus spreads among developers on …">
+  <meta name="author" content="Vladik Khononov"/>
+  <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://vladikk.com/images/zen/header.jpg" />
+  <meta name="twitter:image" content="https://vladikk.com/images/zen/header.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@vladikk" />
+  <meta name="twitter:creator" content="@vladikk" />
+  <meta property="og:url" content="https://vladikk.com/2019/01/29/zen-software-engineering/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vladikk" />
+
+  <meta name="generator" content="Hugo 0.31.1" />
+  <link rel="canonical" href="https://vladikk.com/2019/01/29/zen-software-engineering/" />
+  <link rel="alternate" href="" type="application/rss+xml" title="Vladikk">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://vladikk.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
+  <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="software engineering, software design, software architecture, design patterns, design principles, ddd, cqrs, engineering, design, software, architecture">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-40869819-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://vladikk.com">Vladikk</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Writing" href="/">Writing</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Speaking" href="/page/speaking/">Speaking</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Contact me" href="/page/contact/">Contact me</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Vladikk" href="https://vladikk.com">
+            <img class="avatar-img" src="https://vladikk.com/images/me.jpg" alt="Vladikk" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>The Zen of Software Engineering</h1>
+                
+                
+                  <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on January 29, 2019
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 4 min (735 mots)
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<p><img src="/images/zen/header.jpg" alt="The Zen of Software Engineering" /></p>
+
+<p><strong>&hellip;or silverbulletitis, and its treatment</strong></p>
+
+<p>There is a pet peeve of mine, that lately I’m encountering way too often: the condition I call <strong>Silverbulletitis</strong>. This virus spreads among developers on many levels — juniors, seniors, and even architects. In this post I’d like talk about why this condition is dangerous, and how it can be treated.</p>
+
+<h2 id="symptoms">Symptoms</h2>
+
+<p>All too often you can hear statements that some tool or technique is bad, but another one is the greatest thing since sliced bread. E.g.:</p>
+
+<ul>
+<li>Procedural code is for dinosaurs</li>
+<li>Functional programming is the way</li>
+<li>MongoDB is “the sh*t”</li>
+<li>All relational databases are evil</li>
+<li>Dynamic languages make you fast</li>
+<li>Static typing is just never ending ceremonies</li>
+<li>TDD all the things</li>
+<li>TDD is dead</li>
+<li>SOLID is a cargo cult</li>
+<li>etc.</li>
+</ul>
+
+<p>But, the truth is, <strong>no tool is necessarily good or bad</strong>. <em>(Okay, okay, Sharepoint should be avoided at all costs, but you’ve got my point.)</em> Each tool has its context, costs, and the problem it is supposed to solve. <strong>As engineers, it is our job to know and recognize cases in which each tool can be used or should be avoided</strong>. Challenging? — Hell yeah. Requires experience? — Lots of it. But hey, it was never meant to be easy. And by the way, that’s almost literally the definition of engineering, according to ECPD (The American Engineers&rsquo; Council for Professional Development):</p>
+
+<blockquote>
+<p>The creative application of scientific principles to design or develop structures, machines, apparatus, or manufacturing processes, or works utilizing them singly or in combination; or <strong>to construct or operate the same with full cognizance of their design; or to forecast their behavior under specific operating conditions; all as respects an intended function, economics of operation and safety to life and property.</strong></p>
+</blockquote>
+
+<h2 id="treatment">Treatment</h2>
+
+<p>Hence, limiting yourself to one solution for all problems is not engineering — it’s hacking. And don’t get me wrong here, hacking is not necessarily bad! It’s just a tool, and as such, it can be useful — for example, when you have to deliver fast and you know that the project is not going to evolve. But that’s not <em>&ldquo;the way&rdquo;</em>. <strong>There is no &ldquo;the way&rdquo; and don’t waste your time looking for it</strong>. Instead:</p>
+
+<ul>
+<li>Gain experience with different programming paradigms: object oriented, functional, and even procedural programming — all are useful in some cases, but wasteful in others</li>
+<li>Embrace the brave new world of NoSQL. Today we have myriads of database families to choose from — document stores, key/value stores, search indexes, graphs, columnar stores, relational databases. Unfortunately, none of them is perfect. Each has its strengths and weaknesses. Or, as Greg Young put it, each database sucks in its own way. Therefore, learn to apply various types of databases effectively.</li>
+<li>Learn what problems the different architectural patterns are intended to solve: Layers, Hexagonal, CQRS, DCI. When applied correctly, they manage and abstract complexity at different levels; when applied incorrectly they only lead to accidental complexities.</li>
+<li>Last but not least, learn the different ways of modeling business domains and business logic: active record, domain model(ddd), event sourced domain model, and transaction script. Each of those patterns addresses different levels of complexity. Use of the correct pattern will reduce the overall costs of development, and costs of introducing changes in the future.</li>
+<li>etc.</li>
+</ul>
+
+<p>Learn where each tool shines. Learn from your experience. Learn from others’ experience, such as published case studies, conference talks, etc.</p>
+
+<p>Once you gain enough experience, you will get a sense in which projects each tool should be used. However, don’t follow those hunches blindly. Instead, understand from where, and from what experiences, those hunches are coming from. Those are <strong>your design heuristics</strong>.</p>
+
+<h2 id="prevention">Prevention</h2>
+
+<p>Ultimately, don’t fall in love with your design heuristics either! They can be subjective as well, and their use may depend on additional project related factors:</p>
+
+<ul>
+<li>Don’t ignore the dimension of time. Various practices can produce different results at different stages of project development. For example, best practices for a mature product maybe an overkill for a greenfield project.</li>
+<li>What works for one company, may fail miserably for another. Startups and enterprises companies often different requirements, limitations, and values. What may be good for a startup, might get a big ball of mud rolling in an enterprise company. Furthermore, the same technique may produce different results for different teams in the same company.</li>
+</ul>
+
+<h2 id="p-s">P.S.</h2>
+
+<p>&hellip;Did I already mention that software engineering is not a walk in the park?</p>
+
+      </article>
+
+      <hr/>
+      <div id="share">
+      If you liked this post, please share it with your friends and colleagues:
+      <p><div class="addthis_inline_share_toolbox"></div></p>
+    </div>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="https://vladikk.com/2018/03/28/ios-apn-bug/" data-toggle="tooltip" data-placement="top" title="IOS 11: Fixing APN Configuration Issues">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladikk-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:vladik@khononov.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/vladikk" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/vladikk" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/vladikk" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/vladikkhononov" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/1736215/vladikk" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/vladikkk" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://telegram.me/vladik_kh" title="Telegram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-telegram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="vladikk.com">Vladik Khononov</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;
+          2019
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://vladikk.com">Vladikk</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.31.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://vladikk.com/js/main.js"></script>
+<script src="https://vladikk.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="https://vladikk.com/js/load-photoswipe.js"></script>
+
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a2d0cd9bc54813f"></script>
+
+  </body>
+</html>
+
