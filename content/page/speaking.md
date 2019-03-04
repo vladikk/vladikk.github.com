@@ -41,6 +41,8 @@ Language: English
 
 Slides: [Speakerdeck](https://speakerdeck.com/vladikk/bounded-contexts-microservices-and-everything-in-between)
 
+Recording: [Youtube](https://www.youtube.com/watch?v=dlnu5pSsg7k)
+
 ### 10/10/2018: Big Data Moscow 2018
 #### Embracing Polyglot Persistence Via CQRS
 
