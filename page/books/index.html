@@ -5,12 +5,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>IOS 11: Fixing APN Configuration Issues</title>
-  <meta property="og:title" content="IOS 11: Fixing APN Configuration Issues" />
-  <meta name="twitter:title" content="IOS 11: Fixing APN Configuration Issues" />
-  <meta name="description" content="So a few days ago I’ve decided to move to another cellular carrier. I pushed the new sim-card in, and got greeted with “Could not activate cellular data network”. First instinct was to install the new carrier’s APN configuration profile, but this resulted in another bummer: “Only one APN configuration can be installed at a time”. Ok, so I have to delete the previous carrier’s profile. Settings -&gt; General -&gt; Profiles …and there weren’t any profiles: “No profiles are currently installed”.">
-  <meta property="og:description" content="So a few days ago I’ve decided to move to another cellular carrier. I pushed the new sim-card in, and got greeted with “Could not activate cellular data network”. First instinct was to install the new carrier’s APN configuration profile, but this resulted in another bummer: “Only one APN configuration can be installed at a time”. Ok, so I have to delete the previous carrier’s profile. Settings -&gt; General -&gt; Profiles …and there weren’t any profiles: “No profiles are currently installed”.">
-  <meta name="twitter:description" content="So a few days ago I’ve decided to move to another cellular carrier. I pushed the new sim-card in, and got greeted with “Could not activate cellular data network”. First instinct was to install the new …">
+  <title>Books</title>
+  <meta property="og:title" content="Books" />
+  <meta name="twitter:title" content="Books" />
+  <meta name="description" content="Domain-Driven Design: The First 15 Years I was honored to participate in this project, alongside Martin Fowler, Mel Conway, Rebecca Wirfs-Brock, and other industry leaders:
+
+Coming Soon Currently I&rsquo;m working on a new writing project for a prominent publishing company. More information coming soon.">
+  <meta property="og:description" content="Domain-Driven Design: The First 15 Years I was honored to participate in this project, alongside Martin Fowler, Mel Conway, Rebecca Wirfs-Brock, and other industry leaders:
+
+Coming Soon Currently I&rsquo;m working on a new writing project for a prominent publishing company. More information coming soon.">
+  <meta name="twitter:description" content="Domain-Driven Design: The First 15 Years I was honored to participate in this project, alongside Martin Fowler, Mel Conway, Rebecca Wirfs-Brock, and other industry leaders:
+
+Coming Soon Currently …">
   <meta name="author" content="Vladik Khononov"/>
   <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://vladikk.com/images/me-oreilly.jpg" />
@@ -18,12 +24,12 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@vladikk" />
   <meta name="twitter:creator" content="@vladikk" />
-  <meta property="og:url" content="https://vladikk.com/2018/03/28/ios-apn-bug/" />
+  <meta property="og:url" content="https://vladikk.com/page/books/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vladikk" />
 
   <meta name="generator" content="Hugo 0.31.1" />
-  <link rel="canonical" href="https://vladikk.com/2018/03/28/ios-apn-bug/" />
+  <link rel="canonical" href="https://vladikk.com/page/books/" />
   <link rel="alternate" href="" type="application/rss+xml" title="Vladikk">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -32,7 +38,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
   <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
-  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="ios, 11, ios11, bug, apn,">
+  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> 
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
@@ -179,17 +185,9 @@ ga('send', 'pageview');
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="post-heading">
-              <h1>IOS 11: Fixing APN Configuration Issues</h1>
+            <div class="page-heading">
+              <h1>Books</h1>
                 
-                
-                  <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on March 28, 2018
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 2 min (238 mots)
-  
-</span>
-
-
                 
             </div>
           </div>
@@ -204,20 +202,17 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>So a few days ago I’ve decided to move to another cellular carrier. I pushed the new sim-card in, and got greeted with “Could not activate cellular data network”. First instinct was to install the new carrier’s APN configuration profile, but this resulted in another bummer: “Only one APN configuration can be installed at a time”. Ok, so I have to delete the previous carrier’s profile. Settings -&gt; General -&gt; Profiles …and there weren’t any profiles: “No profiles are currently installed”. Wat?</p>
+        
 
-<p>So out of desperation I tried to erase the phone, and set it up as a new - problem solved. Restored my data from backup - problem restored as well. But I wasn’t really up to installing everything from scratch.</p>
+<h3 id="domain-driven-design-the-first-15-years">Domain-Driven Design: The First 15 Years</h3>
 
-<p>To make matters a bit more complicated, the new carrier’s sim was set to block displaying APN configuration (Settings -&gt; Cellular -&gt; Cellular Data Options -&gt; Cellular Network). Luckily, <a href="https://forums.macrumors.com/threads/apn-help-problem-after-upgrading-to-ios7.1642124/">another iOS bug</a> allowed to see the data:</p>
+<p>I was honored to participate in this project, alongside Martin Fowler, Mel Conway, Rebecca Wirfs-Brock, and other industry leaders:</p>
 
-<p><img src="/images/iosbug/badapn.jpg" alt="" width="300"/></p>
+<p><a href="https://leanpub.com/ddd_first_15_years"><img src="/images/ddd15years.png" alt="" width="400"/></a></p>
 
-<p>Ok. So the MMS APN was setup correctly, however the cellular data APN reverted back to the one of the previous carrier. No wonder it couldn’t activate cellular data network.</p>
+<h3 id="coming-soon">Coming Soon</h3>
 
-<p>After some more googling, <a href="https://discussions.apple.com/thread/8143573">I found that there is a file</a>, that might be cause this issue:
-com.apple.managedCarrier.plist</p>
-
-<p>And it did. I used the <a href="http://www.icopybot.com/itunes-backup-manager.htm">iBackupBot</a> software to analyze the iPhone’s backup file, found the file, deleted it, restored the phone from the modified backup, and voila - problem solved!</p>
+<p>Currently I&rsquo;m working on a new writing project for a prominent publishing company. More information coming soon.</p>
 
       </article>
 
@@ -230,43 +225,17 @@ com.apple.managedCarrier.plist</p>
       <ul class="pager blog-pager">
         
           <li class="previous">
-            <a href="https://vladikk.com/2018/02/28/microservices/" data-toggle="tooltip" data-placement="top" title="Tackling Complexity in Microservices">&larr; Previous Post</a>
+            <a href="https://vladikk.com/page/consulting/" data-toggle="tooltip" data-placement="top" title="Consulting and Training">&larr; Previous Post</a>
           </li>
         
         
           <li class="next">
-            <a href="https://vladikk.com/2019/01/29/zen-software-engineering/" data-toggle="tooltip" data-placement="top" title="Zen of Software Engineering">Next Post &rarr;</a>
+            <a href="https://vladikk.com/page/about/" data-toggle="tooltip" data-placement="top" title="About Me">Next Post &rarr;</a>
           </li>
         
       </ul>
 
 
-      
-        
-          <div class="disqus-comments">
-            <div id="disqus_thread"></div>
-<script>
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "vladikk-blog" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-          </div>
-        
-        
       
 
     </div>

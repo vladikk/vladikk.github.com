@@ -13,12 +13,33 @@
     
     
     <item>
-      <title>About me</title>
+      <title>About Me</title>
       <link>https://vladikk.com/page/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
       <guid>https://vladikk.com/page/about/</guid>
-      <description>I’m a software developer with nearly 20 years of industry experience. During the years I worked for companies large and small, in roles ranging from Software Engineer to Chief Architect. When away from work, I maintain an active media career as public speaker and blogger. I’m speaking and writing on topics such as Microservices, Domain-Driven Design, and more. Alongside the media work, I have a keen professional interest in Distributed Systems, Software Architecture, and Software Design in general.</description>
+      <description>I’m a software engineer with 20 years of industry experience. During the years, I worked for companies large and small, in roles ranging from Webmaster to Chief Architect. I aim to maintain an active media career as a public speaker, a blogger, and an author. Currently I’m a regular speaker at leading software engineering conferences, such as O’Reilly Software Architecture, NDC, DDD Europe, and others. My topics include distributed systems, Domain-Driven Design, microservices, evolutionary architecture, and software architecture in general.</description>
+    </item>
+    
+    <item>
+      <title>Books</title>
+      <link>https://vladikk.com/page/books/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>https://vladikk.com/page/books/</guid>
+      <description>Domain-Driven Design: The First 15 Years I was honored to participate in this project, alongside Martin Fowler, Mel Conway, Rebecca Wirfs-Brock, and other industry leaders:
+
+Coming Soon Currently I&amp;rsquo;m working on a new writing project for a prominent publishing company. More information coming soon.</description>
+    </item>
+    
+    <item>
+      <title>Consulting and Training</title>
+      <link>https://vladikk.com/page/consulting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>https://vladikk.com/page/consulting/</guid>
+      <description>Consulting My core areas of expertise include domain-driven design, microservices, event sourcing, event storming, CQRS, and distributed systems. I can help you to:
+ Develop a strategy for incremental refactoring of monolithic codebases into modular microservice-based systems Build an architectural strategy for a startup company Document and manage software architecture Align software architecture with business needs Recover business logic buried in legacy codebases Migrate legacy systems to cloud infrastructure  On-Site Training I can provide training adapted to your company&amp;rsquo;s needs.</description>
     </item>
     
     <item>
@@ -46,17 +67,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
       <guid>https://vladikk.com/page/speaking/</guid>
-      <description>04/02/2019: O&amp;rsquo;Reilly Software Architecture Conference 2019 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems Location: NYC, USA
-Language: English
-05/11/2018: µCon London 2018 Bounded Contexts, Microservices, and Everything In Between Location: London, UK
-Language: English
-Recording: SkillsCast
-Slides: Speakerdeck
-29/10/2018: O&amp;rsquo;Reilly Software Architecture Conference 2018 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems Location: London, UK
-Language: English
-Recording: Safari Books Online
-Slides: Speakerdeck
-18/10/2018: KanDDDinsky 2018 Bounded Contexts, Microservices, and Everything In Between Location: Berlin, Germany</description>
+      <description>During the last few years I spoke at leading software engineering conferences, e.g. O&amp;rsquo;Reilly Software Architecture, NDC, DDD Europe, and more. My topics include Domain-Driven Design, microservices, TDD, modular design, evolutionary architecture, and software arechitecture in general.
+Feel free to reach out if you&amp;rsquo;d like me to speak at your conference or on-site event.
+Upcoming Events 11/06/2019: O&amp;rsquo;Reilly Software Architecture Conference 2019 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems Microservices, Bounded Contexts, and Everything In Between Location: San Jose, CA</description>
     </item>
     
   </channel>
