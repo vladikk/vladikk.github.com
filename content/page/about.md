@@ -1,19 +1,18 @@
 ---
-title: About me
+title: About Me
 subtitle: WTFAY
 comments: false
 ---
 
-I’m a software developer with nearly 20 years of industry experience. During the years I worked for companies large and small, in roles ranging from Software Engineer to Chief Architect. 
+I’m a software engineer with 20 years of industry experience. During the years, I worked for companies large and small, in roles ranging from Webmaster to Chief Architect. 
 
-When away from work, I maintain an active media career as public speaker and blogger. I’m speaking and writing on topics such as Microservices, Domain-Driven Design, and more. Alongside the media work, I have a keen professional interest in Distributed Systems, Software Architecture, and Software Design in general. 
+I aim to maintain an active media career as a public speaker, a blogger, and an author. Currently I’m a regular speaker at leading software engineering conferences, such as O’Reilly Software Architecture, NDC, DDD Europe, and others. My topics include distributed systems, Domain-Driven Design, microservices, evolutionary architecture, and software architecture in general.
 
-In the remaining time, I read lots of books, fly R/C aircrafts, and rescue troubled animals. 
+As an author, I participated in the “Domain-Driven Design: The First 15 Years” book project, alongside Martin Fowler, Mel Conway, Rebecca Wirfs-Brock, and other industry leaders.
 
-I always welcome professional enquiries, and can be contacted via either of the methods below:
+For work, speaking, writing, training or any other type of enquiry, you can contact me via either of the methods below:
 
 * Email: vladik at khononov.com
 * Twitter: [@vladikk](http://twitter.com/vladikk)
-* Github: [vladikk](http://github.com/vladikk)
 * Facebook: [vladikk](http://facebook.com/vladikk)
 * Linkedin: [vladikkhononov](http://www.linkedin.com/in/vladikkhononov)

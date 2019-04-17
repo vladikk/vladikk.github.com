@@ -11,7 +11,7 @@ googleAnalytics: UA-40869819-1
 publishDir: ../blog-public
 Params:
   subtitle: Random rants on software design
-  logo: images/me.jpg
+  logo: images/me-oreilly.jpg
   favicon: favicon.ico
   dateFormat: 'January 2, 2006'
   commit: false
@@ -30,15 +30,18 @@ Author:
   telegram: vladik_kh
 menu:
   main:
-    - name: Writing
+    - name: Consulting
+      url: 'page/consulting'
+      weight: 5
+    - name: Blog
       url: ''
-      weight: 1
+      weight: 2
     - name: Speaking
       url: page/speaking/
-      weight: 2
-    - name: About
+      weight: 3
+    - name: Writing
+      url: 'page/books/'
+      weight: 4
+    - name: About & Contact
       url: page/about/
-      weight: 4
-    - name: Contact me
-      url: page/contact/
-      weight: 4
+      weight: 6

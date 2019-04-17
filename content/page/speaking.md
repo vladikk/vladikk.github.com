@@ -3,10 +3,47 @@ title: Speaking
 comments: false
 ---
 
+During the last few years I spoke at leading software engineering conferences, e.g. O'Reilly Software Architecture, NDC, DDD Europe, and more. My topics include Domain-Driven Design, microservices, TDD, modular design, evolutionary architecture, and software arechitecture in general.
+
+Feel free to [reach out](/page/contact) if you'd like me to speak at your conference or on-site event.
+
+## Upcoming Events
+
+### 11/06/2019: O'Reilly Software Architecture Conference 2019
+#### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
+#### Microservices, Bounded Contexts, and Everything In Between
+
+Location: San Jose, CA
+
+Language: English
+
+### 31/05/2019: µCon London 2019
+#### The Dark Side of Events
+
+Location: London, UK
+
+Language: English
+
+### 09/05/2019: NDC Minnesota
+#### The Dark Side of Events
+
+Location: Saint Paul, MN
+
+Language: English
+
+## Past Events
+
+### 04/04/2019: TestCon Moscow 2019
+#### Testing Software Architecture
+
+Location: Moscow, Russia
+
+Language: Russian
+
 ### 04/02/2019: O'Reilly Software Architecture Conference 2019
 #### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
 
-Location: NYC, USA
+Location: New York, NY
 
 Language: English
 
