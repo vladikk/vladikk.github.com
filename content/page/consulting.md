@@ -26,7 +26,7 @@ I can provide training adapted to your company's needs. Possible topics include:
 * Event storming
 
 ## Mentoring
-Long term program intended to support teams in implementing software, making architectural changes and delivering goals
+Long term program intended to support teams in implementing software, making architectural changes and delivering goals.
 
 ## Contact Me
 If you are interested in any of the above services, feel free to reach out via either of the methods below:
