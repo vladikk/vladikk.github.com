@@ -1,5 +1,5 @@
 ---
-title: Consulting and Training
+title: Consulting
 comments: false
 ---
 
