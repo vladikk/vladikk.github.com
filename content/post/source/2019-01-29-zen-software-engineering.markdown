@@ -5,7 +5,7 @@ keywords: software engineering, software design, software architecture, design p
 title: 'Zen of Software Engineering'
 url: /2019/01/29/zen-software-engineering/
 draft: false
-categories: [Domain-Driven Design]
+categories: [Domain-Driven Design, Architecture]
 share_img: /images/zen/header.jpg
 ---
 
