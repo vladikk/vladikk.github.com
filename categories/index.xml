@@ -8,7 +8,7 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
-    <lastBuildDate>Mon, 20 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -16,7 +16,7 @@
     <item>
       <title>Architecture</title>
       <link>https://vladikk.com/categories/architecture/</link>
-      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
       <guid>https://vladikk.com/categories/architecture/</guid>
       <description></description>
@@ -43,7 +43,7 @@
     <item>
       <title>Microservices</title>
       <link>https://vladikk.com/categories/microservices/</link>
-      <pubDate>Wed, 28 Feb 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
       <guid>https://vladikk.com/categories/microservices/</guid>
       <description></description>

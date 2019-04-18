@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://vladikk.com/2019/04/18/optimistic-consistency/</loc>
+    <lastmod>2019-04-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vladikk.com/2019/01/29/zen-software-engineering/</loc>
     <lastmod>2019-01-29T00:00:00+00:00</lastmod>
   </url>
@@ -108,7 +113,7 @@
   
   <url>
     <loc>https://vladikk.com/categories/architecture/</loc>
-    <lastmod>2017-03-20T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -118,7 +123,7 @@
   
   <url>
     <loc>https://vladikk.com/categories/</loc>
-    <lastmod>2017-03-20T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -144,7 +149,7 @@
   
   <url>
     <loc>https://vladikk.com/categories/microservices/</loc>
-    <lastmod>2018-02-28T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -167,7 +172,7 @@
   
   <url>
     <loc>https://vladikk.com/post/</loc>
-    <lastmod>2019-01-29T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -198,7 +203,7 @@
   
   <url>
     <loc>https://vladikk.com/</loc>
-    <lastmod>2019-01-29T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

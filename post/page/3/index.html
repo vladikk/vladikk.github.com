@@ -5,9 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Architecture</title>
-  <meta property="og:title" content="Architecture" />
-  <meta name="twitter:title" content="Architecture" />
+  <title>Posts</title>
+  <meta property="og:title" content="Posts" />
+  <meta name="twitter:title" content="Posts" />
   <meta name="author" content="Vladik Khononov"/>
   <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://vladikk.com/images/me-oreilly.jpg" />
@@ -15,13 +15,13 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@vladikk" />
   <meta name="twitter:creator" content="@vladikk" />
-  <meta property="og:url" content="https://vladikk.com/categories/architecture/" />
+  <meta property="og:url" content="https://vladikk.com/post/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vladikk" />
 
   <meta name="generator" content="Hugo 0.31.1" />
-  <link rel="canonical" href="https://vladikk.com/categories/architecture/" />
-  <link rel="alternate" href="https://vladikk.com/categories/architecture/index.xml" type="application/rss+xml" title="Vladikk">
+  <link rel="canonical" href="https://vladikk.com/post/" />
+  <link rel="alternate" href="https://vladikk.com/post/index.xml" type="application/rss+xml" title="Vladikk">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -166,7 +166,7 @@ ga('send', 'pageview');
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="page-heading">
-              <h1>#Architecture</h1>
+              <h1>Posts</h1>
               <hr class="small">
             </div>
           </div>
@@ -183,126 +183,42 @@ ga('send', 'pageview');
         <div class="posts-list">
           
             <article class="post-preview">
-              <a href="https://vladikk.com/2019/04/18/optimistic-consistency/">
-                <h2 class="post-title">Anti-Pattern: Optimistic Consistency</h2>
+              <a href="https://vladikk.com/2012/08/23/disposing-objects-created-by-di-container/">
+                <h2 class="post-title">Disposing Objects Created by DI Container</h2>
 
                 
               </a>
 
               <p class="post-meta">
-                Posted on April 18, 2019
+                Posted on August 23, 2012
               </p>
               <div class="post-entry">
                 
-                  Ladies and Gentlemen, lo and behold a new consistency model - “Optimistic Consistency”. Implementation of this pattern is quite simple: commit as many transactions as you want, against as many storage mechanisms as you need. That’s all. Let’s see an example.
-Example Say as the result of some user’s operation the system has to:
- Modify data in MongoDB Publish some events to Kafka Update search model in Elasticsearch; and Execute an operation on some remote system  You implement this logic by executing those operations one after another.
-                  <a href="https://vladikk.com/2019/04/18/optimistic-consistency/" class="post-read-more">[Read More]</a>
-                
-              </div>
+                  <p>The general rule says that if you created an object, then it is your responsibility to dispose it. Things get a bit tricky when objects are created by a dependency injection container. The responsibility of containers is to construct objects and inject the dependencies they need. An error I’ve seen people doing again and again is to dispose objects that were injected into an object via constructor or property injection. Consider the class “Foo” that requires an instance of class “Bar”:</p>
 
-              
+<pre><code class="language-c#">public class Foo : IDisposable {  
+    protected Bar bar;  
+    public Foo(Bar bar) {  
+        this.bar = bar;  
+    }  
+    public void Dispose() {  
+        bar.Dispose();  
+    }  
+}  
 
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2019/01/29/zen-software-engineering/">
-                <h2 class="post-title">Zen of Software Engineering</h2>
+public class Program {  
+    static void Main() {  
+        var foo = container.Resolve&lt;Foo&gt;();  
+        ...  
+        foo.Dispose();  
+    }  
+}  
+</code></pre>
 
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on January 29, 2019
-              </p>
-              <div class="post-entry">
-                
-                  There is a pet peeve of mine, that I’m encountering way too often: the condition I call Silverbulletitis. This virus spreads among developers on many levels — juniors, seniors, and even architects. In this post I’d like talk about why this condition is dangerous, and how it can be treated.
-Symptoms All too often you can hear statements that some tool or technique is bad, but another one is the greatest thing since sliced bread.
-                  <a href="https://vladikk.com/2019/01/29/zen-software-engineering/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2017/03/20/tackling-complexity-in-cqrs/">
-                <h2 class="post-title">Tackling Complexity in CQRS</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on March 20, 2017
-              </p>
-              <div class="post-entry">
-                
-                  <p><img src="/images/cqrs/title-img.jpg" alt="Tackling Complexity in CQRS" /></p>
-
-<p>The CQRS pattern can do wonders: it can maximize scalability, performance, security, and even <a href="http://codebetter.com/gregyoung/2010/02/20/cqrs-and-cap-theorem/">“beat” the CAP theorem</a>. Nonetheless, CQRS has acquired a controversial name because of the complexity it introduces. For instance, <a href="https://martinfowler.com/bliki/CQRS.html">in his article on CQRS</a>, Martin Fowler argues that the pattern should be applied sparingly and even cautiously:</p>
-
-<ul>
-<li>“… for most systems CQRS adds risky complexity”</li>
-<li>“… you should be very cautious about using CQRS”</li>
-<li>“So while CQRS is a pattern that&rsquo;s good to have in the toolbox, beware that it is difficult to use well and you can easily chop off important bits if you mishandle it.”</li>
-</ul>
-
-<p>From my point of view, the CQRS-induced complexity is largely accidental, and thus can be avoided. To illustrate my point, I want to discuss the goal of CQRS, and then analyze 3 common sources of accidental complexity in CQRS-based systems.</p>
+<p>The problem with this approach is that the “Foo” class will know too much about the environment it runs in. At least it will think it does. An instance of “Foo” can’t and shouldn’t know who passed in the instance of “Bar”, and what he intends to do with it after the instance of “Foo” will be disposed.</p>
 
 <p></p>
-                  <a href="https://vladikk.com/2017/03/20/tackling-complexity-in-cqrs/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2016/06/29/test-scopes/">
-                <h2 class="post-title">Finding Proper Scopes for Unit Tests</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on June 29, 2016
-              </p>
-              <div class="post-entry">
-                
-                  <p>In my previous <strike>rant</strike> <a href="http://vladikk.com/2016/01/22/tdd-what-went-wrong/">post on TDD</a> I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.</p>
-
-<p></p>
-                  <a href="https://vladikk.com/2016/06/29/test-scopes/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2016/04/05/tackling-complexity-ddd/">
-                <h2 class="post-title">Tackling Complexity in the Heart of DDD</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on April 5, 2016
-              </p>
-              <div class="post-entry">
-                
-                  <p><img src="/images/ddd/title-img.jpg" alt="Tackling Complexity in the Heart of Domain-Driven Design" /></p>
-
-<p>Let’s do a little experiment: try to explain the gist of Domain-Driven Design to someone who has no clue about it. This, especially doing it succinctly, is not easy. Heck, I struggle with it myself. Bounded contexts, entities, domain events, value objects, domains, aggregates, repositories… where do you even start?</p>
-
-<p>To find the order in the apparent chaos, I want to analyze the DDD methodology from a rather unusual perspective — by applying Domain-Driven Design to Domain-Driven Design itself. After all, this methodology is intended to deal with complex domains, isn’t it?</p>
-
-<p></p>
-                  <a href="https://vladikk.com/2016/04/05/tackling-complexity-ddd/" class="post-read-more">[Read More]</a>
+                  <a href="https://vladikk.com/2012/08/23/disposing-objects-created-by-di-container/" class="post-read-more">[Read More]</a>
                 
               </div>
 
@@ -311,6 +227,15 @@ Symptoms All too often you can hear statements that some tool or technique is ba
             </article>
           
         </div>
+        
+          <ul class="pager main-pager">
+            
+              <li class="previous">
+                <a href="/post/page/2/">&larr; Newer Posts</a>
+              </li>
+            
+            
+          </ul>
         
       </div>
     </div>
@@ -388,7 +313,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
               </li>
           
           <li>
-            <a href="https://vladikk.com/categories/architecture/index.xml" title="RSS">
+            <a href="https://vladikk.com/post/index.xml" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>

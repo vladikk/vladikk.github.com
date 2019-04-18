@@ -183,6 +183,29 @@ ga('send', 'pageview');
         <div class="posts-list">
           
             <article class="post-preview">
+              <a href="https://vladikk.com/2019/04/18/optimistic-consistency/">
+                <h2 class="post-title">Anti-Pattern: Optimistic Consistency</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on April 18, 2019
+              </p>
+              <div class="post-entry">
+                
+                  Ladies and Gentlemen, lo and behold a new consistency model - “Optimistic Consistency”. Implementation of this pattern is quite simple: commit as many transactions as you want, against as many storage mechanisms as you need. That’s all. Let’s see an example.
+Example Say as the result of some user’s operation the system has to:
+ Modify data in MongoDB Publish some events to Kafka Update search model in Elasticsearch; and Execute an operation on some remote system  You implement this logic by executing those operations one after another.
+                  <a href="https://vladikk.com/2019/04/18/optimistic-consistency/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
               <a href="https://vladikk.com/2018/02/28/microservices/">
                 <h2 class="post-title">Tackling Complexity in Microservices</h2>
 
