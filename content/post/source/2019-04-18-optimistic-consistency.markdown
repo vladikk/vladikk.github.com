@@ -35,7 +35,7 @@ The main advantage is that you can always promise strong consistency. Without th
 Optimistic consistency brings another huge benefit. In the *very unlikely * scenario of something indeed going wrong, you can always refer the extremely low percentage of such possible issues. Like, who will ever notice if the system looses a transaction or two???
 
 ## Ok, seriously now
-Hope is not a strategy and optimistic consistency is nothing but negligence. Things will go wrong: systems will crash, network will be partitioned, and occasionally, servers’ plugs will be pulled. It cannot be called "eventual consistency", but rather "eventual *in*consistency".
+Hope is not a strategy and optimistic consistency is nothing but negligence. Things will go wrong: systems will crash, network will be partitioned, and occasionally, servers’ plugs will be pulled. It cannot be called "eventual consistency", but rather **"eventual inconsistency"**.
 
 Claiming that no one will ever notice such corruption just emphasizes how big of an issue this is - the system will be silently corrupting data, but “no one will ever notice”!
 
