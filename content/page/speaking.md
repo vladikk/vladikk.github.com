@@ -31,6 +31,8 @@ Location: Saint Paul, MN
 
 Language: English
 
+Recording: [Youtube](https://www.youtube.com/watch?v=ev5k51AxZbI)
+
 ## Past Events
 
 ### 04/04/2019: TestCon Moscow 2019
