@@ -19,7 +19,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vladikk" />
 
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.56.3" />
   <link rel="canonical" href="https://vladikk.com/" />
   <link rel="alternate" href="https://vladikk.com/index.xml" type="application/rss+xml" title="Vladikk">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -81,12 +81,16 @@
     </div>
 </div>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-40869819-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-40869819-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 </head>
 
@@ -181,7 +185,7 @@ ga('send', 'pageview');
                 
                   
                     <hr class="small">
-                    <span class="page-subheading">Random rants on software design</span>
+                    <span class="page-subheading">Rants on software design</span>
                   
                 
                 
@@ -201,6 +205,41 @@ ga('send', 'pageview');
 
         <div class="posts-list">
           
+          
+            <article class="post-preview">
+              <a href="https://vladikk.com/2012/09/10/dependency-injection-patterns/">
+                <h2 class="post-title">Dependency Injection Patterns</h2>
+                
+                
+              </a>
+
+              <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on September 10, 2012
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 5 min (986 mots)
+  
+</span>
+
+
+              <div class="post-entry">
+                
+                  <p>Choosing the right pattern for implementing dependency injection is an important task and can affect your class’s usability and functionality. In this post I’ll overview 3 patterns of implementing dependency injection - constructor injection, property injection, builder (Joshua Bloch’s pattern, not GoF pattern).
+For demonstration purposes we will work with a class called TextTranslator, that requires 3 dependencies: TextReader, TranslationService and TextWriter:</p>
+
+<pre><code class="language-c#">public class TextTranslator
+{
+    protected TextReader textReader;
+    protected TranslationService translationService;
+    protected TextWriter textWriter;    
+}
+</code></pre>
+
+<p>The sample code will be written in C#, but the examples are applicable to Java and other object oriented languages.</p>
+                  <a href="https://vladikk.com/2012/09/10/dependency-injection-patterns/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+            </article>
           
             <article class="post-preview">
               <a href="https://vladikk.com/2012/08/23/disposing-objects-created-by-di-container/">
@@ -240,8 +279,6 @@ public class Program {
 </code></pre>
 
 <p>The problem with this approach is that the “Foo” class will know too much about the environment it runs in. At least it will think it does. An instance of “Foo” can’t and shouldn’t know who passed in the instance of “Bar”, and what he intends to do with it after the instance of “Foo” will be disposed.</p>
-
-<p></p>
                   <a href="https://vladikk.com/2012/08/23/disposing-objects-created-by-di-container/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -354,7 +391,7 @@ public class Program {
           
 
           &nbsp;&bull;&nbsp;
-          2019
+          2020
 
           
             &nbsp;&bull;&nbsp;
@@ -363,7 +400,7 @@ public class Program {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.31.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.56.3</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

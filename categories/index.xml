@@ -8,80 +8,80 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
-    <lastBuildDate>Thu, 18 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Architecture</title>
-      <link>https://vladikk.com/categories/architecture/</link>
-      <pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate>
+      <link>https://vladikk.com/categories/Architecture/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://vladikk.com/categories/architecture/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cqrs</title>
-      <link>https://vladikk.com/categories/cqrs/</link>
-      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://vladikk.com/categories/cqrs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Domain Driven Design</title>
-      <link>https://vladikk.com/categories/domain-driven-design/</link>
-      <pubDate>Tue, 29 Jan 2019 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://vladikk.com/categories/domain-driven-design/</guid>
+      <guid>https://vladikk.com/categories/Architecture/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Microservices</title>
-      <link>https://vladikk.com/categories/microservices/</link>
-      <pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate>
+      <link>https://vladikk.com/categories/Microservices/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://vladikk.com/categories/microservices/</guid>
+      <guid>https://vladikk.com/categories/Microservices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Domain-Driven Design</title>
+      <link>https://vladikk.com/categories/Domain-Driven-Design/</link>
+      <pubDate>Tue, 29 Jan 2019 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>https://vladikk.com/categories/Domain-Driven-Design/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Misc</title>
-      <link>https://vladikk.com/categories/misc/</link>
+      <link>https://vladikk.com/categories/Misc/</link>
       <pubDate>Thu, 30 Mar 2017 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://vladikk.com/categories/misc/</guid>
+      <guid>https://vladikk.com/categories/Misc/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Oss</title>
-      <link>https://vladikk.com/categories/oss/</link>
-      <pubDate>Tue, 11 Jun 2013 00:00:00 +0000</pubDate>
+      <title>CQRS</title>
+      <link>https://vladikk.com/categories/CQRS/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://vladikk.com/categories/oss/</guid>
+      <guid>https://vladikk.com/categories/CQRS/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TDD</title>
+      <link>https://vladikk.com/categories/TDD/</link>
+      <pubDate>Wed, 29 Jun 2016 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>https://vladikk.com/categories/TDD/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>https://vladikk.com/categories/python/</link>
+      <link>https://vladikk.com/categories/Python/</link>
       <pubDate>Thu, 12 Sep 2013 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://vladikk.com/categories/python/</guid>
+      <guid>https://vladikk.com/categories/Python/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Tdd</title>
-      <link>https://vladikk.com/categories/tdd/</link>
-      <pubDate>Wed, 29 Jun 2016 00:00:00 +0000</pubDate>
+      <title>OSS</title>
+      <link>https://vladikk.com/categories/OSS/</link>
+      <pubDate>Tue, 11 Jun 2013 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://vladikk.com/categories/tdd/</guid>
+      <guid>https://vladikk.com/categories/OSS/</guid>
       <description></description>
     </item>
     

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cqrs on Vladikk</title>
-    <link>https://vladikk.com/categories/cqrs/</link>
-    <description>Recent content in Cqrs on Vladikk</description>
+    <title>CQRS on Vladikk</title>
+    <link>https://vladikk.com/categories/CQRS/</link>
+    <description>Recent content in CQRS on Vladikk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
     <lastBuildDate>Mon, 20 Mar 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://vladikk.com/categories/cqrs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vladikk.com/categories/CQRS/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -29,9 +29,7 @@
 &lt;li&gt;“So while CQRS is a pattern that&amp;rsquo;s good to have in the toolbox, beware that it is difficult to use well and you can easily chop off important bits if you mishandle it.”&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;From my point of view, the CQRS-induced complexity is largely accidental, and thus can be avoided. To illustrate my point, I want to discuss the goal of CQRS, and then analyze 3 common sources of accidental complexity in CQRS-based systems.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;From my point of view, the CQRS-induced complexity is largely accidental, and thus can be avoided. To illustrate my point, I want to discuss the goal of CQRS, and then analyze 3 common sources of accidental complexity in CQRS-based systems.&lt;/p&gt;</description>
     </item>
     
   </channel>

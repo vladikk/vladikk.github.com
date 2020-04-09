@@ -15,13 +15,13 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@vladikk" />
   <meta name="twitter:creator" content="@vladikk" />
-  <meta property="og:url" content="https://vladikk.com/categories/architecture/" />
+  <meta property="og:url" content="https://vladikk.com/categories/Architecture/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vladikk" />
 
-  <meta name="generator" content="Hugo 0.31.1" />
-  <link rel="canonical" href="https://vladikk.com/categories/architecture/" />
-  <link rel="alternate" href="https://vladikk.com/categories/architecture/index.xml" type="application/rss+xml" title="Vladikk">
+  <meta name="generator" content="Hugo 0.56.3" />
+  <link rel="canonical" href="https://vladikk.com/categories/Architecture/" />
+  <link rel="alternate" href="https://vladikk.com/categories/Architecture/index.xml" type="application/rss+xml" title="Vladikk">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -81,12 +81,16 @@
     </div>
 </div>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-40869819-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-40869819-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 </head>
 
@@ -183,6 +187,28 @@ ga('send', 'pageview');
         <div class="posts-list">
           
             <article class="post-preview">
+              <a href="https://vladikk.com/2020/04/09/untangling-microservices/">
+                <h2 class="post-title">Untangling Microservices, or Balancing Complexity in Distributed Systems</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on April 9, 2020
+              </p>
+              <div class="post-entry">
+                
+                  The microservices-honeymoon period is over. Uber are refactoring their thousands of microservices into a more manageable solution [1], Kelsey Hightower says that monoliths are the future [2], and even Sam Newman maintains that microservices should never be the default choice, but rather a last resort [3].
+What is going on here? Why so many projects became unmaintainable, despite the microservices’ promise of simplicity and flexibility? So are monoliths better? In this post, I want to address these questions.
+                  <a href="https://vladikk.com/2020/04/09/untangling-microservices/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
               <a href="https://vladikk.com/2019/04/18/optimistic-consistency/">
                 <h2 class="post-title">Anti-Pattern: Optimistic Consistency</h2>
 
@@ -250,8 +276,6 @@ Symptoms All too often you can hear statements that some tool or technique is ba
 </ul>
 
 <p>From my point of view, the CQRS-induced complexity is largely accidental, and thus can be avoided. To illustrate my point, I want to discuss the goal of CQRS, and then analyze 3 common sources of accidental complexity in CQRS-based systems.</p>
-
-<p></p>
                   <a href="https://vladikk.com/2017/03/20/tackling-complexity-in-cqrs/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -273,8 +297,6 @@ Symptoms All too often you can hear statements that some tool or technique is ba
               <div class="post-entry">
                 
                   <p>In my previous <strike>rant</strike> <a href="http://vladikk.com/2016/01/22/tdd-what-went-wrong/">post on TDD</a> I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.</p>
-
-<p></p>
                   <a href="https://vladikk.com/2016/06/29/test-scopes/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -300,8 +322,6 @@ Symptoms All too often you can hear statements that some tool or technique is ba
 <p>Let’s do a little experiment: try to explain the gist of Domain-Driven Design to someone who has no clue about it. This, especially doing it succinctly, is not easy. Heck, I struggle with it myself. Bounded contexts, entities, domain events, value objects, domains, aggregates, repositories… where do you even start?</p>
 
 <p>To find the order in the apparent chaos, I want to analyze the DDD methodology from a rather unusual perspective — by applying Domain-Driven Design to Domain-Driven Design itself. After all, this methodology is intended to deal with complex domains, isn’t it?</p>
-
-<p></p>
                   <a href="https://vladikk.com/2016/04/05/tackling-complexity-ddd/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -388,7 +408,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
               </li>
           
           <li>
-            <a href="https://vladikk.com/categories/architecture/index.xml" title="RSS">
+            <a href="https://vladikk.com/categories/Architecture/index.xml" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -405,7 +425,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
           
 
           &nbsp;&bull;&nbsp;
-          2019
+          2020
 
           
             &nbsp;&bull;&nbsp;
@@ -414,7 +434,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.31.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.56.3</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

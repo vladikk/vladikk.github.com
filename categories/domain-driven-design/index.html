@@ -5,9 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Domain Driven Design</title>
-  <meta property="og:title" content="Domain Driven Design" />
-  <meta name="twitter:title" content="Domain Driven Design" />
+  <title>Domain-Driven Design</title>
+  <meta property="og:title" content="Domain-Driven Design" />
+  <meta name="twitter:title" content="Domain-Driven Design" />
   <meta name="author" content="Vladik Khononov"/>
   <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://vladikk.com/images/me-oreilly.jpg" />
@@ -15,13 +15,13 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@vladikk" />
   <meta name="twitter:creator" content="@vladikk" />
-  <meta property="og:url" content="https://vladikk.com/categories/domain-driven-design/" />
+  <meta property="og:url" content="https://vladikk.com/categories/Domain-Driven-Design/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vladikk" />
 
-  <meta name="generator" content="Hugo 0.31.1" />
-  <link rel="canonical" href="https://vladikk.com/categories/domain-driven-design/" />
-  <link rel="alternate" href="https://vladikk.com/categories/domain-driven-design/index.xml" type="application/rss+xml" title="Vladikk">
+  <meta name="generator" content="Hugo 0.56.3" />
+  <link rel="canonical" href="https://vladikk.com/categories/Domain-Driven-Design/" />
+  <link rel="alternate" href="https://vladikk.com/categories/Domain-Driven-Design/index.xml" type="application/rss+xml" title="Vladikk">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -81,12 +81,16 @@
     </div>
 </div>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-40869819-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-40869819-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 </head>
 
@@ -166,7 +170,7 @@ ga('send', 'pageview');
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="page-heading">
-              <h1>#Domain Driven Design</h1>
+              <h1>#Domain-Driven Design</h1>
               <hr class="small">
             </div>
           </div>
@@ -225,8 +229,6 @@ Symptoms All too often you can hear statements that some tool or technique is ba
 </blockquote>
 
 <p>In my opinion, this quote is the key to solving most of the issues we have when designing microservices-based systems. We rush into solutions without ensuring we know what exactly a microservice is. In this post, I’d like to take a stab at answering this question.</p>
-
-<p></p>
                   <a href="https://vladikk.com/2018/02/28/microservices/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -254,8 +256,6 @@ Symptoms All too often you can hear statements that some tool or technique is ba
 <h2 id="disclaimer">Disclaimer</h2>
 
 <p>As I just said, some of the things I’m about to write are my opinion only. Many of you might disagree with some of them. Hey – the last time we spoke about it, Eric and Vaughn were not fans of my theory. But, nevertheless, it is based on my 7-year long DDD journey at our company, and it works for me. I believe it might work for you as well.</p>
-
-<p></p>
                   <a href="https://vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -279,8 +279,6 @@ Symptoms All too often you can hear statements that some tool or technique is ba
                   <p><img src="/images/bc-ms/rebel-scum.jpg" alt="Rebel scum" /></p>
 
 <p>I’ve always considered Domain-Driven Design’s Bounded Context as a guideline for defining the boundaries of Microservices. I was wrong. Not only is this heuristic flawed, but Bounded Contexts are the exact opposite of Microservices! To explain this point of view, I’ll start with a quick refresh of what Bounded Contexts are; then I’ll discuss the relationship between Bounded Contexts and Microservices.</p>
-
-<p></p>
                   <a href="https://vladikk.com/2018/01/21/bounded-contexts-vs-microservices/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -312,8 +310,6 @@ Symptoms All too often you can hear statements that some tool or technique is ba
 </ul>
 
 <p>From my point of view, the CQRS-induced complexity is largely accidental, and thus can be avoided. To illustrate my point, I want to discuss the goal of CQRS, and then analyze 3 common sources of accidental complexity in CQRS-based systems.</p>
-
-<p></p>
                   <a href="https://vladikk.com/2017/03/20/tackling-complexity-in-cqrs/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -339,8 +335,6 @@ Symptoms All too often you can hear statements that some tool or technique is ba
 <p>Let’s do a little experiment: try to explain the gist of Domain-Driven Design to someone who has no clue about it. This, especially doing it succinctly, is not easy. Heck, I struggle with it myself. Bounded contexts, entities, domain events, value objects, domains, aggregates, repositories… where do you even start?</p>
 
 <p>To find the order in the apparent chaos, I want to analyze the DDD methodology from a rather unusual perspective — by applying Domain-Driven Design to Domain-Driven Design itself. After all, this methodology is intended to deal with complex domains, isn’t it?</p>
-
-<p></p>
                   <a href="https://vladikk.com/2016/04/05/tackling-complexity-ddd/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -370,8 +364,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
 <p>For me, the social part, alone, was worth the trip. And don’t get me wrong, the sessions were great, but the ability to meet new friends, share experiences and ideas, and get fresh perspectives, was priceless.
 And I’m yet to mention discussing Star Wars with Eric Evans, discovering that Vaughn Vernon knows Israel better than I do, catching up with Greg Young, and last but not least, drinking beer with Yves Reynhout — it is unbelievable how much I learned from Yves that evening.</p>
 
-<p>Lesson learned: Go to conferences alone and meet new people.
-</p>
+<p>Lesson learned: Go to conferences alone and meet new people.</p>
                   <a href="https://vladikk.com/2016/02/12/dddeu-2016/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -398,8 +391,6 @@ And I’m yet to mention discussing Star Wars with Eric Evans, discovering that 
 In this post I want to talk about 3 misconceptions that might explain this phenomenon.</p>
 
 <p>Let&rsquo;s start with the subtlest and most destructive one.</p>
-
-<p></p>
                   <a href="https://vladikk.com/2016/01/22/tdd-what-went-wrong/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -486,7 +477,7 @@ In this post I want to talk about 3 misconceptions that might explain this pheno
               </li>
           
           <li>
-            <a href="https://vladikk.com/categories/domain-driven-design/index.xml" title="RSS">
+            <a href="https://vladikk.com/categories/Domain-Driven-Design/index.xml" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -503,7 +494,7 @@ In this post I want to talk about 3 misconceptions that might explain this pheno
           
 
           &nbsp;&bull;&nbsp;
-          2019
+          2020
 
           
             &nbsp;&bull;&nbsp;
@@ -512,7 +503,7 @@ In this post I want to talk about 3 misconceptions that might explain this pheno
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.31.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.56.3</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

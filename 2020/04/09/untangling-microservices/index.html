@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Untangling Microservices, or Balancing Complexity in Distributed Systems</title>
+  <meta property="og:title" content="Untangling Microservices, or Balancing Complexity in Distributed Systems" />
+  <meta name="twitter:title" content="Untangling Microservices, or Balancing Complexity in Distributed …" />
+  <meta name="description" content="The microservices-honeymoon period is over. Uber are refactoring their thousands of microservices into a more manageable solution [1], Kelsey Hightower says that monoliths are the future [2], and even Sam Newman maintains that microservices should never be the default choice, but rather a last resort [3].
+What is going on here? Why so many projects became unmaintainable, despite the microservices’ promise of simplicity and flexibility? So are monoliths better? In this post, I want to address these questions.">
+  <meta property="og:description" content="The microservices-honeymoon period is over. Uber are refactoring their thousands of microservices into a more manageable solution [1], Kelsey Hightower says that monoliths are the future [2], and even Sam Newman maintains that microservices should never be the default choice, but rather a last resort [3].
+What is going on here? Why so many projects became unmaintainable, despite the microservices’ promise of simplicity and flexibility? So are monoliths better? In this post, I want to address these questions.">
+  <meta name="twitter:description" content="The microservices-honeymoon period is over. Uber are refactoring their thousands of microservices into a more manageable solution [1], Kelsey Hightower says that monoliths are the future [2], and even …">
+  <meta name="author" content="Vladik Khononov"/>
+  <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://vladikk.com/images/untangling-microservcies/header.jpg" />
+  <meta name="twitter:image" content="https://vladikk.com/images/untangling-microservcies/header.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@vladikk" />
+  <meta name="twitter:creator" content="@vladikk" />
+  <meta property="og:url" content="https://vladikk.com/2020/04/09/untangling-microservices/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vladikk" />
+
+  <meta name="generator" content="Hugo 0.56.3" />
+  <link rel="canonical" href="https://vladikk.com/2020/04/09/untangling-microservices/" />
+  <link rel="alternate" href="" type="application/rss+xml" title="Vladikk">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://vladikk.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
+  <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="microservices, nanoservices, bbom, monolith, distributed systems, antipattern, anti-pattern, software architecture, design patterns, design principles, ddd, engineering, design, software, architecture">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-40869819-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://vladikk.com">Vladikk</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Speaking" href="/page/speaking/">Speaking</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Writing" href="/page/books/">Writing</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Consulting" href="/page/consulting">Consulting</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About &amp; Contact" href="/page/about/">About &amp; Contact</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Vladikk" href="https://vladikk.com">
+            <img class="avatar-img" src="https://vladikk.com/images/me-oreilly.jpg" alt="Vladikk" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Untangling Microservices, or Balancing Complexity in Distributed Systems</h1>
+                
+                
+                  <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on April 9, 2020
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 12 min (2364 mots)
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<p><img src="/images/untangling-microservcies/header.jpg" alt="Untangling Microservices, or Balancing Complexity in Distributed Systems" /></p>
+
+<p>The microservices-honeymoon period is over. Uber are refactoring their thousands of microservices into a more manageable solution [1], Kelsey Hightower says that monoliths are the future [2], and even Sam Newman maintains that microservices should never be the default choice, but rather a last resort [3].</p>
+
+<p>What is going on here? Why so many projects became unmaintainable, despite the microservices’ promise of simplicity and flexibility? So are monoliths better? In this post, I want to address these questions. You will learn about common design issues that turn microservices into distributed big balls of mud, and of course, how you can avoid them.</p>
+
+<p>But first, let’s set the record straight on what is a monolith.</p>
+
+<h2 id="monolith">Monolith</h2>
+
+<p>Microservices have always been positioned as a solution for monolithic codebases. But are monoliths necessarily a problem? According to [Wikipedia’s definition [4]], a monolithic application is self-contained and independent from other computing applications. Independence from other applications? Isn’t that what we are chasing, often to no avail, when designing microservices?</p>
+
+<p>[David Heinemeier Hansson [5]] called out the smearing of monoliths right away, warning about the liabilities and challenges inherent to distributed systems. Further, he uses Basecamp to prove that a large system, that serves millions of users, can be implemented and maintained as a monolithic codebase.</p>
+
+<p>Hence, microservices do not “fix” monoliths. The real problem that microservices are supposed to solve is the inability to deliver business goals. The impediment to achieving business goals is often exponentially growing, or even worse — unpredictable, cost of change. In other words, the system is not able to keep up with the needs of the business. A fair way to call such a system would be not a monolith, but rather a [big ball of mud [6]].</p>
+
+<p>The uncontrollable cost of change is not a property of a monolith — a monolith can be— but rather of a [Big Ball of Mud [7]]:
+&gt; A Big Ball of Mud is a haphazardly structured, sprawling, sloppy, duct-tape-and-baling-wire, spaghetti-code jungle. These systems show unmistakable signs of unregulated growth, and repeated, expedient repair. Information is shared promiscuously among distant elements of the system, often to the point where nearly all the important information becomes global or duplicated.</p>
+
+<p>The complexity of changing and evolving big balls of mud can be caused by multiple factors: coordinating the work of multiple teams, conflicting non-functional requirements, or intricacy of the business domain. Either way, we often seek to tackle this complexity by decomposing big balls of mud into microservices.</p>
+
+<h2 id="micro-what">Micro<em>what?</em></h2>
+
+<p>The term “microservice” implies that some part of a service can be measured, and its size better be minimized. But what is it exactly? Let’s see a few approaches.</p>
+
+<h3 id="micro-teams">Micro<em>teams</em></h3>
+
+<p>The first one is the size of the team that works on a service. And this metric should be measured in pizzas. Seriously. They say that if a team working on a service can be fed with two pizzas, then it’s a microservice. I find this heuristic anecdotal, as I’ve built projects with teams that could be fed with one pizza …and I dare someone to call those balls of mad microservices…</p>
+
+<h3 id="micro-codebases">Micro<em>codebases</em></h3>
+
+<p>The more widespread approach is to design microservices based on the size of a codebase. Some take this notion to the extreme and try to limit service sizes to a certain number of lines of code. That said, the exact number of lines needed to constitute a microservice is yet to be found. Once this holy grail of software architecture is discovered, we will move on to the next question of the recommended screen width for writing code.</p>
+
+<p>On a serious note, this the less extreme version of this approach is the prevalent one. The size of a service’s codebase is often used as a heuristic for deciding whether it is a microservice or not.</p>
+
+<p>In some way, this approach makes sense. The smaller the codebase is, the lower its scope of the business domain, and thus it’s simpler to understand, to implement, and to evolve. Moreover, a smaller codebase has less chances of turning into a big ball of mud, and if it does happen, it is simpler to refactor than a larger project.</p>
+
+<p>Unfortunately, the aforementioned simplicity is just an <em>illusion</em>.</p>
+
+<p>We are missing a crucial part of system design when we evaluate a service’s design based on the service itself. We are missing the system itself, the system that the service is a component of.</p>
+
+<p><img src="/images/untangling-microservices/nick.png" alt="" /></p>
+
+<h3 id="we-build-systems">We Build Systems!</h3>
+
+<p>We build systems, not sets of services. We are using microservices-based architecture to optimize a system’s design, not its individual services. No matter what others may say, microservices cannot, and will never be neither completely decoupled, nor full independent. You cannot build a <em>system</em> out of independent components! That would go against the very definition of the term [“system” [7]]:</p>
+
+<blockquote>
+<blockquote>
+<p>A set of connected things or devices that operate <em>together</em>
+A set of computer equipment and programs used <em>together</em> for a particular purpose</p>
+</blockquote>
+</blockquote>
+
+<p>Services will always have to interact with each other to form a system. If you optimize a system’s design by inspecting its services, but ignoring the interactions between them, this is what you will end up with:
+(img)</p>
+
+<p>Those “microservices” may be simple individually, but the system itself is a complexity hell!</p>
+
+<p>So how do we design microservices that tackle the complexity not only of the services, but of the system as a whole?</p>
+
+<p>That’s a tough question, but luckily for us, it had been answered more than 40 years ago…</p>
+
+<h2 id="a-system-wide-perspective-on-complexity">A System-Wide Perspective on Complexity</h2>
+
+<p>Forty years ago, there were no cloud computing, no global scale requirements, and no need to deploy a system every 11.7 seconds. But systems complexity was there. Even those the tools in those days were different, the challenges, and more importantly — the solution — are all the same as nowadays, and can be applied for designing microservices-based systems.</p>
+
+<p>In his book, “Composite/Structured Design”, Glenford J. Myers discusses how to structure procedural code to reduce its complexity. On the very first page he says:
+&gt;&gt; There is much more to the subject of complexity than simply attempting to minimize the local complexity of each part of a program. A much more important type of complexity is global complexity: the complexity of the overall structure of a program or system (i.e., the degree of association or interdependence among the major pieces of a program).</p>
+
+<p>In our context, local complexity is the complexity of each individual microservice, whereas global complexity is the complexity of the whole system. Local complexity depends on the implementation of a service; the global complexity is defined by the interactions and dependencies between the services.</p>
+
+<p>So which complexity is more important — local or global? Let’s see what happens when each complexity is tackled individually.</p>
+
+<p>It’s surprisingly easy to reduce the global complexity to a minimum. All we have to do is to eliminate any interactions between the system’s components, i.e., implement all functionality in one monolithic service. As we’ve seen earlier, this strategy may work in certain scenarios. In others, it may lead to the dreaded big ball of mud — probably the highest possible local complexity.</p>
+
+<p>On the other hand, we know what happens when you optimize local complexities of the system’s services, but neglect its global complexity — the even more dreaded distributed big ball of mud.</p>
+
+<p>Hence, optimizing only one type of complexity of a distributed system will cause the second one to skyrocket. Instead, we have to balance both complexities.</p>
+
+<p>Interestingly, the means for balancing complexity described in the “Composite/Structured Design” book are not only relevant for distributed systems but offer insight on how to design microservices.</p>
+
+<h2 id="microservices">Microservices</h2>
+
+<p>Let’s start by defining what exactly are those services and microservices, that we are talking about.</p>
+
+<h3 id="what-is-a-service">What is a Service</h3>
+
+<p>According to [OASIS Standard], a service is:
+&gt;&gt; A mechanism to enable access to one or more capabilities, where the access is provided using a <em>prescribed interface</em>.</p>
+
+<p>The prescribed interface part is crucial. A service’s interface defines the functionality that is exposed to the world. According to [Randy Shoup], a service’s public interface is simply any mechanism for getting data in or out of the service. It can be synchronous, such as a plain request/response model, or asynchronous — by producing and consuming events. Either way, synchronous or asynchronous, the public interface is just the means for getting data in our out of a service.</p>
+
+<p>A service is defined by its public interface, or as Randy also calls it, the service’s front door.</p>
+
+<p>This definition is enough to define what makes a service a <em>microservice</em>.</p>
+
+<h3 id="what-is-a-microservice">What is a Microservice</h3>
+
+<p>If a service is defined by its public interface, then:
+<em>A microservice is a service with a micro public interface — micro front door.</em></p>
+
+<p>This simple heuristic has been followed in the days of procedural programming, and it is more than relevant in the realm of distributed systems. The smaller the service you expose, the simpler its implementation, and thus its local complexity is lower. From the global complexity standpoint, services with smaller public interfaces produce systems with fewer dependencies and connections between the services.</p>
+
+<p>This heuristic also explains the widespread practice of microservices not exposing their databases. No microservice can access other microservices’ databases, but only through their public interfaces. Why is that? — A database would be a huge public interface! For example, how many different operations can you execute on a relational database?</p>
+
+<p>Hence, to reiterate, in microservices-based systems, we balance local and global complexities by minimizing the services’ public interfaces — making them micro<em>services</em>.</p>
+
+<h4 id="warning">WARNING</h4>
+
+<p>This heuristic may sound deceptively simple. If a microservice is just a service with a micro public interface, then we can just limit each service’s public interface to only one method. The front door can’t be any smaller, so those should be the perfect microservices, right? — Not really. To demonstrate why not, I’ll use the example from my [previous post] on this subject:</p>
+
+<p>Let’s say we have the following backlog management service:
+(img)</p>
+
+<p>Once we decompose the system into 8 services, each having a single public method, we get services with perfect local complexity:
+(img)</p>
+
+<p>But can we connect them into the system that actually manages the backlog? — Not really. To form the system, the services have to interact with each other and to share changes’ to each service’s state. They can’t. The services’ public interfaces do not support that.</p>
+
+<p>Hence, we have to extend the front doors with public methods that enable integration between the services:
+(img)</p>
+
+<p>Let’s see what happened here. As long as we were optimizing each service’s complexity individually, the naive decomposition worked great. However, when we tried to connect the services into a system, the global complexity kicked in. Not only the resulting system ended up being an entangled mess, but we also had to extend the public interfaces beyond our original intent — for the integration’s sake. And that brings us to an important point:</p>
+
+<p><em>A service having more integration-related than business-related methods is a strong heuristic for a growing distributed big ball of mud!</em></p>
+
+<p>Hence, the threshold upon which a service’s public interface can be minimized depends not only on the service itself but mainly on the system that the service is a part of. A proper decomposition to microservices balances the system’s global complexity and the local complexities of its services.</p>
+
+<h3 id="designing-service-boundaries">Designing Service Boundaries</h3>
+
+<blockquote>
+<blockquote>
+<p>“Finding service boundaries is really damn hard… There is no flowchart!” - Udi Dahan
+That statement by Udi Dahan is still relevant. Designing microservices’ boundaries is hard, and probably impossible to get right the first time. That makes designing a fairly complex microservices-based system an iterative process.</p>
+</blockquote>
+</blockquote>
+
+<p>Hence, as the general guiding principle, I always prefer to start with wider boundaries and decompose them later into microservices as more knowledge is gained about the system and its business domain. It is especially relevant for services encompassing [core business domains].</p>
+
+<h3 id="what-about-nano-services">What About *Nano*services?</h3>
+
+<p>The term “nanoservice” is often used to describe a service that is too small. One can say that those naive one-method-services in the backlog example are nanoservices.</p>
+
+<p>However, I do not necessarily agree with this classification: it is used to describe an individual service, ignoring the overarching system. In the above example, once we put the system into the equation, the services’ interfaces had to grow. In fact, if we compare the original single service implementation with the naive decomposition, we can see that the system went from overall 8 public methods to 38. Moreover, once we connected the services into a system, the average number of public methods per service went from 1 all the way to 4.75.</p>
+
+<p>Hence, if instead of codebases, we optimize services(public interfaces), the term _nano_service doesn’t hold anymore, as it forced to grow back up to support the system’s use-cases.</p>
+
+<h3 id="is-that-all-there-is-to-it">Is That All There Is To It?</h3>
+
+<p>No. Although minimizing services’ public interfaces is a strong heuristic for designing interfaces, it’s still just a heuristic and doesn’t replace common sense. In fact, the micro-interface is just a kind of abstraction over the more fundamental, but much more complex design principles — coupling and cohesion.</p>
+
+<p>For example, if two services have micro-public interfaces, but they have to be coordinated in a distributed transaction, they are still highly coupled to each other.</p>
+
+<p>That said, aiming for micro-interfaces is still a strong heuristic that addresses different types of coupling, such as functional, development, and semantic. But that’s a topic for another blog.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>I want to sum it all up with a quote by Eliyahu Goldratt. In his books, he often repeated the words “tell me how you measure me, and I will tell you how I will behave”. When designing microservices-based systems, it’s crucial to measure and optimize the right metric. Designing boundaries for micro<em>codebases</em>, and micro<em>teams</em> is definitely easier. However, to build a <em>system</em>, we have to take it into accounts. Microservices are about designing systems, not individual services.</p>
+
+<p>And that brings us back to the title of the post —
+“Untangling Microservices, or Balancing Complexity in Distributed Systems”
+The only way to untangle microservices is to balance the local complexity of each service and the global complexity of the whole system.</p>
+
+      </article>
+
+      <hr/>
+      <div id="share">
+      If you liked this post, please share it with your friends and colleagues:
+      <p><div class="addthis_inline_share_toolbox"></div></p>
+    </div>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="https://vladikk.com/2019/04/18/optimistic-consistency/" data-toggle="tooltip" data-placement="top" title="Anti-Pattern: Optimistic Consistency">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladikk-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:vladik@khononov.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/vladikk" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/vladikk" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/vladikk" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/vladikkhononov" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/1736215/vladikk" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/vladikkk" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://telegram.me/vladik_kh" title="Telegram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-telegram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="vladikk.com">Vladik Khononov</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;
+          2020
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://vladikk.com">Vladikk</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.56.3</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://vladikk.com/js/main.js"></script>
+<script src="https://vladikk.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="https://vladikk.com/js/load-photoswipe.js"></script>
+
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a2d0cd9bc54813f"></script>
+
+  </body>
+</html>
+

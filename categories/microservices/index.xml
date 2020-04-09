@@ -2,16 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Microservices on Vladikk</title>
-    <link>https://vladikk.com/categories/microservices/</link>
+    <link>https://vladikk.com/categories/Microservices/</link>
     <description>Recent content in Microservices on Vladikk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
-    <lastBuildDate>Thu, 18 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://vladikk.com/categories/microservices/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vladikk.com/categories/Microservices/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Untangling Microservices, or Balancing Complexity in Distributed Systems</title>
+      <link>https://vladikk.com/2020/04/09/untangling-microservices/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>https://vladikk.com/2020/04/09/untangling-microservices/</guid>
+      <description>The microservices-honeymoon period is over. Uber are refactoring their thousands of microservices into a more manageable solution [1], Kelsey Hightower says that monoliths are the future [2], and even Sam Newman maintains that microservices should never be the default choice, but rather a last resort [3].
+What is going on here? Why so many projects became unmaintainable, despite the microservices’ promise of simplicity and flexibility? So are monoliths better? In this post, I want to address these questions.</description>
+    </item>
     
     <item>
       <title>Anti-Pattern: Optimistic Consistency</title>
@@ -38,9 +48,7 @@ Example Say as the result of some user’s operation the system has to:
 &lt;p&gt;“If I had an hour to solve a problem I&amp;rsquo;d spend 55 minutes thinking about  the problem and 5 minutes thinking about solutions” - Albert Einstein&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;In my opinion, this quote is the key to solving most of the issues we have when designing microservices-based systems. We rush into solutions without ensuring we know what exactly a microservice is. In this post, I’d like to take a stab at answering this question.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;In my opinion, this quote is the key to solving most of the issues we have when designing microservices-based systems. We rush into solutions without ensuring we know what exactly a microservice is. In this post, I’d like to take a stab at answering this question.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -51,9 +59,7 @@ Example Say as the result of some user’s operation the system has to:
       <guid>https://vladikk.com/2018/01/21/bounded-contexts-vs-microservices/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/bc-ms/rebel-scum.jpg&#34; alt=&#34;Rebel scum&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;I’ve always considered Domain-Driven Design’s Bounded Context as a guideline for defining the boundaries of Microservices. I was wrong. Not only is this heuristic flawed, but Bounded Contexts are the exact opposite of Microservices! To explain this point of view, I’ll start with a quick refresh of what Bounded Contexts are; then I’ll discuss the relationship between Bounded Contexts and Microservices.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;I’ve always considered Domain-Driven Design’s Bounded Context as a guideline for defining the boundaries of Microservices. I was wrong. Not only is this heuristic flawed, but Bounded Contexts are the exact opposite of Microservices! To explain this point of view, I’ll start with a quick refresh of what Bounded Contexts are; then I’ll discuss the relationship between Bounded Contexts and Microservices.&lt;/p&gt;</description>
     </item>
     
   </channel>

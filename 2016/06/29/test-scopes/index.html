@@ -8,12 +8,8 @@
   <title>Finding Proper Scopes for Unit Tests</title>
   <meta property="og:title" content="Finding Proper Scopes for Unit Tests" />
   <meta name="twitter:title" content="Finding Proper Scopes for Unit Tests" />
-  <meta name="description" content="In my previous rant post on TDD I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.
-
-">
-  <meta property="og:description" content="In my previous rant post on TDD I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.
-
-">
+  <meta name="description" content="In my previous rant post on TDD I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.">
+  <meta property="og:description" content="In my previous rant post on TDD I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.">
   <meta name="twitter:description" content="In my previous rant post on TDD I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of …">
   <meta name="author" content="Vladik Khononov"/>
   <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
@@ -26,7 +22,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vladikk" />
 
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.56.3" />
   <link rel="canonical" href="https://vladikk.com/2016/06/29/test-scopes/" />
   <link rel="alternate" href="" type="application/rss+xml" title="Vladikk">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -88,12 +84,16 @@
     </div>
 </div>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-40869819-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-40869819-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 </head>
 
@@ -210,8 +210,6 @@ ga('send', 'pageview');
       <article role="main" class="blog-post">
         <p>In my previous <strike>rant</strike> <a href="http://vladikk.com/2016/01/22/tdd-what-went-wrong/">post on TDD</a> I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.</p>
 
-<p></p>
-
 <h2 id="cyclomatic-complexity">Cyclomatic Complexity</h2>
 
 <p>Cyclomatic complexity is a software metric, used to indicate the complexity of a program. We can use this measurement to measure the complexity of a class or a method, and choose a suitable testing strategy. If the cyclomatic complexity is too high for the testing unit, the testing scope is too wide, and should be narrowed. This heuristic may sound easy in theory, but its no picnic to verify it in practice. Luckily, there are tools that were invented for that kind of heavy lifting. Enter <a href="http://www.ndepend.com/">NDepend</a>.</p>
@@ -272,7 +270,7 @@ select new {
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -389,7 +387,7 @@ select new {
           
 
           &nbsp;&bull;&nbsp;
-          2019
+          2020
 
           
             &nbsp;&bull;&nbsp;
@@ -398,7 +396,7 @@ select new {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.31.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.56.3</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

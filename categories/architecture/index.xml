@@ -2,16 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Architecture on Vladikk</title>
-    <link>https://vladikk.com/categories/architecture/</link>
+    <link>https://vladikk.com/categories/Architecture/</link>
     <description>Recent content in Architecture on Vladikk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
-    <lastBuildDate>Thu, 18 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://vladikk.com/categories/architecture/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vladikk.com/categories/Architecture/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Untangling Microservices, or Balancing Complexity in Distributed Systems</title>
+      <link>https://vladikk.com/2020/04/09/untangling-microservices/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>https://vladikk.com/2020/04/09/untangling-microservices/</guid>
+      <description>The microservices-honeymoon period is over. Uber are refactoring their thousands of microservices into a more manageable solution [1], Kelsey Hightower says that monoliths are the future [2], and even Sam Newman maintains that microservices should never be the default choice, but rather a last resort [3].
+What is going on here? Why so many projects became unmaintainable, despite the microservices’ promise of simplicity and flexibility? So are monoliths better? In this post, I want to address these questions.</description>
+    </item>
     
     <item>
       <title>Anti-Pattern: Optimistic Consistency</title>
@@ -50,9 +60,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
 &lt;li&gt;“So while CQRS is a pattern that&amp;rsquo;s good to have in the toolbox, beware that it is difficult to use well and you can easily chop off important bits if you mishandle it.”&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;From my point of view, the CQRS-induced complexity is largely accidental, and thus can be avoided. To illustrate my point, I want to discuss the goal of CQRS, and then analyze 3 common sources of accidental complexity in CQRS-based systems.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;From my point of view, the CQRS-induced complexity is largely accidental, and thus can be avoided. To illustrate my point, I want to discuss the goal of CQRS, and then analyze 3 common sources of accidental complexity in CQRS-based systems.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -61,9 +69,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
       <pubDate>Wed, 29 Jun 2016 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
       <guid>https://vladikk.com/2016/06/29/test-scopes/</guid>
-      <description>&lt;p&gt;In my previous &lt;strike&gt;rant&lt;/strike&gt; &lt;a href=&#34;http://vladikk.com/2016/01/22/tdd-what-went-wrong/&#34;&gt;post on TDD&lt;/a&gt; I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;In my previous &lt;strike&gt;rant&lt;/strike&gt; &lt;a href=&#34;http://vladikk.com/2016/01/22/tdd-what-went-wrong/&#34;&gt;post on TDD&lt;/a&gt; I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -76,9 +82,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
 
 &lt;p&gt;Let’s do a little experiment: try to explain the gist of Domain-Driven Design to someone who has no clue about it. This, especially doing it succinctly, is not easy. Heck, I struggle with it myself. Bounded contexts, entities, domain events, value objects, domains, aggregates, repositories… where do you even start?&lt;/p&gt;
 
-&lt;p&gt;To find the order in the apparent chaos, I want to analyze the DDD methodology from a rather unusual perspective — by applying Domain-Driven Design to Domain-Driven Design itself. After all, this methodology is intended to deal with complex domains, isn’t it?&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;To find the order in the apparent chaos, I want to analyze the DDD methodology from a rather unusual perspective — by applying Domain-Driven Design to Domain-Driven Design itself. After all, this methodology is intended to deal with complex domains, isn’t it?&lt;/p&gt;</description>
     </item>
     
   </channel>

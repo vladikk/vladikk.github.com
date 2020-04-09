@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Domain Driven Design on Vladikk</title>
-    <link>https://vladikk.com/categories/domain-driven-design/</link>
-    <description>Recent content in Domain Driven Design on Vladikk</description>
+    <title>Domain-Driven Design on Vladikk</title>
+    <link>https://vladikk.com/categories/Domain-Driven-Design/</link>
+    <description>Recent content in Domain-Driven Design on Vladikk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
     <lastBuildDate>Tue, 29 Jan 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://vladikk.com/categories/domain-driven-design/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vladikk.com/categories/Domain-Driven-Design/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -37,9 +37,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
 &lt;p&gt;“If I had an hour to solve a problem I&amp;rsquo;d spend 55 minutes thinking about  the problem and 5 minutes thinking about solutions” - Albert Einstein&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;In my opinion, this quote is the key to solving most of the issues we have when designing microservices-based systems. We rush into solutions without ensuring we know what exactly a microservice is. In this post, I’d like to take a stab at answering this question.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;In my opinion, this quote is the key to solving most of the issues we have when designing microservices-based systems. We rush into solutions without ensuring we know what exactly a microservice is. In this post, I’d like to take a stab at answering this question.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -54,9 +52,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
 
 &lt;h2 id=&#34;disclaimer&#34;&gt;Disclaimer&lt;/h2&gt;
 
-&lt;p&gt;As I just said, some of the things I’m about to write are my opinion only. Many of you might disagree with some of them. Hey – the last time we spoke about it, Eric and Vaughn were not fans of my theory. But, nevertheless, it is based on my 7-year long DDD journey at our company, and it works for me. I believe it might work for you as well.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;As I just said, some of the things I’m about to write are my opinion only. Many of you might disagree with some of them. Hey – the last time we spoke about it, Eric and Vaughn were not fans of my theory. But, nevertheless, it is based on my 7-year long DDD journey at our company, and it works for me. I believe it might work for you as well.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -67,9 +63,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
       <guid>https://vladikk.com/2018/01/21/bounded-contexts-vs-microservices/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/bc-ms/rebel-scum.jpg&#34; alt=&#34;Rebel scum&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;I’ve always considered Domain-Driven Design’s Bounded Context as a guideline for defining the boundaries of Microservices. I was wrong. Not only is this heuristic flawed, but Bounded Contexts are the exact opposite of Microservices! To explain this point of view, I’ll start with a quick refresh of what Bounded Contexts are; then I’ll discuss the relationship between Bounded Contexts and Microservices.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;I’ve always considered Domain-Driven Design’s Bounded Context as a guideline for defining the boundaries of Microservices. I was wrong. Not only is this heuristic flawed, but Bounded Contexts are the exact opposite of Microservices! To explain this point of view, I’ll start with a quick refresh of what Bounded Contexts are; then I’ll discuss the relationship between Bounded Contexts and Microservices.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -88,9 +82,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
 &lt;li&gt;“So while CQRS is a pattern that&amp;rsquo;s good to have in the toolbox, beware that it is difficult to use well and you can easily chop off important bits if you mishandle it.”&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;From my point of view, the CQRS-induced complexity is largely accidental, and thus can be avoided. To illustrate my point, I want to discuss the goal of CQRS, and then analyze 3 common sources of accidental complexity in CQRS-based systems.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;From my point of view, the CQRS-induced complexity is largely accidental, and thus can be avoided. To illustrate my point, I want to discuss the goal of CQRS, and then analyze 3 common sources of accidental complexity in CQRS-based systems.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -103,9 +95,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
 
 &lt;p&gt;Let’s do a little experiment: try to explain the gist of Domain-Driven Design to someone who has no clue about it. This, especially doing it succinctly, is not easy. Heck, I struggle with it myself. Bounded contexts, entities, domain events, value objects, domains, aggregates, repositories… where do you even start?&lt;/p&gt;
 
-&lt;p&gt;To find the order in the apparent chaos, I want to analyze the DDD methodology from a rather unusual perspective — by applying Domain-Driven Design to Domain-Driven Design itself. After all, this methodology is intended to deal with complex domains, isn’t it?&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;To find the order in the apparent chaos, I want to analyze the DDD methodology from a rather unusual perspective — by applying Domain-Driven Design to Domain-Driven Design itself. After all, this methodology is intended to deal with complex domains, isn’t it?&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -123,8 +113,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
 &lt;p&gt;For me, the social part, alone, was worth the trip. And don’t get me wrong, the sessions were great, but the ability to meet new friends, share experiences and ideas, and get fresh perspectives, was priceless.
 And I’m yet to mention discussing Star Wars with Eric Evans, discovering that Vaughn Vernon knows Israel better than I do, catching up with Greg Young, and last but not least, drinking beer with Yves Reynhout — it is unbelievable how much I learned from Yves that evening.&lt;/p&gt;
 
-&lt;p&gt;Lesson learned: Go to conferences alone and meet new people.
-&lt;/p&gt;</description>
+&lt;p&gt;Lesson learned: Go to conferences alone and meet new people.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -138,9 +127,7 @@ And I’m yet to mention discussing Star Wars with Eric Evans, discovering that 
 &lt;p&gt;How is it possible, that the same technique, which is so advantageous to so many developers, is so disastrous to others?
 In this post I want to talk about 3 misconceptions that might explain this phenomenon.&lt;/p&gt;
 
-&lt;p&gt;Let&amp;rsquo;s start with the subtlest and most destructive one.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Let&amp;rsquo;s start with the subtlest and most destructive one.&lt;/p&gt;</description>
     </item>
     
   </channel>

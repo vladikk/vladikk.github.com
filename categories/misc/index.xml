@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Misc on Vladikk</title>
-    <link>https://vladikk.com/categories/misc/</link>
+    <link>https://vladikk.com/categories/Misc/</link>
     <description>Recent content in Misc on Vladikk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,7 +10,7 @@
     <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
     <lastBuildDate>Thu, 30 Mar 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://vladikk.com/categories/misc/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vladikk.com/categories/Misc/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,9 +19,7 @@
       <pubDate>Thu, 30 Mar 2017 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
       <guid>https://vladikk.com/2017/03/30/nifi-unicode/</guid>
-      <description>&lt;p&gt;If you&amp;rsquo;re using Apache NiFi to move data around, you might stumble upon Unicode characters turning into question marks. For example, the ExecuteSQL processor does that. To fix this you have to set JVM&amp;rsquo;s default encoding to UTF-8.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;If you&amp;rsquo;re using Apache NiFi to move data around, you might stumble upon Unicode characters turning into question marks. For example, the ExecuteSQL processor does that. To fix this you have to set JVM&amp;rsquo;s default encoding to UTF-8.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -34,9 +32,7 @@
 
 &lt;p&gt;One simple question can shed a lot of light on one’s competency in a given field: &amp;ldquo;On a scale of 1 to 10, please rate your knowledge of [enter-name-of-the-field-here]&amp;ldquo;.&lt;/p&gt;
 
-&lt;p&gt;One can assume that the higher the grade, the better. But that’s not the case at all. Why? Science — that’s why. Enter the Dunning-Kruger effect.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;One can assume that the higher the grade, the better. But that’s not the case at all. Why? Science — that’s why. Enter the Dunning-Kruger effect.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -54,8 +50,7 @@
 &lt;p&gt;For me, the social part, alone, was worth the trip. And don’t get me wrong, the sessions were great, but the ability to meet new friends, share experiences and ideas, and get fresh perspectives, was priceless.
 And I’m yet to mention discussing Star Wars with Eric Evans, discovering that Vaughn Vernon knows Israel better than I do, catching up with Greg Young, and last but not least, drinking beer with Yves Reynhout — it is unbelievable how much I learned from Yves that evening.&lt;/p&gt;
 
-&lt;p&gt;Lesson learned: Go to conferences alone and meet new people.
-&lt;/p&gt;</description>
+&lt;p&gt;Lesson learned: Go to conferences alone and meet new people.&lt;/p&gt;</description>
     </item>
     
   </channel>
