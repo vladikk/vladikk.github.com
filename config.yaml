@@ -2,13 +2,14 @@ baseURL: https://vladikk.com
 disablePathToLower: true
 languageCode: en-us
 title: Vladikk
-theme: beautifulhugo2
+theme: beautifulhugo
 DefaultContentLanguage: en
 pygmentsUseClasses: true
 pygmentCodeFences: true
 disqusShortname: vladikk-blog
 googleAnalytics: UA-40869819-1
 publishDir: ../blog-public
+unsafe: true
 Params:
   subtitle: Rants on software design
   logo: images/me-oreilly.jpg
