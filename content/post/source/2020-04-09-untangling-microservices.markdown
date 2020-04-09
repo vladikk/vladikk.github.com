@@ -13,7 +13,9 @@ share_img: /images/untangling-microservices/header.png
 
 The microservices-honeymoon period is over. Uber are refactoring their thousands of microservices into a more manageable solution [1], Kelsey Hightower says that monoliths are the future [2], and even Sam Newman maintains that microservices should never be the default choice, but rather a last resort [3].
 
-What is going on here? Why so many projects became unmaintainable, despite the microservices’ promise of simplicity and flexibility? Or maybe monoliths better, after all? In this post, I want to address these questions. You will learn about common design issues that turn microservices into distributed big balls of mud, and of course, and how you can avoid them. 
+What is going on here? Why so many projects became unmaintainable, despite the microservices’ promise of simplicity and flexibility? Or maybe monoliths are better, after all? In this post, I want to address these questions. You will learn about common design issues that turn microservices into distributed big balls of mud, and of course, and how you can avoid them. 
+
+<!--more-->
 
 But first, let’s set the record straight on what is a monolith.
 
