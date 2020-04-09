@@ -2,7 +2,7 @@ baseURL: https://vladikk.com
 disablePathToLower: true
 languageCode: en-us
 title: Vladikk
-theme: beautifulhugo
+theme: beautifulhugo2
 DefaultContentLanguage: en
 pygmentsUseClasses: true
 pygmentCodeFences: true
@@ -10,7 +10,7 @@ disqusShortname: vladikk-blog
 googleAnalytics: UA-40869819-1
 publishDir: ../blog-public
 Params:
-  subtitle: Random rants on software design
+  subtitle: Rants on software design
   logo: images/me-oreilly.jpg
   favicon: favicon.ico
   dateFormat: 'January 2, 2006'
