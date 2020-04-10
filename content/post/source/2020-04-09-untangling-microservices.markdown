@@ -46,7 +46,7 @@ Unfortunately, the aforementioned simplicity is just an **illusion**. When we ev
 > "There are many useful and revealing heuristics for defining the boundaries of a service. Size is one of the least useful." ~ Nick Tune
 
 ### We Build Systems!
-We build systems, not sets of services. We are using microservices-based architecture to optimize a system’s design, not the design of individual services. No matter what others may say, microservices cannot, and will never be neither completely decoupled, nor full independent. **You cannot build a system out of independent components!** That would go against the very definition of the term “system” [8]:
+We build systems, not sets of services. We are using microservices-based architecture to optimize a system’s design, not the design of individual services. No matter what others may say, microservices cannot, and will never be neither completely decoupled, nor full independent. **You cannot build a system out of independent components!** That would go against the very definition of the term “system” [7]:
 
 >1. A set of **connected** things or devices that **operate together**
 >2. A set of computer equipment and programs **used together for a particular purpose**
@@ -64,7 +64,7 @@ That’s a tough question, but luckily for us, it had been answered more than 40
 ## A System-Wide Perspective on Complexity
 Forty years ago, there was no cloud computing, no global scale requirements, and no need to deploy a system every 11.7 seconds. But engineers still had tame systems’ complexity. Even though the tools in those days were different, the challenges, and more importantly — the solution — are all relevant nowadays, and can be applied for designing microservices-based systems.
 
-In his book, “Composite/Structured Design” [9], Glenford J. Myers discusses how to structure procedural code to reduce its complexity. On the very first page he says:
+In his book, “Composite/Structured Design” [8], Glenford J. Myers discusses how to structure procedural code to reduce its complexity. On the very first page he says:
 
 > **There is much more to the subject of complexity than simply attempting to minimize the local complexity of each part of a program. A much more important type of complexity is global complexity: the complexity of the overall structure of a program or system (i.e., the degree of association or interdependence among the major pieces of a program).**
 
@@ -86,11 +86,11 @@ Interestingly, the means for balancing complexity described in the “Composite/
 Let’s start by defining what exactly are those services and microservices, that we are talking about.
 
 ### What is a Service
-According to OASIS Standard [10], a service is:
+According to OASIS Standard [9], a service is:
 
 > A mechanism to enable **access to one or more capabilities**, where the access is provided using a **prescribed interface**.
 
-The prescribed interface part is crucial. A service’s interface defines the functionality that is exposed to the world. According to Randy Shoup [11], a service’s public interface is simply any mechanism for getting data in or out of the service. It can be synchronous, such as a plain request/response model, or asynchronous — by producing and consuming events. Either way, synchronous or asynchronous, the public interface is just the means for getting data in our out of a service. 
+The prescribed interface part is crucial. A service’s interface defines the functionality that is exposed to the world. According to Randy Shoup [10], a service’s public interface is simply any mechanism for getting data in or out of the service. It can be synchronous, such as a plain request/response model, or asynchronous — by producing and consuming events. Either way, synchronous or asynchronous, the public interface is just the means for getting data in our out of a service. 
 
 **A service is defined by its public interface**, or as Randy also calls it, the service’s **front door**.
 
@@ -108,7 +108,7 @@ This heuristic also explains the widespread practice of microservices not exposi
 Hence, to reiterate, in microservices-based systems, we balance local and global complexities by minimizing the services’ public interfaces — making them micro*services*.
 
 #### WARNING
-This heuristic may sound deceptively simple. If a microservice is just a service with a micro public interface, then we can just limit each service’s public interface to only one method. The front door can’t be any smaller, so those should be the perfect microservices, right? — Not really. To demonstrate why not, I’ll use the example from my another post [12] on this subject:
+This heuristic may sound deceptively simple. If a microservice is just a service with a micro public interface, then we can just limit each service’s public interface to only one method. The front door can’t be any smaller, so those should be the perfect microservices, right? — Not really. To demonstrate why not, I’ll use the example from my another post [11] on this subject:
 
 Let’s say we have the following backlog management service:
 
@@ -135,7 +135,7 @@ Hence, the threshold upon which a service’s public interface can be minimized 
 
 The above statement by Udi Dahan is especially true for microservices-based systems. Designing microservices’ boundaries is hard, and probably impossible to get right the first time. That makes designing a fairly complex microservices-based system an iterative process.
 
-Hence, as the general guiding principle, I always prefer to start with wider boundaries and decompose them into microservices later, as more knowledge is gained about the system and its business domain. It is especially relevant for services encompassing core business domains[13].
+Hence, as the general guiding principle, I always prefer to start with wider boundaries and decompose them into microservices later, as more knowledge is gained about the system and its business domain. It is especially relevant for services encompassing core business domains[12].
 
 ### What About *Nano*-services?
 The term “nanoservice” is often used to describe a service that is too small. One can say that those naive one-method-services in the previous example are nanoservices.
@@ -164,19 +164,23 @@ And that brings us back to the title of the post:
 
 The only way to untangle microservices is to balance the local complexity of each service and the global complexity of the whole system.
 
-## References
+## Bibliography
 
-1. https://twitter.com/GergelyOrosz/status/1247132806041546754
-2. https://changelog.com/posts/monoliths-are-the-future
-3. https://www.theregister.co.uk/2020/03/04/microservices_last_resort/
-4. https://en.wikipedia.org/wiki/Monolithic_application
-5. https://m.signalvnoise.com/the-majestic-monolith/
-6. https://en.wikipedia.org/wiki/Big_ball_of_mud
-7. https://twitter.com/ntcoding/status/1247581638420242437
-8. https://dictionary.cambridge.org/dictionary/english/system
-9. https://www.amazon.com/Composite-Structured-Design-Glenford-Myers/dp/0442805845
-10. https://docs.oasis-open.org/soa-rm/v1.0/soa-rm.html
-11. https://www.youtube.com/watch?v=E8-e-3fRHBw
-12. https://vladikk.com/2018/02/28/microservices/
-13. https://vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/
-14. http://www.kamilgrzybek.com/design/modular-monolith-primer/
+1. [Gergely Orosz's tweet on Uber](https://twitter.com/GergelyOrosz/status/1247132806041546754)
+2. [Monoliths are the future](https://changelog.com/posts/monoliths-are-the-future)
+3. [Microservices guru warns devs that trendy architecture shouldn't be the default for every app, but 'a last resort'](https://www.theregister.co.uk/2020/03/04/microservices_last_resort/)
+4. [Monolithic Application(Wikipedia)](https://en.wikipedia.org/wiki/Monolithic_application)
+5. [The Majestic Monolith - DHH](https://m.signalvnoise.com/the-majestic-monolith/)
+6. [Big Ball of Mud(Wikipedia)](https://en.wikipedia.org/wiki/Big_ball_of_mud)
+7. [Definition of a System](https://dictionary.cambridge.org/dictionary/english/system)
+8. [Composite/Structures Design - book by Glenford J. Myers](https://www.amazon.com/Composite-Structured-Design-Glenford-Myers/dp/0442805845)
+9. [Reference Model for Service Oriented Architecture](https://docs.oasis-open.org/soa-rm/v1.0/soa-rm.html)
+10. [Managing Data in Microservices - talk by Randy Shoup](https://www.youtube.com/watch?v=E8-e-3fRHBw)
+11. [Tackling Complexity in Microservices](https://vladikk.com/2018/02/28/microservices/)
+12. [Revisiting the Basics of Domain-Driven Design](https://vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/)
+13. [Modular Monolith: A Primer - Kamil Grzybek](http://www.kamilgrzybek.com/design/modular-monolith-primer/)
+14. [A Design Methodology for Reliable Software Systems - Barbara Liskov](https://pdfs.semanticscholar.org/d420/c8b473a23b80241fd7c90757becb59b1136c.pdf)
+15. [Designing Autonomous Teams and Services](https://learning.oreilly.com/library/view/designing-autonomous-teams/9781491994320/)
+16. [Emergent Boundaries - a talk by Mathias Verraes](https://www.youtube.com/watch?v=ECM1rPYxvD4)
+17. [Long Sad Story of Microservices - talk by Greg Young](https://www.youtube.com/watch?v=MjIfWe6bn40)
+18. [Principles of Design - Tim Berners-Lee](https://www.w3.org/DesignIssues/Principles.html)
