@@ -173,6 +173,7 @@ And that brings us back to the title of the post — “Untangling Microservices
 11. [Tackling Complexity in Microservices](https://vladikk.com/2018/02/28/microservices/)
 12. [Bounded Contexts are NOT Microservices](https://vladikk.com/2018/01/21/bounded-contexts-vs-microservices/)
 13. [Revisiting the Basics of Domain-Driven Design](https://vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/)
+14. [Implementing Domain-Driven Design - book by Vaughn Vernon](https://www.amazon.com/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577)
 14. [Modular Monolith: A Primer - Kamil Grzybek](http://www.kamilgrzybek.com/design/modular-monolith-primer/)
 15. [A Design Methodology for Reliable Software Systems - Barbara Liskov](https://pdfs.semanticscholar.org/d420/c8b473a23b80241fd7c90757becb59b1136c.pdf)
 16. [Designing Autonomous Teams and Services](https://learning.oreilly.com/library/view/designing-autonomous-teams/9781491994320/)
