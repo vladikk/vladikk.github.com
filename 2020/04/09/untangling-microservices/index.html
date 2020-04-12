@@ -203,7 +203,7 @@ if (!doNotTrack) {
                 
                   <span class="post-meta">
   <i class="fa fa-calendar-o"></i>&nbsp;Posted on April 9, 2020
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 12 min (2553 mots)
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 15 min (3011 mots)
   
 </span>
 
@@ -373,6 +373,26 @@ if (!doNotTrack) {
 
 <p>Hence, it is safer to start with wider boundaries - probably the boundaries of proper bounded contexts[12] - and decompose them into microservices later, as more knowledge is gained about the system and its business domain. This is especially relevant to services encompassing core business domains[13].</p>
 
+<h3 id="microservices-in-other-industries">&ldquo;Microservices&rdquo; in Other Industries</h3>
+
+<p>Even though we&rsquo;ve &ldquo;invented&rdquo; microservices only recently, you can find a plenty of implementations of the same design principles in other industries. To name a few:</p>
+
+<h4 id="cross-functional-teams">Cross-Functional Teams</h4>
+
+<p>We all know that cross-funcitonal teams are the most effective ones. Such team is a diverse group of professionals all working on the same task. An efficient cross-functional team maximizes the communication inside of the team, and minimizes the communication outside of it.</p>
+
+<p>Our industry has discovered cross-functional teams only recently, but task forces have been there forever. The underlying principles are the same as for a microservices-based system: high cohesion inside of the team and low coupling between teams. The team&rsquo;s &ldquo;public interface&rdquo; is minimized by encapsulating the skills needed to achieve the task inside of the team, i.e., implementation details.</p>
+
+<h4 id="microprocessors">Microprocessors</h4>
+
+<p>I stumbled upon this example in Vaughn Vernon&rsquo;s wonderful <a href="https://kalele.io/microservices-and-microservices/">blog on the same topic</a>. In the post, Vaughn draws an interesting parallel between micro<em>services</em> and micro<em>processors</em>. In particular, he discusses the difference between processors and microprocessors:</p>
+
+<blockquote>
+<p>I find it interesting that there is a size classification given that helps determine whether or not a central processing unit (CPU) is considered a Microprocessor: the size of their <strong>data bus</strong> [21]</p>
+</blockquote>
+
+<p>A microprocessor&rsquo;s data bus is it&rsquo;s public interface – it defines the amount of data that can be passed to or from the microprocessor to other components. There is a strict size classification for the public interface that defines whether a or not a central processing unit (CPU) is considered a microprocessor.</p>
+
 <h3 id="what-about-nano-services">What About <em>Nano</em>-services?</h3>
 
 <p>The term “nanoservice” is often used to describe a service that is too small. One can say that those naïve one-method-services in the previous example are nanoservices. However, I don&rsquo;t necessarily agree with this classification.</p>
@@ -389,6 +409,20 @@ if (!doNotTrack) {
 
 <p>That said, aiming for micro-interfaces is still a strong heuristic that addresses different types of coupling, such as functional, development, and semantic. But that’s a topic for another blog.</p>
 
+<h2 id="from-theory-to-practice">From Theory to Practice</h2>
+
+<p>Unfortunately, we don&rsquo;t have an objective way to quantify the local and global complexities yet. On the other hand, we do have some design heuristics that can improve design of distributed systems.</p>
+
+<p>The main tip I want you to take away from this post is to continuously evaluate the public interfaces of your services:</p>
+
+<ul>
+<li>What is the ratio of business and integration oriented endpoints in a given service?</li>
+<li>Are there business-wise unrelated endpoints in a service? Would you be able to split them across two, or more, services without introducing integration-oriented endpoints?</li>
+<li>If you were to merge two services, would that eliminate endpoints added for integrating original services?</li>
+</ul>
+
+<p>Use these heuristics for guiding the design of your services&rsquo; boundaries and interfaces.</p>
+
 <h2 id="summary">Summary</h2>
 
 <p>I want to sum it all up with an observation from Eliyahu Goldratt. In his books, he often repeated these words:</p>
@@ -400,6 +434,12 @@ if (!doNotTrack) {
 <p>When designing microservices-based systems, it’s crucial to measure and optimize the right metric. Designing boundaries for micro<em>codebases</em>, and micro<em>teams</em> is definitely easier. However, to build a <em>system</em>, we have to take it into account. Microservices are about designing systems, not individual services.</p>
 
 <p>And that brings us back to the title of the post — “Untangling Microservices, or Balancing Complexity in Distributed Systems”. <strong>The only way to untangle microservices is to balance the local complexity of each service and the global complexity of the whole system.</strong></p>
+
+<h2 id="p-s">P.S.</h2>
+
+<p>I&rsquo;m overwhelmed and humbled by the positive responses to this post. Hence, I&rsquo;ll turn it into &ldquo;Untangling Microservices&rdquo; blog series. In the next posts I&rsquo;ll share some practical tips for minimizing synchronous and asynchronous interfaces of your services, and general heuristics for evaluating and designing service boundaries.</p>
+
+<p>Feel free to nag me (@vladikk) if you are reading this after May 2020 and there is no link to the next post.</p>
 
 <h2 id="bibliography">Bibliography</h2>
 
@@ -424,6 +464,7 @@ if (!doNotTrack) {
 <li><a href="https://www.youtube.com/watch?v=ECM1rPYxvD4">Emergent Boundaries - a talk by Mathias Verraes</a></li>
 <li><a href="https://www.youtube.com/watch?v=MjIfWe6bn40">Long Sad Story of Microservices - talk by Greg Young</a></li>
 <li><a href="https://www.w3.org/DesignIssues/Principles.html">Principles of Design - Tim Berners-Lee</a></li>
+<li><a href="https://kalele.io/microservices-and-microservices/">Microservices and [Micro]services - Vaughn Vernon</a></li>
 </ol>
       </article>
 
