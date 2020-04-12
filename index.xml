@@ -21,9 +21,11 @@
       <guid>https://vladikk.com/2020/04/09/untangling-microservices/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/untangling-microservices/header.png&#34; alt=&#34;Untangling Microservices, or Balancing Complexity in Distributed Systems&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;The microservices-honeymoon period is over. Uber are refactoring thousands of microservices into a more manageable solution [1], according to Kelsey Hightower monoliths are the future [2], and even Sam Newman says that microservices should never be the default choice, but rather a last resort [3].&lt;/p&gt;
+&lt;p&gt;The microservices honeymoon period is over. Uber is refactoring thousands of microservices into a more manageable solution [1]; Kelsey Hightower is predicting monoliths are the future [2]; and even Sam Newman is declaring that microservices should never be the default choice, but rather a last resort [3].&lt;/p&gt;
 
-&lt;p&gt;What is going on here? Why so many projects became unmaintainable, despite the microservices’ promise of simplicity and flexibility? Or maybe monoliths are better, after all? In this post, I want to address these questions. You will learn about common design issues that turn microservices into distributed big balls of mud, and of course, and how you can avoid them.&lt;/p&gt;</description>
+&lt;p&gt;What&amp;rsquo;s going on here? Why have so many projects become unmaintainable, despite microservices’ promise of simplicity and flexibility? Or are monoliths better, after all?&lt;/p&gt;
+
+&lt;p&gt;In this post, I want to address these questions. You will learn about common design issues that turn microservices into distributed big balls of mud – and, of course, how you can avoid them.&lt;/p&gt;</description>
     </item>
     
     <item>

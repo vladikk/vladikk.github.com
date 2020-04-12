@@ -10,17 +10,21 @@
   <meta name="twitter:title" content="Untangling Microservices, or Balancing Complexity in Distributed …" />
   <meta name="description" content="
 
-The microservices-honeymoon period is over. Uber are refactoring thousands of microservices into a more manageable solution [1], according to Kelsey Hightower monoliths are the future [2], and even Sam Newman says that microservices should never be the default choice, but rather a last resort [3].
+The microservices honeymoon period is over. Uber is refactoring thousands of microservices into a more manageable solution [1]; Kelsey Hightower is predicting monoliths are the future [2]; and even Sam Newman is declaring that microservices should never be the default choice, but rather a last resort [3].
 
-What is going on here? Why so many projects became unmaintainable, despite the microservices’ promise of simplicity and flexibility? Or maybe monoliths are better, after all? In this post, I want to address these questions. You will learn about common design issues that turn microservices into distributed big balls of mud, and of course, and how you can avoid them.">
+What&rsquo;s going on here? Why have so many projects become unmaintainable, despite microservices’ promise of simplicity and flexibility? Or are monoliths better, after all?
+
+In this post, I want to address these questions. You will learn about common design issues that turn microservices into distributed big balls of mud – and, of course, how you can avoid them.">
   <meta property="og:description" content="
 
-The microservices-honeymoon period is over. Uber are refactoring thousands of microservices into a more manageable solution [1], according to Kelsey Hightower monoliths are the future [2], and even Sam Newman says that microservices should never be the default choice, but rather a last resort [3].
+The microservices honeymoon period is over. Uber is refactoring thousands of microservices into a more manageable solution [1]; Kelsey Hightower is predicting monoliths are the future [2]; and even Sam Newman is declaring that microservices should never be the default choice, but rather a last resort [3].
 
-What is going on here? Why so many projects became unmaintainable, despite the microservices’ promise of simplicity and flexibility? Or maybe monoliths are better, after all? In this post, I want to address these questions. You will learn about common design issues that turn microservices into distributed big balls of mud, and of course, and how you can avoid them.">
+What&rsquo;s going on here? Why have so many projects become unmaintainable, despite microservices’ promise of simplicity and flexibility? Or are monoliths better, after all?
+
+In this post, I want to address these questions. You will learn about common design issues that turn microservices into distributed big balls of mud – and, of course, how you can avoid them.">
   <meta name="twitter:description" content="
 
-The microservices-honeymoon period is over. Uber are refactoring thousands of microservices into a more manageable solution [1], according to Kelsey Hightower monoliths are the future [2], and even …">
+The microservices honeymoon period is over. Uber is refactoring thousands of microservices into a more manageable solution [1]; Kelsey Hightower is predicting monoliths are the future [2]; and even …">
   <meta name="author" content="Vladik Khononov"/>
   <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://vladikk.com/images/untangling-microservices/header.png" />
@@ -199,7 +203,7 @@ if (!doNotTrack) {
                 
                   <span class="post-meta">
   <i class="fa fa-calendar-o"></i>&nbsp;Posted on April 9, 2020
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 12 min (2532 mots)
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 12 min (2553 mots)
   
 </span>
 
@@ -220,41 +224,43 @@ if (!doNotTrack) {
       <article role="main" class="blog-post">
         <p><img src="/images/untangling-microservices/header.png" alt="Untangling Microservices, or Balancing Complexity in Distributed Systems" /></p>
 
-<p>The microservices-honeymoon period is over. Uber are refactoring thousands of microservices into a more manageable solution [1], according to Kelsey Hightower monoliths are the future [2], and even Sam Newman says that microservices should never be the default choice, but rather a last resort [3].</p>
+<p>The microservices honeymoon period is over. Uber is refactoring thousands of microservices into a more manageable solution [1]; Kelsey Hightower is predicting monoliths are the future [2]; and even Sam Newman is declaring that microservices should never be the default choice, but rather a last resort [3].</p>
 
-<p>What is going on here? Why so many projects became unmaintainable, despite the microservices’ promise of simplicity and flexibility? Or maybe monoliths are better, after all? In this post, I want to address these questions. You will learn about common design issues that turn microservices into distributed big balls of mud, and of course, and how you can avoid them.</p>
+<p>What&rsquo;s going on here? Why have so many projects become unmaintainable, despite microservices’ promise of simplicity and flexibility? Or are monoliths better, after all?</p>
 
-<p>But first, let’s set the record straight on what is a monolith.</p>
+<p>In this post, I want to address these questions. You will learn about common design issues that turn microservices into distributed big balls of mud – and, of course, how you can avoid them.</p>
+
+<p>But first, let’s set the record straight on what a monolith is.</p>
 
 <h2 id="monolith">Monolith</h2>
 
-<p>Microservices have always been positioned as a solution for monolithic codebases. But are monoliths necessarily a problem? According to Wikipedia’s definition [4], a monolithic application is self-contained and independent from other computing applications. Independence from other applications? Isn’t that what we are chasing, often to no avail, when designing microservices? David Heinemeier Hansson [5] called out the smearing of monoliths right away. He warned about the liabilities and challenges inherent to distributed systems, and used Basecamp to prove that a large system, serving millions of users, can be implemented and maintained in a monolithic codebase.</p>
+<p>Microservices have always been positioned as a solution for monolithic codebases. But are monoliths necessarily a problem? According to Wikipedia’s definition [4], a monolithic application is self-contained and independent from other computing applications. Independence from other applications? Isn’t that what we are chasing, often to no avail, when we design microservices? David Heinemeier Hansson [5] called out the smearing of monoliths right away. He warned about the liabilities and challenges inherent to distributed systems, and used Basecamp to prove that a large system serving millions of customers can be implemented and maintained in a monolithic codebase.</p>
 
-<p>Hence, microservices do not “fix” monoliths. The real problem that microservices are supposed to solve is the inability to deliver business goals. Often teams fail to achieve business goals because of exponentially growing, or even worse — unpredictable, cost of making a change. In other words, the system is not able to keep up with the needs of the business. The uncontrollable cost of change is not a property of a monolith but rather of a big ball of mud [6]:</p>
+<p>Hence, microservices do not “fix” monoliths. The real problem that microservices are supposed to solve is an inability to deliver business goals. Often, teams fail to achieve business goals because of the exponentially growing — or even worse unpredictable — costs of making a change. In other words, the system is unable to keep up with the needs of the business. The uncontrollable cost of change is not a property of a monolith but rather of a big ball of mud [6]:</p>
 
 <blockquote>
 <p>A Big Ball of Mud is a haphazardly structured, sprawling, sloppy, duct-tape-and-baling-wire, spaghetti-code jungle. These systems show unmistakable signs of unregulated growth, and repeated, expedient repair. Information is shared promiscuously among distant elements of the system, often to the point where nearly all the important information becomes global or duplicated.</p>
 </blockquote>
 
-<p>The complexity of changing and evolving a big ball of mud can be caused by multiple factors: coordinating the work of multiple teams, conflicting non-functional requirements, or intricacy of the business domain. Either way, we often seek to tackle this complexity by decomposing such clumsy solutions into microservices.</p>
+<p>The complexity of changing and evolving a big ball of mud can be caused by multiple factors: coordinating the work of multiple teams, conflicting non-functional requirements, or an intricate business domain. Either way, we often seek to tackle this complexity by decomposing such clumsy solutions into microservices.</p>
 
 <h2 id="micro-what">Micro<em>what?</em></h2>
 
-<p>The term “microservice” implies that some part of a service can be measured, and its value should be minimized. But what is it exactly? Let’s see a few common approaches.</p>
+<p>The term “microservice” implies that some part of a service can be measured and its value should be minimized. But what does microservice mean, exactly? Let’s examine a few common ways the term is used.</p>
 
 <h3 id="micro-teams">Micro<em>teams</em></h3>
 
-<p>The first one is the size of the team that works on a service. And this metric should be measured in pizzas. Seriously. They say that if a team working on a service can be fed with two pizzas, then it’s a microservice. I find this heuristic anecdotal, as I’ve built projects with teams that could be fed with one pizza …and I dare someone to call those balls of mud microservices!</p>
+<p>The first one is the size of the team that works on a service. And this metric should be measured in pizzas. Seriously. They say that if a team working on a service can be fed with two pizzas, then it’s a microservice. I find this heuristic anecdotal, as I’ve built projects with teams that could be fed with one pizza …and I dare anyone to call those balls of mud microservices!</p>
 
 <h3 id="micro-codebases">Micro<em>codebases</em></h3>
 
-<p>Another widespread approach is to design microservices based on the size of its codebase. Some take this notion to the extreme and try to limit service sizes to a certain number of lines of code. That said, the exact number of lines needed to constitute a microservice is yet to be found. Once this holy grail of software architecture is discovered, we will move on to the next question — what is the recommended editor width for building microservices?</p>
+<p>Another widespread approach is to design a microservice based on the size of its codebase. Some take this notion to the extreme and try to limit service sizes to a certain number of lines of code. That said, the exact number of lines needed to constitute a microservice is yet to be found. Once this holy grail of software architecture is discovered, we will move on to the next question — what is the recommended editor width for building microservices?</p>
 
-<p>On a serious note, a less extreme version of this approach is the prevalent one. The size of a codebase is often used as a heuristic for deciding whether it is a microservice or not.</p>
+<p>On a more serious note, a less extreme version of this approach is the prevalent one. The size of a codebase is often used as a heuristic for deciding whether it is a microservice or not.</p>
 
-<p>In some way, this approach makes sense. The smaller the codebase is, the lower its scope of the business domain, and thus it’s simpler to understand, to implement, and to evolve. Moreover, a smaller codebase has less chances of turning into a big ball of mud, and if it does happen, it is simpler to refactor.</p>
+<p>In some way, this approach makes sense. The smaller the codebase, the lower the scope of the business domain. Thus, it’s simpler to understand, to implement, and to evolve. Moreover, a smaller codebase has fewer chances of turning into a big ball of mud – and if it does happen, it is simpler to refactor.</p>
 
-<p>Unfortunately, the aforementioned simplicity is just an <strong>illusion</strong>. When we evaluate a service’s design based on the service itself, we are missing a crucial part of system design. We are missing the <strong>system</strong> itself, the system that the service is a <strong>component</strong> of.</p>
+<p>Unfortunately, the aforementioned simplicity is just an <strong>illusion</strong>. When we evaluate a service’s design based on the service itself, we miss a crucial part of system design. We forget the <strong>system</strong> itself, the system that the service is a <strong>component</strong> of.</p>
 
 <blockquote>
 <p>&ldquo;There are many useful and revealing heuristics for defining the boundaries of a service. Size is one of the least useful.&rdquo; ~ Nick Tune</p>
@@ -262,7 +268,7 @@ if (!doNotTrack) {
 
 <h3 id="we-build-systems">We Build Systems!</h3>
 
-<p>We build systems, not sets of services. We are using microservices-based architecture to optimize a system’s design, not the design of individual services. No matter what others may say, microservices cannot, and will never be neither completely decoupled, nor fully independent. <strong>You cannot build a system out of independent components!</strong> That would go against the very definition of the term “system” [7]:</p>
+<p>We build systems, not sets of services. We use microservices-based architecture to optimize a system’s design, not the design of individual services. No matter what others may say, microservices cannot, and will never be neither completely decoupled, nor fully independent. <strong>You cannot build a system out of independent components!</strong> That would go against the very definition of the term “system” [7]:</p>
 
 <blockquote>
 <ol>
@@ -271,7 +277,7 @@ if (!doNotTrack) {
 </ol>
 </blockquote>
 
-<p>Services will always have to interact with each other to form a system. If you design a system by optimizing its services, but ignoring the interactions between them, this is what you may end up with:</p>
+<p>Services will always have to interact with each other to form a system. If you design a system by optimizing its services, but ignore the interactions between them, this is what you may end up with this:</p>
 
 <p><img src="/images/untangling-microservices/complex-system.png" alt="" /></p>
 
@@ -279,13 +285,13 @@ if (!doNotTrack) {
 
 <p>So how do we design microservices that tackle the complexity not only of the services, but of the system as a whole?</p>
 
-<p>That’s a tough question, but luckily for us, it had been answered more than 40 years ago…</p>
+<p>That’s a tough question, but luckily for us, it was answered a long time ago.</p>
 
 <h2 id="a-system-wide-perspective-on-complexity">A System-Wide Perspective on Complexity</h2>
 
-<p>Forty years ago, there was no cloud computing, no global scale requirements, and no need to deploy a system every 11.7 seconds. But engineers still had to tame systems’ complexity. Even though the tools in those days were different, the challenges, and more importantly — the solution — are all relevant nowadays, and can be applied for designing microservices-based systems.</p>
+<p>Forty years ago, there was no cloud computing, no global-scale requirements, and no need to deploy a system every 11.7 seconds. But engineers still had to tame systems’ complexity. Even though the tools in those days were different, the challenges – and more importantly, the solution — are all relevant nowadays, and can be applied to the design of microservices-based systems.</p>
 
-<p>In his book, “Composite/Structured Design” [8], Glenford J. Myers discusses how to structure procedural code to reduce its complexity. On the very first page of the book he says:</p>
+<p>In his book, “Composite/Structured Design” [8], Glenford J. Myers discusses how to structure procedural code to reduce its complexity. On the very first page of the book, he writes:</p>
 
 <blockquote>
 <p><strong>There is much more to the subject of complexity than simply attempting to minimize the local complexity of each part of a program. A much more important type of complexity is global complexity: the complexity of the overall structure of a program or system (i.e., the degree of association or interdependence among the major pieces of a program).</strong></p>
@@ -295,21 +301,21 @@ if (!doNotTrack) {
 
 <p>So which complexity is more important — local or global? Let’s see what happens when only one of the complexities is taken care of.</p>
 
-<p>It’s surprisingly easy to reduce the global complexity to its minimum. All we have to do is to eliminate any interactions between the system’s components. I.e., implement all functionality in one monolithic service. As we’ve seen earlier, this strategy may work in certain scenarios. In others, it may lead to the dreaded <strong>big ball of mud — probably the highest possible local complexity</strong>.</p>
+<p>It’s surprisingly easy to reduce global complexity to a minimum. All we have to do is to eliminate any interactions between the system’s components — i.e., implement all functionality in one monolithic service. As we’ve seen earlier, this strategy may work in certain scenarios. In others, it may lead to the dreaded <strong>big ball of mud – probably the highest possible level of local complexity</strong>.</p>
 
 <p>On the other hand, we know what happens when you optimize only the local complexity, but neglect the system&rsquo;s global complexity — the <em>even more dreaded</em> <strong>distributed big ball of mud</strong>.</p>
 
 <p><img src="/images/untangling-microservices/bboms.png" alt="" /></p>
 
-<p>Hence, if we concentrate on only one type of complexity, it doesn&rsquo;t matter which one is chosen. In a fairly complex distributed system, the opposite complexity will skyrocket. Therefore, we can&rsquo;t optimize only one, insted we have to balance both local and global complexities.</p>
+<p>Hence, if we concentrate on only one type of complexity, it doesn&rsquo;t matter which one is chosen. In a fairly complex distributed system, the opposite complexity will skyrocket. Therefore, we can&rsquo;t optimize only one. Insted, we have to balance both the local and global complexities.</p>
 
-<p>Interestingly, the means for balancing complexity described in the “Composite/Structured Design” book are not only relevant for distributed systems, but offer insight on how to design microservices.</p>
+<p>Interestingly, the means for balancing complexity described in the “Composite/Structured Design” book are not only relevant to distributed systems They also offer insight into how to design microservices.</p>
 
 <h2 id="microservices">Microservices</h2>
 
 <p>Let’s start by defining what exactly are those services and microservices, that we are talking about.</p>
 
-<h3 id="what-is-a-service">What is a Service</h3>
+<h3 id="what-is-a-service">What is a Service?</h3>
 
 <p>According to OASIS Standard [9], a service is:</p>
 
@@ -317,25 +323,25 @@ if (!doNotTrack) {
 <p>A mechanism to enable <strong>access to one or more capabilities</strong>, where the access is provided using a <strong>prescribed interface</strong>.</p>
 </blockquote>
 
-<p>The prescribed interface part is crucial. A service’s interface defines the functionality it exposes to the world. According to Randy Shoup [10], a service’s public interface is simply any mechanism for getting data in or out of a service. It can be synchronous, such as a plain request/response model, or asynchronous — by producing and consuming events. Either way, synchronous or asynchronous, the public interface is just the means for getting data in our out of a service. Randy also calls the service’s public interfaces as its <strong>front door</strong>.</p>
+<p>The prescribed interface part is crucial. A service’s interface defines the functionality it exposes to the world. According to Randy Shoup [10], a service’s public interface is simply any mechanism that gets data in or out of a service. It can be synchronous, such as a plain request/response model, or asynchronous. one that produces and consumes events. Either way, synchronous or asynchronous, the public interface is just the means for getting data in our out of a service. Randy also describes the service’s public interfaces as its <strong>front door</strong>.</p>
 
-<p>A service is defined by its public interface, and this definition is enough to define what makes service a <em>microservice</em>.</p>
+<p>A service is defined by its public interface, and this definition is enough to define what makes a service a <em>microservice</em>.</p>
 
-<h3 id="what-is-a-microservice">What is a Microservice</h3>
+<h3 id="what-is-a-microservice">What is a Microservice?</h3>
 
 <p>If a service is defined by its public interface, then —</p>
 
 <p><strong>A microservice is a service with a micro public interface — micro front door.</strong></p>
 
-<p>This simple heuristic has been followed in the days of procedural programming, and it is more than relevant in the realm of distributed systems. The smaller the service you expose, the simpler its implementation, and thus its local complexity is lower. From the global complexity standpoint, smaller public interfaces produce fewer dependencies and connections between the services.</p>
+<p>This simple heuristic was followed in the days of procedural programming, and it is more than relevant in the realm of distributed systems. The smaller the service you expose, the simpler its implementation, and the lower its local complexity. From the global complexity standpoint, smaller public interfaces produce fewer dependencies and connections between services.</p>
 
-<p>This heuristic also explains the widespread practice of microservices not exposing their databases. No microservice can access another microservice&rsquo;s database, but only through its public interface. Why is that? — <em>Well, a database would be a huge public interface!</em> Just consider how many different operations can you execute on a relational database.</p>
+<p>The notion of micro-interfaces also explains the widespread practice of microservices not exposing their databases. No microservice can access another microservice&rsquo;s database, but only through its public interface. Why is that? — <em>Well, a database would be a huge public interface!</em> Just consider how many different operations you can execute on a relational database.</p>
 
-<p>Hence, to reiterate, in microservices-based systems, we balance local and global complexities by minimizing the services’ public interfaces — making them micro<strong>services</strong>.</p>
+<p>Hence, to reiterate, in distributed systems, we balance local and global complexities by minimizing the services’ public interfaces, and thus making them micro<strong>services</strong>.</p>
 
 <h4 id="warning">WARNING</h4>
 
-<p>This heuristic may sound deceptively simple. If a microservice is just a service with a micro public interface, then we can just limit public interfaces to only one method. The front door can’t be any smaller than that, so those should be the perfect microservices, right? — <em>Not really.</em> To demonstrate why not, I’ll use the example from my another post [11] on this subject:</p>
+<p>This heuristic may sound deceptively simple. If a microservice is just a service with a micro public interface, then we can just limit public interfaces to only one method. Since the front door can’t be any smaller than that, those should be the perfect microservices, right? <em>Not really.</em> To demonstrate why not, I’ll use the example from my another post [11] on this subject:</p>
 
 <p>Let’s say we have the following backlog management service:</p>
 
@@ -345,17 +351,17 @@ if (!doNotTrack) {
 
 <p><img src="/images/untangling-microservices/naive.png" alt="" /></p>
 
-<p>But can we connect them into the system that actually manages the backlog? — <em>Not really.</em> To form the system, the services have to interact with each other and to share changes to each service’s state. <em>They can’t.</em> The services’ public interfaces do not support that.</p>
+<p>But can we connect them into the system that actually manages the backlog? <em>Not really.</em> To form the system, the services have to interact with each other and share changes to each service’s state. <em>But they can’t.</em> The services’ public interfaces do not support that.</p>
 
 <p>Hence, we have to extend the <em>front doors</em> with public methods that <em>enable integration</em> between the services:</p>
 
 <p><img src="/images/untangling-microservices/interactions.png" alt="" /></p>
 
-<p>Boom. As long as we were optimizing the complexity of each service individually, the naive decomposition worked great. However, when we tried to connect the services into a system, the global complexity kicked in. Not only the resulting system ended up being an entangled mess, but we also had to extend the public interfaces beyond our original intent — for the integration’s sake. And that brings us to an important point:</p>
+<p>Boom. If we optimize the complexity of each service individually, the naïve decomposition works great. However, when we try to connect the services into a system, global complexity kicks in. Not only does the resulting system become an entangled mess; we also have to extend the public interfaces beyond our original intent — for the integration’s sake. Paraphrasing Randy Shoup, in addition to the tiny front door, we created a <em>huge</em> &ldquo;staff only&rdquo; entrance! Which brings us to an important point:</p>
 
 <p><strong>A service having more integration-related than business-related methods is a strong heuristic for a growing distributed big ball of mud!</strong></p>
 
-<p>Hence, the threshold upon which a service’s public interface can be minimized depends not only on the service itself but mainly on the system that the service is a part of. A proper decomposition to microservices should <em>balance</em> the system’s global complexity and the local complexities of its services.</p>
+<p>Hence, the threshold upon which a service’s public interface can be minimized depends not only on the service itself, but (mainly) on the system that the service is a part of. A proper decomposition to microservices should <em>balance</em> the system’s global complexity and the local complexities of its services.</p>
 
 <h3 id="designing-service-boundaries">Designing Service Boundaries</h3>
 
@@ -365,19 +371,19 @@ if (!doNotTrack) {
 
 <p>The above statement by Udi Dahan is especially true for microservices-based systems. Designing microservices’ boundaries is hard, and probably impossible to get right the first time. That makes designing a fairly complex microservices-based system an iterative process.</p>
 
-<p>Hence, it is safer to start with wider boundaries, probably the boundaries of proper bounded contexts[12] and decompose them into microservices later, as more knowledge is gained about the system and its business domain. It is especially relevant for services encompassing core business domains[13].</p>
+<p>Hence, it is safer to start with wider boundaries - probably the boundaries of proper bounded contexts[12] - and decompose them into microservices later, as more knowledge is gained about the system and its business domain. This is especially relevant to services encompassing core business domains[13].</p>
 
 <h3 id="what-about-nano-services">What About <em>Nano</em>-services?</h3>
 
-<p>The term “nanoservice” is often used to describe a service that is too small. One can say that those naive one-method-services in the previous example are nanoservices. However, I do not necessarily agree with this classification.</p>
+<p>The term “nanoservice” is often used to describe a service that is too small. One can say that those naïve one-method-services in the previous example are nanoservices. However, I don&rsquo;t necessarily agree with this classification.</p>
 
-<p>Nanoservices are used to describe individual services while ignoring the overarching system. In the above example, once we put the system into the equation, the services’ interfaces had to grow. In fact, if we compare the original single service implementation with the naive decomposition, we can see that once we connected the services into a system, the system went from overall 8 public methods to 38. Moreover, the average number of public methods per service went from the desired 1 all the way to 4.75.</p>
+<p>Nanoservices are used to describe individual services while ignoring the overarching system. In the above example, once we put the system into the equation, the services’ interfaces had to grow. In fact, if we compare the original single service implementation with the naïve decomposition, we can see that once we connect the services into a system, the system goes from 8 public methods overall to 38. Moreover, the average number of public methods per service jumps from the desired 1 all the way to 4.75.</p>
 
-<p>Hence, if instead of codebases, we optimize services (public interfaces), the term <em>nano</em>-service doesn’t hold anymore, as the <em>service</em> is forced to grow back up to support its system’s use-cases.</p>
+<p>Hence, if instead of codebases, we optimize services (public interfaces), the term <em>nano</em>-service doesn’t hold up anymore, as the <em>service</em> is forced to grow back up to support its system’s use-cases.</p>
 
 <h3 id="is-that-all-there-is-to-it">Is That All There Is To It?</h3>
 
-<p>No. Although minimizing services’ public interfaces is a good guiding principle for designing microservices, it’s still just a heuristic and doesn’t replace common sense. In fact, the micro-interface is just a kind of abstraction over the more fundamental, but much more complex design principles — coupling and cohesion.</p>
+<p>No. Although minimizing the public interfaces of services is a good guiding principle for designing microservices, it’s still just a heuristic and doesn’t replace common sense. In fact, the micro-interface is just a kind of abstraction over the more fundamental, but much more complex design principles of coupling and cohesion.</p>
 
 <p>For example, if two services have micro-public interfaces, but they have to be coordinated in a distributed transaction, they are still highly coupled to each other.</p>
 
@@ -385,7 +391,7 @@ if (!doNotTrack) {
 
 <h2 id="summary">Summary</h2>
 
-<p>I want to sum it all up with a quote by Eliyahu Goldratt. In his books, he often repeated these words:</p>
+<p>I want to sum it all up with an observation from Eliyahu Goldratt. In his books, he often repeated these words:</p>
 
 <blockquote>
 <p>“Tell me how you measure me, and I will tell you how I will behave” ~ Eliyahu Goldratt</p>
@@ -393,7 +399,7 @@ if (!doNotTrack) {
 
 <p>When designing microservices-based systems, it’s crucial to measure and optimize the right metric. Designing boundaries for micro<em>codebases</em>, and micro<em>teams</em> is definitely easier. However, to build a <em>system</em>, we have to take it into account. Microservices are about designing systems, not individual services.</p>
 
-<p>And that brings us back to the title of the post — “Untangling Microservices, or Balancing Complexity in Distributed Systems”. <strong>The only way to untangle microservices is to balance the local complexity of each service, and the global complexity of the whole system.</strong></p>
+<p>And that brings us back to the title of the post — “Untangling Microservices, or Balancing Complexity in Distributed Systems”. <strong>The only way to untangle microservices is to balance the local complexity of each service and the global complexity of the whole system.</strong></p>
 
 <h2 id="bibliography">Bibliography</h2>
 
