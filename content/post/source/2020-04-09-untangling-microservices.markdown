@@ -138,19 +138,19 @@ The above statement by Udi Dahan is especially true for microservices-based syst
 Hence, it is safer to start with wider boundaries - probably the boundaries of proper bounded contexts[12] - and decompose them into microservices later, as more knowledge is gained about the system and its business domain. This is especially relevant to services encompassing core business domains[13].
 
 ### "Microservices" in Other Industries
-Even though we've "invented" microservices only recently, you can find a plenty of implementations of the same design principles in other industries. To name a few:
+Even though microservices were "invented" only recently, you can find plenty of implementations of the same design principles in other industries. These imple-mentations include:
 
 #### Cross-Functional Teams
 We all know that cross-funcitonal teams are the most effective ones. Such team is a diverse group of professionals all working on the same task. An efficient cross-functional team maximizes the communication inside of the team, and minimizes the communication outside of it.
 
-Our industry has discovered cross-functional teams only recently, but task forces have been there forever. The underlying principles are the same as for a microservices-based system: high cohesion inside of the team and low coupling between teams. The team's "public interface" is minimized by encapsulating the skills needed to achieve the task inside of the team, i.e., implementation details.
+Our industry discovered cross-functional teams only recently, but task forces have been around forever. The underlying principles for these are the same as those for a microservices-based system: high cohesion inside the team, and low coupling between teams. The team's "public interface" is minimized by incorpo-rating the skills needed to achieve the task into the team (i.e., implementation details).
 
 #### Microprocessors
-I stumbled upon this example in Vaughn Vernon's wonderful [blog on the same topic](https://kalele.io/microservices-and-microservices/). In the post, Vaughn draws an interesting parallel between micro*services* and micro*processors*. In particular, he discusses the difference between processors and microprocessors: 
+I stumbled upon this example in Vaughn Vernon's wonderful [blog on the same topic](https://kalele.io/microservices-and-microservices/). In his post, Vaughn draws an interesting parallel between micro*services* and micro*processors*. In particular, he discusses the difference between processors and microprocessors: 
 
-> I find it interesting that there is a size classification given that helps determine whether or not a central processing unit (CPU) is considered a Microprocessor: the size of their **data bus** [21]
+> I find it interesting that there is a size classification given that helps determine whether or not a central processing unit (CPU) is considered a Microprocessor: the size of its **data bus** [21]
 
-A microprocessor's data bus is it's public interface – it defines the amount of data that can be passed to or from the microprocessor to other components. There is a strict size classification for the public interface that defines whether a or not a central processing unit (CPU) is considered a microprocessor.
+A microprocessor's data bus is its public interface – it defines the amount of data that can be passed between the microprocessor and other components. There is a strict size classification for the public interface that defines whether or not a central processing unit (CPU) is considered a microprocessor.
 
 ### What About *Nano*-services?
 The term “nanoservice” is often used to describe a service that is too small. One can say that those naïve one-method-services in the previous example are nanoservices. However, I don't necessarily agree with this classification.
@@ -167,15 +167,15 @@ For example, if two services have micro-public interfaces, but they have to be c
 That said, aiming for micro-interfaces is still a strong heuristic that addresses different types of coupling, such as functional, development, and semantic. But that’s a topic for another blog. 
 
 ## From Theory to Practice
-Unfortunately, we don't have an objective way to quantify the local and global complexities yet. On the other hand, we do have some design heuristics that can improve design of distributed systems.
+Unfortunately, we don't have an objective way to quantify local and global complexities yet. On the other hand, we do have some design heuristics that can improve the design of distributed systems.
 
-The main tip I want you to take away from this post is to continuously evaluate the public interfaces of your services:
+The main message of this post is that you should continuously evaluate the public interfaces of your services by asking:
 
-* What is the ratio of business and integration oriented endpoints in a given service?
-* Are there business-wise unrelated endpoints in a service? Would you be able to split them across two, or more, services without introducing integration-oriented endpoints?
-* If you were to merge two services, would that eliminate endpoints added for integrating original services?
+* What is the ratio of business- and integration-oriented endpoints in a given service?
+* Are there, business-wise, unrelated endpoints in a service? Can you split them across two or more services without introducing integration-oriented endpoints?
+* Would merging two services eliminate endpoints that were added to integrate the original services?
 
-Use these heuristics for guiding the design of your services' boundaries and interfaces.
+Use these heuristics to guide the design of your services' boundaries and interfaces.
 
 ## Summary
 I want to sum it all up with an observation from Eliyahu Goldratt. In his books, he often repeated these words:
