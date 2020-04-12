@@ -203,7 +203,7 @@ if (!doNotTrack) {
                 
                   <span class="post-meta">
   <i class="fa fa-calendar-o"></i>&nbsp;Posted on April 9, 2020
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 15 min (3011 mots)
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 15 min (2998 mots)
   
 </span>
 
@@ -375,23 +375,23 @@ if (!doNotTrack) {
 
 <h3 id="microservices-in-other-industries">&ldquo;Microservices&rdquo; in Other Industries</h3>
 
-<p>Even though we&rsquo;ve &ldquo;invented&rdquo; microservices only recently, you can find a plenty of implementations of the same design principles in other industries. To name a few:</p>
+<p>Even though microservices were &ldquo;invented&rdquo; only recently, you can find plenty of implementations of the same design principles in other industries. These imple-mentations include:</p>
 
 <h4 id="cross-functional-teams">Cross-Functional Teams</h4>
 
 <p>We all know that cross-funcitonal teams are the most effective ones. Such team is a diverse group of professionals all working on the same task. An efficient cross-functional team maximizes the communication inside of the team, and minimizes the communication outside of it.</p>
 
-<p>Our industry has discovered cross-functional teams only recently, but task forces have been there forever. The underlying principles are the same as for a microservices-based system: high cohesion inside of the team and low coupling between teams. The team&rsquo;s &ldquo;public interface&rdquo; is minimized by encapsulating the skills needed to achieve the task inside of the team, i.e., implementation details.</p>
+<p>Our industry discovered cross-functional teams only recently, but task forces have been around forever. The underlying principles for these are the same as those for a microservices-based system: high cohesion inside the team, and low coupling between teams. The team&rsquo;s &ldquo;public interface&rdquo; is minimized by incorpo-rating the skills needed to achieve the task into the team (i.e., implementation details).</p>
 
 <h4 id="microprocessors">Microprocessors</h4>
 
-<p>I stumbled upon this example in Vaughn Vernon&rsquo;s wonderful <a href="https://kalele.io/microservices-and-microservices/">blog on the same topic</a>. In the post, Vaughn draws an interesting parallel between micro<em>services</em> and micro<em>processors</em>. In particular, he discusses the difference between processors and microprocessors:</p>
+<p>I stumbled upon this example in Vaughn Vernon&rsquo;s wonderful <a href="https://kalele.io/microservices-and-microservices/">blog on the same topic</a>. In his post, Vaughn draws an interesting parallel between micro<em>services</em> and micro<em>processors</em>. In particular, he discusses the difference between processors and microprocessors:</p>
 
 <blockquote>
-<p>I find it interesting that there is a size classification given that helps determine whether or not a central processing unit (CPU) is considered a Microprocessor: the size of their <strong>data bus</strong> [21]</p>
+<p>I find it interesting that there is a size classification given that helps determine whether or not a central processing unit (CPU) is considered a Microprocessor: the size of its <strong>data bus</strong> [21]</p>
 </blockquote>
 
-<p>A microprocessor&rsquo;s data bus is it&rsquo;s public interface – it defines the amount of data that can be passed to or from the microprocessor to other components. There is a strict size classification for the public interface that defines whether a or not a central processing unit (CPU) is considered a microprocessor.</p>
+<p>A microprocessor&rsquo;s data bus is its public interface – it defines the amount of data that can be passed between the microprocessor and other components. There is a strict size classification for the public interface that defines whether or not a central processing unit (CPU) is considered a microprocessor.</p>
 
 <h3 id="what-about-nano-services">What About <em>Nano</em>-services?</h3>
 
@@ -411,17 +411,17 @@ if (!doNotTrack) {
 
 <h2 id="from-theory-to-practice">From Theory to Practice</h2>
 
-<p>Unfortunately, we don&rsquo;t have an objective way to quantify the local and global complexities yet. On the other hand, we do have some design heuristics that can improve design of distributed systems.</p>
+<p>Unfortunately, we don&rsquo;t have an objective way to quantify local and global complexities yet. On the other hand, we do have some design heuristics that can improve the design of distributed systems.</p>
 
-<p>The main tip I want you to take away from this post is to continuously evaluate the public interfaces of your services:</p>
+<p>The main message of this post is that you should continuously evaluate the public interfaces of your services by asking:</p>
 
 <ul>
-<li>What is the ratio of business and integration oriented endpoints in a given service?</li>
-<li>Are there business-wise unrelated endpoints in a service? Would you be able to split them across two, or more, services without introducing integration-oriented endpoints?</li>
-<li>If you were to merge two services, would that eliminate endpoints added for integrating original services?</li>
+<li>What is the ratio of business- and integration-oriented endpoints in a given service?</li>
+<li>Are there, business-wise, unrelated endpoints in a service? Can you split them across two or more services without introducing integration-oriented endpoints?</li>
+<li>Would merging two services eliminate endpoints that were added to integrate the original services?</li>
 </ul>
 
-<p>Use these heuristics for guiding the design of your services&rsquo; boundaries and interfaces.</p>
+<p>Use these heuristics to guide the design of your services&rsquo; boundaries and interfaces.</p>
 
 <h2 id="summary">Summary</h2>
 
