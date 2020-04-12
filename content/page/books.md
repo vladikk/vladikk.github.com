@@ -18,8 +18,12 @@ How to employ “event storming” to streamline the process of discovering doma
 Patterns and techniques for implementing business logic and architecting solutions that deliver business goals
 How to maintain and evolve both tactical and strategic designs over time
 
+"What is Domain-Driven Design" is available exlusively on [O'Reilly online learning platform](https://learning.oreilly.com/library/view/what-is-domain-driven/9781492057802/).
+
 ### Domain-Driven Design: The First 15 Years
 
 I was honored to participate in this project, alongside Martin Fowler, Mel Conway, Rebecca Wirfs-Brock, and other industry leaders:
 
 [<img src="/images/ddd15years.png" alt="" width="400"/>](https://leanpub.com/ddd_first_15_years)
+
+The book can be downloaded for from [leanpub](https://leanpub.com/ddd_first_15_years).
