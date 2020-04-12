@@ -33,6 +33,18 @@ The majority of software projects are delivered late or over budget, or they fai
     </item>
     
     <item>
+      <title>Conferences</title>
+      <link>https://vladikk.com/page/speaking/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>https://vladikk.com/page/speaking/</guid>
+      <description>During the last few years I spoke at leading software engineering conferences, e.g. O&amp;rsquo;Reilly Software Architecture, NDC, DDD Europe, and more. My topics include Domain-Driven Design, microservices, TDD, modular design, evolutionary architecture, and software arechitecture in general.
+Feel free to reach out if you&amp;rsquo;d like me to speak at your conference or on-site event.
+Past Events 02/04/2020: Tackling Complexity with Domain-Driven Design Online panel discussion Language: Russian
+Recording: Youtube</description>
+    </item>
+    
+    <item>
       <title>Consulting</title>
       <link>https://vladikk.com/page/consulting/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -59,17 +71,6 @@ The majority of software projects are delivered late or over budget, or they fai
       <author>vladik@khononov.com (Vladik Khononov)</author>
       <guid>https://vladikk.com/page/reading/</guid>
       <description>A More Beautiful Question: The Power of Inquiry to Spark Breakthrough Ideas The Goal: A Process of Ongoing ImprovementBeyond the Goal: Eliyahu Goldratt Speaks on the Theory of Constraints (Your Coach In A Box)The Choice, Revised EditionDomain-Driven Design: Tackling Complexity in the Heart of SoftwareImplementing Domain-Driven DesignScrum: The Art of Doing Twice the Work in Half the TimeFlow: Living at the Peak of Your AbilitiesThe Phoenix Project: A Novel About IT, DevOps, and Helping Your Business WinSapiens: A Brief History of HumankindThe Obstacle Is the Way: The Timeless Art of Turning Trials into TriumphSimple Rules: How to Thrive in a Complex WorldGetting to Yes: Negotiating Agreement Without Giving InBorn to Run: A Hidden Tribe, Superathletes, and the Greatest Race the World Has Never SeenThe Lean Startup: How Today&amp;rsquo;s Entrepreneurs Use Continuous Innovation to Create Radically Successful BusinessesBusiness Model Generation: A Handbook for Visionaries, Game Changers, and ChallengersDrive: The Surprising Truth About What Motivates UsEnterprise Integration Patterns: Designing, Building, and Deploying Messaging SolutionsWorking Effectively with Legacy CodePatterns of Enterprise Application ArchitectureThinking, Fast and Slow</description>
-    </item>
-    
-    <item>
-      <title>Speaking</title>
-      <link>https://vladikk.com/page/speaking/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
-      <guid>https://vladikk.com/page/speaking/</guid>
-      <description>During the last few years I spoke at leading software engineering conferences, e.g. O&amp;rsquo;Reilly Software Architecture, NDC, DDD Europe, and more. My topics include Domain-Driven Design, microservices, TDD, modular design, evolutionary architecture, and software arechitecture in general.
-Feel free to reach out if you&amp;rsquo;d like me to speak at your conference or on-site event.
-Upcoming Events 11/06/2019: O&amp;rsquo;Reilly Software Architecture Conference 2019 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems Microservices, Bounded Contexts, and Everything In Between Location: San Jose, CA</description>
     </item>
     
   </channel>
