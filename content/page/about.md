@@ -1,16 +1,16 @@
 ---
 title: About Me
-subtitle: WTFAY
+subtitle: Bio
 comments: false
 ---
 
-I’m a software engineer with 20 years of industry experience. During the years, I worked for companies large and small, in roles ranging from Webmaster to Chief Architect. 
+Vladik (Vlad) Khononov is a software engineer with over 15 years of industry experience, during which he has worked for companies large and small in roles ranging from webmaster to chief architect. Vlad is a long-time proponent of domain-driven design and evolutionary architecture and currently helps companies make sense of their business domains, untangle monoliths, and tackle complex architectural challenges.
 
-I aim to maintain an active media career as a public speaker, a blogger, and an author. Currently I’m a regular speaker at leading software engineering conferences, such as O’Reilly Software Architecture, NDC, DDD Europe, and others. My topics include distributed systems, Domain-Driven Design, microservices, evolutionary architecture, and software architecture in general.
+Vlad maintains an active media career as a public speaker and blogger. He has spoken at numerous industry conferences — including O’Reilly Software Architecture, DDD Europe, and NDC — about subjects such as domain-driven design, microservices, and software architecture in general. In addition to his media work, he co-organizes the Domain-Driven Design Israel and Tel Aviv Software Architecture meetup groups.
 
-As an author, I participated in the “Domain-Driven Design: The First 15 Years” book project, alongside Martin Fowler, Mel Conway, Rebecca Wirfs-Brock, and other industry leaders.
+Vladik lives in Northern Israel with his wife and an almost-reasonable number of cats.
 
-For work, speaking, writing, training or any other type of enquiry, you can contact me via either of the methods below:
+For work, speaking, writing, training or any other type of enquiry, you can contact Vlad via either of the methods below:
 
 * Email: vladik at khononov.com
 * Twitter: [@vladikk](http://twitter.com/vladikk)
