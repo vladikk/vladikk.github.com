@@ -137,6 +137,21 @@ The above statement by Udi Dahan is especially true for microservices-based syst
 
 Hence, it is safer to start with wider boundaries - probably the boundaries of proper bounded contexts[12] - and decompose them into microservices later, as more knowledge is gained about the system and its business domain. This is especially relevant to services encompassing core business domains[13].
 
+### "Microservices" in Other Industries
+Even though we've "invented" microservices only recently, you can find a plenty of implementations of the same design principles in other industries. To name a few:
+
+#### Cross-Functional Teams
+We all know that cross-funcitonal teams are the most effective ones. Such team is a diverse group of professionals all working on the same task. An efficient cross-functional team maximizes the communication inside of the team, and minimizes the communication outside of it.
+
+Our industry has discovered cross-functional teams only recently, but task forces have been there forever. The underlying principles are the same as for a microservices-based system: high cohesion inside of the team and low coupling between teams. The team's "public interface" is minimized by encapsulating the skills needed to achieve the task inside of the team, i.e., implementation details.
+
+#### Microprocessors
+I stumbled upon this example in Vaughn Vernon's wonderful [blog on the same topic](https://kalele.io/microservices-and-microservices/). In the post, Vaughn draws an interesting parallel between micro*services* and micro*processors*. In particular, he discusses the difference between processors and microprocessors: 
+
+> I find it interesting that there is a size classification given that helps determine whether or not a central processing unit (CPU) is considered a Microprocessor: the size of their **data bus** [21]
+
+A microprocessor's data bus is it's public interface – it defines the amount of data that can be passed to or from the microprocessor to other components. There is a strict size classification for the public interface that defines whether a or not a central processing unit (CPU) is considered a microprocessor.
+
 ### What About *Nano*-services?
 The term “nanoservice” is often used to describe a service that is too small. One can say that those naïve one-method-services in the previous example are nanoservices. However, I don't necessarily agree with this classification.
 
@@ -151,6 +166,17 @@ For example, if two services have micro-public interfaces, but they have to be c
 
 That said, aiming for micro-interfaces is still a strong heuristic that addresses different types of coupling, such as functional, development, and semantic. But that’s a topic for another blog. 
 
+## From Theory to Practice
+Unfortunately, we don't have an objective way to quantify the local and global complexities yet. On the other hand, we do have some design heuristics that can improve design of distributed systems.
+
+The main tip I want you to take away from this post is to continuously evaluate the public interfaces of your services:
+
+* What is the ratio of business and integration oriented endpoints in a given service?
+* Are there business-wise unrelated endpoints in a service? Would you be able to split them across two, or more, services without introducing integration-oriented endpoints?
+* If you were to merge two services, would that eliminate endpoints added for integrating original services?
+
+Use these heuristics for guiding the design of your services' boundaries and interfaces.
+
 ## Summary
 I want to sum it all up with an observation from Eliyahu Goldratt. In his books, he often repeated these words:
 
@@ -159,6 +185,11 @@ I want to sum it all up with an observation from Eliyahu Goldratt. In his books,
 When designing microservices-based systems, it’s crucial to measure and optimize the right metric. Designing boundaries for micro*codebases*, and micro*teams* is definitely easier. However, to build a *system*, we have to take it into account. Microservices are about designing systems, not individual services.
 
 And that brings us back to the title of the post — “Untangling Microservices, or Balancing Complexity in Distributed Systems”. **The only way to untangle microservices is to balance the local complexity of each service and the global complexity of the whole system.**
+
+## P.S.
+I'm overwhelmed and humbled by the positive responses to this post. Hence, I'll turn it into "Untangling Microservices" blog series. In the next posts I'll share some practical tips for minimizing synchronous and asynchronous interfaces of your services, and general heuristics for evaluating and designing service boundaries.
+
+Feel free to nag me (@vladikk) if you are reading this after May 2020 and there is no link to the next post.
 
 ## Bibliography
 
@@ -176,9 +207,10 @@ And that brings us back to the title of the post — “Untangling Microservices
 12. [Bounded Contexts are NOT Microservices](https://vladikk.com/2018/01/21/bounded-contexts-vs-microservices/)
 13. [Revisiting the Basics of Domain-Driven Design](https://vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/)
 14. [Implementing Domain-Driven Design - book by Vaughn Vernon](https://www.amazon.com/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577)
-14. [Modular Monolith: A Primer - Kamil Grzybek](http://www.kamilgrzybek.com/design/modular-monolith-primer/)
-15. [A Design Methodology for Reliable Software Systems - Barbara Liskov](https://pdfs.semanticscholar.org/d420/c8b473a23b80241fd7c90757becb59b1136c.pdf)
-16. [Designing Autonomous Teams and Services](https://learning.oreilly.com/library/view/designing-autonomous-teams/9781491994320/)
-17. [Emergent Boundaries - a talk by Mathias Verraes](https://www.youtube.com/watch?v=ECM1rPYxvD4)
-18. [Long Sad Story of Microservices - talk by Greg Young](https://www.youtube.com/watch?v=MjIfWe6bn40)
-19. [Principles of Design - Tim Berners-Lee](https://www.w3.org/DesignIssues/Principles.html)
+15. [Modular Monolith: A Primer - Kamil Grzybek](http://www.kamilgrzybek.com/design/modular-monolith-primer/)
+16. [A Design Methodology for Reliable Software Systems - Barbara Liskov](https://pdfs.semanticscholar.org/d420/c8b473a23b80241fd7c90757becb59b1136c.pdf)
+17. [Designing Autonomous Teams and Services](https://learning.oreilly.com/library/view/designing-autonomous-teams/9781491994320/)
+18. [Emergent Boundaries - a talk by Mathias Verraes](https://www.youtube.com/watch?v=ECM1rPYxvD4)
+19. [Long Sad Story of Microservices - talk by Greg Young](https://www.youtube.com/watch?v=MjIfWe6bn40)
+20. [Principles of Design - Tim Berners-Lee](https://www.w3.org/DesignIssues/Principles.html)
+21. [Microservices and [Micro]services - Vaughn Vernon](https://kalele.io/microservices-and-microservices/)
