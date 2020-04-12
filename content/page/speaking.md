@@ -1,5 +1,5 @@
 ---
-title: Speaking
+title: Conferences
 comments: false
 ---
 
@@ -7,7 +7,64 @@ During the last few years I spoke at leading software engineering conferences, e
 
 Feel free to [reach out](/page/contact) if you'd like me to speak at your conference or on-site event.
 
-## Upcoming Events
+## Past Events
+
+### 02/04/2020: Tackling Complexity with Domain-Driven Design
+#### Online panel discussion
+
+Language: Russian
+
+Recording: [Youtube](https://www.youtube.com/watch?v=M0DyroE0TAQ)
+
+### 23/02/2020: O'Reilly Software Architecture Conference
+#### On Microservices, Bounded Contexts, and Everything in Between
+
+Location: New York NY, USA
+
+Language: English
+
+Recording: [O'Reilly Online Learning](https://learning.oreilly.com/library/view/oreilly-software-architecture/0636920333777/)
+
+### 19/11/2019: BuildStuff Ukrain
+#### The Dark Side of Events
+
+Location: Kiev, Ukrain
+
+Language: English
+
+### 13/11/2019: BuildStuff Lithuania
+#### The Dark Side of Events
+
+Location: Vilnius, Lithuania
+
+Language: English
+
+### 04/11/2019: O'Reilly Software Architecture Conference
+#### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
+#### The Dark Side of Events
+
+Location: Berlin, Germany
+
+Language: English
+
+Recording: [O'Reilly Online Learning](https://learning.oreilly.com/videos/oreilly-software-architecture/9781492050728)
+
+### 16/10/2019: TestCon Europe
+#### Testing Software Architecture
+
+Location: Vilnius, Lithuania
+
+Language: English
+
+### 09/08/2019: The Rolling Scopes
+#### Testing Software Architecture
+
+Location: Minsk, Belarus
+
+Language: Russian
+
+Recording: [Youtube](https://www.youtube.com/watch?v=WBu4sUKGgT8)
+
 
 ### 11/06/2019: O'Reilly Software Architecture Conference 2019
 #### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
@@ -32,8 +89,6 @@ Location: Saint Paul, MN
 Language: English
 
 Recording: [Youtube](https://www.youtube.com/watch?v=ev5k51AxZbI)
-
-## Past Events
 
 ### 04/04/2019: TestCon Moscow 2019
 #### Testing Software Architecture

@@ -37,10 +37,10 @@ menu:
     - name: Blog
       url: ''
       weight: 2
-    - name: Speaking
+    - name: Conferences
       url: page/speaking/
       weight: 3
-    - name: Writing
+    - name: Books
       url: 'page/books/'
       weight: 4
     - name: About & Contact
