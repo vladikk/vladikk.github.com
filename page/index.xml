@@ -18,7 +18,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
       <guid>https://vladikk.com/page/about/</guid>
-      <description>I’m a software engineer with 20 years of industry experience. During the years, I worked for companies large and small, in roles ranging from Webmaster to Chief Architect. I aim to maintain an active media career as a public speaker, a blogger, and an author. Currently I’m a regular speaker at leading software engineering conferences, such as O’Reilly Software Architecture, NDC, DDD Europe, and others. My topics include distributed systems, Domain-Driven Design, microservices, evolutionary architecture, and software architecture in general.</description>
+      <description>Vladik (Vlad) Khononov is a software engineer with over 15 years of industry experience, during which he has worked for companies large and small in roles ranging from webmaster to chief architect. Vlad is a long-time proponent of domain-driven design and evolutionary architecture and currently helps companies make sense of their business domains, untangle monoliths, and tackle complex architectural challenges.
+Vlad maintains an active media career as a public speaker and blogger.</description>
     </item>
     
     <item>
@@ -27,9 +28,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
       <guid>https://vladikk.com/page/books/</guid>
-      <description>Domain-Driven Design: The First 15 Years I was honored to participate in this project, alongside Martin Fowler, Mel Conway, Rebecca Wirfs-Brock, and other industry leaders:
-
-Coming Soon Currently I&amp;rsquo;m working on a new writing project for a prominent publishing company. More information coming soon.</description>
+      <description>What is Domain-Driven Design? 
+The majority of software projects are delivered late or over budget, or they fail to meet the client’s requirements. Attack the problem head-on and build better software with domain-driven design (DDD)—a methodology that aligns software design with a business’s domain, needs, and strategy. In this report, Vladik Khononov introduces the key patterns and practices of domain-driven design and shows you how to apply them to improve the success rate of your projects.</description>
     </item>
     
     <item>
