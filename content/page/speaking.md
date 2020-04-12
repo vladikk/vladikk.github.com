@@ -25,6 +25,14 @@ Language: English
 
 Recording: [O'Reilly Online Learning](https://learning.oreilly.com/library/view/oreilly-software-architecture/0636920333777/)
 
+### 03/02/2020: DDD Europe 2020
+#### Balancing Coupling in Distributed Systems
+#### 7 Years of DDD: Tackling Complexity in Large-Scale Marketing Systems
+
+Location: Amsterdam, Netherlands
+
+Language: English
+
 ### 19/11/2019: BuildStuff Ukrain
 #### The Dark Side of Events
 
