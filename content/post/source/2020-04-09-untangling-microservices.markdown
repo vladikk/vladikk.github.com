@@ -138,7 +138,7 @@ The above statement by Udi Dahan is especially true for microservices-based syst
 Hence, it is safer to start with wider boundaries - probably the boundaries of proper bounded contexts[12] - and decompose them into microservices later, as more knowledge is gained about the system and its business domain. This is especially relevant to services encompassing core business domains[13].
 
 ### Microservices Outside of Distributed Systems
-Even though microservices were "invented" only recently, you can find plenty of implementations of the same design principles in other industries. These imple-mentations include:
+Even though microservices were "invented" only recently, you can find plenty of implementations of the same design principles in other industries. These simple-mentations include:
 
 #### Cross-Functional Teams
 We all know that cross-funcitonal teams are the most effective ones. Such team is a diverse group of professionals all working on the same task. An efficient cross-functional team maximizes the communication inside of the team, and minimizes the communication outside of it.
