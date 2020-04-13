@@ -92,7 +92,7 @@ According to OASIS Standard [9], a service is:
 
 > A mechanism to enable **access to one or more capabilities**, where the access is provided using a **prescribed interface**.
 
-The prescribed interface part is crucial. A service’s interface defines the functionality it exposes to the world. According to Randy Shoup [10], a service’s public interface is simply any mechanism that gets data in or out of a service. It can be synchronous, such as a plain request/response model, or asynchronous. one that produces and consumes events. Either way, synchronous or asynchronous, the public interface is just the means for getting data in our out of a service. Randy also describes the service’s public interfaces as its **front door**.
+The prescribed interface part is crucial. A service’s interface defines the functionality it exposes to the world. According to Randy Shoup [10], a service’s public interface is simply any mechanism that gets data in or out of a service. It can be synchronous, such as a plain request/response model, or asynchronous. one that produces and consumes events. Either way, synchronous or asynchronous, the public interface is just the means for getting data in or out of a service. Randy also describes the service’s public interfaces as its **front door**.
 
 A service is defined by its public interface, and this definition is enough to define what makes a service a *microservice*.
 
