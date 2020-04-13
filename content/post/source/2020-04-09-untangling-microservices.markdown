@@ -137,7 +137,7 @@ The above statement by Udi Dahan is especially true for microservices-based syst
 
 Hence, it is safer to start with wider boundaries - probably the boundaries of proper bounded contexts[12] - and decompose them into microservices later, as more knowledge is gained about the system and its business domain. This is especially relevant to services encompassing core business domains[13].
 
-### "Microservices" in Other Industries
+### Microservices Outside of Distributed Systems
 Even though microservices were "invented" only recently, you can find plenty of implementations of the same design principles in other industries. These imple-mentations include:
 
 #### Cross-Functional Teams
@@ -151,6 +151,21 @@ I stumbled upon this example in Vaughn Vernon's wonderful [blog on the same topi
 > I find it interesting that there is a size classification given that helps determine whether or not a central processing unit (CPU) is considered a Microprocessor: the size of its **data bus** [21]
 
 A microprocessor's data bus is its public interface – it defines the amount of data that can be passed between the microprocessor and other components. There is a strict size classification for the public interface that defines whether or not a central processing unit (CPU) is considered a microprocessor.
+
+#### Unix Philosophy
+Unix philosophy, or the Unix way, is a set of cultural norms and philosophical approaches to minimalist, modular software development [22]. 
+
+One may argue that the Unix philosophy contradicts my case that you cannot build a system out of fully independent components: *Aren't unix programs fully independent, and yet do form a working system?* The opposite is true. The Unix way almost literally defines that programs have to expose micro-interaces. Let's see how the principles of the Unix philosophy relate to the notion of microservices:
+
+The first principle calls for programs' public interfaces to expose one coherent function, instead of cluttering programs with functionality not related to their original goal:
+
+> Make each program do one thing well. To do a new job, **build afresh rather than complicate old programs by adding new "features"**.
+
+Even though Unix commands are considered fully independent from each other, they are not. They still have to communicate with other, and the second principle defines how the communication interfaces should be designed:
+
+> Expect the output of every program to become the input to another, as yet unknown, program. **Don't clutter output with extraneous information**. Avoid stringently columnar or binary input formats. Don't insist on interactive input.
+
+Not only the communication interface is strictly limited (standard input, standard output, and standard error), but according to this principle, the data passed between the commands should be strictly limited as well. I.e., Unix commands have to expose micro-interfaces and never depend on each other's implementation details.
 
 ### What About *Nano*-services?
 The term “nanoservice” is often used to describe a service that is too small. One can say that those naïve one-method-services in the previous example are nanoservices. However, I don't necessarily agree with this classification.
@@ -214,3 +229,4 @@ Feel free to nag me (@vladikk) if you are reading this after May 2020 and there 
 19. [Long Sad Story of Microservices - talk by Greg Young](https://www.youtube.com/watch?v=MjIfWe6bn40)
 20. [Principles of Design - Tim Berners-Lee](https://www.w3.org/DesignIssues/Principles.html)
 21. [Microservices and [Micro]services - Vaughn Vernon](https://kalele.io/microservices-and-microservices/)
+22. [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy)
