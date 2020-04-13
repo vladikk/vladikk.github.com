@@ -203,7 +203,7 @@ if (!doNotTrack) {
                 
                   <span class="post-meta">
   <i class="fa fa-calendar-o"></i>&nbsp;Posted on April 9, 2020
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 15 min (2998 mots)
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 16 min (3250 mots)
   
 </span>
 
@@ -373,7 +373,7 @@ if (!doNotTrack) {
 
 <p>Hence, it is safer to start with wider boundaries - probably the boundaries of proper bounded contexts[12] - and decompose them into microservices later, as more knowledge is gained about the system and its business domain. This is especially relevant to services encompassing core business domains[13].</p>
 
-<h3 id="microservices-in-other-industries">&ldquo;Microservices&rdquo; in Other Industries</h3>
+<h3 id="microservices-outside-of-distributed-systems">Microservices Outside of Distributed Systems</h3>
 
 <p>Even though microservices were &ldquo;invented&rdquo; only recently, you can find plenty of implementations of the same design principles in other industries. These imple-mentations include:</p>
 
@@ -392,6 +392,26 @@ if (!doNotTrack) {
 </blockquote>
 
 <p>A microprocessor&rsquo;s data bus is its public interface – it defines the amount of data that can be passed between the microprocessor and other components. There is a strict size classification for the public interface that defines whether or not a central processing unit (CPU) is considered a microprocessor.</p>
+
+<h4 id="unix-philosophy">Unix Philosophy</h4>
+
+<p>Unix philosophy, or the Unix way, is a set of cultural norms and philosophical approaches to minimalist, modular software development [22].</p>
+
+<p>One may argue that the Unix philosophy contradicts my case that you cannot build a system out of fully independent components: <em>Aren&rsquo;t unix programs fully independent, and yet do form a working system?</em> The opposite is true. The Unix way almost literally defines that programs have to expose micro-interaces. Let&rsquo;s see how the principles of the Unix philosophy relate to the notion of microservices:</p>
+
+<p>The first principle calls for programs&rsquo; public interfaces to expose one coherent function, instead of cluttering programs with functionality not related to their original goal:</p>
+
+<blockquote>
+<p>Make each program do one thing well. To do a new job, <strong>build afresh rather than complicate old programs by adding new &ldquo;features&rdquo;</strong>.</p>
+</blockquote>
+
+<p>Even though Unix commands are considered fully independent from each other, they are not. They still have to communicate with other, and the second principle defines how the communication interfaces should be designed:</p>
+
+<blockquote>
+<p>Expect the output of every program to become the input to another, as yet unknown, program. <strong>Don&rsquo;t clutter output with extraneous information</strong>. Avoid stringently columnar or binary input formats. Don&rsquo;t insist on interactive input.</p>
+</blockquote>
+
+<p>Not only the communication interface is strictly limited (standard input, standard output, and standard error), but according to this principle, the data passed between the commands should be strictly limited as well. I.e., Unix commands have to expose micro-interfaces and never depend on each other&rsquo;s implementation details.</p>
 
 <h3 id="what-about-nano-services">What About <em>Nano</em>-services?</h3>
 
@@ -465,6 +485,7 @@ if (!doNotTrack) {
 <li><a href="https://www.youtube.com/watch?v=MjIfWe6bn40">Long Sad Story of Microservices - talk by Greg Young</a></li>
 <li><a href="https://www.w3.org/DesignIssues/Principles.html">Principles of Design - Tim Berners-Lee</a></li>
 <li><a href="https://kalele.io/microservices-and-microservices/">Microservices and [Micro]services - Vaughn Vernon</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Unix_philosophy">Unix Philosophy</a></li>
 </ol>
       </article>
 
