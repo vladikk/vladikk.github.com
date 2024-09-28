@@ -1,7 +1,7 @@
 baseURL: https://vladikk.com
 disablePathToLower: true
 languageCode: en-us
-title: Vladikk
+title: Vlad Khononov
 theme: beautifulhugo
 DefaultContentLanguage: en
 pygmentsUseClasses: true
