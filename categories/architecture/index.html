@@ -187,6 +187,33 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+              <a href="https://vladikk.com/2024/09/28/aws-eda/">
+                <h2 class="post-title">Event-Driven Architecture on AWS: The Basics</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on September 28, 2024
+              </p>
+              <div class="post-entry">
+                
+                  <p>The abundance of services provided by AWS often makes it possible to implement the same functionality in different ways. In the case of messaging systems, AWS offers services such as Simple Notification Service (SNS), Simple Queue Service (SQS), EventBridge, Kinesis, and Managed Streaming for Apache Kafka (MSK). It may seem that at least a subset of these services duplicates the same functionality. In this post, I want to describe my go-to architecture and explain why, in my opinion, it is the simplest, most cost-effective, and robust solution for the majority of cases.</p>
+
+<h2 id="event-driven-architecture">Event-Driven Architecture</h2>
+
+<p>Components of an event-driven system communicate by publishing and subscribing to events. The asynchronous integration offers significant non-functional advantages. For example, it decouples the integrated components’ lifecycles. To a certain degree, the system can keep functioning even in the face of unavailability of some of its services, thus also reducing the coordination overhead needed to deploy updated components, and to evolve the system.</p>
+
+<p>A basic event-driven integration is comprised of two parts: a component of the system can publish events describing important occurrences in its lifecycle, and it can react (subscribe) to events published by other parts of the system. Let’s see what managed services we can leverage for implementing this.</p>
+                  <a href="https://vladikk.com/2024/09/28/aws-eda/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
               <a href="https://vladikk.com/2020/04/09/untangling-microservices/">
                 <h2 class="post-title">Untangling Microservices, or Balancing Complexity in Distributed Systems</h2>
 
@@ -430,7 +457,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
           
 
           &nbsp;&bull;&nbsp;
-          2020
+          2024
 
           
             &nbsp;&bull;&nbsp;

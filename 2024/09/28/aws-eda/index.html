@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Event-Driven Architecture on AWS: The Basics</title>
+  <meta property="og:title" content="Event-Driven Architecture on AWS: The Basics" />
+  <meta name="twitter:title" content="Event-Driven Architecture on AWS: The Basics" />
+  <meta name="description" content="The abundance of services provided by AWS often makes it possible to implement the same functionality in different ways. In the case of messaging systems, AWS offers services such as Simple Notification Service (SNS), Simple Queue Service (SQS), EventBridge, Kinesis, and Managed Streaming for Apache Kafka (MSK). It may seem that at least a subset of these services duplicates the same functionality. In this post, I want to describe my go-to architecture and explain why, in my opinion, it is the simplest, most cost-effective, and robust solution for the majority of cases.
+
+Event-Driven Architecture
+
+Components of an event-driven system communicate by publishing and subscribing to events. The asynchronous integration offers significant non-functional advantages. For example, it decouples the integrated components’ lifecycles. To a certain degree, the system can keep functioning even in the face of unavailability of some of its services, thus also reducing the coordination overhead needed to deploy updated components, and to evolve the system.
+
+A basic event-driven integration is comprised of two parts: a component of the system can publish events describing important occurrences in its lifecycle, and it can react (subscribe) to events published by other parts of the system. Let’s see what managed services we can leverage for implementing this.">
+  <meta property="og:description" content="The abundance of services provided by AWS often makes it possible to implement the same functionality in different ways. In the case of messaging systems, AWS offers services such as Simple Notification Service (SNS), Simple Queue Service (SQS), EventBridge, Kinesis, and Managed Streaming for Apache Kafka (MSK). It may seem that at least a subset of these services duplicates the same functionality. In this post, I want to describe my go-to architecture and explain why, in my opinion, it is the simplest, most cost-effective, and robust solution for the majority of cases.
+
+Event-Driven Architecture
+
+Components of an event-driven system communicate by publishing and subscribing to events. The asynchronous integration offers significant non-functional advantages. For example, it decouples the integrated components’ lifecycles. To a certain degree, the system can keep functioning even in the face of unavailability of some of its services, thus also reducing the coordination overhead needed to deploy updated components, and to evolve the system.
+
+A basic event-driven integration is comprised of two parts: a component of the system can publish events describing important occurrences in its lifecycle, and it can react (subscribe) to events published by other parts of the system. Let’s see what managed services we can leverage for implementing this.">
+  <meta name="twitter:description" content="The abundance of services provided by AWS often makes it possible to implement the same functionality in different ways. In the case of messaging systems, AWS offers services such as Simple …">
+  <meta name="author" content="Vladik Khononov"/>
+  <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://vladikk.com/images/aws-eda/eda-on-aws-4.png" />
+  <meta name="twitter:image" content="https://vladikk.com/images/aws-eda/eda-on-aws-4.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@vladikk" />
+  <meta name="twitter:creator" content="@vladikk" />
+  <meta property="og:url" content="https://vladikk.com/2024/09/28/aws-eda/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vladikk" />
+
+  <meta name="generator" content="Hugo 0.56.3" />
+  <link rel="canonical" href="https://vladikk.com/2024/09/28/aws-eda/" />
+  <link rel="alternate" href="" type="application/rss+xml" title="Vladikk">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://vladikk.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
+  <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="aws, eda, event-driven architecture, sns, sqs, kafka, msk, kinesis, microservices, event-driven, architecture, design principles, engineering, design, software, architecture">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-40869819-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://vladikk.com">Vladikk</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Conferences" href="/page/speaking/">Conferences</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Books" href="/page/books/">Books</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Consulting" href="/page/consulting">Consulting</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About &amp; Contact" href="/page/about/">About &amp; Contact</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Vladikk" href="https://vladikk.com">
+            <img class="avatar-img" src="https://vladikk.com/images/me-oreilly.jpg" alt="Vladikk" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Event-Driven Architecture on AWS: The Basics</h1>
+                
+                
+                  <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on September 28, 2024
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 6 min (1221 mots)
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>The abundance of services provided by AWS often makes it possible to implement the same functionality in different ways. In the case of messaging systems, AWS offers services such as Simple Notification Service (SNS), Simple Queue Service (SQS), EventBridge, Kinesis, and Managed Streaming for Apache Kafka (MSK). It may seem that at least a subset of these services duplicates the same functionality. In this post, I want to describe my go-to architecture and explain why, in my opinion, it is the simplest, most cost-effective, and robust solution for the majority of cases.</p>
+
+<h2 id="event-driven-architecture">Event-Driven Architecture</h2>
+
+<p>Components of an event-driven system communicate by publishing and subscribing to events. The asynchronous integration offers significant non-functional advantages. For example, it decouples the integrated components’ lifecycles. To a certain degree, the system can keep functioning even in the face of unavailability of some of its services, thus also reducing the coordination overhead needed to deploy updated components, and to evolve the system.</p>
+
+<p>A basic event-driven integration is comprised of two parts: a component of the system can publish events describing important occurrences in its lifecycle, and it can react (subscribe) to events published by other parts of the system. Let’s see what managed services we can leverage for implementing this.</p>
+
+<h2 id="publishing-sns">Publishing: SNS</h2>
+
+<p>AWS Simple Notification Service (SNS) is a fully managed service that allows you to send notifications to be consumed by other components of the system. Its serverless nature and <a href="https://aws.amazon.com/sns/pricing/">low pricing</a> make SNS a great candidate for publishing events. Figure 1 illustrates a service called “Producer” publishing its events through an SNS topic.</p>
+
+<p><img src="/images/aws-eda/eda-on-aws-1.png" alt="The “Producer” service publishes events to an SNS topic" /></p>
+
+<p><em>Figure 1: The “Producer” service publishes events to an SNS topic.</em></p>
+
+<p>But what about the “Consumer” service on the right-hand side of the figure? How can it subscribe to the messages published by the Producer?</p>
+
+<p>SNS supports the delivery of messages through multiple protocols, such as HTTP, triggering AWS Lambda functions, SMS, and others. On paper, it may seem plausible for the Consumer to expose an HTTP endpoint and use it as a destination for the SNS topic, as illustrated in Figure 2.</p>
+
+<p><img src="/images/aws-eda/eda-on-aws-2.png" alt="SNS topic can forward messages to HTTP endpoints. But is it the optimal solution?" />
+<em>Figure 2: SNS topic can forward messages to HTTP endpoints. But is it the optimal solution?</em></p>
+
+<p>Is it an optimal solution, though? Assuming that the two services, Producer and Consumer, belong to different teams, who is in charge of the SNS topic? The Producer team needs to ensure the topic is configured correctly to receive its messages, while the teams in charge of the consuming services need to ensure that the destinations are always correct. Such shared ownership is a recipe for friction. Let’s consider a different option.</p>
+
+<h2 id="subscribing-sqs">Subscribing: SQS</h2>
+
+<p>AWS SQS is a fully managed event queue that temporarily holds messages (events) generated by producers until they are processed by consumers. It allows for distributed event handling with load balancing across multiple consumers, crucial for maintaining fault tolerance in event-driven workflows. In my opinion, it also provides much greater visibility into the queues than SNS topics, as well as convenient control over how messages are delivered to consumers.</p>
+
+<p>Since SQS is one of the destinations supported by SNS topics, let’s set up a queue for messages to be processed by the “Consumer” services, as illustrated in Figure 3.</p>
+
+<p><img src="/images/aws-eda/eda-on-aws-3.png" alt="Using SQS as an event-consuming mechanism" />
+<em>Figure 3: Using SQS as an event-consuming mechanism.</em></p>
+
+<p>With this setup, you have clear ownership boundaries:</p>
+
+<ul>
+<li>The SNS topic used for publishing messages belongs to the team in charge of the originating service (Producer).</li>
+<li>The SQS queue used for consuming messages belongs to the team in charge of the subscribing service (Consumer).</li>
+</ul>
+
+<p>The separation of concerns between the two services is reflected in the system&rsquo;s architecture.</p>
+
+<h2 id="sns-sqs-simple-eda">SNS + SQS: Simple EDA</h2>
+
+<p>It is widely accepted that a microservice should enable access to its data through a well-defined public interface, while its database is considered an implementation detail and should be hidden from consumers. Such strict encapsulation of the persistence mechanism enables clearer ownership boundaries, more flexibility to evolve microservices, and much greater control over public interfaces.</p>
+
+<p>The message bus used by the system is just another persistence mechanism — albeit a much more limited one — and should be treated as such. As a result, in addition to a database, each (micro)service needs an SNS topic for publishing events and an SQS queue for consuming events, as illustrated in Figure 4:</p>
+
+<p><img src="/images/aws-eda/eda-on-aws-4.png" alt="An EDA requires defining clear ownership boundaries not only for databases but also for their messaging mechanisms (SNS and SQS)" />
+<em>Figure 4: An EDA requires defining clear ownership boundaries not only for databases but also for their messaging mechanisms (SNS and SQS).</em></p>
+
+<p>The arrows between the services — the subscriptions from topics to queues — belong to a higher architectural level of abstraction than the services themselves. For example, there might be a CloudFormation template for each individual service and a higher-level CloudFormation template for the resultant system. The latter one is in charge of defining the subscriptions.</p>
+
+<p>It’s worth mentioning that a subscription doesn’t mean that all of the published events are blindly dumped on the consumers; a <a href="https://docs.aws.amazon.com/sns/latest/dg/message-filtering-apply.html">subscription</a> can specify a filter to forward only the events relevant to each consumer.</p>
+
+<p>This approach aligns with the <strong>smart endpoints, dumb pipes</strong> principle, which is essential for the simplicity and flexibility of distributed systems. According to the principle, the intelligence — the logic — should reside in the services themselves (endpoints), not in the infrastructural components used for integration (pipes). The pipes — messaging infrastructure and communication channels — should only be in charge of reliably transporting data between services. The goal is to reduce dependencies between services, allowing for easier scaling, debugging, and faster development while avoiding the bottlenecks and complexities typically associated with sophisticated middleware.</p>
+
+<p>That makes it time to talk about other messaging options available on AWS.</p>
+
+<h2 id="alternative-message-delivery-services">Alternative Message Delivery Services</h2>
+
+<p>As I mentioned in the introduction, there are many other AWS-managed solutions related to messaging. Here I want to briefly address other options and why I think the solution described above is a better fit in 80% of cases.</p>
+
+<h3 id="eventbridge">EventBridge</h3>
+
+<p>The first “S” in SNS and SQS stands for “simple,” and it’s there for a reason. SNS and SQS are simple services. EventBridge is much more flexible in message filtering and routing rules. In my opinion, it is closer to the concept of an enterprise message bus from the SOA days. Instead of dumb pipes, you get a central point for receiving and routing events across all components of the system, and even across multiple systems. EventBridge, of course, has its use cases — for example, if you need to integrate with third-party systems.</p>
+
+<h3 id="kinesis-and-msk-managed-kafka">Kinesis and MSK (Managed Kafka)</h3>
+
+<p>Both Kinesis and MSK are services for working with streaming data. It can be said that streaming data is a subset of event-driven architecture. Both involve working with messages that are published and consumed asynchronously. However, the usage pattern is different: while traditional EDA focuses on individual events or messages, working with streaming data entails processing continuous flows of related events, which may not be as efficiently handled by traditional message bus solutions. Hence, tools like Kinesis and MSK exist. If you do not need to process continuous streams of messages, simpler tools like SNS and SQS will result in a more straightforward system.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>This blog post discussed implementing event-driven architecture (EDA) on AWS using SNS and SQS for publishing and consuming events. You learned how SNS and SQS together form a simple, cost-effective solution with clear ownership boundaries, providing flexibility and fault tolerance.</p>
+      </article>
+
+      <hr/>
+      <div id="share">
+      If you liked this post, please share it with your friends and colleagues:
+      <p><div class="addthis_inline_share_toolbox"></div></p>
+    </div>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="https://vladikk.com/2020/04/09/untangling-microservices/" data-toggle="tooltip" data-placement="top" title="Untangling Microservices, or Balancing Complexity in Distributed Systems">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladikk-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:vladik@khononov.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/vladikk" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/vladikk" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/vladikk" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/vladikkhononov" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/1736215/vladikk" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/vladikkk" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://telegram.me/vladik_kh" title="Telegram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-telegram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="vladikk.com">Vladik Khononov</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;
+          2024
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://vladikk.com">Vladikk</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.56.3</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://vladikk.com/js/main.js"></script>
+<script src="https://vladikk.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="https://vladikk.com/js/load-photoswipe.js"></script>
+
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a2d0cd9bc54813f"></script>
+
+  </body>
+</html>
+

@@ -8,10 +8,25 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
-    <lastBuildDate>Thu, 09 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Sep 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Event-Driven Architecture on AWS: The Basics</title>
+      <link>https://vladikk.com/2024/09/28/aws-eda/</link>
+      <pubDate>Sat, 28 Sep 2024 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <guid>https://vladikk.com/2024/09/28/aws-eda/</guid>
+      <description>&lt;p&gt;The abundance of services provided by AWS often makes it possible to implement the same functionality in different ways. In the case of messaging systems, AWS offers services such as Simple Notification Service (SNS), Simple Queue Service (SQS), EventBridge, Kinesis, and Managed Streaming for Apache Kafka (MSK). It may seem that at least a subset of these services duplicates the same functionality. In this post, I want to describe my go-to architecture and explain why, in my opinion, it is the simplest, most cost-effective, and robust solution for the majority of cases.&lt;/p&gt;
+
+&lt;h2 id=&#34;event-driven-architecture&#34;&gt;Event-Driven Architecture&lt;/h2&gt;
+
+&lt;p&gt;Components of an event-driven system communicate by publishing and subscribing to events. The asynchronous integration offers significant non-functional advantages. For example, it decouples the integrated components’ lifecycles. To a certain degree, the system can keep functioning even in the face of unavailability of some of its services, thus also reducing the coordination overhead needed to deploy updated components, and to evolve the system.&lt;/p&gt;
+
+&lt;p&gt;A basic event-driven integration is comprised of two parts: a component of the system can publish events describing important occurrences in its lifecycle, and it can react (subscribe) to events published by other parts of the system. Let’s see what managed services we can leverage for implementing this.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Untangling Microservices, or Balancing Complexity in Distributed Systems</title>
