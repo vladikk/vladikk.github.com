@@ -3,7 +3,43 @@ title: Books
 comments: false
 ---
 
-### What is Domain-Driven Design?
+### Balancing Coupling in Software Design (Pearson, 2024)
+
+[<img src="/images/bcisd.jpg" alt="" width="400"/>](https://www.amazon.com/Balancing-Coupling-Software-Design-Addison-Wesley-ebook/dp/B09RV3Z3TP/ref=sr_1_1)
+
+**Learn How Coupling Impacts Every Software Design Decision You Make--and How to Control It**
+
+"Coupling is one of those words that is used a lot, but little understood. Vlad propels us from simplistic slogans like 'always decouple components' to a nuanced discussion of coupling in the context of complexity and software evolution. If you build modern software, read this book!" --Gregor Hohpe, author of The Software Architect Elevator
+
+If you want to build modular, evolvable, and resilient software systems, you have to get coupling right. Every design decision you make influences coupling, which in turn shapes the design options available to you. Despite its importance, coupling often doesn't receive the attention it deserves--until now.
+
+Since the dawn of software engineering, it's been clear that proper management of coupling is essential for architecting modular software systems. This topic has been extensively researched over the years, but some of that knowledge has been forgotten, and some of it is challenging to apply in this day and age. In Balancing Coupling in Software Design, author Vlad Khononov has built a model that not only draws on this accumulated knowledge, but also adapts it to modern software engineering practices, offering a fresh perspective on modular software design.
+
+With principles grounded in practice, Vlad teaches you not only to navigate the multi-dimensional nature of coupling but also to use coupling as a tool for managing complexity and increasing modularity. And who knows, maybe this book will change the way you think about software design as whole.
+
+* Defines the concept of coupling and the role it plays in system design and architecture
+* Explains how coupling can both increase complexity and foster modularity of a system
+* Introduces a holistic model that turns coupling into a tool for designing modular software
+* Shows how to evolve design decisions to support continuous growth of software systems
+* Illustrates the discussed principles with detailed examples based on real-life case studies
+
+### Learning Domain-Driven Design (O'Reilly, 2021)
+[<img src="/images/lddd.jpg" alt="" width="400"/>](https://www.amazon.com/Learning-Domain-Driven-Design-Vlad-Khononov-ebook/dp/B09J2CMJZY/ref=sr_1_1)
+
+Building software is harder than ever. As a developer, you not only have to chase ever-changing technological trends but also need to understand the business domains behind the software. This practical book provides you with a set of core patterns, principles, and practices for analyzing business domains, understanding business strategy, and, most importantly, aligning software design with its business needs.
+
+Author Vlad Khononov shows you how these practices lead to robust implementation of business logic and help to future-proof software design and architecture. You'll examine the relationship between domain-driven design (DDD) and other methodologies to ensure you make architectural decisions that meet business requirements. You'll also explore the real-life story of implementing DDD in a startup company.
+
+With this book, you'll learn how to:
+
+* Analyze a company's business domain to learn how the system you're building fits its competitive strategy
+* Use DDD's strategic and tactical tools to architect effective software solutions that address business needs
+* Build a shared understanding of the business domains you encounter
+* Decompose a system into bounded contexts
+* Coordinate the work of multiple teams
+* Gradually introduce DDD to brownfield projects
+
+### What is Domain-Driven Design? (O'Reilly, 2019)
 
 [<img src="/images/whatisddd.jpg" alt="" width="400"/>](https://learning.oreilly.com/library/view/what-is-domain-driven/9781492057802/)
 
