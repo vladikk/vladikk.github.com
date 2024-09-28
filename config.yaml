@@ -12,7 +12,7 @@ publishDir: ../blog-public
 unsafe: true
 Params:
   subtitle: Rants on software design
-  logo: images/me-oreilly.jpg
+  logo: images/me-conf.jpg
   favicon: favicon.ico
   dateFormat: 'January 2, 2006'
   commit: false
