@@ -382,8 +382,9 @@ Vlad maintains an active media career as a public speaker and blogger.</descript
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vladik Khononov)</author>
       <guid>https://vladikk.com/page/books/</guid>
-      <description>What is Domain-Driven Design? 
-The majority of software projects are delivered late or over budget, or they fail to meet the client’s requirements. Attack the problem head-on and build better software with domain-driven design (DDD)—a methodology that aligns software design with a business’s domain, needs, and strategy. In this report, Vladik Khononov introduces the key patterns and practices of domain-driven design and shows you how to apply them to improve the success rate of your projects.</description>
+      <description>Balancing Coupling in Software Design (Pearson, 2024) 
+Learn How Coupling Impacts Every Software Design Decision You Make&amp;ndash;and How to Control It
+&amp;ldquo;Coupling is one of those words that is used a lot, but little understood. Vlad propels us from simplistic slogans like &amp;lsquo;always decouple components&amp;rsquo; to a nuanced discussion of coupling in the context of complexity and software evolution. If you build modern software, read this book!&amp;rdquo; &amp;ndash;Gregor Hohpe, author of The Software Architect Elevator</description>
     </item>
     
     <item>
@@ -415,7 +416,7 @@ Recording: Youtube</description>
       <author>vladik@khononov.com (Vladik Khononov)</author>
       <guid>https://vladikk.com/page/contact/</guid>
       <description>For any type of enquiry, you can contact me via either of the methods below:
- Email: vladik at khononov.com Twitter: @vladikk Github: vladikk Facebook: vladikk Linkedin: vladikkhononov  </description>
+ Email: vlad at khononov.com Twitter: @vladikk Github: vladikk Linkedin: vladikkhononov  </description>
     </item>
     
     <item>
