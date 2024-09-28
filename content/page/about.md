@@ -12,7 +12,7 @@ Vladik lives in Northern Israel with his wife and an almost-reasonable number of
 
 For work, speaking, writing, training or any other type of enquiry, you can contact Vlad via either of the methods below:
 
-* Email: vladik at khononov.com
+* Email: vlad at khononov.com
 * Twitter: [@vladikk](http://twitter.com/vladikk)
 * Facebook: [vladikk](http://facebook.com/vladikk)
-* Linkedin: [vladikkhononov](http://www.linkedin.com/in/vladikkhononov)
+* Linkedin: [Vlad Khononov](https://www.linkedin.com/in/vladikk)
