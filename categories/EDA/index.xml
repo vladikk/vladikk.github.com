@@ -6,8 +6,8 @@
     <description>Recent content in EDA on Vlad Khononov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
-    <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
+    <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
+    <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
     <lastBuildDate>Sat, 28 Sep 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/categories/EDA/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
       <title>Event-Driven Architecture on AWS: The Basics</title>
       <link>https://vladikk.com/2024/09/28/aws-eda/</link>
       <pubDate>Sat, 28 Sep 2024 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2024/09/28/aws-eda/</guid>
       <description>&lt;p&gt;The abundance of services provided by AWS often makes it possible to implement the same functionality in different ways. In the case of messaging systems, AWS offers services such as Simple Notification Service (SNS), Simple Queue Service (SQS), EventBridge, Kinesis, and Managed Streaming for Apache Kafka (MSK). It may seem that at least a subset of these services duplicates the same functionality. In this post, I want to describe my go-to architecture and explain why, in my opinion, it is the simplest, most cost-effective, and robust solution for the majority of cases.&lt;/p&gt;
 

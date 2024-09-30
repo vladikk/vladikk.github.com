@@ -6,8 +6,8 @@
     <description>Recent content on Vlad Khononov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
-    <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
+    <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
+    <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
     <lastBuildDate>Sat, 28 Sep 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
       <title>Event-Driven Architecture on AWS: The Basics</title>
       <link>https://vladikk.com/2024/09/28/aws-eda/</link>
       <pubDate>Sat, 28 Sep 2024 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2024/09/28/aws-eda/</guid>
       <description>&lt;p&gt;The abundance of services provided by AWS often makes it possible to implement the same functionality in different ways. In the case of messaging systems, AWS offers services such as Simple Notification Service (SNS), Simple Queue Service (SQS), EventBridge, Kinesis, and Managed Streaming for Apache Kafka (MSK). It may seem that at least a subset of these services duplicates the same functionality. In this post, I want to describe my go-to architecture and explain why, in my opinion, it is the simplest, most cost-effective, and robust solution for the majority of cases.&lt;/p&gt;
 
@@ -32,7 +32,7 @@
       <title>Untangling Microservices, or Balancing Complexity in Distributed Systems</title>
       <link>https://vladikk.com/2020/04/09/untangling-microservices/</link>
       <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2020/04/09/untangling-microservices/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/untangling-microservices/header.png&#34; alt=&#34;Untangling Microservices, or Balancing Complexity in Distributed Systems&#34; /&gt;&lt;/p&gt;
 
@@ -47,7 +47,7 @@
       <title>Anti-Pattern: Optimistic Consistency</title>
       <link>https://vladikk.com/2019/04/18/optimistic-consistency/</link>
       <pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2019/04/18/optimistic-consistency/</guid>
       <description>Ladies and Gentlemen, lo and behold a new consistency model - “Optimistic Consistency”. Implementation of this pattern is quite simple: commit as many transactions as you want, against as many storage mechanisms as you need. That’s all. Let’s see an example.
 Example Say as the result of some user’s operation the system has to:
@@ -58,7 +58,7 @@ Example Say as the result of some user’s operation the system has to:
       <title>Zen of Software Engineering</title>
       <link>https://vladikk.com/2019/01/29/zen-software-engineering/</link>
       <pubDate>Tue, 29 Jan 2019 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2019/01/29/zen-software-engineering/</guid>
       <description>There is a pet peeve of mine, that I’m encountering way too often: the condition I call Silverbulletitis. This virus spreads among developers on many levels — juniors, seniors, and even architects. In this post I’d like talk about why this condition is dangerous, and how it can be treated.
 Symptoms All too often you can hear statements that some tool or technique is bad, but another one is the greatest thing since sliced bread.</description>
@@ -68,7 +68,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
       <title>IOS 11: Fixing APN Configuration Issues</title>
       <link>https://vladikk.com/2018/03/28/ios-apn-bug/</link>
       <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2018/03/28/ios-apn-bug/</guid>
       <description>So a few days ago I’ve decided to move to another cellular carrier. I pushed the new sim-card in, and got greeted with “Could not activate cellular data network”. First instinct was to install the new carrier’s APN configuration profile, but this resulted in another bummer: “Only one APN configuration can be installed at a time”. Ok, so I have to delete the previous carrier’s profile. Settings -&amp;gt; General -&amp;gt; Profiles …and there weren’t any profiles: “No profiles are currently installed”.</description>
     </item>
@@ -77,7 +77,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
       <title>Tackling Complexity in Microservices</title>
       <link>https://vladikk.com/2018/02/28/microservices/</link>
       <pubDate>Wed, 28 Feb 2018 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2018/02/28/microservices/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/microservices/title-img.jpg&#34; alt=&#34;Tackling Complexity in Microservices&#34; /&gt;&lt;/p&gt;
 
@@ -94,7 +94,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
       <title>Revisiting the Basics of Domain-Driven Design</title>
       <link>https://vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/</link>
       <pubDate>Fri, 26 Jan 2018 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/domains/title-img.jpg&#34; alt=&#34;Revisiting the Basics of Domain-Driven Design&#34; /&gt;&lt;/p&gt;
 
@@ -109,7 +109,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
       <title>Bounded Contexts are NOT Microservices</title>
       <link>https://vladikk.com/2018/01/21/bounded-contexts-vs-microservices/</link>
       <pubDate>Sun, 21 Jan 2018 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2018/01/21/bounded-contexts-vs-microservices/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/bc-ms/rebel-scum.jpg&#34; alt=&#34;Rebel scum&#34; /&gt;&lt;/p&gt;
 
@@ -120,7 +120,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
       <title>Apache NiFi: Enabling Unicode Support</title>
       <link>https://vladikk.com/2017/03/30/nifi-unicode/</link>
       <pubDate>Thu, 30 Mar 2017 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2017/03/30/nifi-unicode/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;re using Apache NiFi to move data around, you might stumble upon Unicode characters turning into question marks. For example, the ExecuteSQL processor does that. To fix this you have to set JVM&amp;rsquo;s default encoding to UTF-8.&lt;/p&gt;</description>
     </item>
@@ -129,7 +129,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
       <title>Tackling Complexity in CQRS</title>
       <link>https://vladikk.com/2017/03/20/tackling-complexity-in-cqrs/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2017/03/20/tackling-complexity-in-cqrs/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/cqrs/title-img.jpg&#34; alt=&#34;Tackling Complexity in CQRS&#34; /&gt;&lt;/p&gt;
 
@@ -148,7 +148,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
       <title>Finding Proper Scopes for Unit Tests</title>
       <link>https://vladikk.com/2016/06/29/test-scopes/</link>
       <pubDate>Wed, 29 Jun 2016 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2016/06/29/test-scopes/</guid>
       <description>&lt;p&gt;In my previous &lt;strike&gt;rant&lt;/strike&gt; &lt;a href=&#34;http://vladikk.com/2016/01/22/tdd-what-went-wrong/&#34;&gt;post on TDD&lt;/a&gt; I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.&lt;/p&gt;</description>
     </item>
@@ -157,7 +157,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
       <title>Tackling Complexity in the Heart of DDD</title>
       <link>https://vladikk.com/2016/04/05/tackling-complexity-ddd/</link>
       <pubDate>Tue, 05 Apr 2016 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2016/04/05/tackling-complexity-ddd/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ddd/title-img.jpg&#34; alt=&#34;Tackling Complexity in the Heart of Domain-Driven Design&#34; /&gt;&lt;/p&gt;
 
@@ -170,7 +170,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
       <title>A Quick and Dirty Hack for Interviewing Job Candidates</title>
       <link>https://vladikk.com/2016/03/05/interviewing/</link>
       <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2016/03/05/interviewing/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/interviewing/title-img.jpg&#34; alt=&#34;A Quick and Dirty Hack for Interviewing Job Candidates&#34; /&gt;&lt;/p&gt;
 
@@ -183,7 +183,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
       <title>DDDEU 2016 Impressions</title>
       <link>https://vladikk.com/2016/02/12/dddeu-2016/</link>
       <pubDate>Fri, 12 Feb 2016 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2016/02/12/dddeu-2016/</guid>
       <description>&lt;p&gt;Last month, I had the pleasure of attending the Domain Driven Design Europe conference in Brussels. As I’ve tweeted before, this was the best conference I’ve ever attended. In this post, I’d like to sum the things I’ve learned at the conference.&lt;/p&gt;
 
@@ -201,7 +201,7 @@ And I’m yet to mention discussing Star Wars with Eric Evans, discovering that 
       <title>TDD: What Went Wrong…Or Did It?</title>
       <link>https://vladikk.com/2016/01/22/tdd-what-went-wrong/</link>
       <pubDate>Fri, 22 Jan 2016 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2016/01/22/tdd-what-went-wrong/</guid>
       <description>&lt;p&gt;Test Driven Development has been praised by our industry&amp;rsquo;s aficionados for a long time. However, lately there have been many harsh words said towards TDD, as it’s being blamed for causing bad software design and not keeping many of its promises. This trend culminated in David Heinemeierhansson’s post &lt;a href=&#34;http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html&#34;&gt;“TDD is dead. Long live testing”&lt;/a&gt;.&lt;/p&gt;
 
@@ -215,7 +215,7 @@ In this post I want to talk about 3 misconceptions that might explain this pheno
       <title>Serving Flask with Nginx</title>
       <link>https://vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/</link>
       <pubDate>Thu, 12 Sep 2013 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/</guid>
       <description>&lt;p&gt;Having spent the majority of my career in the Microsoft stack, lately I&amp;rsquo;ve decided to step out of my comfort zone and to dive into the world of open source software. The project I&amp;rsquo;m currently working on at my day job is a RESTful service. The service will be running on a commodity hardware, that should be able to scale horizontally as needed. To do the job I&amp;rsquo;ve decided to use Flask and Nginx. Flask is a lightweight Python web framework, and nginx is a highly stable web server, that works great on cheap hardware.&lt;/p&gt;
 
@@ -226,7 +226,7 @@ In this post I want to talk about 3 misconceptions that might explain this pheno
       <title>JSON2CSV</title>
       <link>https://vladikk.com/2013/06/11/json2csv/</link>
       <pubDate>Tue, 11 Jun 2013 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2013/06/11/json2csv/</guid>
       <description>&lt;p&gt;Last week I&amp;rsquo;ve needed a utility to convert a file containing json data to csv. I found many online solutions, but for some weird reason they didn&amp;rsquo;t support nested objects and arrays. So I wrote one, this time in python.&lt;/p&gt;</description>
     </item>
@@ -235,7 +235,7 @@ In this post I want to talk about 3 misconceptions that might explain this pheno
       <title>Introducing SQL2JSON</title>
       <link>https://vladikk.com/2013/06/09/sql2json/</link>
       <pubDate>Sun, 09 Jun 2013 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2013/06/09/sql2json/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;ll ever try to generate JSON file using Sql Server&amp;rsquo;s Management Studio, probably there&amp;rsquo;ll be lots of pain in your future. If you wanna save the pain, you can use SQL2JSON, an open source project I started last week.&lt;/p&gt;
 
@@ -246,7 +246,7 @@ In this post I want to talk about 3 misconceptions that might explain this pheno
       <title>Unicode file names in Python 2.7</title>
       <link>https://vladikk.com/2013/06/01/unicode-file-names-in-python/</link>
       <pubDate>Sat, 01 Jun 2013 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2013/06/01/unicode-file-names-in-python/</guid>
       <description>&lt;p&gt;Today I wrote a small script to find and delete duplicate files. To do this task I needed to iterate over files in a specific folder, and calculate md5 checksum for each file:&lt;/p&gt;
 
@@ -267,7 +267,7 @@ In this post I want to talk about 3 misconceptions that might explain this pheno
       <title>Uncoupling Configuration Files</title>
       <link>https://vladikk.com/2013/05/14/uncoupling-configuration-files/</link>
       <pubDate>Tue, 14 May 2013 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2013/05/14/uncoupling-configuration-files/</guid>
       <description>&lt;p&gt;Tight coupling is a known source for inflexible and hard to test code. In this post I want to talk about a rather unexpected source of tight coupling - configuration files.
 Configuration files are external dependencies. As other external dependencies, its infrastructure may change in the future, and it should be easily mocked for unit testing. Modern software frameworks provide means for easy access to the values stored in configuration files. In the .NET framework configuration files can be accessed using the ConfigurationManager:&lt;/p&gt;
@@ -292,7 +292,7 @@ int bar = int.Parse(ConfigurationManager.AppSettings[“Bar”]);
       <title>Learning From Mistakes: Leaky Abstractions</title>
       <link>https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/</link>
       <pubDate>Mon, 15 Oct 2012 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/</guid>
       <description>&lt;p&gt;On the project I’m working on I’ve had a requirement to store and read files
 from the file system. Alse the files had to be accessible from the web.&lt;/p&gt;
@@ -320,7 +320,7 @@ a leaky abstraction.&lt;/p&gt;</description>
       <title>Dependency Injection Patterns</title>
       <link>https://vladikk.com/2012/09/10/dependency-injection-patterns/</link>
       <pubDate>Mon, 10 Sep 2012 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2012/09/10/dependency-injection-patterns/</guid>
       <description>&lt;p&gt;Choosing the right pattern for implementing dependency injection is an important task and can affect your class’s usability and functionality. In this post I’ll overview 3 patterns of implementing dependency injection - constructor injection, property injection, builder (Joshua Bloch’s pattern, not GoF pattern).
 For demonstration purposes we will work with a class called TextTranslator, that requires 3 dependencies: TextReader, TranslationService and TextWriter:&lt;/p&gt;
@@ -340,7 +340,7 @@ For demonstration purposes we will work with a class called TextTranslator, that
       <title>Disposing Objects Created by DI Container</title>
       <link>https://vladikk.com/2012/08/23/disposing-objects-created-by-di-container/</link>
       <pubDate>Thu, 23 Aug 2012 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2012/08/23/disposing-objects-created-by-di-container/</guid>
       <description>&lt;p&gt;The general rule says that if you created an object, then it is your responsibility to dispose it. Things get a bit tricky when objects are created by a dependency injection container. The responsibility of containers is to construct objects and inject the dependencies they need. An error I’ve seen people doing again and again is to dispose objects that were injected into an object via constructor or property injection. Consider the class “Foo” that requires an instance of class “Bar”:&lt;/p&gt;
 
@@ -370,7 +370,7 @@ public class Program {
       <title>About Me</title>
       <link>https://vladikk.com/page/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/page/about/</guid>
       <description>Vladik (Vlad) Khononov is a software engineer with over 15 years of industry experience, during which he has worked for companies large and small in roles ranging from webmaster to chief architect. Vlad is a long-time proponent of domain-driven design and evolutionary architecture and currently helps companies make sense of their business domains, untangle monoliths, and tackle complex architectural challenges.
 Vlad maintains an active media career as a public speaker and blogger.</description>
@@ -380,7 +380,7 @@ Vlad maintains an active media career as a public speaker and blogger.</descript
       <title>Books</title>
       <link>https://vladikk.com/page/books/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/page/books/</guid>
       <description>Balancing Coupling in Software Design (Pearson, 2024) 
 Learn How Coupling Impacts Every Software Design Decision You Make&amp;ndash;and How to Control It
@@ -391,7 +391,7 @@ Learn How Coupling Impacts Every Software Design Decision You Make&amp;ndash;and
       <title>Conferences</title>
       <link>https://vladikk.com/page/speaking/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/page/speaking/</guid>
       <description>During the last few years I spoke at leading software engineering conferences, e.g. O&amp;rsquo;Reilly Software Architecture, NDC, DDD Europe, and more. My topics include Domain-Driven Design, microservices, TDD, modular design, evolutionary architecture, and software arechitecture in general.
 Feel free to reach out if you&amp;rsquo;d like me to speak at your conference or on-site event.
@@ -403,7 +403,7 @@ Recording: Youtube</description>
       <title>Consulting</title>
       <link>https://vladikk.com/page/consulting/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/page/consulting/</guid>
       <description>Consulting My core areas of expertise include domain-driven design, microservices, event sourcing, event storming, CQRS, and distributed systems. I can help you to:
  Develop a strategy for incremental refactoring of monolithic codebases into modular microservice-based systems Build an architectural strategy for a startup company Document and manage software architecture Align software architecture with business needs Recover business logic buried in legacy codebases Migrate legacy systems to cloud infrastructure  On-Site Training I can provide training adapted to your company&amp;rsquo;s needs.</description>
@@ -413,19 +413,45 @@ Recording: Youtube</description>
       <title>Contact Me</title>
       <link>https://vladikk.com/page/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/page/contact/</guid>
       <description>For any type of enquiry, you can contact me via either of the methods below:
  Email: vlad at khononov.com Twitter: @vladikk Github: vladikk Linkedin: Vlad Khononov  </description>
     </item>
     
     <item>
+      <title>Privacy Policy</title>
+      <link>https://vladikk.com/page/privacy-policy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/page/privacy-policy/</guid>
+      <description>Privacy Policy for vladikk.com
+Last Updated: 2024/09/30
+Welcome to vladikk.com (the “Blog”). This privacy policy explains how Vlad Khononov (“I”, “me”, or “my”) collects, uses, and protects your personal information when you visit and interact with the Blog.
+Information I Collect
+I collect personal information in the following ways:
+ Directly from You: If you voluntarily subscribe to my newsletter or leave a comment, I may collect information such as your name and email address.</description>
+    </item>
+    
+    <item>
       <title>Reading</title>
       <link>https://vladikk.com/page/reading/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/page/reading/</guid>
       <description>A More Beautiful Question: The Power of Inquiry to Spark Breakthrough Ideas The Goal: A Process of Ongoing ImprovementBeyond the Goal: Eliyahu Goldratt Speaks on the Theory of Constraints (Your Coach In A Box)The Choice, Revised EditionDomain-Driven Design: Tackling Complexity in the Heart of SoftwareImplementing Domain-Driven DesignScrum: The Art of Doing Twice the Work in Half the TimeFlow: Living at the Peak of Your AbilitiesThe Phoenix Project: A Novel About IT, DevOps, and Helping Your Business WinSapiens: A Brief History of HumankindThe Obstacle Is the Way: The Timeless Art of Turning Trials into TriumphSimple Rules: How to Thrive in a Complex WorldGetting to Yes: Negotiating Agreement Without Giving InBorn to Run: A Hidden Tribe, Superathletes, and the Greatest Race the World Has Never SeenThe Lean Startup: How Today&amp;rsquo;s Entrepreneurs Use Continuous Innovation to Create Radically Successful BusinessesBusiness Model Generation: A Handbook for Visionaries, Game Changers, and ChallengersDrive: The Surprising Truth About What Motivates UsEnterprise Integration Patterns: Designing, Building, and Deploying Messaging SolutionsWorking Effectively with Legacy CodePatterns of Enterprise Application ArchitectureThinking, Fast and Slow</description>
+    </item>
+    
+    <item>
+      <title>Terms of Use</title>
+      <link>https://vladikk.com/page/terms-of-use/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/page/terms-of-use/</guid>
+      <description>Last Updated: 2024/09/30
+Welcome to vladikk.com (the “Blog”). By accessing or using this Blog, you agree to comply with and be bound by these Terms of Use. If you do not agree to these terms, please do not use the Blog.
+Acceptance of Terms
+By accessing the Blog, you confirm that you are legally able to accept these Terms of Use and that you agree to follow them. These terms apply to all visitors and users of the Blog.</description>
     </item>
     
   </channel>

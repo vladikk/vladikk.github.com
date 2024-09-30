@@ -44,7 +44,7 @@ int bar = int.Parse(ConfigurationManager.AppSettings[“Bar”]);
 ConfigurationManager makes it trivial to access data in the config file, however in most cases it also introduces various code smells that make the code tight coupled and hard to test. In the next sections I’ll introduce a simple class and will use it to demonstrate the code smells and violations of principles of clean object oriented design. The code will be gradually refactored to a better and cleaner solution.">
   <meta name="twitter:description" content="Tight coupling is a known source for inflexible and hard to test code. In this post I want to talk about a rather unexpected source of tight coupling - configuration files.
 Configuration files are …">
-  <meta name="author" content="Vladik Khononov"/>
+  <meta name="author" content="Vlad Khononov"/>
   <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://vladikk.com/images/me-conf.jpg" />
   <meta name="twitter:image" content="https://vladikk.com/images/me-conf.jpg" />
@@ -643,18 +643,14 @@ The process can complicate things if you are using a dependency injection contai
         </ul>
         <p class="credits copyright text-muted">
           
-            
-              <a href="vladikk.com">Vladik Khononov</a>
-            
+            <a href="https://vladikk.com">Vlad Khononov</a>
+            &nbsp;&bull;&nbsp;
           
-
+          <a href="/page/terms-of-use">Terms of Use</a>
+          &nbsp;&bull;&nbsp;
+          <a href="/page/privacy-policy">Privacy Policy</a>
           &nbsp;&bull;&nbsp;
           2024
-
-          
-            &nbsp;&bull;&nbsp;
-            <a href="https://vladikk.com">Vlad Khononov</a>
-          
         </p>
         
         <p class="credits theme-by text-muted">

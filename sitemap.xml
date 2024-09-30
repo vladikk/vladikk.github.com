@@ -215,12 +215,20 @@
   </url>
   
   <url>
+    <loc>https://vladikk.com/page/privacy-policy/</loc>
+  </url>
+  
+  <url>
     <loc>https://vladikk.com/page/reading/</loc>
   </url>
   
   <url>
     <loc>https://vladikk.com/tags/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladikk.com/page/terms-of-use/</loc>
   </url>
   
 </urlset>

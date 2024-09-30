@@ -6,8 +6,8 @@
     <description>Recent content in CQRS on Vlad Khononov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
-    <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
+    <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
+    <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
     <lastBuildDate>Mon, 20 Mar 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/categories/CQRS/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
       <title>Tackling Complexity in CQRS</title>
       <link>https://vladikk.com/2017/03/20/tackling-complexity-in-cqrs/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2017/03/20/tackling-complexity-in-cqrs/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/cqrs/title-img.jpg&#34; alt=&#34;Tackling Complexity in CQRS&#34; /&gt;&lt;/p&gt;
 

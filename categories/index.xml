@@ -6,8 +6,8 @@
     <description>Recent content in Categories on Vlad Khononov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
-    <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
+    <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
+    <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
     <lastBuildDate>Sat, 28 Sep 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/categories/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
       <title>Architecture</title>
       <link>https://vladikk.com/categories/Architecture/</link>
       <pubDate>Sat, 28 Sep 2024 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/categories/Architecture/</guid>
       <description></description>
     </item>
@@ -26,7 +26,7 @@
       <title>EDA</title>
       <link>https://vladikk.com/categories/EDA/</link>
       <pubDate>Sat, 28 Sep 2024 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/categories/EDA/</guid>
       <description></description>
     </item>
@@ -35,7 +35,7 @@
       <title>Microservices</title>
       <link>https://vladikk.com/categories/Microservices/</link>
       <pubDate>Sat, 28 Sep 2024 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/categories/Microservices/</guid>
       <description></description>
     </item>
@@ -44,7 +44,7 @@
       <title>Domain-Driven Design</title>
       <link>https://vladikk.com/categories/Domain-Driven-Design/</link>
       <pubDate>Tue, 29 Jan 2019 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/categories/Domain-Driven-Design/</guid>
       <description></description>
     </item>
@@ -53,7 +53,7 @@
       <title>Misc</title>
       <link>https://vladikk.com/categories/Misc/</link>
       <pubDate>Thu, 30 Mar 2017 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/categories/Misc/</guid>
       <description></description>
     </item>
@@ -62,7 +62,7 @@
       <title>CQRS</title>
       <link>https://vladikk.com/categories/CQRS/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/categories/CQRS/</guid>
       <description></description>
     </item>
@@ -71,7 +71,7 @@
       <title>TDD</title>
       <link>https://vladikk.com/categories/TDD/</link>
       <pubDate>Wed, 29 Jun 2016 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/categories/TDD/</guid>
       <description></description>
     </item>
@@ -80,7 +80,7 @@
       <title>Python</title>
       <link>https://vladikk.com/categories/Python/</link>
       <pubDate>Thu, 12 Sep 2013 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/categories/Python/</guid>
       <description></description>
     </item>
@@ -89,7 +89,7 @@
       <title>OSS</title>
       <link>https://vladikk.com/categories/OSS/</link>
       <pubDate>Tue, 11 Jun 2013 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/categories/OSS/</guid>
       <description></description>
     </item>

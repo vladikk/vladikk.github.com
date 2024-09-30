@@ -6,8 +6,8 @@
     <description>Recent content in Pages on Vlad Khononov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
-    <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
+    <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
+    <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
     
 	<atom:link href="https://vladikk.com/page/index.xml" rel="self" type="application/rss+xml" />
     
@@ -16,7 +16,7 @@
       <title>About Me</title>
       <link>https://vladikk.com/page/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/page/about/</guid>
       <description>Vladik (Vlad) Khononov is a software engineer with over 15 years of industry experience, during which he has worked for companies large and small in roles ranging from webmaster to chief architect. Vlad is a long-time proponent of domain-driven design and evolutionary architecture and currently helps companies make sense of their business domains, untangle monoliths, and tackle complex architectural challenges.
 Vlad maintains an active media career as a public speaker and blogger.</description>
@@ -26,7 +26,7 @@ Vlad maintains an active media career as a public speaker and blogger.</descript
       <title>Books</title>
       <link>https://vladikk.com/page/books/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/page/books/</guid>
       <description>Balancing Coupling in Software Design (Pearson, 2024) 
 Learn How Coupling Impacts Every Software Design Decision You Make&amp;ndash;and How to Control It
@@ -37,7 +37,7 @@ Learn How Coupling Impacts Every Software Design Decision You Make&amp;ndash;and
       <title>Conferences</title>
       <link>https://vladikk.com/page/speaking/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/page/speaking/</guid>
       <description>During the last few years I spoke at leading software engineering conferences, e.g. O&amp;rsquo;Reilly Software Architecture, NDC, DDD Europe, and more. My topics include Domain-Driven Design, microservices, TDD, modular design, evolutionary architecture, and software arechitecture in general.
 Feel free to reach out if you&amp;rsquo;d like me to speak at your conference or on-site event.
@@ -49,7 +49,7 @@ Recording: Youtube</description>
       <title>Consulting</title>
       <link>https://vladikk.com/page/consulting/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/page/consulting/</guid>
       <description>Consulting My core areas of expertise include domain-driven design, microservices, event sourcing, event storming, CQRS, and distributed systems. I can help you to:
  Develop a strategy for incremental refactoring of monolithic codebases into modular microservice-based systems Build an architectural strategy for a startup company Document and manage software architecture Align software architecture with business needs Recover business logic buried in legacy codebases Migrate legacy systems to cloud infrastructure  On-Site Training I can provide training adapted to your company&amp;rsquo;s needs.</description>
@@ -59,19 +59,45 @@ Recording: Youtube</description>
       <title>Contact Me</title>
       <link>https://vladikk.com/page/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/page/contact/</guid>
       <description>For any type of enquiry, you can contact me via either of the methods below:
  Email: vlad at khononov.com Twitter: @vladikk Github: vladikk Linkedin: Vlad Khononov  </description>
     </item>
     
     <item>
+      <title>Privacy Policy</title>
+      <link>https://vladikk.com/page/privacy-policy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/page/privacy-policy/</guid>
+      <description>Privacy Policy for vladikk.com
+Last Updated: 2024/09/30
+Welcome to vladikk.com (the “Blog”). This privacy policy explains how Vlad Khononov (“I”, “me”, or “my”) collects, uses, and protects your personal information when you visit and interact with the Blog.
+Information I Collect
+I collect personal information in the following ways:
+ Directly from You: If you voluntarily subscribe to my newsletter or leave a comment, I may collect information such as your name and email address.</description>
+    </item>
+    
+    <item>
       <title>Reading</title>
       <link>https://vladikk.com/page/reading/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/page/reading/</guid>
       <description>A More Beautiful Question: The Power of Inquiry to Spark Breakthrough Ideas The Goal: A Process of Ongoing ImprovementBeyond the Goal: Eliyahu Goldratt Speaks on the Theory of Constraints (Your Coach In A Box)The Choice, Revised EditionDomain-Driven Design: Tackling Complexity in the Heart of SoftwareImplementing Domain-Driven DesignScrum: The Art of Doing Twice the Work in Half the TimeFlow: Living at the Peak of Your AbilitiesThe Phoenix Project: A Novel About IT, DevOps, and Helping Your Business WinSapiens: A Brief History of HumankindThe Obstacle Is the Way: The Timeless Art of Turning Trials into TriumphSimple Rules: How to Thrive in a Complex WorldGetting to Yes: Negotiating Agreement Without Giving InBorn to Run: A Hidden Tribe, Superathletes, and the Greatest Race the World Has Never SeenThe Lean Startup: How Today&amp;rsquo;s Entrepreneurs Use Continuous Innovation to Create Radically Successful BusinessesBusiness Model Generation: A Handbook for Visionaries, Game Changers, and ChallengersDrive: The Surprising Truth About What Motivates UsEnterprise Integration Patterns: Designing, Building, and Deploying Messaging SolutionsWorking Effectively with Legacy CodePatterns of Enterprise Application ArchitectureThinking, Fast and Slow</description>
+    </item>
+    
+    <item>
+      <title>Terms of Use</title>
+      <link>https://vladikk.com/page/terms-of-use/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/page/terms-of-use/</guid>
+      <description>Last Updated: 2024/09/30
+Welcome to vladikk.com (the “Blog”). By accessing or using this Blog, you agree to comply with and be bound by these Terms of Use. If you do not agree to these terms, please do not use the Blog.
+Acceptance of Terms
+By accessing the Blog, you confirm that you are legally able to accept these Terms of Use and that you agree to follow them. These terms apply to all visitors and users of the Blog.</description>
     </item>
     
   </channel>

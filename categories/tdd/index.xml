@@ -6,8 +6,8 @@
     <description>Recent content in TDD on Vlad Khononov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>vladik@khononov.com (Vladik Khononov)</managingEditor>
-    <webMaster>vladik@khononov.com (Vladik Khononov)</webMaster>
+    <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
+    <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
     <lastBuildDate>Wed, 29 Jun 2016 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/categories/TDD/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
       <title>Finding Proper Scopes for Unit Tests</title>
       <link>https://vladikk.com/2016/06/29/test-scopes/</link>
       <pubDate>Wed, 29 Jun 2016 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2016/06/29/test-scopes/</guid>
       <description>&lt;p&gt;In my previous &lt;strike&gt;rant&lt;/strike&gt; &lt;a href=&#34;http://vladikk.com/2016/01/22/tdd-what-went-wrong/&#34;&gt;post on TDD&lt;/a&gt; I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.&lt;/p&gt;</description>
     </item>
@@ -26,7 +26,7 @@
       <title>TDD: What Went Wrong…Or Did It?</title>
       <link>https://vladikk.com/2016/01/22/tdd-what-went-wrong/</link>
       <pubDate>Fri, 22 Jan 2016 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vladik Khononov)</author>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2016/01/22/tdd-what-went-wrong/</guid>
       <description>&lt;p&gt;Test Driven Development has been praised by our industry&amp;rsquo;s aficionados for a long time. However, lately there have been many harsh words said towards TDD, as it’s being blamed for causing bad software design and not keeping many of its promises. This trend culminated in David Heinemeierhansson’s post &lt;a href=&#34;http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html&#34;&gt;“TDD is dead. Long live testing”&lt;/a&gt;.&lt;/p&gt;
 
