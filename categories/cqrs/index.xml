@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>CQRS on Vlad Khononov</title>
+    <title>CQRS on Vlad Rants on Software Design</title>
     <link>https://vladikk.com/categories/CQRS/</link>
-    <description>Recent content in CQRS on Vlad Khononov</description>
+    <description>Recent content in CQRS on Vlad Rants on Software Design</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
