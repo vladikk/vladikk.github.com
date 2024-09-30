@@ -27,21 +27,15 @@
           {{ end }}
         </ul>
         <p class="credits copyright text-muted">
-          {{ if .Site.Author.name }}
-            {{ if .Site.Author.website }}
-              <a href="{{ .Site.Author.website }}">{{ .Site.Author.name }}</a>
-            {{ else }}
-              {{ .Site.Author.name }}
-            {{ end }}
+          {{ if .Site.Title }}
+            <a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
+            &nbsp;&bull;&nbsp;
           {{ end }}
-
+          <a href="/page/terms-of-use">Terms of Use</a>
+          &nbsp;&bull;&nbsp;
+          <a href="/page/privacy-policy">Privacy Policy</a>
           &nbsp;&bull;&nbsp;
           {{ .Site.LastChange.Format "2006" }}
-
-          {{ if .Site.Title }}
-            &nbsp;&bull;&nbsp;
-            <a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
-          {{ end }}
         </p>
         <!-- Please don't remove this, keep my open source work credited :) -->
         <p class="credits theme-by text-muted">

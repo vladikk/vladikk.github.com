@@ -47,7 +47,7 @@ With this setup, you have clear ownership boundaries:
 * The SNS topic used for publishing messages belongs to the team in charge of the originating service (Producer).
 * The SQS queue used for consuming messages belongs to the team in charge of the subscribing service (Consumer).
 
-The separation of concerns between the two services is reflected in the system's architecture.
+The separation of concerns between the two services has to be reflected in the system's architecture.
 
 ## SNS + SQS: Simple EDA
 It is widely accepted that a microservice should enable access to its data through a well-defined public interface, while its database is considered an implementation detail and should be hidden from consumers. Such strict encapsulation of the persistence mechanism enables clearer ownership boundaries, more flexibility to evolve microservices, and much greater control over public interfaces.
