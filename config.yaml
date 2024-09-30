@@ -1,7 +1,7 @@
 baseURL: https://vladikk.com
 disablePathToLower: true
 languageCode: en-us
-title: Vlad Khononov
+title: Vlad Rants on Software Design
 theme: beautifulhugo
 DefaultContentLanguage: en
 pygmentsUseClasses: true
@@ -11,7 +11,7 @@ googleAnalytics: UA-40869819-1
 publishDir: ../blog-public
 unsafe: true
 Params:
-  subtitle: Rants on software design
+  subtitle: Vlad Khononov's personal blog
   logo: images/me-conf.jpg
   favicon: favicon.ico
   dateFormat: 'January 2, 2006'
