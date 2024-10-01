@@ -1,7 +1,7 @@
 baseURL: https://vladikk.com
 disablePathToLower: true
 languageCode: en-us
-title: Vlad Rants on Software Design
+title: Rants on Software Design
 theme: beautifulhugo
 DefaultContentLanguage: en
 pygmentsUseClasses: true
