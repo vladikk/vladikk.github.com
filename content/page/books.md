@@ -5,7 +5,7 @@ comments: false
 
 ### Balancing Coupling in Software Design (Pearson, 2024)
 
-[<img src="/images/bcisd.jpg" alt="" width="400"/>](https://www.amazon.com/Balancing-Coupling-Software-Design-Addison-Wesley-ebook/dp/B09RV3Z3TP/ref=sr_1_1)
+[<img src="/images/bcisd.jpg" alt="" width="400"/>](https://www.amazon.com/Balancing-Coupling-Software-Design-Addison-Wesley-ebook/dp/B09RV3Z3TP?crid=3KT021MCVOAHN&dib=eyJ2IjoiMSJ9.OFBJyeA-cqbOAdF36Oyf90R9pQz4DUP4ktypadnzmps1N-kYdFTQtxR9JSglNjDO.Gw00g3K9VOXa9faG_5MFuH0E4puSybPRa326yAOW_ls&dib_tag=se&keywords=balancing+coupling+in+software+design&qid=1728052868&sprefix=balancing+coupling+%2Caps%2C243&sr=8-1&linkCode=ll1&tag=vldkk-20&linkId=8206f6af7028ac19a6baa82f4084e5ad&language=en_US&ref_=as_li_ss_tl)
 
 **Learn How Coupling Impacts Every Software Design Decision You Make--and How to Control It**
 
@@ -24,7 +24,7 @@ With principles grounded in practice, Vlad teaches you not only to navigate the 
 * Illustrates the discussed principles with detailed examples based on real-life case studies
 
 ### Learning Domain-Driven Design (O'Reilly, 2021)
-[<img src="/images/lddd.jpg" alt="" width="400"/>](https://www.amazon.com/Learning-Domain-Driven-Design-Vlad-Khononov-ebook/dp/B09J2CMJZY/ref=sr_1_1)
+[<img src="/images/lddd.jpg" alt="" width="400"/>](https://www.amazon.com/Learning-Domain-Driven-Design-Vlad-Khononov-ebook/dp/B09J2CMJZY?crid=2ODEOUVT46GVQ&dib=eyJ2IjoiMSJ9.4uNlH2RE_QsdD4QJrBMD1nMyihhexVw0edsJ5ddGX7H1iQ_wT4_hRjhUISLJljlGJW3ioYqNZvkgKyG0qeUNAVIuikuptNuDj6U4YTAl3lr09I5IL1bi5kfKF3_XfiAbikl4xHXC9Zp3ZE39D4Wq5za8Bd-ZoR30fcxutiXgEuovJFxPH-slNFfhpJYUxK5pX4EOx_vdjzpl7A19vynm3INfDGjgj3IPybDW_dqyi50.tm_I6iF808SBzosex14kARa-yOlavI2W35tc596iMxo&dib_tag=se&keywords=learning+domain+driven+design&qid=1728052936&sprefix=learning+domain+d%2Caps%2C232&sr=8-1&linkCode=ll1&tag=vldkk-20&linkId=a9738e280361f285c33382e17e98ac16&language=en_US&ref_=as_li_ss_tl)
 
 Building software is harder than ever. As a developer, you not only have to chase ever-changing technological trends but also need to understand the business domains behind the software. This practical book provides you with a set of core patterns, principles, and practices for analyzing business domains, understanding business strategy, and, most importantly, aligning software design with its business needs.
 
