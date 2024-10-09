@@ -58,7 +58,7 @@ You’ll learn:
 * Patterns and techniques for implementing business logic and architecting solutions that deliver business goals
 * How to maintain and evolve both tactical and strategic designs over time
 
-"What is Domain-Driven Design" is available exlusively on [O'Reilly online learning platform](https://learning.oreilly.com/library/view/what-is-domain-driven/9781492057802/).
+*What is Domain-Driven Design* is available exlusively on [O'Reilly online learning platform](https://learning.oreilly.com/library/view/what-is-domain-driven/9781492057802/).
 
 ### Domain-Driven Design: The First 15 Years
 
