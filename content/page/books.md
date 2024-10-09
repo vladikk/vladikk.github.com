@@ -23,6 +23,8 @@ With principles grounded in practice, Vlad teaches you not only to navigate the 
 * Shows how to evolve design decisions to support continuous growth of software systems
 * Illustrates the discussed principles with detailed examples based on real-life case studies
 
+*Balancing Coupling in Software Design* is available on [Amazon](https://amzn.to/3BIIPyk), [InformIT](https://click.linksynergy.com/deeplink?id=XLXvHJZS*qY&mid=24808&murl=https%3A%2F%2Fwww.informit.com%2Fstore%2Fbalancing-coupling-in-software-design-universal-design-9780137353484), and other major book stores.
+
 ### Learning Domain-Driven Design (O'Reilly, 2021)
 [<img src="/images/lddd.jpg" alt="" width="400"/>](https://www.amazon.com/Learning-Domain-Driven-Design-Vlad-Khononov-ebook/dp/B09J2CMJZY?crid=2ODEOUVT46GVQ&dib=eyJ2IjoiMSJ9.4uNlH2RE_QsdD4QJrBMD1nMyihhexVw0edsJ5ddGX7H1iQ_wT4_hRjhUISLJljlGJW3ioYqNZvkgKyG0qeUNAVIuikuptNuDj6U4YTAl3lr09I5IL1bi5kfKF3_XfiAbikl4xHXC9Zp3ZE39D4Wq5za8Bd-ZoR30fcxutiXgEuovJFxPH-slNFfhpJYUxK5pX4EOx_vdjzpl7A19vynm3INfDGjgj3IPybDW_dqyi50.tm_I6iF808SBzosex14kARa-yOlavI2W35tc596iMxo&dib_tag=se&keywords=learning+domain+driven+design&qid=1728052936&sprefix=learning+domain+d%2Caps%2C232&sr=8-1&linkCode=ll1&tag=vldkk-20&linkId=a9738e280361f285c33382e17e98ac16&language=en_US&ref_=as_li_ss_tl)
 
@@ -38,6 +40,8 @@ With this book, you'll learn how to:
 * Decompose a system into bounded contexts
 * Coordinate the work of multiple teams
 * Gradually introduce DDD to brownfield projects
+
+*Learning Domain-Driven Design* is availalbe on [Amazon](https://amzn.to/3BH8PdO) and other major book stores.
 
 ### What is Domain-Driven Design? (O'Reilly, 2019)
 
