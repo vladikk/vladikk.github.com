@@ -5,7 +5,7 @@ keywords: learning domain-driven design, ddd, domain-driven design, o'reilly, co
 title: "Balancing Coupling in Software Design🎉"
 url: /2024/10/08/lddd-bcisd/
 draft: false
-categories: [Books, Architecture]
+categories: [Books, Architecture, Coupling]
 share_img: /images/lddd-three-years.png
 ---
 
