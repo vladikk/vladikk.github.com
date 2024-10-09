@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Books on Rants on Software Design</title>
-    <link>https://vladikk.com/categories/Books/</link>
-    <description>Recent content in Books on Rants on Software Design</description>
+    <title>Coupling on Rants on Software Design</title>
+    <link>https://vladikk.com/categories/Coupling/</link>
+    <description>Recent content in Coupling on Rants on Software Design</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
     <lastBuildDate>Wed, 09 Oct 2024 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://vladikk.com/categories/Books/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vladikk.com/categories/Coupling/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

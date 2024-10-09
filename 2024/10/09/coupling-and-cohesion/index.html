@@ -5,23 +5,36 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Rants on Software Design</title>
-  <meta property="og:title" content="Rants on Software Design" />
-  <meta name="twitter:title" content="Rants on Software Design" />
+  <title>The Essence of Coupling and Cohesion in Under 500 Words</title>
+  <meta property="og:title" content="The Essence of Coupling and Cohesion in Under 500 Words" />
+  <meta name="twitter:title" content="The Essence of Coupling and Cohesion in Under 500 Words" />
+  <meta name="description" content="
+
+When you couple two components, they need to share some form of knowledge: public interfaces, functional behavior, implementation details, or other types of information. Let’s call it the integration strength. The more knowledge is shared, the stronger the integration. The stronger the integration, the more both components will have to change together. Therefore, you should always look to minimize the integration strength. That said, minimizing integration strength isn’t always possible—sometimes, extensive shared knowledge is necessary. For example, when the components implement closely related business functionalities.
+
+Another important property of integrated components is the distance between them. For example, objects in a module are located closer to each other than the source code of two microservices. The greater the distance, the higher the induced cognitive load and coordination challenges, and the more effort is needed to change the integrated components simultaneously.">
+  <meta property="og:description" content="
+
+When you couple two components, they need to share some form of knowledge: public interfaces, functional behavior, implementation details, or other types of information. Let’s call it the integration strength. The more knowledge is shared, the stronger the integration. The stronger the integration, the more both components will have to change together. Therefore, you should always look to minimize the integration strength. That said, minimizing integration strength isn’t always possible—sometimes, extensive shared knowledge is necessary. For example, when the components implement closely related business functionalities.
+
+Another important property of integrated components is the distance between them. For example, objects in a module are located closer to each other than the source code of two microservices. The greater the distance, the higher the induced cognitive load and coordination challenges, and the more effort is needed to change the integrated components simultaneously.">
+  <meta name="twitter:description" content="
+
+When you couple two components, they need to share some form of knowledge: public interfaces, functional behavior, implementation details, or other types of information. Let’s call it the …">
   <meta name="author" content="Vlad Khononov"/>
   <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta property="og:image" content="https://vladikk.com/images/me-conf.jpg" />
-  <meta name="twitter:image" content="https://vladikk.com/images/me-conf.jpg" />
+  <meta property="og:image" content="https://vladikk.com/images/tug-of-war.png" />
+  <meta name="twitter:image" content="https://vladikk.com/images/tug-of-war.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@vladikk" />
   <meta name="twitter:creator" content="@vladikk" />
-  <meta property="og:url" content="https://vladikk.com/" />
+  <meta property="og:url" content="https://vladikk.com/2024/10/09/coupling-and-cohesion/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Rants on Software Design" />
 
   <meta name="generator" content="Hugo 0.56.3" />
-  <link rel="canonical" href="https://vladikk.com/" />
-  <link rel="alternate" href="https://vladikk.com/index.xml" type="application/rss+xml" title="Rants on Software Design">
+  <link rel="canonical" href="https://vladikk.com/2024/10/09/coupling-and-cohesion/" />
+  <link rel="alternate" href="" type="application/rss+xml" title="Rants on Software Design">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -29,7 +42,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
   <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
-  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> 
+  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="coupling, cohesion, software design, software architecture, microservices, software engineering, modularity, complexity, balancing coupling, balancing coupling in software design">
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
@@ -181,14 +194,17 @@ if (!doNotTrack) {
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
-              <h1>Rants on Software Design</h1>
+            <div class="post-heading">
+              <h1>The Essence of Coupling and Cohesion in Under 500 Words</h1>
                 
-                  
-                    <hr class="small">
-                    <span class="page-subheading">Vlad Khononov&#39;s personal blog</span>
-                  
                 
+                  <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on October 9, 2024
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 2 min (412 mots)
+  
+</span>
+
+
                 
             </div>
           </div>
@@ -199,228 +215,78 @@ if (!doNotTrack) {
 
 
     
-  <div role="main" class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><img src="/images/strength-and-distance.png" alt="Integration Strength and Distance" /></p>
+
+<p>When you couple two components, they need to share some form of knowledge: public interfaces, functional behavior, implementation details, or other types of information. Let’s call it the integration strength. The more knowledge is shared, the stronger the integration. The stronger the integration, the more both components will have to change together. Therefore, you should always look to minimize the integration strength. That said, minimizing integration strength isn’t always possible—sometimes, extensive shared knowledge is necessary. For example, when the components implement closely related business functionalities.</p>
+
+<p>Another important property of integrated components is the distance between them. For example, objects in a module are located closer to each other than the source code of two microservices. The greater the distance, the higher the induced cognitive load and coordination challenges, and the more effort is needed to change the integrated components simultaneously.</p>
+
+<p>Now let’s examine four extreme combinations of the two dimensions:</p>
+
+<p><strong>Low integration strength, high distance</strong>: High effort is needed to change the components simultaneously. On the other hand, the low integration strength minimizes the chances of such cascading changes. That’s loose coupling.</p>
+
+<p><strong>High integration strength, low distance</strong>: The components will have to co-evolve frequently because of the high knowledge they share. On the other hand, changing them simultaneously won’t require too much effort because of the low distance. We call this high cohesion.</p>
+
+<p><strong>High integration strength, high distance</strong>: Lots of cascading changes because of the high integration strength, and lots of effort is needed to take care of them. That’s tight coupling, and it’s no fun.</p>
+
+<p><strong>Low integration strength, low distance</strong>: In this scenario, the effort to make changes is low, but since the components don’t share much knowledge, cascading changes are rare. Unrelated components are packaged together, or in other words, that’s low cohesion.</p>
+
+<p>As you can see, both coupling and cohesion are driven by the same underlying phenomena: the knowledge components share and the distance between them. That’s the essence. If you understand one, you also understand the other. That’s why in my new book <em>Balancing Coupling in Software Design</em> I limited the discussion of cohesion and instead focused on modularity, complexity, and the underlying dimensions of coupling: integration strength, distance, and volatility.</p>
+
+<p>If you want to learn more about the levels and degrees of integration strength, technical and social factors affecting distance, and how volatility can trespass components’ boundaries—<em>Balancing Coupling in Software Design</em> is available in both print and digital formats on <a href="https://amzn.to/3BIIPyk">Amazon</a>, <a href="https://click.linksynergy.com/deeplink?id=XLXvHJZS*qY&amp;mid=24808&amp;murl=https%3A%2F%2Fwww.informit.com%2Fstore%2Fbalancing-coupling-in-software-design-universal-design-9780137353484">InformIT</a>, and other major book stores.</p>
+      </article>
+
+      <hr/>
+      <div id="share">
+      If you liked this post, please share it with your friends and colleagues:
+      <p><div class="addthis_inline_share_toolbox"></div></p>
+    </div>
+
+      <ul class="pager blog-pager">
         
-
-        <div class="posts-list">
-          
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2013/06/01/unicode-file-names-in-python/">
-                <h2 class="post-title">Unicode file names in Python 2.7</h2>
-                
-                
-              </a>
-
-              <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on June 1, 2013
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 1 min (154 mots)
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  <p>Today I wrote a small script to find and delete duplicate files. To do this task I needed to iterate over files in a specific folder, and calculate md5 checksum for each file:</p>
-
-<pre><code class="language-python">for folder, subs, files in os.walk(path):
-    for filename in files:
-        file_path = os.path.join(folder, filename)
-	        with open(file_path, 'rb') as fh:
-	        	...
-</code></pre>
-
-<p>If the source folder contains a file or a folder with unicode characters in it, execution of the code results in this bummer:</p>
-
-<pre><code class="language-text">IOError: [Errno 22] invalid mode ('rb') or filename: 'files\\????????? ????? ????????.txt'
-</code></pre>
-                  <a href="https://vladikk.com/2013/06/01/unicode-file-names-in-python/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2013/05/14/uncoupling-configuration-files/">
-                <h2 class="post-title">Uncoupling Configuration Files</h2>
-                
-                
-              </a>
-
-              <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on May 14, 2013
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 8 min (1574 mots)
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  <p>Tight coupling is a known source for inflexible and hard to test code. In this post I want to talk about a rather unexpected source of tight coupling - configuration files.
-Configuration files are external dependencies. As other external dependencies, its infrastructure may change in the future, and it should be easily mocked for unit testing. Modern software frameworks provide means for easy access to the values stored in configuration files. In the .NET framework configuration files can be accessed using the ConfigurationManager:</p>
-
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot;?&gt;
-&lt;configuration&gt;
-  &lt;appSettings&gt;
-    &lt;add key=&quot;Foo&quot; value=&quot;1&quot;/&gt;
-    &lt;add key=&quot;Bar&quot; value=&quot;2&quot;/&gt;
-  &lt;/appSettings&gt;
-&lt;/configuration&gt;
-</code></pre>
-
-<pre><code class="language-csharp">int foo = int.Parse(ConfigurationManager.AppSetttings[“Foo”]);
-int bar = int.Parse(ConfigurationManager.AppSettings[“Bar”]);
-</code></pre>
-
-<p>ConfigurationManager makes it trivial to access data in the config file, however in most cases it also introduces various code smells that make the code tight coupled and hard to test. In the next sections I’ll introduce a simple class and will use it to demonstrate the code smells and violations of principles of clean object oriented design. The code will be gradually refactored to a better and cleaner solution.</p>
-                  <a href="https://vladikk.com/2013/05/14/uncoupling-configuration-files/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/">
-                <h2 class="post-title">Learning From Mistakes: Leaky Abstractions</h2>
-                
-                
-              </a>
-
-              <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on October 15, 2012
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 2 min (275 mots)
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  <p>On the project I’m working on I’ve had a requirement to store and read files
-from the file system. Alse the files had to be accessible from the web.</p>
-
-<p>Having a gut feeling that the infrastructure may change as the business will
-grow, I decided to hide operations on the file system behind an interface:</p>
-
-<pre><code class="language-c#">public interface IFilesStorage {
-    string StoreFile(Stream stream, string fileName);
-    Stream GetFile(string virtualPath);
-    string GetFileUrl(string virtualPath);
-    string GetFilePath(string virtualPath);
-}
-</code></pre>
-
-<p>As it looks, if someday I’ll need to switch from the file
-system to another storage mechanism, I’ll be able to do get the
-job done by writing another implementation of the interface.
-Right? Wrong! The requirement did come in - I’ve had to store
-the files in S3. And only then I realised that IFilesStorage is
-a leaky abstraction.</p>
-                  <a href="https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2012/09/10/dependency-injection-patterns/">
-                <h2 class="post-title">Dependency Injection Patterns</h2>
-                
-                
-              </a>
-
-              <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on September 10, 2012
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 5 min (986 mots)
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  <p>Choosing the right pattern for implementing dependency injection is an important task and can affect your class’s usability and functionality. In this post I’ll overview 3 patterns of implementing dependency injection - constructor injection, property injection, builder (Joshua Bloch’s pattern, not GoF pattern).
-For demonstration purposes we will work with a class called TextTranslator, that requires 3 dependencies: TextReader, TranslationService and TextWriter:</p>
-
-<pre><code class="language-c#">public class TextTranslator
-{
-    protected TextReader textReader;
-    protected TranslationService translationService;
-    protected TextWriter textWriter;    
-}
-</code></pre>
-
-<p>The sample code will be written in C#, but the examples are applicable to Java and other object oriented languages.</p>
-                  <a href="https://vladikk.com/2012/09/10/dependency-injection-patterns/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2012/08/23/disposing-objects-created-by-di-container/">
-                <h2 class="post-title">Disposing Objects Created by DI Container</h2>
-                
-                
-              </a>
-
-              <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on August 23, 2012
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 2 min (351 mots)
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  <p>The general rule says that if you created an object, then it is your responsibility to dispose it. Things get a bit tricky when objects are created by a dependency injection container. The responsibility of containers is to construct objects and inject the dependencies they need. An error I’ve seen people doing again and again is to dispose objects that were injected into an object via constructor or property injection. Consider the class “Foo” that requires an instance of class “Bar”:</p>
-
-<pre><code class="language-c#">public class Foo : IDisposable {  
-    protected Bar bar;  
-    public Foo(Bar bar) {  
-        this.bar = bar;  
-    }  
-    public void Dispose() {  
-        bar.Dispose();  
-    }  
-}  
-
-public class Program {  
-    static void Main() {  
-        var foo = container.Resolve&lt;Foo&gt;();  
-        ...  
-        foo.Dispose();  
-    }  
-}  
-</code></pre>
-
-<p>The problem with this approach is that the “Foo” class will know too much about the environment it runs in. At least it will think it does. An instance of “Foo” can’t and shouldn’t know who passed in the instance of “Bar”, and what he intends to do with it after the instance of “Foo” will be disposed.</p>
-                  <a href="https://vladikk.com/2012/08/23/disposing-objects-created-by-di-container/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-            </article>
-          
-        </div>
-
+          <li class="previous">
+            <a href="https://vladikk.com/2024/10/08/lddd-bcisd/" data-toggle="tooltip" data-placement="top" title="Balancing Coupling in Software Design🎉">&larr; Previous Post</a>
+          </li>
         
-          <ul class="pager main-pager">
-            
-              <li class="previous">
-                <a href="/page/2/">&larr; Newer Posts</a>
-              </li>
-            
-            
-          </ul>
         
-      </div>
+      </ul>
+
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladikk-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+        
+      
+
     </div>
   </div>
+</div>
 
     <footer>
   <div class="container">
@@ -494,7 +360,7 @@ public class Program {
               </li>
           
           <li>
-            <a href="https://vladikk.com/index.xml" title="RSS">
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>

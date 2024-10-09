@@ -188,6 +188,27 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+              <a href="https://vladikk.com/2017/03/30/nifi-unicode/">
+                <h2 class="post-title">Apache NiFi: Enabling Unicode Support</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on March 30, 2017
+              </p>
+              <div class="post-entry">
+                
+                  <p>If you&rsquo;re using Apache NiFi to move data around, you might stumble upon Unicode characters turning into question marks. For example, the ExecuteSQL processor does that. To fix this you have to set JVM&rsquo;s default encoding to UTF-8.</p>
+                  <a href="https://vladikk.com/2017/03/30/nifi-unicode/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
               <a href="https://vladikk.com/2017/03/20/tackling-complexity-in-cqrs/">
                 <h2 class="post-title">Tackling Complexity in CQRS</h2>
 
@@ -405,39 +426,6 @@ In this post I want to talk about 3 misconceptions that might explain this pheno
 
 <p>The idea was born out of a need to generate a huge JSON file containing data from MSSQL database. After seeing our DBA struggling with formatting, escaping weird characters and unicode strings, I decided to write a small utility that will do just that - execute a sql query and capture its results as a json file.</p>
                   <a href="https://vladikk.com/2013/06/09/sql2json/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2013/06/01/unicode-file-names-in-python/">
-                <h2 class="post-title">Unicode file names in Python 2.7</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on June 1, 2013
-              </p>
-              <div class="post-entry">
-                
-                  <p>Today I wrote a small script to find and delete duplicate files. To do this task I needed to iterate over files in a specific folder, and calculate md5 checksum for each file:</p>
-
-<pre><code class="language-python">for folder, subs, files in os.walk(path):
-    for filename in files:
-        file_path = os.path.join(folder, filename)
-	        with open(file_path, 'rb') as fh:
-	        	...
-</code></pre>
-
-<p>If the source folder contains a file or a folder with unicode characters in it, execution of the code results in this bummer:</p>
-
-<pre><code class="language-text">IOError: [Errno 22] invalid mode ('rb') or filename: 'files\\????????? ????? ????????.txt'
-</code></pre>
-                  <a href="https://vladikk.com/2013/06/01/unicode-file-names-in-python/" class="post-read-more">[Read More]</a>
                 
               </div>
 

@@ -4,37 +4,48 @@
   
   <url>
     <loc>https://vladikk.com/categories/Architecture/</loc>
-    <lastmod>2024-10-08T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://vladikk.com/2024/10/08/lddd-bcisd/</loc>
-    <lastmod>2024-10-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://vladikk.com/categories/Books/</loc>
-    <lastmod>2024-10-08T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://vladikk.com/categories/</loc>
-    <lastmod>2024-10-08T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladikk.com/categories/Coupling/</loc>
+    <lastmod>2024-10-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://vladikk.com/post/</loc>
-    <lastmod>2024-10-08T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://vladikk.com/</loc>
-    <lastmod>2024-10-08T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladikk.com/2024/10/09/coupling-and-cohesion/</loc>
+    <lastmod>2024-10-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vladikk.com/2024/10/08/lddd-bcisd/</loc>
+    <lastmod>2024-10-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>

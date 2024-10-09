@@ -188,6 +188,39 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+              <a href="https://vladikk.com/2013/06/01/unicode-file-names-in-python/">
+                <h2 class="post-title">Unicode file names in Python 2.7</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on June 1, 2013
+              </p>
+              <div class="post-entry">
+                
+                  <p>Today I wrote a small script to find and delete duplicate files. To do this task I needed to iterate over files in a specific folder, and calculate md5 checksum for each file:</p>
+
+<pre><code class="language-python">for folder, subs, files in os.walk(path):
+    for filename in files:
+        file_path = os.path.join(folder, filename)
+	        with open(file_path, 'rb') as fh:
+	        	...
+</code></pre>
+
+<p>If the source folder contains a file or a folder with unicode characters in it, execution of the code results in this bummer:</p>
+
+<pre><code class="language-text">IOError: [Errno 22] invalid mode ('rb') or filename: 'files\\????????? ????? ????????.txt'
+</code></pre>
+                  <a href="https://vladikk.com/2013/06/01/unicode-file-names-in-python/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
               <a href="https://vladikk.com/2013/05/14/uncoupling-configuration-files/">
                 <h2 class="post-title">Uncoupling Configuration Files</h2>
 

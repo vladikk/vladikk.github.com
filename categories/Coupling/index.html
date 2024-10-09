@@ -5,9 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Posts</title>
-  <meta property="og:title" content="Posts" />
-  <meta name="twitter:title" content="Posts" />
+  <title>Coupling</title>
+  <meta property="og:title" content="Coupling" />
+  <meta name="twitter:title" content="Coupling" />
   <meta name="author" content="Vlad Khononov"/>
   <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://vladikk.com/images/me-conf.jpg" />
@@ -15,13 +15,13 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@vladikk" />
   <meta name="twitter:creator" content="@vladikk" />
-  <meta property="og:url" content="https://vladikk.com/post/" />
+  <meta property="og:url" content="https://vladikk.com/categories/Coupling/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Rants on Software Design" />
 
   <meta name="generator" content="Hugo 0.56.3" />
-  <link rel="canonical" href="https://vladikk.com/post/" />
-  <link rel="alternate" href="https://vladikk.com/post/index.xml" type="application/rss+xml" title="Rants on Software Design">
+  <link rel="canonical" href="https://vladikk.com/categories/Coupling/" />
+  <link rel="alternate" href="https://vladikk.com/categories/Coupling/index.xml" type="application/rss+xml" title="Rants on Software Design">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -171,7 +171,7 @@ if (!doNotTrack) {
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="page-heading">
-              <h1>Posts</h1>
+              <h1>#Coupling</h1>
               <hr class="small">
             </div>
           </div>
@@ -237,215 +237,7 @@ if (!doNotTrack) {
 
             </article>
           
-            <article class="post-preview">
-              <a href="https://vladikk.com/2024/09/28/aws-eda/">
-                <h2 class="post-title">Event-Driven Architecture on AWS: The Basics</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on September 28, 2024
-              </p>
-              <div class="post-entry">
-                
-                  <p>The abundance of services provided by AWS often makes it possible to implement the same functionality in different ways. In the case of messaging systems, AWS offers services such as Simple Notification Service (SNS), Simple Queue Service (SQS), EventBridge, Kinesis, and Managed Streaming for Apache Kafka (MSK). It may seem that at least a subset of these services duplicates the same functionality. In this post, I want to describe my go-to architecture and explain why, in my opinion, it is the simplest, most cost-effective, and robust solution for the majority of cases.</p>
-
-<h2 id="event-driven-architecture">Event-Driven Architecture</h2>
-
-<p>Components of an event-driven system communicate by publishing and subscribing to events. The asynchronous integration offers significant non-functional advantages. For example, it decouples the integrated components’ lifecycles. To a certain degree, the system can keep functioning even in the face of unavailability of some of its services, thus also reducing the coordination overhead needed to deploy updated components, and to evolve the system.</p>
-
-<p>A basic event-driven integration is comprised of two parts: a component of the system can publish events describing important occurrences in its lifecycle, and it can react (subscribe) to events published by other parts of the system. Let’s see what managed services we can leverage for implementing this.</p>
-                  <a href="https://vladikk.com/2024/09/28/aws-eda/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2020/04/09/untangling-microservices/">
-                <h2 class="post-title">Untangling Microservices, or Balancing Complexity in Distributed Systems</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on April 9, 2020
-              </p>
-              <div class="post-entry">
-                
-                  <p><img src="/images/untangling-microservices/header.png" alt="Untangling Microservices, or Balancing Complexity in Distributed Systems" /></p>
-
-<p>The microservices honeymoon period is over. Uber is refactoring thousands of microservices into a more manageable solution [1]; Kelsey Hightower is predicting monoliths are the future [2]; and even Sam Newman is declaring that microservices should never be the default choice, but rather a last resort [3].</p>
-
-<p>What&rsquo;s going on here? Why have so many projects become unmaintainable, despite microservices’ promise of simplicity and flexibility? Or are monoliths better, after all?</p>
-
-<p>In this post, I want to address these questions. You will learn about common design issues that turn microservices into distributed big balls of mud – and, of course, how you can avoid them.</p>
-                  <a href="https://vladikk.com/2020/04/09/untangling-microservices/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2019/04/18/optimistic-consistency/">
-                <h2 class="post-title">Anti-Pattern: Optimistic Consistency</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on April 18, 2019
-              </p>
-              <div class="post-entry">
-                
-                  Ladies and Gentlemen, lo and behold a new consistency model - “Optimistic Consistency”. Implementation of this pattern is quite simple: commit as many transactions as you want, against as many storage mechanisms as you need. That’s all. Let’s see an example.
-Example Say as the result of some user’s operation the system has to:
- Modify data in MongoDB Publish some events to Kafka Update search model in Elasticsearch; and Execute an operation on some remote system  You implement this logic by executing those operations one after another.
-                  <a href="https://vladikk.com/2019/04/18/optimistic-consistency/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2019/01/29/zen-software-engineering/">
-                <h2 class="post-title">Zen of Software Engineering</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on January 29, 2019
-              </p>
-              <div class="post-entry">
-                
-                  There is a pet peeve of mine, that I’m encountering way too often: the condition I call Silverbulletitis. This virus spreads among developers on many levels — juniors, seniors, and even architects. In this post I’d like talk about why this condition is dangerous, and how it can be treated.
-Symptoms All too often you can hear statements that some tool or technique is bad, but another one is the greatest thing since sliced bread.
-                  <a href="https://vladikk.com/2019/01/29/zen-software-engineering/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2018/03/28/ios-apn-bug/">
-                <h2 class="post-title">IOS 11: Fixing APN Configuration Issues</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on March 28, 2018
-              </p>
-              <div class="post-entry">
-                
-                  So a few days ago I’ve decided to move to another cellular carrier. I pushed the new sim-card in, and got greeted with “Could not activate cellular data network”. First instinct was to install the new carrier’s APN configuration profile, but this resulted in another bummer: “Only one APN configuration can be installed at a time”. Ok, so I have to delete the previous carrier’s profile. Settings -&gt; General -&gt; Profiles …and there weren’t any profiles: “No profiles are currently installed”.
-                  <a href="https://vladikk.com/2018/03/28/ios-apn-bug/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2018/02/28/microservices/">
-                <h2 class="post-title">Tackling Complexity in Microservices</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on February 28, 2018
-              </p>
-              <div class="post-entry">
-                
-                  <p><img src="/images/microservices/title-img.jpg" alt="Tackling Complexity in Microservices" /></p>
-
-<p>Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Unfortunately, many of them ended up worse off than they were before - in the realm of distributed monoliths. Why?</p>
-
-<blockquote>
-<p>“If I had an hour to solve a problem I&rsquo;d spend 55 minutes thinking about  the problem and 5 minutes thinking about solutions” - Albert Einstein</p>
-</blockquote>
-
-<p>In my opinion, this quote is the key to solving most of the issues we have when designing microservices-based systems. We rush into solutions without ensuring we know what exactly a microservice is. In this post, I’d like to take a stab at answering this question.</p>
-                  <a href="https://vladikk.com/2018/02/28/microservices/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/">
-                <h2 class="post-title">Revisiting the Basics of Domain-Driven Design</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on January 26, 2018
-              </p>
-              <div class="post-entry">
-                
-                  <p><img src="/images/domains/title-img.jpg" alt="Revisiting the Basics of Domain-Driven Design" /></p>
-
-<p>I have quite a few friends in the DDD community. Fortunately, or not, we always tend to disagree on the definitions of such basic terms as Domains and Subdomains. In this post, I want to think aloud and outline my thoughts on the subject.</p>
-
-<h2 id="disclaimer">Disclaimer</h2>
-
-<p>As I just said, some of the things I’m about to write are my opinion only. Many of you might disagree with some of them. Hey – the last time we spoke about it, Eric and Vaughn were not fans of my theory. But, nevertheless, it is based on my 7-year long DDD journey at our company, and it works for me. I believe it might work for you as well.</p>
-                  <a href="https://vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2018/01/21/bounded-contexts-vs-microservices/">
-                <h2 class="post-title">Bounded Contexts are NOT Microservices</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on January 21, 2018
-              </p>
-              <div class="post-entry">
-                
-                  <p><img src="/images/bc-ms/rebel-scum.jpg" alt="Rebel scum" /></p>
-
-<p>I’ve always considered Domain-Driven Design’s Bounded Context as a guideline for defining the boundaries of Microservices. I was wrong. Not only is this heuristic flawed, but Bounded Contexts are the exact opposite of Microservices! To explain this point of view, I’ll start with a quick refresh of what Bounded Contexts are; then I’ll discuss the relationship between Bounded Contexts and Microservices.</p>
-                  <a href="https://vladikk.com/2018/01/21/bounded-contexts-vs-microservices/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
         </div>
-        
-          <ul class="pager main-pager">
-            
-            
-              <li class="next">
-                <a href="/post/page/2/">Older Posts &rarr;</a>
-              </li>
-            
-          </ul>
         
       </div>
     </div>
@@ -523,7 +315,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
               </li>
           
           <li>
-            <a href="https://vladikk.com/post/index.xml" title="RSS">
+            <a href="https://vladikk.com/categories/Coupling/index.xml" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
