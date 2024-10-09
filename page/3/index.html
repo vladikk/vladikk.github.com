@@ -92,6 +92,7 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
+
 </head>
 
   <body>
@@ -205,6 +206,46 @@ if (!doNotTrack) {
 
         <div class="posts-list">
           
+          
+            <article class="post-preview">
+              <a href="https://vladikk.com/2013/05/14/uncoupling-configuration-files/">
+                <h2 class="post-title">Uncoupling Configuration Files</h2>
+                
+                
+              </a>
+
+              <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on May 14, 2013
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 8 min (1574 mots)
+  
+</span>
+
+
+              <div class="post-entry">
+                
+                  <p>Tight coupling is a known source for inflexible and hard to test code. In this post I want to talk about a rather unexpected source of tight coupling - configuration files.
+Configuration files are external dependencies. As other external dependencies, its infrastructure may change in the future, and it should be easily mocked for unit testing. Modern software frameworks provide means for easy access to the values stored in configuration files. In the .NET framework configuration files can be accessed using the ConfigurationManager:</p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;configuration&gt;
+  &lt;appSettings&gt;
+    &lt;add key=&quot;Foo&quot; value=&quot;1&quot;/&gt;
+    &lt;add key=&quot;Bar&quot; value=&quot;2&quot;/&gt;
+  &lt;/appSettings&gt;
+&lt;/configuration&gt;
+</code></pre>
+
+<pre><code class="language-csharp">int foo = int.Parse(ConfigurationManager.AppSetttings[“Foo”]);
+int bar = int.Parse(ConfigurationManager.AppSettings[“Bar”]);
+</code></pre>
+
+<p>ConfigurationManager makes it trivial to access data in the config file, however in most cases it also introduces various code smells that make the code tight coupled and hard to test. In the next sections I’ll introduce a simple class and will use it to demonstrate the code smells and violations of principles of clean object oriented design. The code will be gradually refactored to a better and cleaner solution.</p>
+                  <a href="https://vladikk.com/2013/05/14/uncoupling-configuration-files/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+            </article>
           
             <article class="post-preview">
               <a href="https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/">

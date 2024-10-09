@@ -92,6 +92,7 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
+
 </head>
 
   <body>
@@ -205,6 +206,40 @@ if (!doNotTrack) {
 
         <div class="posts-list">
           
+          
+            <article class="post-preview">
+              <a href="https://vladikk.com/2017/03/20/tackling-complexity-in-cqrs/">
+                <h2 class="post-title">Tackling Complexity in CQRS</h2>
+                
+                
+              </a>
+
+              <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on March 20, 2017
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 8 min (1578 mots)
+  
+</span>
+
+
+              <div class="post-entry">
+                
+                  <p><img src="/images/cqrs/title-img.jpg" alt="Tackling Complexity in CQRS" /></p>
+
+<p>The CQRS pattern can do wonders: it can maximize scalability, performance, security, and even <a href="http://codebetter.com/gregyoung/2010/02/20/cqrs-and-cap-theorem/">“beat” the CAP theorem</a>. Nonetheless, CQRS has acquired a controversial name because of the complexity it introduces. For instance, <a href="https://martinfowler.com/bliki/CQRS.html">in his article on CQRS</a>, Martin Fowler argues that the pattern should be applied sparingly and even cautiously:</p>
+
+<ul>
+<li>“… for most systems CQRS adds risky complexity”</li>
+<li>“… you should be very cautious about using CQRS”</li>
+<li>“So while CQRS is a pattern that&rsquo;s good to have in the toolbox, beware that it is difficult to use well and you can easily chop off important bits if you mishandle it.”</li>
+</ul>
+
+<p>From my point of view, the CQRS-induced complexity is largely accidental, and thus can be avoided. To illustrate my point, I want to discuss the goal of CQRS, and then analyze 3 common sources of accidental complexity in CQRS-based systems.</p>
+                  <a href="https://vladikk.com/2017/03/20/tackling-complexity-in-cqrs/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+            </article>
           
             <article class="post-preview">
               <a href="https://vladikk.com/2016/06/29/test-scopes/">
@@ -454,46 +489,6 @@ In this post I want to talk about 3 misconceptions that might explain this pheno
 <pre><code class="language-text">IOError: [Errno 22] invalid mode ('rb') or filename: 'files\\????????? ????? ????????.txt'
 </code></pre>
                   <a href="https://vladikk.com/2013/06/01/unicode-file-names-in-python/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2013/05/14/uncoupling-configuration-files/">
-                <h2 class="post-title">Uncoupling Configuration Files</h2>
-                
-                
-              </a>
-
-              <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on May 14, 2013
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 8 min (1574 mots)
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  <p>Tight coupling is a known source for inflexible and hard to test code. In this post I want to talk about a rather unexpected source of tight coupling - configuration files.
-Configuration files are external dependencies. As other external dependencies, its infrastructure may change in the future, and it should be easily mocked for unit testing. Modern software frameworks provide means for easy access to the values stored in configuration files. In the .NET framework configuration files can be accessed using the ConfigurationManager:</p>
-
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot;?&gt;
-&lt;configuration&gt;
-  &lt;appSettings&gt;
-    &lt;add key=&quot;Foo&quot; value=&quot;1&quot;/&gt;
-    &lt;add key=&quot;Bar&quot; value=&quot;2&quot;/&gt;
-  &lt;/appSettings&gt;
-&lt;/configuration&gt;
-</code></pre>
-
-<pre><code class="language-csharp">int foo = int.Parse(ConfigurationManager.AppSetttings[“Foo”]);
-int bar = int.Parse(ConfigurationManager.AppSettings[“Bar”]);
-</code></pre>
-
-<p>ConfigurationManager makes it trivial to access data in the config file, however in most cases it also introduces various code smells that make the code tight coupled and hard to test. In the next sections I’ll introduce a simple class and will use it to demonstrate the code smells and violations of principles of clean object oriented design. The code will be gradually refactored to a better and cleaner solution.</p>
-                  <a href="https://vladikk.com/2013/05/14/uncoupling-configuration-files/" class="post-read-more">[Read More]</a>
                 
               </div>
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Books on Rants on Software Design</title>
+    <link>https://vladikk.com/categories/Books/</link>
+    <description>Recent content in Books on Rants on Software Design</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
+    <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
+    <lastBuildDate>Tue, 08 Oct 2024 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://vladikk.com/categories/Books/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Balancing Coupling in Software Design🎉</title>
+      <link>https://vladikk.com/2024/10/08/lddd-bcisd/</link>
+      <pubDate>Tue, 08 Oct 2024 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/2024/10/08/lddd-bcisd/</guid>
+      <description>&lt;p&gt;Frist of all, today is the 🐒 book’s birthday! 🎉&lt;/p&gt;
+
+&lt;p&gt;Exactly three years ago, &lt;i&gt;Learning Domain-Driven Design&lt;/i&gt; was published! And what a birthday present the monkey received: today marks the official release of &lt;i&gt;Balancing Coupling in Software Design&lt;/i&gt;! The new book is available in print and electronic formats on &lt;a href=&#34;https://amzn.to/3BIIPyk&#34;&gt;Amazon&lt;/a&gt;, &lt;a href=&#34;https://click.linksynergy.com/deeplink?id=XLXvHJZS*qY&amp;amp;mid=24808&amp;amp;murl=https%3A%2F%2Fwww.informit.com%2Fstore%2Fbalancing-coupling-in-software-design-universal-design-9780137353484&#34;&gt;InformIT&lt;/a&gt;, and other major book stores 🎉&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/lddd-three-years.png&#34; alt=&#34;Learning Domain-Driven Design&#39;s third anniversary&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
