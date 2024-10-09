@@ -53,10 +53,10 @@ You’ll discover how to explore, analyze, and model your company’s business d
 
 You’ll learn:
 
-Key domain-driven design concepts, including ubiquitous language and bounded contexts
-How to employ “event storming” to streamline the process of discovering domain knowledge and building a ubiquitous language
-Patterns and techniques for implementing business logic and architecting solutions that deliver business goals
-How to maintain and evolve both tactical and strategic designs over time
+* Key domain-driven design concepts, including ubiquitous language and bounded contexts
+* How to employ “event storming” to streamline the process of discovering domain knowledge and building a ubiquitous language
+* Patterns and techniques for implementing business logic and architecting solutions that deliver business goals
+* How to maintain and evolve both tactical and strategic designs over time
 
 "What is Domain-Driven Design" is available exlusively on [O'Reilly online learning platform](https://learning.oreilly.com/library/view/what-is-domain-driven/9781492057802/).
 
