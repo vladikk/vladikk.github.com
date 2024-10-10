@@ -23,7 +23,9 @@
 
 &lt;p&gt;When you couple two components, they need to share some form of knowledge: public interfaces, functional behavior, implementation details, or other types of information. Let’s call it the integration strength. The more knowledge is shared, the stronger the integration. The stronger the integration, the more both components will have to change together. Therefore, you should always look to minimize the integration strength. That said, minimizing integration strength isn’t always possible—sometimes, extensive shared knowledge is necessary. For example, when the components implement closely related business functionalities.&lt;/p&gt;
 
-&lt;p&gt;Another important property of integrated components is the distance between them. For example, objects in a module are located closer to each other than the source code of two microservices. The greater the distance, the higher the induced cognitive load and coordination challenges, and the more effort is needed to change the integrated components simultaneously.&lt;/p&gt;</description>
+&lt;p&gt;Another important property of integrated components is the distance between them. For example, objects in a module are located closer to each other than the source code of two microservices. The greater the distance, the higher the induced cognitive load and coordination challenges, and the more effort is needed to change the integrated components simultaneously.&lt;/p&gt;
+
+&lt;p&gt;Now let’s examine four extreme combinations of the two dimensions:&lt;/p&gt;</description>
     </item>
     
     <item>
