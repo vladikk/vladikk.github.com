@@ -15,10 +15,8 @@ When you couple two components, they need to share some form of knowledge: publi
 
 Another important property of integrated components is the distance between them. For example, objects in a module are located closer to each other than the source code of two microservices. The greater the distance, the higher the induced cognitive load and coordination challenges, and the more effort is needed to change the integrated components simultaneously.
 
-<!--more-->
-
 Now let’s examine four extreme combinations of the two dimensions:
-
+<!--more-->
 **Low integration strength, high distance**: High effort is needed to change the components simultaneously. On the other hand, the low integration strength minimizes the chances of such cascading changes. That’s loose coupling.
 
 **High integration strength, low distance**: The components will have to co-evolve frequently because of the high knowledge they share. On the other hand, changing them simultaneously won’t require too much effort because of the low distance. We call this high cohesion.
@@ -26,6 +24,8 @@ Now let’s examine four extreme combinations of the two dimensions:
 **High integration strength, high distance**: Lots of cascading changes because of the high integration strength, and lots of effort is needed to take care of them. That’s tight coupling, and it’s no fun.
 
 **Low integration strength, low distance**: In this scenario, the effort to make changes is low, but since the components don’t share much knowledge, cascading changes are rare. Unrelated components are packaged together, or in other words, that’s low cohesion.
+
+<img src="/images/strength-distance-combinations.png" alt="Combinations of Integration Strength and Distance" />
 
 As you can see, both coupling and cohesion are driven by the same underlying phenomena: the knowledge components share and the distance between them. That’s the essence. If you understand one, you also understand the other. That’s why in my new book *Balancing Coupling in Software Design* I limited the discussion of cohesion and instead focused on modularity, complexity, and the underlying dimensions of coupling: integration strength, distance, and volatility.
 
