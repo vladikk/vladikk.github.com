@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Event-Driven Architecture on AWS, Part II: The Advanced Basics</title>
+  <meta property="og:title" content="Event-Driven Architecture on AWS, Part II: The Advanced Basics" />
+  <meta name="twitter:title" content="Event-Driven Architecture on AWS, Part II: The Advanced Basics" />
+  <meta name="description" content="In my previous post, I discussed the basic building blocks for implementing event-driven architecture (EDA) using AWS managed services. This post is about the advanced basics. It’s advanced because, based on my consulting experience, very few companies apply the practices I want to discuss. However, I still consider this as basics because these practices are not optional but essential for implementing reliable messaging-based systems.
+
+Although the examples in this post use AWS services, the material applies to any system, regardless of the infrastructure it runs on. The implementation might differ, but the underlying principles remain the same.
+
+Since this post is about a pattern—and patterns, by definition, are repeatable solutions to commonly occurring problems—I want to begin by discussing a commonly overlooked problem in EDA-based systems.
+
+The Problem
+
+In the previous post, I suggested using AWS SNS for publishing messages in an event-driven system. Here’s a common example of how such publishing is carried out:
+
+...
+
+sns.publish(
+    TopicArn=users_topic_arn,
+    Message=json.dumps({
+        &#39;event_type&#39;: &#39;user_registered&#39;,
+        &#39;event_id&#39;: str(uuid.uuid4()),
+        &#39;user_id&#39;: &#39;USER12345&#39;,
+        &#39;name&#39;: &#39;John Doe&#39;,
+        &#39;email&#39;: &#39;john.doe@example.com&#39;,
+        &#39;source&#39;: &#39;mobile_app&#39;,
+        &#39;registration_date&#39;: &#39;2024-10-11T20:01:00Z&#39;
+    })
+)
+
+...
+
+
+In the above example, an event of type user_registered is published to an SNS topic. But did that event come from thin air? Is that all services do, just publish messages? Of course not. The event is part of a larger business process that typically involves updating some state in an operational database before notifying external components about it. A more accurate representation of this process would look like this:">
+  <meta property="og:description" content="In my previous post, I discussed the basic building blocks for implementing event-driven architecture (EDA) using AWS managed services. This post is about the advanced basics. It’s advanced because, based on my consulting experience, very few companies apply the practices I want to discuss. However, I still consider this as basics because these practices are not optional but essential for implementing reliable messaging-based systems.
+
+Although the examples in this post use AWS services, the material applies to any system, regardless of the infrastructure it runs on. The implementation might differ, but the underlying principles remain the same.
+
+Since this post is about a pattern—and patterns, by definition, are repeatable solutions to commonly occurring problems—I want to begin by discussing a commonly overlooked problem in EDA-based systems.
+
+The Problem
+
+In the previous post, I suggested using AWS SNS for publishing messages in an event-driven system. Here’s a common example of how such publishing is carried out:
+
+...
+
+sns.publish(
+    TopicArn=users_topic_arn,
+    Message=json.dumps({
+        &#39;event_type&#39;: &#39;user_registered&#39;,
+        &#39;event_id&#39;: str(uuid.uuid4()),
+        &#39;user_id&#39;: &#39;USER12345&#39;,
+        &#39;name&#39;: &#39;John Doe&#39;,
+        &#39;email&#39;: &#39;john.doe@example.com&#39;,
+        &#39;source&#39;: &#39;mobile_app&#39;,
+        &#39;registration_date&#39;: &#39;2024-10-11T20:01:00Z&#39;
+    })
+)
+
+...
+
+
+In the above example, an event of type user_registered is published to an SNS topic. But did that event come from thin air? Is that all services do, just publish messages? Of course not. The event is part of a larger business process that typically involves updating some state in an operational database before notifying external components about it. A more accurate representation of this process would look like this:">
+  <meta name="twitter:description" content="In my previous post, I discussed the basic building blocks for implementing event-driven architecture (EDA) using AWS managed services. This post is about the advanced basics. It’s advanced because, …">
+  <meta name="author" content="Vlad Khononov"/>
+  <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://vladikk.com/images/aws-eda-2/fig-2.png" />
+  <meta name="twitter:image" content="https://vladikk.com/images/aws-eda-2/fig-2.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@vladikk" />
+  <meta name="twitter:creator" content="@vladikk" />
+  <meta property="og:url" content="https://vladikk.com/2024/10/12/aws-eda-ii/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Rants on Software Design" />
+
+  <meta name="generator" content="Hugo 0.56.3" />
+  <link rel="canonical" href="https://vladikk.com/2024/10/12/aws-eda-ii/" />
+  <link rel="alternate" href="" type="application/rss+xml" title="Rants on Software Design">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://vladikk.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
+  <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="outbox, aws, eda, event-driven architecture, sns, sqs, kafka, msk, kinesis, microservices, event-driven, architecture, design principles, engineering, design, software, architecture">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-40869819-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://vladikk.com">Rants on Software Design</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Conferences" href="/page/speaking/">Conferences</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Books" href="/page/books/">Books</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Consulting" href="/page/consulting">Consulting</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About &amp; Contact" href="/page/about/">About &amp; Contact</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Rants on Software Design" href="https://vladikk.com">
+            <img class="avatar-img" src="https://vladikk.com/images/me-conf.jpg" alt="Rants on Software Design" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Event-Driven Architecture on AWS, Part II: The Advanced Basics</h1>
+                
+                
+                  <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on October 12, 2024
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 6 min (1108 mots)
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>In my <a href="/2024/09/28/aws-eda/">previous post</a>, I discussed the basic building blocks for implementing event-driven architecture (EDA) using AWS managed services. This post is about the <em>advanced</em> basics. It’s advanced because, based on my consulting experience, very few companies apply the practices I want to discuss. However, I still consider this as basics because these practices are not optional but essential for implementing reliable messaging-based systems.</p>
+
+<p>Although the examples in this post use AWS services, the material applies to any system, regardless of the infrastructure it runs on. The implementation might differ, but the underlying principles remain the same.</p>
+
+<p>Since this post is about a pattern—and patterns, by definition, are repeatable solutions to commonly occurring problems—I want to begin by discussing a commonly overlooked problem in EDA-based systems.</p>
+
+<h2 id="the-problem">The Problem</h2>
+
+<p>In the previous post, I suggested using AWS SNS for publishing messages in an event-driven system. Here’s a common example of how such publishing is carried out:</p>
+
+<pre><code class="language-python">...
+
+sns.publish(
+    TopicArn=users_topic_arn,
+    Message=json.dumps({
+        'event_type': 'user_registered',
+        'event_id': str(uuid.uuid4()),
+        'user_id': 'USER12345',
+        'name': 'John Doe',
+        'email': 'john.doe@example.com',
+        'source': 'mobile_app',
+        'registration_date': '2024-10-11T20:01:00Z'
+    })
+)
+
+...
+</code></pre>
+
+<p>In the above example, an event of type <code>user_registered</code> is published to an SNS topic. But did that event come from thin air? Is that all services do, just publish messages? Of course not. The event is part of a larger business process that typically involves updating some state in an operational database before notifying external components about it. A more accurate representation of this process would look like this:</p>
+
+<pre><code class="language-python">...
+
+# Persist state changes
+users_table.put_item(
+    Item={
+        'user_id': user_id,
+        'name': name,
+        'password_hash': password_hash,
+        'email': email,
+        'source': source,
+        'registration_date': registration_date,
+        'created_at': datetime.utcnow().isoformat()
+    }
+)
+
+# Publish corresponding events
+sns.publish(
+    TopicArn=users_topic_arn,
+    Message=json.dumps({
+        'event_type': 'user_registered',
+        'event_id': str(uuid.uuid4()),
+        'user_id': user_id,
+        'name': name,
+        'email': email,
+        'source': source,
+        'registration_date': registration_date
+    })
+)
+
+...
+</code></pre>
+
+<p>First, the new user is persisted, and then a notification is published. While this code seems straightforward, consider these three questions:</p>
+
+<ol>
+<li>What can go wrong here?</li>
+<li>What are the implications of that?</li>
+<li>Can you say this code is reliable?</li>
+</ol>
+
+<p>Please, pause and ponder the questions before reading further.</p>
+
+<p>Okay, let’s compare our answers.</p>
+
+<p>If something goes wrong between writing to the database and publishing the message, the system will end up in an inconsistent state. The user might receive an error, assuming the whole operation failed, but the record will have been created in the database. However, the subscribers to the <code>user_registered</code> event won’t be notified because the message wasn’t published. Why could this happen? The server could restart, the Lambda could time out, network partitions could occur, or a myriad of other reasons—especially in the cloud.</p>
+
+<p>Consistency of an event-driven system depends on its ability to reliably deliver messages across its components. That’s not the case here. Despite the apparent simplicity, the code above is not reliable.</p>
+
+<p>So what should we do about it? Can we wrap writing to the database and publishing an event in an atomic transaction? Nope. In the past, there were attempts at doing that (e.g., DTC), but that didn’t end well. <a href="https://en.wikipedia.org/wiki/Two-phase_commit_protocol">Two-phase commit</a>? Not going to help either, as it suffers from similar failure conditions.</p>
+
+<p>The reliable solution is to turn two transactions into a single one. How? Let’s talk about the outbox pattern.</p>
+
+<h2 id="the-solution-outbox">The Solution: Outbox</h2>
+
+<p>The idea behind the outbox pattern is quite simple. First, you persist both the state changes and the outgoing messages to the operational database in a single atomic transaction. Either both succeed or both fail, never in between. Then, an external mechanism—publishing relay—fetches the committed messages and <em>asynchronously</em> publishes them to a message bus.</p>
+
+<p><img src="/images/aws-eda-2/fig-1.png" alt="The outbox pattern" />
+<em>Figure 1: The outbox pattern</em></p>
+
+<h3 id="implementation-general">Implementation: General</h3>
+
+<p>There is no one-size-fits-all way to implement the outbox pattern. The realization details depend on the technological stack in use, primarily on the database.</p>
+
+<p>First, the database dictates the means you have (or don’t have) to commit the updated data and the outgoing messages in an atomic transaction. If it supports multi-table transactions (e.g., relational databases, DynamoDB, etc.), you can persist the messages in a dedicated table, usually called “outbox.” If it doesn’t, both the updated state and the messages have to be persisted in a single record.</p>
+
+<p>Second, you need a reliable way of fetching the persisted messages. Some databases enable the push model: the database itself has means of calling the publishing relay and passing the new messages. For example, Lambda triggers in DynamoDB or a <a href="https://en.wikipedia.org/wiki/Change_data_capture">change data capture (CDC)</a> mechanism in relational databases.</p>
+
+<p>Ultimately, the way you persist and fetch messages defines how you are going to ensure that the same message won’t be picked up and re-published unnecessarily.</p>
+
+<h3 id="implementation-example">Implementation: Example</h3>
+
+<p>Let’s go back to the example I started with. Since the code uses DynamoDB, the easiest way to implement the outbox pattern in this case would be to leverage its ability to perform multi-table transactions and append the outgoing events to a dedicated table:</p>
+
+<pre><code class="language-python">...
+
+with dynamodb.meta.client.transact_write_items(
+    TransactItems=[
+        {
+            'Put': {
+                'TableName': users_table.name,
+                'Item': {
+                    'user_id': user_id,
+                    'name': name,
+                    'password_hash': password_hash,
+                    'email': email,
+                    'source': source,
+                    'registration_date': registration_date,
+                    'created_at': datetime.utcnow().isoformat()
+                }
+            }
+        },
+        {
+            'Put': {
+                'TableName': outbox_table.name,
+                'Item': {
+                    'event_id': event_id,
+                    'data': {
+                        'event_type': 'user_registered',
+                        'event_id': event_id,
+                        'user_id': user_id,
+                        'name': name,
+                        'email': email,
+                        'source': source,
+                        'registration_date': registration_date
+                    }
+                }
+            }
+        }
+    ]
+)
+
+...
+</code></pre>
+
+<p>Next, we have to decide how to actually publish the events to the SNS topic. The simplest solution is to use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html">DynamoDB Streams</a> on the outbox table to trigger a Lambda function for each new record and publish its events to the SNS topic.</p>
+
+<p>Finally, you have to decide what you want to do with the messages that have already been published. The publishing function could delete the records from the outbox table once it receives confirmation that publishing to SNS has completed successfully. Alternatively, it could keep the record and update it with the timestamp of the actual publishing.</p>
+
+<p>Figure 2 summarizes the complete solution:</p>
+
+<p><img src="/images/aws-eda-2/fig-2.png" alt="The outbox pattern implemented with AWS DynamoDB, Lambda, and SNS" />
+<em>Figure 2: The outbox pattern implemented with AWS DynamoDB, Lambda, and SNS</em></p>
+
+<p>Compared to the naive solution of just publishing the outgoing events to a relevant SNS topic, implementation of the outbox pattern results in a more complicated system with more moving parts. However, the resultant solution is a reliable one. If the original transaction has been committed, no matter what happens during runtime, the corresponding events will be published and delivered to the subscribers.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>Consistency of an event-driven system depends on its ability to reliably deliver messages across its components. The outbox pattern enables updating the system’s state and publishing the resultant events as an atomic transaction, even if the underlying infrastructure doesn’t support such cross-service transactions. The reliability the outbox provides to the system greatly outweighs the effort required to implement the pattern.</p>
+      </article>
+
+      <hr/>
+      <div id="share">
+      If you liked this post, please share it with your friends and colleagues:
+      <p><div class="addthis_inline_share_toolbox"></div></p>
+    </div>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="https://vladikk.com/2024/10/09/coupling-and-cohesion/" data-toggle="tooltip" data-placement="top" title="The Essence of Coupling and Cohesion in Under 500 Words">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladikk-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:vladik@khononov.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/vladikk" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/vladikk" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/vladikk" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/vladikkhononov" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/1736215/vladikk" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/vladikkk" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://telegram.me/vladik_kh" title="Telegram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-telegram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            <a href="https://vladikk.com">Rants on Software Design</a>
+            &nbsp;&bull;&nbsp;
+          
+          <a href="/page/terms-of-use">Terms of Use</a>
+          &nbsp;&bull;&nbsp;
+          <a href="/page/privacy-policy">Privacy Policy</a>
+          &nbsp;&bull;&nbsp;
+          2024
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.56.3</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://vladikk.com/js/main.js"></script>
+<script src="https://vladikk.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="https://vladikk.com/js/load-photoswipe.js"></script>
+
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a2d0cd9bc54813f"></script>
+
+  </body>
+</html>
+
