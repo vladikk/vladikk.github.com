@@ -8,10 +8,47 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
-    <lastBuildDate>Wed, 09 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Oct 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Event-Driven Architecture on AWS, Part II: The Advanced Basics</title>
+      <link>https://vladikk.com/2024/09/28/aws-eda/</link>
+      <pubDate>Sat, 12 Oct 2024 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/2024/09/28/aws-eda/</guid>
+      <description>&lt;p&gt;In my &lt;a href=&#34;https://vladikk.com/2024/09/28/aws-eda/&#34;&gt;previous post&lt;/a&gt;, I discussed the basic building blocks for implementing event-driven architecture (EDA) using AWS managed services. This post is about the &lt;em&gt;advanced&lt;/em&gt; basics. It’s advanced because, based on my consulting experience, very few companies apply the practices I want to discuss. However, I still consider this as basics because these practices are not optional but essential for implementing reliable messaging-based systems.&lt;/p&gt;
+
+&lt;p&gt;Although the examples in this post use AWS services, the material applies to any system, regardless of the infrastructure it runs on. The implementation might differ, but the underlying principles remain the same.&lt;/p&gt;
+
+&lt;p&gt;Since this post is about a pattern—and patterns, by definition, are repeatable solutions to commonly occurring problems—I want to begin by discussing a commonly overlooked problem in EDA-based systems.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;
+
+&lt;p&gt;In the previous post, I suggested using AWS SNS for publishing messages in an event-driven system. Here’s a common example of how such publishing is carried out:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;...
+
+sns.publish(
+    TopicArn=users_topic_arn,
+    Message=json.dumps({
+        &#39;event_type&#39;: &#39;user_registered&#39;,
+        &#39;event_id&#39;: str(uuid.uuid4()),
+        &#39;user_id&#39;: &#39;USER12345&#39;,
+        &#39;name&#39;: &#39;John Doe&#39;,
+        &#39;email&#39;: &#39;john.doe@example.com&#39;,
+        &#39;source&#39;: &#39;mobile_app&#39;,
+        &#39;registration_date&#39;: &#39;2024-10-11T20:01:00Z&#39;
+    })
+)
+
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the above example, an event of type &lt;code&gt;user_registered&lt;/code&gt; is published to an SNS topic. But did that event come from thin air? Is that all services do, just publish messages? Of course not. The event is part of a larger business process that typically involves updating some state in an operational database before notifying external components about it. A more accurate representation of this process would look like this:&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>The Essence of Coupling and Cohesion in Under 500 Words</title>

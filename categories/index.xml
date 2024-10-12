@@ -8,7 +8,7 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
-    <lastBuildDate>Wed, 09 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Oct 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -16,9 +16,27 @@
     <item>
       <title>Architecture</title>
       <link>https://vladikk.com/categories/Architecture/</link>
-      <pubDate>Wed, 09 Oct 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 12 Oct 2024 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/categories/Architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EDA</title>
+      <link>https://vladikk.com/categories/EDA/</link>
+      <pubDate>Sat, 12 Oct 2024 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/categories/EDA/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microservices</title>
+      <link>https://vladikk.com/categories/Microservices/</link>
+      <pubDate>Sat, 12 Oct 2024 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/categories/Microservices/</guid>
       <description></description>
     </item>
     
@@ -37,24 +55,6 @@
       <pubDate>Wed, 09 Oct 2024 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/categories/Coupling/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>EDA</title>
-      <link>https://vladikk.com/categories/EDA/</link>
-      <pubDate>Sat, 28 Sep 2024 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vlad Khononov)</author>
-      <guid>https://vladikk.com/categories/EDA/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Microservices</title>
-      <link>https://vladikk.com/categories/Microservices/</link>
-      <pubDate>Sat, 28 Sep 2024 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vlad Khononov)</author>
-      <guid>https://vladikk.com/categories/Microservices/</guid>
       <description></description>
     </item>
     

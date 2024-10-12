@@ -189,6 +189,55 @@ if (!doNotTrack) {
           
             <article class="post-preview">
               <a href="https://vladikk.com/2024/09/28/aws-eda/">
+                <h2 class="post-title">Event-Driven Architecture on AWS, Part II: The Advanced Basics</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on October 12, 2024
+              </p>
+              <div class="post-entry">
+                
+                  <p>In my <a href="/2024/09/28/aws-eda/">previous post</a>, I discussed the basic building blocks for implementing event-driven architecture (EDA) using AWS managed services. This post is about the <em>advanced</em> basics. It’s advanced because, based on my consulting experience, very few companies apply the practices I want to discuss. However, I still consider this as basics because these practices are not optional but essential for implementing reliable messaging-based systems.</p>
+
+<p>Although the examples in this post use AWS services, the material applies to any system, regardless of the infrastructure it runs on. The implementation might differ, but the underlying principles remain the same.</p>
+
+<p>Since this post is about a pattern—and patterns, by definition, are repeatable solutions to commonly occurring problems—I want to begin by discussing a commonly overlooked problem in EDA-based systems.</p>
+
+<h2 id="the-problem">The Problem</h2>
+
+<p>In the previous post, I suggested using AWS SNS for publishing messages in an event-driven system. Here’s a common example of how such publishing is carried out:</p>
+
+<pre><code class="language-python">...
+
+sns.publish(
+    TopicArn=users_topic_arn,
+    Message=json.dumps({
+        'event_type': 'user_registered',
+        'event_id': str(uuid.uuid4()),
+        'user_id': 'USER12345',
+        'name': 'John Doe',
+        'email': 'john.doe@example.com',
+        'source': 'mobile_app',
+        'registration_date': '2024-10-11T20:01:00Z'
+    })
+)
+
+...
+</code></pre>
+
+<p>In the above example, an event of type <code>user_registered</code> is published to an SNS topic. But did that event come from thin air? Is that all services do, just publish messages? Of course not. The event is part of a larger business process that typically involves updating some state in an operational database before notifying external components about it. A more accurate representation of this process would look like this:</p>
+                  <a href="https://vladikk.com/2024/09/28/aws-eda/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://vladikk.com/2024/09/28/aws-eda/">
                 <h2 class="post-title">Event-Driven Architecture on AWS, Part I: The Basics</h2>
 
                 
