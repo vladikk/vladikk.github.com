@@ -246,7 +246,7 @@ if (!doNotTrack) {
                 
                   <span class="post-meta">
   <i class="fa fa-calendar-o"></i>&nbsp;Posted on October 12, 2024
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 6 min (1111 mots)
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 6 min (1135 mots)
   
 </span>
 
@@ -423,6 +423,8 @@ with dynamodb.meta.client.transact_write_items(
 <h2 id="summary">Summary</h2>
 
 <p>Consistency of an event-driven system depends on its ability to reliably deliver messages across its components. The outbox pattern enables updating the system’s state and publishing the resultant events as an atomic transaction, even if the underlying infrastructure doesn’t support such cross-service transactions. The reliability the outbox provides to the system greatly outweighs the effort required to implement the pattern.</p>
+
+<p>The upcoming and final post in the series will focus on common pitfalls in the event-consuming aspect of EDA and how to avoid them.</p>
       </article>
 
       <hr/>
