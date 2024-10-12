@@ -2,7 +2,7 @@
 comments: true
 date: 2024-09-28T00:00:00Z
 keywords: aws, eda, event-driven architecture, sns, sqs, kafka, msk, kinesis, microservices, event-driven, architecture, design principles, engineering, design, software, architecture
-title: 'Event-Driven Architecture on AWS: The Basics'
+title: 'Event-Driven Architecture on AWS, Part I: The Basics'
 url: /2024/09/28/aws-eda/
 draft: false
 categories: [Microservices, Architecture, EDA]
