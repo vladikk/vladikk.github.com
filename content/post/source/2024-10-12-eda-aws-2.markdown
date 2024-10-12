@@ -1,0 +1,166 @@
+---
+comments: true
+date: 2024-10-12T00:00:00Z
+keywords: outbox, aws, eda, event-driven architecture, sns, sqs, kafka, msk, kinesis, microservices, event-driven, architecture, design principles, engineering, design, software, architecture
+title: 'Event-Driven Architecture on AWS, Part II: The Advanced Basics'
+url: /2024/09/28/aws-eda/
+draft: false
+categories: [Microservices, Architecture, EDA]
+share_img: /images/aws-eda-2/fig-2.png
+---
+
+In my [previous post](/2024/09/28/aws-eda/), I discussed the basic building blocks for implementing event-driven architecture (EDA) using AWS managed services. This post is about the *advanced* basics. It’s advanced because, based on my consulting experience, very few companies apply the practices I want to discuss. However, I still consider this as basics because these practices are not optional but essential for implementing reliable messaging-based systems.
+
+Although the examples in this post use AWS services, the material applies to any system, regardless of the infrastructure it runs on. The implementation might differ, but the underlying principles remain the same.
+
+Since this post is about a pattern—and patterns, by definition, are repeatable solutions to commonly occurring problems—I want to begin by discussing a commonly overlooked problem in EDA-based systems.
+
+## The Problem
+
+In the previous post, I suggested using AWS SNS for publishing messages in an event-driven system. Here’s a common example of how such publishing is carried out:
+
+```python
+...
+
+sns.publish(
+    TopicArn=users_topic_arn,
+    Message=json.dumps({
+        'event_type': 'user_registered',
+        'event_id': str(uuid.uuid4()),
+        'user_id': 'USER12345',
+        'name': 'John Doe',
+        'email': 'john.doe@example.com',
+        'source': 'mobile_app',
+        'registration_date': '2024-10-11T20:01:00Z'
+    })
+)
+
+...
+```
+
+In the above example, an event of type `user_registered` is published to an SNS topic. But did that event come from thin air? Is that all services do, just publish messages? Of course not. The event is part of a larger business process that typically involves updating some state in an operational database before notifying external components about it. A more accurate representation of this process would look like this:
+<!--more-->
+```python
+...
+
+# Persist state changes
+users_table.put_item(
+    Item={
+        'user_id': user_id,
+        'name': name,
+        'password_hash': password_hash,
+        'email': email,
+        'source': source,
+        'registration_date': registration_date,
+        'created_at': datetime.utcnow().isoformat()
+    }
+)
+
+# Publish corresponding events
+sns.publish(
+    TopicArn=users_topic_arn,
+    Message=json.dumps({
+        'event_type': 'user_registered',
+        'event_id': str(uuid.uuid4()),
+        'user_id': user_id,
+        'name': name,
+        'email': email,
+        'source': source,
+        'registration_date': registration_date
+    })
+)
+
+...
+```
+
+First, the new user is persisted, and then a notification is published. While this code seems straightforward, consider these three questions:
+
+1. What can go wrong here?
+2. What are the implications of that?
+3. Can you say this code is reliable?
+
+Please, pause and ponder the questions before reading further.
+
+Okay, let’s compare our answers.
+
+If something goes wrong between writing to the database and publishing the message, the system will end up in an inconsistent state. The user might receive an error, assuming the whole operation failed, but the record will have been created in the database. However, the subscribers to the `user_registered` event won’t be notified because the message wasn’t published. Why could this happen? The server could restart, the Lambda could time out, network partitions could occur, or a myriad of other reasons—especially in the cloud.
+
+Consistency of an event-driven system depends on its ability to reliably deliver messages across its components. That’s not the case here. Despite the apparent simplicity, the code above is not reliable.
+
+So what should we do about it? Can we wrap writing to the database and publishing an event in an atomic transaction? Nope. In the past, there were attempts at doing that (e.g., DTC), but that didn’t end well. [Two-phase commit](https://en.wikipedia.org/wiki/Two-phase_commit_protocol)? Not going to help either, as it suffers from similar failure conditions.
+
+The reliable solution is to turn two transactions into a single one. How? Let’s talk about the outbox pattern.
+
+## The Solution: Outbox
+The idea behind the outbox pattern is quite simple. First, you persist both the state changes and the outgoing messages to the operational database in a single atomic transaction. Either both succeed or both fail, never in between. Then, an external mechanism—publishing relay—fetches the committed messages and *asynchronously* publishes them to a message bus.
+
+<img src="/images/aws-eda-2/fig-1.png" alt="The outbox pattern" />
+*Figure 1: The outbox pattern*
+
+### Implementation: General
+There is no one-size-fits-all way to implement the outbox pattern. The realization details depend on the technological stack in use, primarily on the database.
+
+First, the database dictates the means you have (or don’t have) to commit the updated data and the outgoing messages in an atomic transaction. If it supports multi-table transactions (e.g., relational databases, DynamoDB, etc.), you can persist the messages in a dedicated table, usually called “outbox.” If it doesn’t, both the updated state and the messages have to be persisted in a single record.
+
+Second, you need a reliable way of fetching the persisted messages. Some databases enable the push model: the database itself has means of calling the publishing relay and passing the new messages. For example, Lambda triggers in DynamoDB or a [change data capture (CDC)](https://en.wikipedia.org/wiki/Change_data_capture) mechanism in relational databases.
+
+Ultimately, the way you persist and fetch messages defines how you are going to ensure that the same message won’t be picked up and re-published unnecessarily.
+
+### Implementation: Example
+Let’s go back to the example I started with. Since the code uses DynamoDB, the easiest way to implement the outbox pattern in this case would be to leverage its ability to perform multi-table transactions and append the outgoing events to a dedicated table:
+
+```python
+...
+
+with dynamodb.meta.client.transact_write_items(
+    TransactItems=[
+        {
+            'Put': {
+                'TableName': users_table.name,
+                'Item': {
+                    'user_id': user_id,
+                    'name': name,
+                    'password_hash': password_hash,
+                    'email': email,
+                    'source': source,
+                    'registration_date': registration_date,
+                    'created_at': datetime.utcnow().isoformat()
+                }
+            }
+        },
+        {
+            'Put': {
+                'TableName': outbox_table.name,
+                'Item': {
+                    'event_id': event_id,
+                    'data': {
+                        'event_type': 'user_registered',
+                        'event_id': event_id,
+                        'user_id': user_id,
+                        'name': name,
+                        'email': email,
+                        'source': source,
+                        'registration_date': registration_date
+                    }
+                }
+            }
+        }
+    ]
+)
+
+...
+```
+
+Next, we have to decide how to actually publish the events to the SNS topic. The simplest solution is to use [DynamoDB Streams](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html) on the outbox table to trigger a Lambda function for each new record and publish its events to the SNS topic.
+
+Finally, you have to decide what you want to do with the messages that have already been published. The publishing function could delete the records from the outbox table once it receives confirmation that publishing to SNS has completed successfully. Alternatively, it could keep the record and update it with the timestamp of the actual publishing.
+
+Figure 2 summarizes the complete solution:
+
+<img src="/images/aws-eda-2/fig-2.png" alt="The outbox pattern implemented with AWS DynamoDB, Lambda, and SNS" />
+*Figure 2: The outbox pattern implemented with AWS DynamoDB, Lambda, and SNS*
+
+Compared to the naive solution of just publishing the outgoing events to a relevant SNS topic, implementation of the outbox pattern results in a more complicated system with more moving parts. However, the resultant solution is a reliable one. If the original transaction has been committed, no matter what happens during runtime, the corresponding events will be published and delivered to the subscribers.
+
+## Summary
+Consistency of an event-driven system depends on its ability to reliably deliver messages across its components. The outbox pattern enables updating the system’s state and publishing the resultant events as an atomic transaction, even if the underlying infrastructure doesn’t support such cross-service transactions. The reliability the outbox provides to the system greatly outweighs the effort required to implement the pattern.
