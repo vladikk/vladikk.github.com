@@ -1,0 +1,147 @@
+---
+comments: true
+date: 2024-10-13T00:00:00Z
+keywords: idempotent consumer, idempotency, outbox, aws, eda, event-driven architecture, sns, sqs, kafka, msk, kinesis, microservices, event-driven, architecture, design principles, engineering, design, software, architecture
+title: 'Event-Driven Architecture on AWS, Part III: The Hard Basics'
+url: /2024/10/13/aws-eda-iii/
+draft: false
+categories: [Microservices, Architecture, EDA]
+share_img: /images/aws-eda-2/fig-2.png
+---
+
+My [previous post](/2024/10/12/aws-eda-ii/) in this series discussed the reliability issues many messaging-based systems suffer from and how to address them by implementing the outbox pattern. This post switches the focus from publishing to processing messages published by other components of the system.
+
+As before, I will start by defining the problem we have to tackle.
+
+## The Problem
+Let’s revisit the outbox pattern once more. It addresses the common problem of publishing messages after the underlying business transaction has already been committed: the events might not get published at all. By implementing the pattern, you ensure that all the events will be published—*at least once*. Let me explain the last part.
+
+<img src="/images/aws-eda-2/fig-1.png" alt="The outbox pattern" />
+*Figure 1: The outbox pattern*
+
+<!--more-->
+
+The publishing relay fetches the events from the operational database, and once the events have been published, they are acknowledged, either by removing the records or marking them as published. But what if the process fails right between publishing and marking an event as published? Well, the event is going to be published again on the next attempt, and the subscribers will receive the same event more than once. Is that a big deal? Not at all.
+
+### At-Least-Once Delivery
+If you are using AWS SQS to process events that a service is subscribed to (and [you should](/2024/09/28/aws-eda/)), be aware that the service provides “[at-least-once delivery](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues-at-least-once-delivery.html)” guarantees anyway:
+
+*"Amazon SQS stores copies of your messages on multiple servers for redundancy and high availability. On rare occasions, one of the servers that stores a copy of a message might be unavailable when you receive or delete a message ... If this occurs, you might get that message copy again when you receive messages."*
+
+That’s true not only for AWS SQS but for any (honest) distributed message bus. At this point, you might be wondering: what about [SQS FIFO Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html)? They are supposed to address this issue!
+
+*"Unlike standard queues, FIFO queues don't introduce duplicate messages. FIFO queues help you avoid sending duplicates to a queue. If you retry the SendMessage action within the 5-minute deduplication interval, Amazon SQS doesn't introduce any duplicates into the queue."*
+
+That addresses the issue only partly. Indeed, if the outbox publishes the same message more than once (within 5 minutes), a FIFO queue will identify the duplicate message and ignore it. However, let’s focus on the consumer side. Processing messages from a distributed queue involves the following three steps:
+
+1. Fetch the next available message.
+2. Process the message.
+3. Acknowledge the message by marking it as processed or delete it from the queue, in the case of SQS.
+
+Now, please become an extreme pessimist and consider the three questions I already asked in the previous post:
+
+1. What can go wrong here?
+2. What are the implications of that?
+3. Can you say this message processing flow is reliable?
+
+Please, pause and think about it before reading further.
+
+Okay, let’s compare our answers.
+
+Well, if something goes wrong between processing a message and acknowledging it, it is going to be fetched again in the next run: it will be processed more than once. Even though FIFO queues promise "exactly-once processing," the guarantee FIFO queues make is about processing messages on the SQS side, not your application. Which one is more important to you? Of course, it’s the latter. Therefore, to design a reliable distributed system, you have to assume that any message can be delivered to subscribers more than once.
+
+### The Solution
+Going back to the [SQS documentation page](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues-at-least-once-delivery.html) that acknowledges the possibility of duplicate delivery, it also outlines how to address the issue:
+
+*Design your applications to be idempotent (they should not be affected adversely when processing the same message more than once).*
+
+That’s great advice. If passing the same event or command to your application logic more than once will result in the same outcome, you don’t have to care about edge cases resulting in duplicate messages.
+
+Is it easy to implement reliable, bullet-proof idempotent message processing logic? Not at all! But before I talk about how to do it, I want to say a few words on how *not* to do it.
+
+### Idempotent Event Processing: The Wrong and Easy Way
+Many aim to achieve idempotent processing by implementing the [idempotent consumer](https://microservices.io/patterns/communication-style/idempotent-consumer.html) pattern. Although there is nothing wrong with the idea behind the pattern, the vast majority of its implementations miss the exact reason the pattern is needed in the first place. Here is how it is usually implemented:
+
+First, each command/event processed by your application should be assigned a unique identifier. Second, it requires an "idempotency store"—a key/value database that maps request IDs to their results (e.g., Redis, DynamoDB, in-memory maps, etc.).
+
+Once the two requirements are in place, processing an incoming request follows the following simple logic:
+
+When an incoming request is received, first check whether its ID already appears in the idempotency store. If it does, return the result persisted in the table; no processing is needed. If the ID doesn’t exist in the idempotency store:
+
+1. Execute the request.
+2. Persist the ID and the result in the idempotency store.
+
+Please get your pessimist hat back on and tell me what can go wrong here.
+
+Of course, if for any reason the process fails right after the processing has been completed but before the result was stored in the idempotency store, the operation will be executed more than once.
+
+You might doubt that such a naive solution is being used out there. Well, take a look at this blog about [AWS Lambda Powertools](https://aws.amazon.com/blogs/compute/handling-lambda-functions-idempotency-with-aws-lambda-powertools/).
+
+There is a bit more [advanced version](https://aws.amazon.com/blogs/compute/implementing-idempotent-aws-lambda-functions-with-powertools-for-aws-lambda-typescript/) of this algorithm, one that first marks a request as "in process" and times it out after a certain interval, but it suffers from the same drawback: if the process fails after processing completes, but before the idempotency store is updated, the request will be processed again.
+
+In general, as long as the operation uses a database that doesn’t participate in the same transaction as the idempotency store, there is a possibility that a request will be processed more than once.
+
+*At this point, you might ask: well, the edge case you are talking about sounds so rare, why should I even care about it? Well, the same can be said about the original issue we look to address. It might be acceptable for your concrete system. If that’s the case, then why introduce additional moving parts into the system? Either way, whether duplicate processing is okay or not is a design decision that has to be made consciously.*
+
+So how do you implement reliable, bullet-proof idempotent message processing logic?
+
+## Idempotent Event Processing: The Reliable and Hard Way
+As in the case of the outbox pattern, a reliable implementation of the idempotent consumer pattern requires an atomic transaction to span both the business logic and the tracking of processed events. Also, as in the case of the outbox, implementation of the pattern depends on the technological stack.
+
+### Idempotency Using Multi-Record Transactions
+If your operational database supports multi-record transactions, create a table for idempotency keys—IDs of incoming requests (I prefer to call this table "inbox"). Once finished executing a request, update the operational data and insert the idempotency key in one atomic transaction. Note, however, that inserting the key should be carried out with a condition: it should succeed only if such a value doesn’t exist in the table already. If it does, the operation should fail; if that happens, you know that the incoming request has been processed already. 
+
+```python
+...
+
+response = dynamodb.transact_write_items(
+    TransactItems=[
+        {
+            'Put': {
+                'TableName': 'operational_data',
+                'Item': {
+                    ...
+                }
+            }
+        },
+        {
+            'Put': {
+                'TableName': 'inbox',
+                'Item': {
+                    'request_id': {'S': event_id},
+                },
+                'ConditionExpression': 'attribute_not_exists(request_id)'
+            }
+        }
+    ]
+)
+
+...
+```
+
+As an additional optimization, you can check for the existence of the idempotency key before executing the processing logic.
+
+### Idempotency Using Optimistic Concurrency Control
+If the database you work with doesn’t support multi-record transactions, you can still implement reliable idempotent processing by relying on [optimistic concurrency control](https://en.wikipedia.org/wiki/Optimistic_concurrency_control):
+
+1. Each operation entails modification of a single record in the table (e.g., a JSON document).
+2. Each record has a version field for controlling concurrency exceptions.
+3. Every update of a record increases the value of its version.
+4. On update, the database has to ensure that the overwritten record’s version matches the one that had been read initially.
+
+Once optimistic concurrency control is in place, the managed record can be extended with an additional field: `processed_events` (array). Prior to executing a request, check if the request’s ID exists in the `processed_events` array. If it doesn’t, proceed with handling the event and append its ID to the array.
+
+## Summary
+This blog concludes my three-post series on the basics of designing event-driven architecture-based systems on AWS:
+
+1. In the [first post](/2024/09/28/aws-eda/), you learned to leverage managed services AWS offers to separate the concerns of publishing and subscribing to events on the architectural level.
+2. The [second post](/2024/10/12/aws-eda-ii/) explored common issues that might arise in publishing of events and how to address them using the outbox pattern.
+3. Ultimately, this post explored how to make your system more reliable by leveraging idempotency in the event processing logic.
+
+To sum it all up, when designing a distributed system, remember not only the [fallacies of distributed computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing) but also [Murphy’s Law](https://en.wikipedia.org/wiki/Murphy%27s_law). Always assume that whatever can go wrong, will. Make it a part of your system architecture. Addressing all the possible failure scenarios will make your weekends and holidays much more peaceful and relaxing ;)
+
+## Posts In The Series
+
+1. [Event-Driven Architecture on AWS, Part I: The Basics](/2024/09/28/aws-eda/)
+2. [Event-Driven Architecture on AWS, Part II: The Advanced Basics](/2024/10/12/aws-eda-ii/)
+3. **Event-Driven Architecture on AWS, Part III: The Hard Basics** (Current Post)

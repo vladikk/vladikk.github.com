@@ -78,3 +78,9 @@ Both Kinesis and MSK are services for working with streaming data. It can be sai
 This blog post discussed implementing event-driven architecture (EDA) on AWS using SNS and SQS for publishing and consuming events. You learned how SNS and SQS together form a simple, cost-effective solution with clear ownership boundaries, providing flexibility and fault tolerance.
 
 The [next post in the series](/2024/10/12/aws-eda-ii/) discusses the event publishing aspect of EDA in greater detail and introduces practices that will help you avoid common pitfalls in this seemingly simple process.
+
+## Posts In The Series
+
+1. **Event-Driven Architecture on AWS, Part I: The Basics** (Current Post)
+2. [Event-Driven Architecture on AWS, Part II: The Advanced Basics](/2024/10/12/aws-eda-ii/)
+3. [Event-Driven Architecture on AWS, Part III: The Hard Basics](/2024/10/13/aws-eda-iii/)
