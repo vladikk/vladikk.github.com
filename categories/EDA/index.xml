@@ -8,10 +8,28 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
-    <lastBuildDate>Sat, 12 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Oct 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/categories/EDA/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Event-Driven Architecture on AWS, Part III: The Hard Basics</title>
+      <link>https://vladikk.com/2024/10/13/aws-eda-iii/</link>
+      <pubDate>Sun, 13 Oct 2024 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/2024/10/13/aws-eda-iii/</guid>
+      <description>&lt;p&gt;My &lt;a href=&#34;https://vladikk.com/2024/10/12/aws-eda-ii/&#34;&gt;previous post&lt;/a&gt; in this series discussed the reliability issues many messaging-based systems suffer from and how to address them by implementing the outbox pattern. This post switches the focus from publishing to processing messages published by other components of the system.&lt;/p&gt;
+
+&lt;p&gt;As before, I will start by defining the problem we have to tackle.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;
+
+&lt;p&gt;Let’s revisit the outbox pattern once more. It addresses the common problem of publishing messages after the underlying business transaction has already been committed: the events might not get published at all. By implementing the pattern, you ensure that all the events will be published—&lt;em&gt;at least once&lt;/em&gt;. Let me explain the last part.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/aws-eda-2/fig-1.png&#34; alt=&#34;The outbox pattern&#34; /&gt;
+&lt;em&gt;Figure 1: The outbox pattern&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Event-Driven Architecture on AWS, Part II: The Advanced Basics</title>

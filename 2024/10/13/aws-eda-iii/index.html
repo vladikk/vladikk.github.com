@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Event-Driven Architecture on AWS, Part III: The Hard Basics</title>
+  <meta property="og:title" content="Event-Driven Architecture on AWS, Part III: The Hard Basics" />
+  <meta name="twitter:title" content="Event-Driven Architecture on AWS, Part III: The Hard Basics" />
+  <meta name="description" content="My previous post in this series discussed the reliability issues many messaging-based systems suffer from and how to address them by implementing the outbox pattern. This post switches the focus from publishing to processing messages published by other components of the system.
+
+As before, I will start by defining the problem we have to tackle.
+
+The Problem
+
+Let’s revisit the outbox pattern once more. It addresses the common problem of publishing messages after the underlying business transaction has already been committed: the events might not get published at all. By implementing the pattern, you ensure that all the events will be published—at least once. Let me explain the last part.
+
+
+Figure 1: The outbox pattern">
+  <meta property="og:description" content="My previous post in this series discussed the reliability issues many messaging-based systems suffer from and how to address them by implementing the outbox pattern. This post switches the focus from publishing to processing messages published by other components of the system.
+
+As before, I will start by defining the problem we have to tackle.
+
+The Problem
+
+Let’s revisit the outbox pattern once more. It addresses the common problem of publishing messages after the underlying business transaction has already been committed: the events might not get published at all. By implementing the pattern, you ensure that all the events will be published—at least once. Let me explain the last part.
+
+
+Figure 1: The outbox pattern">
+  <meta name="twitter:description" content="My previous post in this series discussed the reliability issues many messaging-based systems suffer from and how to address them by implementing the outbox pattern. This post switches the focus from …">
+  <meta name="author" content="Vlad Khononov"/>
+  <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://vladikk.com/images/aws-eda-2/fig-2.png" />
+  <meta name="twitter:image" content="https://vladikk.com/images/aws-eda-2/fig-2.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@vladikk" />
+  <meta name="twitter:creator" content="@vladikk" />
+  <meta property="og:url" content="https://vladikk.com/2024/10/13/aws-eda-iii/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Rants on Software Design" />
+
+  <meta name="generator" content="Hugo 0.56.3" />
+  <link rel="canonical" href="https://vladikk.com/2024/10/13/aws-eda-iii/" />
+  <link rel="alternate" href="" type="application/rss+xml" title="Rants on Software Design">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://vladikk.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
+  <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="idempotent consumer, idempotency, outbox, aws, eda, event-driven architecture, sns, sqs, kafka, msk, kinesis, microservices, event-driven, architecture, design principles, engineering, design, software, architecture">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-40869819-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://vladikk.com">Rants on Software Design</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Conferences" href="/page/speaking/">Conferences</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Books" href="/page/books/">Books</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Consulting" href="/page/consulting">Consulting</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About &amp; Contact" href="/page/about/">About &amp; Contact</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Rants on Software Design" href="https://vladikk.com">
+            <img class="avatar-img" src="https://vladikk.com/images/me-conf.jpg" alt="Rants on Software Design" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Event-Driven Architecture on AWS, Part III: The Hard Basics</h1>
+                
+                
+                  <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on October 13, 2024
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 8 min (1594 mots)
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>My <a href="/2024/10/12/aws-eda-ii/">previous post</a> in this series discussed the reliability issues many messaging-based systems suffer from and how to address them by implementing the outbox pattern. This post switches the focus from publishing to processing messages published by other components of the system.</p>
+
+<p>As before, I will start by defining the problem we have to tackle.</p>
+
+<h2 id="the-problem">The Problem</h2>
+
+<p>Let’s revisit the outbox pattern once more. It addresses the common problem of publishing messages after the underlying business transaction has already been committed: the events might not get published at all. By implementing the pattern, you ensure that all the events will be published—<em>at least once</em>. Let me explain the last part.</p>
+
+<p><img src="/images/aws-eda-2/fig-1.png" alt="The outbox pattern" />
+<em>Figure 1: The outbox pattern</em></p>
+
+<p>The publishing relay fetches the events from the operational database, and once the events have been published, they are acknowledged, either by removing the records or marking them as published. But what if the process fails right between publishing and marking an event as published? Well, the event is going to be published again on the next attempt, and the subscribers will receive the same event more than once. Is that a big deal? Not at all.</p>
+
+<h3 id="at-least-once-delivery">At-Least-Once Delivery</h3>
+
+<p>If you are using AWS SQS to process events that a service is subscribed to (and <a href="/2024/09/28/aws-eda/">you should</a>), be aware that the service provides “<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues-at-least-once-delivery.html">at-least-once delivery</a>” guarantees anyway:</p>
+
+<p><em>&ldquo;Amazon SQS stores copies of your messages on multiple servers for redundancy and high availability. On rare occasions, one of the servers that stores a copy of a message might be unavailable when you receive or delete a message &hellip; If this occurs, you might get that message copy again when you receive messages.&rdquo;</em></p>
+
+<p>That’s true not only for AWS SQS but for any (honest) distributed message bus. At this point, you might be wondering: what about <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">SQS FIFO Queues</a>? They are supposed to address this issue!</p>
+
+<p><em>&ldquo;Unlike standard queues, FIFO queues don&rsquo;t introduce duplicate messages. FIFO queues help you avoid sending duplicates to a queue. If you retry the SendMessage action within the 5-minute deduplication interval, Amazon SQS doesn&rsquo;t introduce any duplicates into the queue.&rdquo;</em></p>
+
+<p>That addresses the issue only partly. Indeed, if the outbox publishes the same message more than once (within 5 minutes), a FIFO queue will identify the duplicate message and ignore it. However, let’s focus on the consumer side. Processing messages from a distributed queue involves the following three steps:</p>
+
+<ol>
+<li>Fetch the next available message.</li>
+<li>Process the message.</li>
+<li>Acknowledge the message by marking it as processed or delete it from the queue, in the case of SQS.</li>
+</ol>
+
+<p>Now, please become an extreme pessimist and consider the three questions I already asked in the previous post:</p>
+
+<ol>
+<li>What can go wrong here?</li>
+<li>What are the implications of that?</li>
+<li>Can you say this message processing flow is reliable?</li>
+</ol>
+
+<p>Please, pause and think about it before reading further.</p>
+
+<p>Okay, let’s compare our answers.</p>
+
+<p>Well, if something goes wrong between processing a message and acknowledging it, it is going to be fetched again in the next run: it will be processed more than once. Even though FIFO queues promise &ldquo;exactly-once processing,&rdquo; the guarantee FIFO queues make is about processing messages on the SQS side, not your application. Which one is more important to you? Of course, it’s the latter. Therefore, to design a reliable distributed system, you have to assume that any message can be delivered to subscribers more than once.</p>
+
+<h3 id="the-solution">The Solution</h3>
+
+<p>Going back to the <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues-at-least-once-delivery.html">SQS documentation page</a> that acknowledges the possibility of duplicate delivery, it also outlines how to address the issue:</p>
+
+<p><em>Design your applications to be idempotent (they should not be affected adversely when processing the same message more than once).</em></p>
+
+<p>That’s great advice. If passing the same event or command to your application logic more than once will result in the same outcome, you don’t have to care about edge cases resulting in duplicate messages.</p>
+
+<p>Is it easy to implement reliable, bullet-proof idempotent message processing logic? Not at all! But before I talk about how to do it, I want to say a few words on how <em>not</em> to do it.</p>
+
+<h3 id="idempotent-event-processing-the-wrong-and-easy-way">Idempotent Event Processing: The Wrong and Easy Way</h3>
+
+<p>Many aim to achieve idempotent processing by implementing the <a href="https://microservices.io/patterns/communication-style/idempotent-consumer.html">idempotent consumer</a> pattern. Although there is nothing wrong with the idea behind the pattern, the vast majority of its implementations miss the exact reason the pattern is needed in the first place. Here is how it is usually implemented:</p>
+
+<p>First, each command/event processed by your application should be assigned a unique identifier. Second, it requires an &ldquo;idempotency store&rdquo;—a key/value database that maps request IDs to their results (e.g., Redis, DynamoDB, in-memory maps, etc.).</p>
+
+<p>Once the two requirements are in place, processing an incoming request follows the following simple logic:</p>
+
+<p>When an incoming request is received, first check whether its ID already appears in the idempotency store. If it does, return the result persisted in the table; no processing is needed. If the ID doesn’t exist in the idempotency store:</p>
+
+<ol>
+<li>Execute the request.</li>
+<li>Persist the ID and the result in the idempotency store.</li>
+</ol>
+
+<p>Please get your pessimist hat back on and tell me what can go wrong here.</p>
+
+<p>Of course, if for any reason the process fails right after the processing has been completed but before the result was stored in the idempotency store, the operation will be executed more than once.</p>
+
+<p>You might doubt that such a naive solution is being used out there. Well, take a look at this blog about <a href="https://aws.amazon.com/blogs/compute/handling-lambda-functions-idempotency-with-aws-lambda-powertools/">AWS Lambda Powertools</a>.</p>
+
+<p>There is a bit more <a href="https://aws.amazon.com/blogs/compute/implementing-idempotent-aws-lambda-functions-with-powertools-for-aws-lambda-typescript/">advanced version</a> of this algorithm, one that first marks a request as &ldquo;in process&rdquo; and times it out after a certain interval, but it suffers from the same drawback: if the process fails after processing completes, but before the idempotency store is updated, the request will be processed again.</p>
+
+<p>In general, as long as the operation uses a database that doesn’t participate in the same transaction as the idempotency store, there is a possibility that a request will be processed more than once.</p>
+
+<p><em>At this point, you might ask: well, the edge case you are talking about sounds so rare, why should I even care about it? Well, the same can be said about the original issue we look to address. It might be acceptable for your concrete system. If that’s the case, then why introduce additional moving parts into the system? Either way, whether duplicate processing is okay or not is a design decision that has to be made consciously.</em></p>
+
+<p>So how do you implement reliable, bullet-proof idempotent message processing logic?</p>
+
+<h2 id="idempotent-event-processing-the-reliable-and-hard-way">Idempotent Event Processing: The Reliable and Hard Way</h2>
+
+<p>As in the case of the outbox pattern, a reliable implementation of the idempotent consumer pattern requires an atomic transaction to span both the business logic and the tracking of processed events. Also, as in the case of the outbox, implementation of the pattern depends on the technological stack.</p>
+
+<h3 id="idempotency-using-multi-record-transactions">Idempotency Using Multi-Record Transactions</h3>
+
+<p>If your operational database supports multi-record transactions, create a table for idempotency keys—IDs of incoming requests (I prefer to call this table &ldquo;inbox&rdquo;). Once finished executing a request, update the operational data and insert the idempotency key in one atomic transaction. Note, however, that inserting the key should be carried out with a condition: it should succeed only if such a value doesn’t exist in the table already. If it does, the operation should fail; if that happens, you know that the incoming request has been processed already.</p>
+
+<pre><code class="language-python">...
+
+response = dynamodb.transact_write_items(
+    TransactItems=[
+        {
+            'Put': {
+                'TableName': 'operational_data',
+                'Item': {
+                    ...
+                }
+            }
+        },
+        {
+            'Put': {
+                'TableName': 'inbox',
+                'Item': {
+                    'request_id': {'S': event_id},
+                },
+                'ConditionExpression': 'attribute_not_exists(request_id)'
+            }
+        }
+    ]
+)
+
+...
+</code></pre>
+
+<p>As an additional optimization, you can check for the existence of the idempotency key before executing the processing logic.</p>
+
+<h3 id="idempotency-using-optimistic-concurrency-control">Idempotency Using Optimistic Concurrency Control</h3>
+
+<p>If the database you work with doesn’t support multi-record transactions, you can still implement reliable idempotent processing by relying on <a href="https://en.wikipedia.org/wiki/Optimistic_concurrency_control">optimistic concurrency control</a>:</p>
+
+<ol>
+<li>Each operation entails modification of a single record in the table (e.g., a JSON document).</li>
+<li>Each record has a version field for controlling concurrency exceptions.</li>
+<li>Every update of a record increases the value of its version.</li>
+<li>On update, the database has to ensure that the overwritten record’s version matches the one that had been read initially.</li>
+</ol>
+
+<p>Once optimistic concurrency control is in place, the managed record can be extended with an additional field: <code>processed_events</code> (array). Prior to executing a request, check if the request’s ID exists in the <code>processed_events</code> array. If it doesn’t, proceed with handling the event and append its ID to the array.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>This blog concludes my three-post series on the basics of designing event-driven architecture-based systems on AWS:</p>
+
+<ol>
+<li>In the <a href="/2024/09/28/aws-eda/">first post</a>, you learned to leverage managed services AWS offers to separate the concerns of publishing and subscribing to events on the architectural level.</li>
+<li>The <a href="/2024/10/12/aws-eda-ii/">second post</a> explored common issues that might arise in publishing of events and how to address them using the outbox pattern.</li>
+<li>Ultimately, this post explored how to make your system more reliable by leveraging idempotency in the event processing logic.</li>
+</ol>
+
+<p>To sum it all up, when designing a distributed system, remember not only the <a href="https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing">fallacies of distributed computing</a> but also <a href="https://en.wikipedia.org/wiki/Murphy%27s_law">Murphy’s Law</a>. Always assume that whatever can go wrong, will. Make it a part of your system architecture. Addressing all the possible failure scenarios will make your weekends and holidays much more peaceful and relaxing ;)</p>
+
+<h2 id="posts-in-the-series">Posts In The Series</h2>
+
+<ol>
+<li><a href="/2024/09/28/aws-eda/">Event-Driven Architecture on AWS, Part I: The Basics</a></li>
+<li><a href="/2024/10/12/aws-eda-ii/">Event-Driven Architecture on AWS, Part II: The Advanced Basics</a></li>
+<li><strong>Event-Driven Architecture on AWS, Part III: The Hard Basics</strong> (Current Post)</li>
+</ol>
+      </article>
+
+      <hr/>
+      <div id="share">
+      If you liked this post, please share it with your friends and colleagues:
+      <p><div class="addthis_inline_share_toolbox"></div></p>
+    </div>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="https://vladikk.com/2024/10/12/aws-eda-ii/" data-toggle="tooltip" data-placement="top" title="Event-Driven Architecture on AWS, Part II: The Advanced Basics">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladikk-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:vladik@khononov.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/vladikk" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/vladikk" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/vladikk" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/vladikkhononov" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/1736215/vladikk" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/vladikkk" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://telegram.me/vladik_kh" title="Telegram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-telegram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            <a href="https://vladikk.com">Rants on Software Design</a>
+            &nbsp;&bull;&nbsp;
+          
+          <a href="/page/terms-of-use">Terms of Use</a>
+          &nbsp;&bull;&nbsp;
+          <a href="/page/privacy-policy">Privacy Policy</a>
+          &nbsp;&bull;&nbsp;
+          2024
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.56.3</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://vladikk.com/js/main.js"></script>
+<script src="https://vladikk.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="https://vladikk.com/js/load-photoswipe.js"></script>
+
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a2d0cd9bc54813f"></script>
+
+  </body>
+</html>
+

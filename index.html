@@ -208,6 +208,39 @@ if (!doNotTrack) {
           
           
             <article class="post-preview">
+              <a href="https://vladikk.com/2024/10/13/aws-eda-iii/">
+                <h2 class="post-title">Event-Driven Architecture on AWS, Part III: The Hard Basics</h2>
+                
+                
+              </a>
+
+              <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on October 13, 2024
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 8 min (1594 mots)
+  
+</span>
+
+
+              <div class="post-entry">
+                
+                  <p>My <a href="/2024/10/12/aws-eda-ii/">previous post</a> in this series discussed the reliability issues many messaging-based systems suffer from and how to address them by implementing the outbox pattern. This post switches the focus from publishing to processing messages published by other components of the system.</p>
+
+<p>As before, I will start by defining the problem we have to tackle.</p>
+
+<h2 id="the-problem">The Problem</h2>
+
+<p>Let’s revisit the outbox pattern once more. It addresses the common problem of publishing messages after the underlying business transaction has already been committed: the events might not get published at all. By implementing the pattern, you ensure that all the events will be published—<em>at least once</em>. Let me explain the last part.</p>
+
+<p><img src="/images/aws-eda-2/fig-1.png" alt="The outbox pattern" />
+<em>Figure 1: The outbox pattern</em></p>
+                  <a href="https://vladikk.com/2024/10/13/aws-eda-iii/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+            </article>
+          
+            <article class="post-preview">
               <a href="https://vladikk.com/2024/10/12/aws-eda-ii/">
                 <h2 class="post-title">Event-Driven Architecture on AWS, Part II: The Advanced Basics</h2>
                 
@@ -216,7 +249,7 @@ if (!doNotTrack) {
 
               <span class="post-meta">
   <i class="fa fa-calendar-o"></i>&nbsp;Posted on October 12, 2024
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 6 min (1135 mots)
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 6 min (1167 mots)
   
 </span>
 
@@ -326,7 +359,7 @@ sns.publish(
 
               <span class="post-meta">
   <i class="fa fa-calendar-o"></i>&nbsp;Posted on September 28, 2024
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 6 min (1254 mots)
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 7 min (1286 mots)
   
 </span>
 
@@ -478,36 +511,6 @@ Symptoms All too often you can hear statements that some tool or technique is ba
 
 <p>In my opinion, this quote is the key to solving most of the issues we have when designing microservices-based systems. We rush into solutions without ensuring we know what exactly a microservice is. In this post, I’d like to take a stab at answering this question.</p>
                   <a href="https://vladikk.com/2018/02/28/microservices/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/">
-                <h2 class="post-title">Revisiting the Basics of Domain-Driven Design</h2>
-                
-                
-              </a>
-
-              <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on January 26, 2018
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 8 min (1635 mots)
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  <p><img src="/images/domains/title-img.jpg" alt="Revisiting the Basics of Domain-Driven Design" /></p>
-
-<p>I have quite a few friends in the DDD community. Fortunately, or not, we always tend to disagree on the definitions of such basic terms as Domains and Subdomains. In this post, I want to think aloud and outline my thoughts on the subject.</p>
-
-<h2 id="disclaimer">Disclaimer</h2>
-
-<p>As I just said, some of the things I’m about to write are my opinion only. Many of you might disagree with some of them. Hey – the last time we spoke about it, Eric and Vaughn were not fans of my theory. But, nevertheless, it is based on my 7-year long DDD journey at our company, and it works for me. I believe it might work for you as well.</p>
-                  <a href="https://vladikk.com/2018/01/26/revisiting-the-basics-of-ddd/" class="post-read-more">[Read More]</a>
                 
               </div>
 

@@ -188,6 +188,36 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+              <a href="https://vladikk.com/2024/10/13/aws-eda-iii/">
+                <h2 class="post-title">Event-Driven Architecture on AWS, Part III: The Hard Basics</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on October 13, 2024
+              </p>
+              <div class="post-entry">
+                
+                  <p>My <a href="/2024/10/12/aws-eda-ii/">previous post</a> in this series discussed the reliability issues many messaging-based systems suffer from and how to address them by implementing the outbox pattern. This post switches the focus from publishing to processing messages published by other components of the system.</p>
+
+<p>As before, I will start by defining the problem we have to tackle.</p>
+
+<h2 id="the-problem">The Problem</h2>
+
+<p>Let’s revisit the outbox pattern once more. It addresses the common problem of publishing messages after the underlying business transaction has already been committed: the events might not get published at all. By implementing the pattern, you ensure that all the events will be published—<em>at least once</em>. Let me explain the last part.</p>
+
+<p><img src="/images/aws-eda-2/fig-1.png" alt="The outbox pattern" />
+<em>Figure 1: The outbox pattern</em></p>
+                  <a href="https://vladikk.com/2024/10/13/aws-eda-iii/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
               <a href="https://vladikk.com/2024/10/12/aws-eda-ii/">
                 <h2 class="post-title">Event-Driven Architecture on AWS, Part II: The Advanced Basics</h2>
 
@@ -439,32 +469,16 @@ Symptoms All too often you can hear statements that some tool or technique is ba
 
             </article>
           
-            <article class="post-preview">
-              <a href="https://vladikk.com/2016/04/05/tackling-complexity-ddd/">
-                <h2 class="post-title">Tackling Complexity in the Heart of DDD</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on April 5, 2016
-              </p>
-              <div class="post-entry">
-                
-                  <p><img src="/images/ddd/title-img.jpg" alt="Tackling Complexity in the Heart of Domain-Driven Design" /></p>
-
-<p>Let’s do a little experiment: try to explain the gist of Domain-Driven Design to someone who has no clue about it. This, especially doing it succinctly, is not easy. Heck, I struggle with it myself. Bounded contexts, entities, domain events, value objects, domains, aggregates, repositories… where do you even start?</p>
-
-<p>To find the order in the apparent chaos, I want to analyze the DDD methodology from a rather unusual perspective — by applying Domain-Driven Design to Domain-Driven Design itself. After all, this methodology is intended to deal with complex domains, isn’t it?</p>
-                  <a href="https://vladikk.com/2016/04/05/tackling-complexity-ddd/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
         </div>
+        
+          <ul class="pager main-pager">
+            
+            
+              <li class="next">
+                <a href="/categories/Architecture/page/2/">Older Posts &rarr;</a>
+              </li>
+            
+          </ul>
         
       </div>
     </div>
