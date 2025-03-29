@@ -12,7 +12,7 @@ categories: [Microservices, Architecture, EDA]
 share_img: /images/ai-modularity.png
 ---
 
-<img src="/images/ai-modularity.png" alt="The Golden Age of Modularity: Why Modern Architecture—and AI—Depend on Better Boundaries" />
+<img src="/images/ai-boundaries.png" alt="The Golden Age of Modularity: Why Modern Architecture—and AI—Depend on Better Boundaries" />
 
 My news feed these days:  
 “Take a look at the app I built with zero coding skills!”  
@@ -65,8 +65,6 @@ Modular design minimizes the contextual knowledge required when working on a com
 But how do you design effective boundaries? Nothing new here. We already have techniques and methodologies for designing modular systems, and they’re more relevant than ever. For obvious reasons, my preferred approaches are [**domain-driven design**](https://amzn.to/4iMKeo2) and the [**balanced coupling model**](https://coupling.dev).
 
 That brings us to a point of optimism. I believe software engineers are here to stay. We’ll just be working at a higher level of abstraction. Just as 100% of the bytecode we produce today isn’t written by us, soon, 100% of the boring code won’t be either. What will remain firmly in our hands is analyzing the problem domain and designing proper component boundaries.
-
-<img src="/images/ai-boundaries.png" alt="Even AI has boundaries" />
 
 ## P.S.
 This post reflects my experience and opinion today. The future might change everything—maybe in a few years, LLMs will be able to comprehend and evolve even the scariest monoliths. But today, if you want to build systems that are understandable, adaptable, and AI-friendly, my bet is on modular design.
