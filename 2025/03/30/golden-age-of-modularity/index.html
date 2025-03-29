@@ -5,23 +5,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Books</title>
-  <meta property="og:title" content="Books" />
-  <meta name="twitter:title" content="Books" />
+  <title>The Golden Age of Modularity</title>
+  <meta property="og:title" content="The Golden Age of Modularity" />
+  <meta name="twitter:title" content="The Golden Age of Modularity" />
+  <meta name="description" content="Discover why modular software design is more relevant than ever in the age of AI. Learn how clear boundaries help both developers and large language models build and evolve systems with confidence.
+">
+  <meta property="og:description" content="Discover why modular software design is more relevant than ever in the age of AI. Learn how clear boundaries help both developers and large language models build and evolve systems with confidence.
+">
+  <meta name="twitter:description" content="Discover why modular software design is more relevant than ever in the age of AI. Learn how clear boundaries help both developers and large language models build and evolve systems with confidence.
+">
   <meta name="author" content="Vlad Khononov"/>
   <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta property="og:image" content="https://vladikk.com/images/me-conf.jpg" />
-  <meta name="twitter:image" content="https://vladikk.com/images/me-conf.jpg" />
+  <meta property="og:image" content="https://vladikk.com/images/ai-modularity.png" />
+  <meta name="twitter:image" content="https://vladikk.com/images/ai-modularity.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@vladikk" />
   <meta name="twitter:creator" content="@vladikk" />
-  <meta property="og:url" content="https://vladikk.com/categories/Books/" />
+  <meta property="og:url" content="https://vladikk.com/2025/03/30/golden-age-of-modularity/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Rants on Software Design" />
 
   <meta name="generator" content="Hugo 0.56.3" />
-  <link rel="canonical" href="https://vladikk.com/categories/Books/" />
-  <link rel="alternate" href="https://vladikk.com/categories/Books/index.xml" type="application/rss+xml" title="Rants on Software Design">
+  <link rel="canonical" href="https://vladikk.com/2025/03/30/golden-age-of-modularity/" />
+  <link rel="alternate" href="" type="application/rss+xml" title="Rants on Software Design">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -29,7 +35,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
   <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
-  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> 
+  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="modular software architecture, modular design in software, AI and software architecture, modularity in software engineering, designing for AI, modern software architecture, modular code design, software modularity and AI, AI-friendly code, large language models and code design, how to design modular software, cognitive load in software design, boundaries in system architecture, domain-driven design and AI, balanced coupling model, scalable software architecture, software design for LLMs, AI coding practices, future of software engineering, modular systems and AI">
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
@@ -165,14 +171,38 @@ if (!doNotTrack) {
 
 
     
+  
+  
+  
+
+
+
+
+  
+
   <header class="header-section ">
+    
     <div class="intro-header no-img">
+      
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
-              <h1>#Books</h1>
-              <hr class="small">
+            <div class="post-heading">
+              <h1>The Golden Age of Modularity</h1>
+                
+                  
+                    <h2 class="post-subheading">Why Modern Architecture—and AI—Depend on Better Boundaries</h2>
+                  
+                
+                
+                  <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on March 29, 2025
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 5 min (896 mots)
+  
+</span>
+
+
+                
             </div>
           </div>
         </div>
@@ -180,70 +210,123 @@ if (!doNotTrack) {
     </div>
   </header>
 
+
     
-  <div class="container" role="main">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><img src="/images/ai-modularity.png" alt="The Golden Age of Modularity: Why Modern Architecture—and AI—Depend on Better Boundaries" /></p>
+
+<p>My news feed these days:<br />
+“Take a look at the app I built with zero coding skills!”<br />
+“50% of our code is now written by AI!”<br />
+“Engineering hiring freeze: AI is the future!”</p>
+
+<p>Alright then. Time for me to jump on the vibe coding bandwagon and share an opinion that some may categorize as a hot take.</p>
+
+<p>The notion of modularity was introduced to software engineering way back in the late 1960s. Today — many decades later — we&rsquo;re entering the golden age of modularity. To understand why, let’s first define what modularity actually is.</p>
+
+<h2 id="modularity">Modularity</h2>
+
+<p>There are many ways to define modularity — from designing software systems as interchangeable LEGO blocks to chasing the holy grail of reusable “building blocks” meant to be plugged into anything and everything. I prefer a more practical perspective. To me, a modular design satisfies two key criteria:</p>
+
+<ol>
+<li><p>When you need to change the codebase—whether to adjust existing functionality or introduce a new one—it’s crystal clear what parts of the system need to be touched. Ideally, the number of affected components should be as small as possible. Preferably, just one.</p></li>
+
+<li><p>When you introduce a change to a modular system, you know exactly what the effect of that change will be. You can predict the system’s behavior.</p></li>
+</ol>
+
+<p>That makes modularity all about <strong>change</strong>. A system can work perfectly—but if it can’t evolve, it’s not modular. Only systems that are flexible enough to accommodate reasonable changes can be considered modular.</p>
+
+<p>What if you’re working on a proof of concept that’s unlikely to evolve? Or a non-critical component that won’t be optimized in the future? In such cases, modularity can be traded for shorter go-to-market time.</p>
+
+<p>Modularity used to be all about long-term goals. It was an effort you invested today to make your life easier in the future. But if all you needed was a system that worked today, modularity wasn’t that important.</p>
+
+<p><strong>Until now.</strong></p>
+
+<p>Everything changes with the introduction of large language models (LLMs). To fully leverage their ability to generate code, a modular design is essential. To understand why, let’s look at the opposite of modularity.</p>
+
+<h2 id="complexity">Complexity</h2>
+
+<p>The simplest way to define what makes a design complex is to contrast it with modularity. A complex design either makes it unclear what parts need to change to accommodate new functionality, or makes it hard to predict the outcomes of a change.</p>
+
+<p>Ever worked on a system where you weren’t sure if you changed all the necessary components? Or maybe you made a change and were surprised by its impact in production? Those are clear signs of a <strong>complex design</strong>.</p>
+
+<p>But why does this happen? Why are some designs easy to change while others feel like defusing a bomb?</p>
+
+<p>It all comes down to <strong>cognitive load</strong>. If the information you need to hold in your head to make a change exceeds the limits of our natural cognitive abilities, that design becomes complex.</p>
+
+<p>LLMs have cognitive limits too. Their context windows are limited, and even within those bounds, they often struggle to fully comprehend large or tightly coupled codebases.</p>
+
+<p>Helping LLMs work within those limits isn’t a new challenge—it’s the same one we’ve faced ourselves. The solutions have many names: objects, services, microservices, self-contained systems, autonomous components… but the common denominator is the same: modularity.</p>
+
+<h2 id="it-s-all-about-boundaries">It’s All About Boundaries</h2>
+
+<p>As Ruth Malan famously said, system design is all about boundaries: <em>what’s in, what’s out, and what goes across</em>. The quality of those boundaries determines whether a design is modular or complex. As our industry evolves, the accepted terminology changes. New levels of abstraction are introduced from time to time. But the core goal remains the same: design boundaries that <strong>maximize knowledge encapsulated within</strong>, and <strong>minimize knowledge shared across</strong>. The more knowledge is shared across component boundaries, the more likely it is that those components will need to change together. And the more such cascading changes appear, the more complex the system’s design becomes.</p>
+
+<p>Modular design minimizes the contextual knowledge required when working on a component. It’s true for us, and the same is true for an LLM. Ask it to write an entire system versus a single, well-defined module. Which output is going to be better? When the knowledge required to implement a component is self-contained, it becomes easier to define its role and interactions—both for us and for AI.</p>
+
+<p><strong>Modularity used to be about future-proofing your codebase. Today, it’s also about making your code accessible to AI.</strong></p>
+
+<p>But how do you design effective boundaries? Nothing new here. We already have techniques and methodologies for designing modular systems, and they’re more relevant than ever. For obvious reasons, my preferred approaches are <a href="https://amzn.to/4iMKeo2"><strong>domain-driven design</strong></a> and the <a href="https://coupling.dev"><strong>balanced coupling model</strong></a>.</p>
+
+<p>That brings us to a point of optimism. I believe software engineers are here to stay. We’ll just be working at a higher level of abstraction. Just as 100% of the bytecode we produce today isn’t written by us, soon, 100% of the boring code won’t be either. What will remain firmly in our hands is analyzing the problem domain and designing proper component boundaries.</p>
+
+<p><img src="/images/ai-boundaries.png" alt="Even AI has boundaries" /></p>
+
+<h2 id="p-s">P.S.</h2>
+
+<p>This post reflects my experience and opinion today. The future might change everything—maybe in a few years, LLMs will be able to comprehend and evolve even the scariest monoliths. But today, if you want to build systems that are understandable, adaptable, and AI-friendly, my bet is on modular design.</p>
+      </article>
+
+      <hr/>
+      <div id="share">
+      If you liked this post, please share it with your friends and colleagues:
+      <p><div class="addthis_inline_share_toolbox"></div></p>
+    </div>
+
+      <ul class="pager blog-pager">
         
-        <div class="posts-list">
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2024/10/09/coupling-and-cohesion/">
-                <h2 class="post-title">The Essence of Coupling and Cohesion in Under 500 Words</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on October 9, 2024
-              </p>
-              <div class="post-entry">
-                
-                  <p><img src="/images/strength-and-distance.png" alt="Integration Strength and Distance" /></p>
-
-<p>When you couple two components, they need to share some form of knowledge: public interfaces, functional behavior, implementation details, or other types of information. Let’s call it the integration strength. The more knowledge is shared, the stronger the integration. The stronger the integration, the more both components will have to change together. Therefore, you should always look to minimize the integration strength. That said, minimizing integration strength isn’t always possible—sometimes, extensive shared knowledge is necessary. For example, when the components implement closely related business functionalities.</p>
-
-<p>Another important property of integrated components is the distance between them. For example, objects in a module are located closer to each other than the source code of two microservices. The greater the distance, the higher the induced cognitive load and coordination challenges, and the more effort is needed to change the integrated components simultaneously.</p>
-
-<p>Now let’s examine four extreme combinations of the two dimensions:</p>
-                  <a href="https://vladikk.com/2024/10/09/coupling-and-cohesion/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2024/10/08/lddd-bcisd/">
-                <h2 class="post-title">Balancing Coupling in Software Design🎉</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on October 8, 2024
-              </p>
-              <div class="post-entry">
-                
-                  <p>Frist of all, today is the 🐒 book’s birthday! 🎉</p>
-
-<p>Exactly three years ago, <em>Learning Domain-Driven Design</em> was published! And what a birthday present the monkey received: today marks the official release of <em>Balancing Coupling in Software Design</em>! The new book is available in print and electronic formats on <a href="https://amzn.to/3BIIPyk">Amazon</a>, <a href="https://click.linksynergy.com/deeplink?id=XLXvHJZS*qY&amp;mid=24808&amp;murl=https%3A%2F%2Fwww.informit.com%2Fstore%2Fbalancing-coupling-in-software-design-universal-design-9780137353484">InformIT</a>, and other major book stores 🎉</p>
-
-<p><img src="/images/lddd-three-years.png" alt="Learning Domain-Driven Design's third anniversary" /></p>
-                  <a href="https://vladikk.com/2024/10/08/lddd-bcisd/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-        </div>
+          <li class="previous">
+            <a href="https://vladikk.com/2024/10/13/aws-eda-iii/" data-toggle="tooltip" data-placement="top" title="Event-Driven Architecture on AWS, Part III: The Hard Basics">&larr; Previous Post</a>
+          </li>
         
-      </div>
+        
+      </ul>
+
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladikk-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+        
+      
+
     </div>
   </div>
+</div>
 
     <footer>
   <div class="container">
@@ -317,7 +400,7 @@ if (!doNotTrack) {
               </li>
           
           <li>
-            <a href="https://vladikk.com/categories/Books/index.xml" title="RSS">
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
