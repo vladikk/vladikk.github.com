@@ -12,7 +12,7 @@ categories: [Coupling, Architecture]
 share_img: /images/coupling-dev.png
 ---
 
-<img src="/images/coupling-dev-t.png" alt="coupling.dev" style="border: 1px solid gray;" />
+<img src="/images/coupling-dev-t.png" alt="coupling.dev" />
 
 One of the most common pieces of feedback I received about [*Balancing Coupling in Software Design*](https://amzn.to/4irApMt) was that readers wanted a resource they could easily share with colleagues—a quick way to introduce the balanced coupling model and make discussions about it more accessible.
 
