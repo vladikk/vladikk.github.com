@@ -8,7 +8,7 @@ title: 'The Golden Age of Modularity'
 subtitle: 'Why Modern Architecture—and AI—Depend on Better Boundaries'
 url: /2025/03/30/golden-age-of-modularity/
 draft: false
-categories: [Microservices, Architecture, EDA]
+categories: [Microservices, Architecture]
 share_img: /images/ai-modularity.png
 ---
 
