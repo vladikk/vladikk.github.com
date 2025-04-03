@@ -8,7 +8,7 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
-    <lastBuildDate>Sat, 29 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -16,18 +16,18 @@
     <item>
       <title>Architecture</title>
       <link>https://vladikk.com/categories/Architecture/</link>
-      <pubDate>Sat, 29 Mar 2025 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/categories/Architecture/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>EDA</title>
-      <link>https://vladikk.com/categories/EDA/</link>
-      <pubDate>Sat, 29 Mar 2025 00:00:00 +0000</pubDate>
+      <title>Coupling</title>
+      <link>https://vladikk.com/categories/Coupling/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
-      <guid>https://vladikk.com/categories/EDA/</guid>
+      <guid>https://vladikk.com/categories/Coupling/</guid>
       <description></description>
     </item>
     
@@ -41,20 +41,20 @@
     </item>
     
     <item>
+      <title>EDA</title>
+      <link>https://vladikk.com/categories/EDA/</link>
+      <pubDate>Sun, 13 Oct 2024 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/categories/EDA/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Books</title>
       <link>https://vladikk.com/categories/Books/</link>
       <pubDate>Wed, 09 Oct 2024 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/categories/Books/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Coupling</title>
-      <link>https://vladikk.com/categories/Coupling/</link>
-      <pubDate>Wed, 09 Oct 2024 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vlad Khononov)</author>
-      <guid>https://vladikk.com/categories/Coupling/</guid>
       <description></description>
     </item>
     

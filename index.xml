@@ -8,10 +8,23 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
-    <lastBuildDate>Sat, 29 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Just Launched: coupling.dev</title>
+      <link>https://vladikk.com/2025/04/03/coupling-dev/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/2025/04/03/coupling-dev/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/coupling-dev-t.png&#34; alt=&#34;coupling.dev&#34; style=&#34;border: 1px solid gray;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;One of the most common pieces of feedback I received about &lt;a href=&#34;https://amzn.to/4irApMt&#34;&gt;&lt;em&gt;Balancing Coupling in Software Design&lt;/em&gt;&lt;/a&gt; was that readers wanted a resource they could easily share with colleagues—a quick way to introduce the balanced coupling model and make discussions about it more accessible.&lt;/p&gt;
+
+&lt;p&gt;To meet that need, I created &lt;a href=&#34;https://coupling.dev&#34;&gt;coupling.dev&lt;/a&gt;, a website that distills the core concepts of balanced coupling and related models into concise, approachable posts. It also serves as a hub for other learning resources, including conference talks and podcast appearances, helping teams streamline adoption and deepen their understanding together.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>The Golden Age of Modularity</title>
