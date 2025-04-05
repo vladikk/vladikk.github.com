@@ -25,7 +25,7 @@ Jack Doohan’s crash was caused by an open DRS. He opened the wing at the entry
 
 News outlets and even racing pundits were quick to blame the driver and his lack of F1 experience. But a different picture emerged later.
 
-## The Real Cause
+## The Underlying Cause
 Formula 1 drivers have very limited opportunities to drive and adapt to the thousand-horsepower monsters they race in. They get a few days of pre-season testing and three one-hour practice sessions before each race. The rest of the time, they rely on simulators. These aren’t video games, but high-end hardware and software systems, custom-built by each team to model their car’s behavior.
 
 During preparations for Suzuka, Jack discovered a way to cut lap time. In simulator sessions, he noticed he could take that corner at full speed(“flat out”) and close the DRS while braking before the second turn. It worked in the simulator. In real life, it ended in a high-speed crash.
