@@ -1,0 +1,48 @@
+---
+comments: true
+date: 2025-04-05T00:00:00Z
+title: 'F1 + DDD: All Models are Wrong, Some are Dangerous'
+keywords: learning domain-driven design, learning ddd, domain-driven design examples, ddd modeling, business software modeling, flawed models in software, all models are wrong, formula 1 crash analysis, f1 simulator vs real life, drag reduction system explained, software modeling failures, ddd in real world, modeling in software engineering, domain-driven design in practice, dangerous software decisions, software modeling edge cases, ddd best practices, business domain modeling, domain models and real world, ddd case study
+description: >
+  A deep dive into a real Formula 1 crash caused by a flawed simulator model—used to illustrate key principles from Learning Domain-Driven Design. Explores how poor modeling leads to dangerous decisions in both racing and business software.'
+url: /2025/04/05/f1-ddd/
+draft: false
+categories: [DDD]
+share_img: /images/f1-crash.png
+---
+
+This weekend, I have a rare opportunity to write about two things I care deeply about: Domain-Driven Design and Formula 1. If you’re not into Formula 1, don’t worry—I’ll give a brief heads-up into the domain and the ubiquitous language of the relevant bounded context.
+
+## The Crash
+This race weekend in the beautiful Japan started with a scare. During a pre-race practice, Jack Doohan, a rookie driver from the Alpine team, suddenly spun out of control in the highest-speed section of the track and hit a wall ([video](https://www.youtube.com/watch?v=49H4qtfUv24)). He was going over 320 kilometers per hour (200 miles per hour) at the time. Thanks to the marvels of modern race car engineering, Jack walked away unharmed—not even a concussion. But why did it happen in the first place?
+
+<img src="/images/f1-crash.png" alt="Jack Doohan's crash Practice 2" />
+<!--more-->
+## The Cause
+Current-generation Formula 1 cars have what’s called a [Drag Reduction System (DRS)](https://en.wikipedia.org/wiki/Drag_reduction_system). Under certain conditions, this system allows drivers to adjust the rear wing to let more air through. That open rear wing has two implications: first, the car can go much faster; second, it generates much less downforce, which reduces its ability to turn. That’s why DRS zones are limited to long straights.
+
+Jack Doohan’s crash was caused by an open DRS. He opened the wing at the entry to the straight but didn’t close it before the turn.
+
+News outlets and even racing pundits were quick to blame the driver and his lack of F1 experience. But a different picture emerged later.
+
+## The Real Cause
+Formula 1 drivers have very limited opportunities to drive and adapt to the thousand-horsepower monsters they race in. They get a few days of pre-season testing and three one-hour practice sessions before each race. The rest of the time, they rely on simulators. These aren’t video games, but high-end hardware and software systems, custom-built by each team to model their car’s behavior.
+
+During preparations for Suzuka, Jack discovered a way to cut lap time. In simulator sessions, he noticed he could take that corner at full speed(“flat out”) and close the DRS while braking before the second turn. It worked in the simulator. In real life, it ended in a high-speed crash.
+
+A software bug caused a driver to hit a wall at over 300 kilometers per hour.
+
+## All Models are Wrong
+As George Box said, “All models are wrong, but some are useful.” Jack Doohan’s crash shows that models can also be dangerous. No simulator can fully replicate the behavior of a real F1 car. The best it can do is to model the real world.
+
+A model isn’t meant to be a copy of reality. It’s a human-made construct designed to help us understand systems and make decisions. To do that, it must omit irrelevant details and focus on aspects crucial for the task at hand.
+
+If the model is useful, it enables better decisions. If it leads to bad ones, it can be dangerous—as DDD fanboys like me have been preaching for years.
+
+## Business Software
+You might argue we’re not building race car simulators, but business software. And sure, no amount of ubiquitous language or domain events on orange stickies will capture the nuances of airflow, traction, or how wind interacts with high-speed race cars. That’s true—but only partially.
+
+Business software can also make dangerous decisions. I saw a company lose hundreds of thousands of dollars due to choices made by a flawed model—one that misrepresented how certain entities interacted and failed to account for rare, but possible edge cases. That was in finance. If you’re working in the medical domain, the implications of bad models can be far more severe.
+
+## Models: First Design Priority
+Modeling business domains is hard. Ironically, the more critical the model, the harder it is to get right. [Domain-Driven Design](https://amzn.to/4iMKeo2) gives us the tools to tackle this. Divide and conquer: avoid jack-of-all-trades models; instead, craft multiple models, each fit for a specific purpose. Make assumptions explicit and continuously validate them. And above all, treat modeling as iterative: refine models as real-world feedback becomes available.
