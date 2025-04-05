@@ -8,10 +8,25 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
-    <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Apr 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>F1 &#43; DDD: All Models are Wrong, Some are Dangerous</title>
+      <link>https://vladikk.com/2025/04/05/f1-ddd/</link>
+      <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/2025/04/05/f1-ddd/</guid>
+      <description>&lt;p&gt;This weekend, I have a rare opportunity to write about two things I care deeply about: Domain-Driven Design and Formula 1. If you’re not into Formula 1, don’t worry—I’ll give a brief heads-up into the domain and the ubiquitous language of the relevant bounded context.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-crash&#34;&gt;The Crash&lt;/h2&gt;
+
+&lt;p&gt;This race weekend in the beautiful Japan started with a scare. During a pre-race practice, Jack Doohan, a rookie driver from the Alpine team, suddenly spun out of control in the highest-speed section of the track and hit a wall (&lt;a href=&#34;https://www.youtube.com/watch?v=49H4qtfUv24&#34;&gt;video&lt;/a&gt;). He was going over 320 kilometers per hour (200 miles per hour) at the time. Thanks to the marvels of modern race car engineering, Jack walked away unharmed—not even a concussion. But why did it happen in the first place?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/f1-crash.png&#34; alt=&#34;Jack Doohan&#39;s crash Practice 2&#34; /&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Just Launched: coupling.dev</title>

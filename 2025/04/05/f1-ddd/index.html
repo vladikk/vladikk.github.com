@@ -5,27 +5,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Just Launched: coupling.dev</title>
-  <meta property="og:title" content="Just Launched: coupling.dev" />
-  <meta name="twitter:title" content="Just Launched: coupling.dev" />
-  <meta name="description" content="Balanced Coupling is a practical, modern framework for software design that helps engineers create modular, low-complexity systems by evaluating the trade-offs of coupling. Developed by Vlad Khononov, it builds on decades of design theory to provide a simple, effective tool for making better architectural decisions.
+  <title>F1 &#43; DDD: All Models are Wrong, Some are Dangerous</title>
+  <meta property="og:title" content="F1 &#43; DDD: All Models are Wrong, Some are Dangerous" />
+  <meta name="twitter:title" content="F1 &#43; DDD: All Models are Wrong, Some are Dangerous" />
+  <meta name="description" content="A deep dive into a real Formula 1 crash caused by a flawed simulator model—used to illustrate key principles from Learning Domain-Driven Design. Explores how poor modeling leads to dangerous decisions in both racing and business software.&#39;
 ">
-  <meta property="og:description" content="Balanced Coupling is a practical, modern framework for software design that helps engineers create modular, low-complexity systems by evaluating the trade-offs of coupling. Developed by Vlad Khononov, it builds on decades of design theory to provide a simple, effective tool for making better architectural decisions.
+  <meta property="og:description" content="A deep dive into a real Formula 1 crash caused by a flawed simulator model—used to illustrate key principles from Learning Domain-Driven Design. Explores how poor modeling leads to dangerous decisions in both racing and business software.&#39;
 ">
-  <meta name="twitter:description" content="Balanced Coupling is a practical, modern framework for software design that helps engineers create modular, low-complexity systems by evaluating the trade-offs of coupling. Developed by Vlad Khononov, …">
+  <meta name="twitter:description" content="A deep dive into a real Formula 1 crash caused by a flawed simulator model—used to illustrate key principles from Learning Domain-Driven Design. Explores how poor modeling leads to dangerous decisions …">
   <meta name="author" content="Vlad Khononov"/>
   <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta property="og:image" content="https://vladikk.com/images/coupling-dev.png" />
-  <meta name="twitter:image" content="https://vladikk.com/images/coupling-dev.png" />
+  <meta property="og:image" content="https://vladikk.com/images/f1-crash.png" />
+  <meta name="twitter:image" content="https://vladikk.com/images/f1-crash.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@vladikk" />
   <meta name="twitter:creator" content="@vladikk" />
-  <meta property="og:url" content="https://vladikk.com/2025/04/03/coupling-dev/" />
+  <meta property="og:url" content="https://vladikk.com/2025/04/05/f1-ddd/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Rants on Software Design" />
 
   <meta name="generator" content="Hugo 0.56.3" />
-  <link rel="canonical" href="https://vladikk.com/2025/04/03/coupling-dev/" />
+  <link rel="canonical" href="https://vladikk.com/2025/04/05/f1-ddd/" />
   <link rel="alternate" href="" type="application/rss+xml" title="Rants on Software Design">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
   <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
-  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="balanced coupling, balancing coupling in software design, vlad khononov, khononov, software design, software architecture, modularity, coupling, coupling dimensions, microservices, system complexity, design principles, software engineering, domain-driven design, design decision-making, architectural patterns">
+  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="learning domain-driven design, learning ddd, domain-driven design examples, ddd modeling, business software modeling, flawed models in software, all models are wrong, formula 1 crash analysis, f1 simulator vs real life, drag reduction system explained, software modeling failures, ddd in real world, modeling in software engineering, domain-driven design in practice, dangerous software decisions, software modeling edge cases, ddd best practices, business domain modeling, domain models and real world, ddd case study">
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
@@ -187,12 +187,12 @@ if (!doNotTrack) {
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
-              <h1>Just Launched: coupling.dev</h1>
+              <h1>F1 &#43; DDD: All Models are Wrong, Some are Dangerous</h1>
                 
                 
                   <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on April 3, 2025
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 1 min (137 mots)
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on April 5, 2025
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 4 min (669 mots)
   
 </span>
 
@@ -211,13 +211,47 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p><img src="/images/coupling-dev-t.png" alt="coupling.dev" /></p>
+        <p>This weekend, I have a rare opportunity to write about two things I care deeply about: Domain-Driven Design and Formula 1. If you’re not into Formula 1, don’t worry—I’ll give a brief heads-up into the domain and the ubiquitous language of the relevant bounded context.</p>
 
-<p>One of the most common pieces of feedback I received about <a href="https://amzn.to/4irApMt"><em>Balancing Coupling in Software Design</em></a> was that readers wanted a resource they could easily share with colleagues—a quick way to introduce the balanced coupling model and make discussions about it more accessible.</p>
+<h2 id="the-crash">The Crash</h2>
 
-<p>To meet that need, I created <a href="https://coupling.dev">coupling.dev</a>, a website that distills the core concepts of balanced coupling and related models into concise, approachable posts. It also serves as a hub for other learning resources, including conference talks and podcast appearances, helping teams streamline adoption and deepen their understanding together.</p>
+<p>This race weekend in the beautiful Japan started with a scare. During a pre-race practice, Jack Doohan, a rookie driver from the Alpine team, suddenly spun out of control in the highest-speed section of the track and hit a wall (<a href="https://www.youtube.com/watch?v=49H4qtfUv24">video</a>). He was going over 320 kilometers per hour (200 miles per hour) at the time. Thanks to the marvels of modern race car engineering, Jack walked away unharmed—not even a concussion. But why did it happen in the first place?</p>
 
-<p>For now, all the content has been authored by me, but two guest posts are already in the works. If you’ve applied the model or have a story to share about your experience, I’d love to hear from you—reach out if you’re interested in contributing.</p>
+<p><img src="/images/f1-crash.png" alt="Jack Doohan's crash Practice 2" /></p>
+
+<h2 id="the-cause">The Cause</h2>
+
+<p>Current-generation Formula 1 cars have what’s called a <a href="https://en.wikipedia.org/wiki/Drag_reduction_system">Drag Reduction System (DRS)</a>. Under certain conditions, this system allows drivers to adjust the rear wing to let more air through. That open rear wing has two implications: first, the car can go much faster; second, it generates much less downforce, which reduces its ability to turn. That’s why DRS zones are limited to long straights.</p>
+
+<p>Jack Doohan’s crash was caused by an open DRS. He opened the wing at the entry to the straight but didn’t close it before the turn.</p>
+
+<p>News outlets and even racing pundits were quick to blame the driver and his lack of F1 experience. But a different picture emerged later.</p>
+
+<h2 id="the-real-cause">The Real Cause</h2>
+
+<p>Formula 1 drivers have very limited opportunities to drive and adapt to the thousand-horsepower monsters they race in. They get a few days of pre-season testing and three one-hour practice sessions before each race. The rest of the time, they rely on simulators. These aren’t video games, but high-end hardware and software systems, custom-built by each team to model their car’s behavior.</p>
+
+<p>During preparations for Suzuka, Jack discovered a way to cut lap time. In simulator sessions, he noticed he could take that corner at full speed(“flat out”) and close the DRS while braking before the second turn. It worked in the simulator. In real life, it ended in a high-speed crash.</p>
+
+<p>A software bug caused a driver to hit a wall at over 300 kilometers per hour.</p>
+
+<h2 id="all-models-are-wrong">All Models are Wrong</h2>
+
+<p>As George Box said, “All models are wrong, but some are useful.” Jack Doohan’s crash shows that models can also be dangerous. No simulator can fully replicate the behavior of a real F1 car. The best it can do is to model the real world.</p>
+
+<p>A model isn’t meant to be a copy of reality. It’s a human-made construct designed to help us understand systems and make decisions. To do that, it must omit irrelevant details and focus on aspects crucial for the task at hand.</p>
+
+<p>If the model is useful, it enables better decisions. If it leads to bad ones, it can be dangerous—as DDD fanboys like me have been preaching for years.</p>
+
+<h2 id="business-software">Business Software</h2>
+
+<p>You might argue we’re not building race car simulators, but business software. And sure, no amount of ubiquitous language or domain events on orange stickies will capture the nuances of airflow, traction, or how wind interacts with high-speed race cars. That’s true—but only partially.</p>
+
+<p>Business software can also make dangerous decisions. I saw a company lose hundreds of thousands of dollars due to choices made by a flawed model—one that misrepresented how certain entities interacted and failed to account for rare, but possible edge cases. That was in finance. If you’re working in the medical domain, the implications of bad models can be far more severe.</p>
+
+<h2 id="models-first-design-priority">Models: First Design Priority</h2>
+
+<p>Modeling business domains is hard. Ironically, the more critical the model, the harder it is to get right. <a href="https://amzn.to/4iMKeo2">Domain-Driven Design</a> gives us the tools to tackle this. Divide and conquer: avoid jack-of-all-trades models; instead, craft multiple models, each fit for a specific purpose. Make assumptions explicit and continuously validate them. And above all, treat modeling as iterative: refine models as real-world feedback becomes available.</p>
       </article>
 
       <hr/>
@@ -229,13 +263,9 @@ if (!doNotTrack) {
       <ul class="pager blog-pager">
         
           <li class="previous">
-            <a href="https://vladikk.com/2025/03/30/golden-age-of-modularity/" data-toggle="tooltip" data-placement="top" title="The Golden Age of Modularity">&larr; Previous Post</a>
+            <a href="https://vladikk.com/2025/04/03/coupling-dev/" data-toggle="tooltip" data-placement="top" title="Just Launched: coupling.dev">&larr; Previous Post</a>
           </li>
         
-        
-          <li class="next">
-            <a href="https://vladikk.com/2025/04/05/f1-ddd/" data-toggle="tooltip" data-placement="top" title="F1 &#43; DDD: All Models are Wrong, Some are Dangerous">Next Post &rarr;</a>
-          </li>
         
       </ul>
 
