@@ -5,9 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Categories</title>
-  <meta property="og:title" content="Categories" />
-  <meta name="twitter:title" content="Categories" />
+  <title>Posts</title>
+  <meta property="og:title" content="Posts" />
+  <meta name="twitter:title" content="Posts" />
   <meta name="author" content="Vlad Khononov"/>
   <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://vladikk.com/images/me-conf.jpg" />
@@ -15,13 +15,13 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@vladikk" />
   <meta name="twitter:creator" content="@vladikk" />
-  <meta property="og:url" content="https://vladikk.com/categories/" />
+  <meta property="og:url" content="https://vladikk.com/post/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Rants on Software Design" />
 
   <meta name="generator" content="Hugo 0.56.3" />
-  <link rel="canonical" href="https://vladikk.com/categories/" />
-  <link rel="alternate" href="https://vladikk.com/categories/index.xml" type="application/rss+xml" title="Rants on Software Design">
+  <link rel="canonical" href="https://vladikk.com/post/" />
+  <link rel="alternate" href="https://vladikk.com/post/index.xml" type="application/rss+xml" title="Rants on Software Design">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -165,26 +165,14 @@ if (!doNotTrack) {
 
 
     
-  
-  
-  
-
-
-
-
-  
-
   <header class="header-section ">
-    
     <div class="intro-header no-img">
-      
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="categories-heading">
-              <h1>Categories</h1>
-                
-                
+            <div class="page-heading">
+              <h1>Posts</h1>
+              <hr class="small">
             </div>
           </div>
         </div>
@@ -192,57 +180,68 @@ if (!doNotTrack) {
     </div>
   </header>
 
-
     
-  
   <div class="container" role="main">
-    <article class="post-preview">
-      <div class="list-group col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3">
-      
-      <a href="https://vladikk.comcategories/Architecture/" class="list-group-item">
-          Architecture<span class="badge">13</span></a>
-      
-      <a href="https://vladikk.comcategories/Domain-Driven-Design/" class="list-group-item">
-          Domain-Driven-Design<span class="badge">8</span></a>
-      
-      <a href="https://vladikk.comcategories/Microservices/" class="list-group-item">
-          Microservices<span class="badge">8</span></a>
-      
-      <a href="https://vladikk.comcategories/Coupling/" class="list-group-item">
-          Coupling<span class="badge">3</span></a>
-      
-      <a href="https://vladikk.comcategories/EDA/" class="list-group-item">
-          EDA<span class="badge">3</span></a>
-      
-      <a href="https://vladikk.comcategories/Misc/" class="list-group-item">
-          Misc<span class="badge">3</span></a>
-      
-      <a href="https://vladikk.comcategories/Python/" class="list-group-item">
-          Python<span class="badge">3</span></a>
-      
-      <a href="https://vladikk.comcategories/Books/" class="list-group-item">
-          Books<span class="badge">2</span></a>
-      
-      <a href="https://vladikk.comcategories/OSS/" class="list-group-item">
-          OSS<span class="badge">2</span></a>
-      
-      <a href="https://vladikk.comcategories/TDD/" class="list-group-item">
-          TDD<span class="badge">2</span></a>
-      
-      <a href="https://vladikk.comcategories/AI/" class="list-group-item">
-          AI<span class="badge">1</span></a>
-      
-      <a href="https://vladikk.comcategories/CQRS/" class="list-group-item">
-          CQRS<span class="badge">1</span></a>
-      
-      <a href="https://vladikk.comcategories/Cynefin/" class="list-group-item">
-          Cynefin<span class="badge">1</span></a>
-      
-      <a href="https://vladikk.comcategories/DDD/" class="list-group-item">
-          DDD<span class="badge">1</span></a>
-      
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="posts-list">
+          
+            <article class="post-preview">
+              <a href="https://vladikk.com/2012/08/23/disposing-objects-created-by-di-container/">
+                <h2 class="post-title">Disposing Objects Created by DI Container</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on August 23, 2012
+              </p>
+              <div class="post-entry">
+                
+                  <p>The general rule says that if you created an object, then it is your responsibility to dispose it. Things get a bit tricky when objects are created by a dependency injection container. The responsibility of containers is to construct objects and inject the dependencies they need. An error I’ve seen people doing again and again is to dispose objects that were injected into an object via constructor or property injection. Consider the class “Foo” that requires an instance of class “Bar”:</p>
+
+<pre><code class="language-c#">public class Foo : IDisposable {  
+    protected Bar bar;  
+    public Foo(Bar bar) {  
+        this.bar = bar;  
+    }  
+    public void Dispose() {  
+        bar.Dispose();  
+    }  
+}  
+
+public class Program {  
+    static void Main() {  
+        var foo = container.Resolve&lt;Foo&gt;();  
+        ...  
+        foo.Dispose();  
+    }  
+}  
+</code></pre>
+
+<p>The problem with this approach is that the “Foo” class will know too much about the environment it runs in. At least it will think it does. An instance of “Foo” can’t and shouldn’t know who passed in the instance of “Bar”, and what he intends to do with it after the instance of “Foo” will be disposed.</p>
+                  <a href="https://vladikk.com/2012/08/23/disposing-objects-created-by-di-container/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+        </div>
+        
+          <ul class="pager main-pager">
+            
+              <li class="previous">
+                <a href="/post/page/3/">&larr; Newer Posts</a>
+              </li>
+            
+            
+          </ul>
+        
       </div>
-    </article>
+    </div>
   </div>
 
     <footer>
@@ -317,7 +316,7 @@ if (!doNotTrack) {
               </li>
           
           <li>
-            <a href="https://vladikk.com/categories/index.xml" title="RSS">
+            <a href="https://vladikk.com/post/index.xml" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>

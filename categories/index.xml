@@ -8,10 +8,28 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
-    <lastBuildDate>Sat, 05 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 May 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AI</title>
+      <link>https://vladikk.com/categories/AI/</link>
+      <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/categories/AI/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cynefin</title>
+      <link>https://vladikk.com/categories/Cynefin/</link>
+      <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/categories/Cynefin/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>DDD</title>

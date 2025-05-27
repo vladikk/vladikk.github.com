@@ -8,10 +8,30 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
-    <lastBuildDate>Sat, 05 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 May 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>With AI, everything is so complicated... and this is great news!</title>
+      <link>https://vladikk.com/2025/05/26/with-ai-everything-is-complicated/</link>
+      <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/2025/05/26/with-ai-everything-is-complicated/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-everything-is-complicated.png&#34; alt=&#34;With AI, everything is so complicated... and this is great news!&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lately I&amp;rsquo;ve been spending more and more time researching AI models and their effects on software engineering and architecture, so it&amp;rsquo;s time to share my findings.&lt;/p&gt;
+
+&lt;p&gt;First, let me explain what I mean by &amp;ldquo;complicated.&amp;rdquo; I&amp;rsquo;m a huge fan of the Cynefin framework. If you are not familiar with it, here is the gist.&lt;/p&gt;
+
+&lt;h2 id=&#34;cynefin&#34;&gt;Cynefin&lt;/h2&gt;
+
+&lt;p&gt;Say you need to decide on something. For example, let&amp;rsquo;s assume you need to change the behavior of a software application and are contemplating how to do it.&lt;/p&gt;
+
+&lt;p&gt;Cynefin is a tool for guiding the decision-making process in different kinds of
+situations.  It says that first you need to understand what kind of situation you are in, and once you do, picking the optimal course of action is much easier. For that, the framework identifies four basic situations—domains:&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>F1 &#43; DDD: All Models are Wrong, Some are Dangerous</title>

@@ -3,9 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://vladikk.com/categories/</loc>
-    <lastmod>2025-04-05T00:00:00+00:00</lastmod>
+    <loc>https://vladikk.com/categories/AI/</loc>
+    <lastmod>2025-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladikk.com/categories/</loc>
+    <lastmod>2025-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladikk.com/categories/Cynefin/</loc>
+    <lastmod>2025-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladikk.com/post/</loc>
+    <lastmod>2025-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladikk.com/</loc>
+    <lastmod>2025-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladikk.com/2025/05/26/with-ai-everything-is-complicated/</loc>
+    <lastmod>2025-05-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -17,18 +46,6 @@
   <url>
     <loc>https://vladikk.com/2025/04/05/f1-ddd/</loc>
     <lastmod>2025-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vladikk.com/post/</loc>
-    <lastmod>2025-04-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladikk.com/</loc>
-    <lastmod>2025-04-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
