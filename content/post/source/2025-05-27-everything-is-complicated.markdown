@@ -41,7 +41,7 @@ That 🚨 slack alert 🚨 you receive in the middle of the night on a weekend f
 
 What can Cynefin tell us about modern software engineering and AI's role in it?
 
-## AI and Software Engineering
+## Cynefin and Software Engineering
 Any non-trivial system consists of multiple functionalities needed for the overarching system to succeed. These functional building blocks can be categorized into Cynefin domains:
 
 #### Clear
