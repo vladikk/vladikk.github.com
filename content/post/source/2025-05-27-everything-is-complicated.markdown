@@ -78,5 +78,5 @@ As I mentioned in the previous section, many non-trivial functionalities can be 
 
 As an experiment, I've tried asking LLMs to design and implement core functionalities I used to work on in the past. Often, the first version works. However, the modeling and design issues are quite evident, and future evolutions of the requirement resulted in extreme token usage and codebases that, at best, compile. And that makes total sense, as the models were not trained on such tasks.
 
-Will future models be able to tackle complex functionalities as well? Probably yes, but until then, we can use the current generation of AI to help us in the clear, complicated, and (sometimes) chaotic domains. AI can even be used to validate the business value that's driven by software: if it still needs your help—the business value is there.
+Will future models be able to tackle complex functionalities as well? Probably yes, but until then, we can use the current generation of AI to help us in the clear, complicated, and (sometimes) chaotic domains. **AI can even be used to validate the business value that's driven by software: if it still needs your help—the business value is there.**
 
