@@ -6,7 +6,7 @@ theme: beautifulhugo
 DefaultContentLanguage: en
 pygmentsUseClasses: true
 pygmentCodeFences: true
-disqusShortname: vladikk-blog
+#disqusShortname: vladikk-blog
 googleAnalytics: UA-40869819-1
 publishDir: ../blog-public
 unsafe: true
