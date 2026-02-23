@@ -8,10 +8,29 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
-    <lastBuildDate>Mon, 26 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 23 Feb 2026 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AI Doesn&#39;t Fix Your Real Bottleneck</title>
+      <link>https://vladikk.com/2026/02/23/ai-toc-bc/</link>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/2026/02/23/ai-toc-bc/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-toc.png&#34; alt=&#34;An assembly line where an AI robot speeds up code production, creating a massive pile of blocks in front of an overwhelmed human operator with a warning alarm — illustrating how accelerating code generation creates a bottleneck at human comprehension.&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Every other post on my feed celebrates how AI lets us write code faster: whole apps built in a matter of a few hours, 99% AI-generated codebases, hundred-fold productivity gains, and on and on. But does writing code faster actually make us more productive?&lt;/p&gt;
+
+&lt;h2 id=&#34;a-quick-detour-through-a-factory&#34;&gt;A Quick Detour Through a Factory&lt;/h2&gt;
+
+&lt;p&gt;The Theory of Constraints says that every system&amp;rsquo;s throughput is limited by a single constraint: its bottleneck. What makes a system more effective? Improving the bottleneck. What makes a system less efficient? Improving anything else.&lt;/p&gt;
+
+&lt;p&gt;I know, that second part is counterintuitive. Here&amp;rsquo;s the thing: if you speed up a non-bottleneck, you don&amp;rsquo;t improve the system; you produce more work-in-progress that piles up in front of the bottleneck! More inventory. More cost. More waste. The system becomes more expensive to operate, not more productive.&lt;/p&gt;
+
+&lt;p&gt;This is a well-established principle in manufacturing, and software manufacturing is no exception.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>With AI, everything is so complicated... and this is great news!</title>

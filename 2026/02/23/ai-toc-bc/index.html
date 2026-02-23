@@ -5,66 +5,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Learning From Mistakes: Leaky Abstractions</title>
-  <meta property="og:title" content="Learning From Mistakes: Leaky Abstractions" />
-  <meta name="twitter:title" content="Learning From Mistakes: Leaky Abstractions" />
-  <meta name="description" content="On the project I’m working on I’ve had a requirement to store and read files
-from the file system. Alse the files had to be accessible from the web.
-
-Having a gut feeling that the infrastructure may change as the business will
-grow, I decided to hide operations on the file system behind an interface:
-
-public interface IFilesStorage {
-    string StoreFile(Stream stream, string fileName);
-    Stream GetFile(string virtualPath);
-    string GetFileUrl(string virtualPath);
-    string GetFilePath(string virtualPath);
-}
-
-
-As it looks, if someday I’ll need to switch from the file
-system to another storage mechanism, I’ll be able to do get the
-job done by writing another implementation of the interface.
-Right? Wrong! The requirement did come in - I’ve had to store
-the files in S3. And only then I realised that IFilesStorage is
-a leaky abstraction.">
-  <meta property="og:description" content="On the project I’m working on I’ve had a requirement to store and read files
-from the file system. Alse the files had to be accessible from the web.
-
-Having a gut feeling that the infrastructure may change as the business will
-grow, I decided to hide operations on the file system behind an interface:
-
-public interface IFilesStorage {
-    string StoreFile(Stream stream, string fileName);
-    Stream GetFile(string virtualPath);
-    string GetFileUrl(string virtualPath);
-    string GetFilePath(string virtualPath);
-}
-
-
-As it looks, if someday I’ll need to switch from the file
-system to another storage mechanism, I’ll be able to do get the
-job done by writing another implementation of the interface.
-Right? Wrong! The requirement did come in - I’ve had to store
-the files in S3. And only then I realised that IFilesStorage is
-a leaky abstraction.">
-  <meta name="twitter:description" content="On the project I’m working on I’ve had a requirement to store and read files
-from the file system. Alse the files had to be accessible from the web.
-
-Having a gut feeling that the infrastructure may …">
+  <title>AI Doesn&#39;t Fix Your Real Bottleneck</title>
+  <meta property="og:title" content="AI Doesn&#39;t Fix Your Real Bottleneck" />
+  <meta name="twitter:title" content="AI Doesn&#39;t Fix Your Real Bottleneck" />
+  <meta name="description" content="AI lets us write code faster, but does that make us more productive? The Theory of Constraints says no: the bottleneck in software engineering is our cognitive capacity, not code production. Generating more code only piles up complexity. The real investment should go into modular design.
+">
+  <meta property="og:description" content="AI lets us write code faster, but does that make us more productive? The Theory of Constraints says no: the bottleneck in software engineering is our cognitive capacity, not code production. Generating more code only piles up complexity. The real investment should go into modular design.
+">
+  <meta name="twitter:description" content="AI lets us write code faster, but does that make us more productive? The Theory of Constraints says no: the bottleneck in software engineering is our cognitive capacity, not code production. …">
   <meta name="author" content="Vlad Khononov"/>
   <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta property="og:image" content="https://vladikk.com/images/me-conf.jpg" />
-  <meta name="twitter:image" content="https://vladikk.com/images/me-conf.jpg" />
+  <meta property="og:image" content="https://vladikk.com/images/ait-toc.png" />
+  <meta name="twitter:image" content="https://vladikk.com/images/ait-toc.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@vladikk" />
   <meta name="twitter:creator" content="@vladikk" />
-  <meta property="og:url" content="https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/" />
+  <meta property="og:url" content="https://vladikk.com/2026/02/23/ai-toc-bc/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Rants on Software Design" />
 
   <meta name="generator" content="Hugo 0.56.3" />
-  <link rel="canonical" href="https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/" />
+  <link rel="canonical" href="https://vladikk.com/2026/02/23/ai-toc-bc/" />
   <link rel="alternate" href="" type="application/rss+xml" title="Rants on Software Design">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -73,7 +34,7 @@ Having a gut feeling that the infrastructure may …">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
   <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
-  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="leaky abstraction, design, oop, ood, objection oriented design, code smell">
+  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="AI software development, theory of constraints, cognitive load, software complexity, modularity, balanced coupling, AI code generation, software bottleneck, modular design, AI productivity">
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
@@ -226,12 +187,12 @@ if (!doNotTrack) {
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
-              <h1>Learning From Mistakes: Leaky Abstractions</h1>
+              <h1>AI Doesn&#39;t Fix Your Real Bottleneck</h1>
                 
                 
                   <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on October 15, 2012
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 2 min (275 mots)
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on February 23, 2026
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 5 min (935 mots)
   
 </span>
 
@@ -250,47 +211,93 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>On the project I’m working on I’ve had a requirement to store and read files
-from the file system. Alse the files had to be accessible from the web.</p>
+        <p><img src="/images/ai-toc.png" alt="An assembly line where an AI robot speeds up code production, creating a massive pile of blocks in front of an overwhelmed human operator with a warning alarm — illustrating how accelerating code generation creates a bottleneck at human comprehension." /></p>
 
-<p>Having a gut feeling that the infrastructure may change as the business will
-grow, I decided to hide operations on the file system behind an interface:</p>
+<p>Every other post on my feed celebrates how AI lets us write code faster: whole apps built in a matter of a few hours, 99% AI-generated codebases, hundred-fold productivity gains, and on and on. But does writing code faster actually make us more productive?</p>
 
-<pre><code class="language-c#">public interface IFilesStorage {
-    string StoreFile(Stream stream, string fileName);
-    Stream GetFile(string virtualPath);
-    string GetFileUrl(string virtualPath);
-    string GetFilePath(string virtualPath);
-}
-</code></pre>
+<h2 id="a-quick-detour-through-a-factory">A Quick Detour Through a Factory</h2>
 
-<p>As it looks, if someday I’ll need to switch from the file
-system to another storage mechanism, I’ll be able to do get the
-job done by writing another implementation of the interface.
-Right? Wrong! The requirement did come in - I’ve had to store
-the files in S3. And only then I realised that IFilesStorage is
-a leaky abstraction.</p>
+<p>The Theory of Constraints says that every system&rsquo;s throughput is limited by a single constraint: its bottleneck. What makes a system more effective? Improving the bottleneck. What makes a system less efficient? Improving anything else.</p>
 
-<p>The problem lies in the last method, GetFilePath. This method
-leaks out the implementation detail, that each file has a path
-which can be used to access the file from the file system. Of
-course, other storage mechanisms can’t provide such
-functionality. This bummer makes switching storage mechanism
-nearly impossible.</p>
+<p>I know, that second part is counterintuitive. Here&rsquo;s the thing: if you speed up a non-bottleneck, you don&rsquo;t improve the system; you produce more work-in-progress that piles up in front of the bottleneck! More inventory. More cost. More waste. The system becomes more expensive to operate, not more productive.</p>
 
-<p>From a <a href="http://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29">SOLID</a> point of view, this issue can be seen as a
-violation of the Liskov substitution principle: the file system
-based implementation of the interface cannot be replaced by
-another implementation, as it will break the correctness of the
-application.</p>
+<p>This is a well-established principle in manufacturing, and software manufacturing is no exception.</p>
 
-<p>The solution was to drop the problematic method and get rid of
-the dependancy on file paths in the system.</p>
+<h2 id="what-s-the-bottleneck">What&rsquo;s the Bottleneck?</h2>
 
-<p>Lesson learned: having abstractions will make the code more testable,
-but if you’re aiming for supple design, make
-sure your abstractions don’t leak out details about the
-underlying architecture.</p>
+<p>Think about what makes software engineering hard. Is it typing? If you have a clear understanding of the business domain and requirements, is it that hard to codify the domain knowledge? Not really. Writing new code is the easy part.</p>
+
+<p>The hard part is evolving a system. You might not be the one who built it. But to add new functionality or change existing behavior, you need to understand what the system does, how its components interact, and what will happen when you change one of them.</p>
+
+<p>Our cognitive capacity for untangling such dependencies is limited. Studies put the number of information units we can hold in working memory at around 4±1. More optimistic ones say 7±2, but that research is dated. The exact number doesn&rsquo;t matter. The point is: there&rsquo;s a hard ceiling, and it&rsquo;s not very high.</p>
+
+<p><strong>The bottleneck in software engineering is our ability to comprehend systems.</strong></p>
+
+<h2 id="code-piles-up-clarity-doesn-t">Code Piles Up, Clarity Doesn&rsquo;t</h2>
+
+<p>When the cognitive load required to understand a system exceeds our cognitive capacity, we can no longer predict the outcomes of changes. We change things and watch what happens. Did it work? Did something else break? — No way to know until you try. Changes become dangerous, and development slows to a crawl of trial and error.</p>
+
+<p>That&rsquo;s <em>complexity</em>. Not complexity as in &ldquo;this is a hard problem,&rdquo; but complexity as in &ldquo;we don&rsquo;t know what will happen when we touch something.&rdquo;</p>
+
+<p>And it&rsquo;s not just us. Your AI-robot-friends suffer from complexity too. The larger the codebase an LLM has to work with, the faster its context fills up and the less effective it becomes.</p>
+
+<p>Now consider what happens when AI generates more code, faster. Cognitive load piles up and the bottleneck gets squeezed harder. We&rsquo;re accelerating a non-bottleneck (code production) while piling up inventory (code we need to understand and maintain) in front of the real constraint: our cognitive limits.</p>
+
+<p>The Theory of Constraints predicts exactly what happens next: the system degrades.</p>
+
+<h2 id="invest-in-the-bottleneck">Invest in the Bottleneck</h2>
+
+<p>If the bottleneck is our cognitive capacity, the way to make the process more efficient is to reduce the cognitive load the system induces. The answer is <strong>modularity</strong>.</p>
+
+<p>What&rsquo;s the goal of modularity? When you need to make a change, you know exactly which components are affected, and the outcome of the change. No guessing, no trial and error. Confident reasoning instead of complexity. Sounds good? Getting there requires balancing three dimensions of coupling.</p>
+
+<h3 id="shortcut-to-modularity">Shortcut to Modularity</h3>
+
+<p>Every system is made of components that are connected to each other. Those connections, that coupling, can either produce modularity or complexity. The outcome depends on three dimensions:</p>
+
+<ul>
+<li><strong>Shared knowledge</strong>: the knowledge components share about each other. The more knowledge is shared, the higher the likelihood that a change in one will trigger cascading changes in others.</li>
+<li><strong>Distance</strong>: the physical and organizational distance between coupled components. The greater the distance, the more expensive cascading changes become.</li>
+<li><strong>Volatility</strong>: the probability that a component will need to change in the first place. High volatility amplifies design problems; low volatility neutralizes them.</li>
+</ul>
+
+<p>When these dimensions are balanced, the design is modular:</p>
+
+<ul>
+<li>Components that change together (shared knowledge is high) are located close to each other (distance is low); and</li>
+<li>Components that don&rsquo;t change together (shared knowledge is low) are spread apart (distance is high).</li>
+</ul>
+
+<p>When the dimensions are not balanced, you get cognitive load (=complexity):</p>
+
+<ul>
+<li>Closely related components (shared knowledge is high) located far away (high distance) make dependencies hard to trace; and</li>
+<li>Unrelated components (shared knowledge is low) located close to each other (low distance) clutter the codebase.</li>
+</ul>
+
+<p>Ultimately, volatility multiplies the effects of complexity.</p>
+
+<p>That&rsquo;s the <strong>balanced coupling</strong> model.</p>
+
+<h2 id="the-right-question">The Right Question</h2>
+
+<p>The question isn&rsquo;t &ldquo;how do we write code faster?&rdquo; It&rsquo;s &ldquo;how do we keep systems understandable as they grow?&rdquo;</p>
+
+<p>AI can help with that too. But only if we point it at the right problem. Using AI to generate more code without investing in the modularity of our systems is like speeding up a machine that&rsquo;s already overproducing. The bottleneck doesn&rsquo;t care how fast the upstream station works.</p>
+
+<p>Invest in the constraint. Design for modularity. Balance your coupling.</p>
+
+<h2 id="learn-more">Learn More</h2>
+
+<p>To learn more about balanced coupling and how it drives modular design, check out the <a href="https://amzn.to/4irApMt">Balancing Coupling in Software Design</a> book and <a href="https://coupling.dev">blog</a>.</p>
+
+<h2 id="p-s">P.S.</h2>
+
+<p>&ldquo;But my AI already writes modular code!&rdquo; Yeah, sure. Generating code that <em>looks</em> modular and designing a system that <em>is</em> modular are two very different things. Modularity is a system-level property. It requires understanding the business domain, the organizational structure, and the trade-offs between them. That&rsquo;s not a prompting problem. At least, not at the moment&hellip;</p>
+
+<h2 id="p-p-s">P.P.S.</h2>
+
+<p>If you found this useful, share it. The bottleneck conversation is one worth having.</p>
       </article>
 
       <hr/>
@@ -299,13 +306,9 @@ underlying architecture.</p>
       <ul class="pager blog-pager">
         
           <li class="previous">
-            <a href="https://vladikk.com/2012/09/10/dependency-injection-patterns/" data-toggle="tooltip" data-placement="top" title="Dependency Injection Patterns">&larr; Previous Post</a>
+            <a href="https://vladikk.com/2025/05/26/with-ai-everything-is-complicated/" data-toggle="tooltip" data-placement="top" title="With AI, everything is so complicated... and this is great news!">&larr; Previous Post</a>
           </li>
         
-        
-          <li class="next">
-            <a href="https://vladikk.com/2013/05/14/uncoupling-configuration-files/" data-toggle="tooltip" data-placement="top" title="Uncoupling Configuration Files">Next Post &rarr;</a>
-          </li>
         
       </ul>
 

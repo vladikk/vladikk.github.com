@@ -5,53 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Learning From Mistakes: Leaky Abstractions</title>
-  <meta property="og:title" content="Learning From Mistakes: Leaky Abstractions" />
-  <meta name="twitter:title" content="Learning From Mistakes: Leaky Abstractions" />
-  <meta name="description" content="On the project I’m working on I’ve had a requirement to store and read files
-from the file system. Alse the files had to be accessible from the web.
-
-Having a gut feeling that the infrastructure may change as the business will
-grow, I decided to hide operations on the file system behind an interface:
-
-public interface IFilesStorage {
-    string StoreFile(Stream stream, string fileName);
-    Stream GetFile(string virtualPath);
-    string GetFileUrl(string virtualPath);
-    string GetFilePath(string virtualPath);
-}
-
-
-As it looks, if someday I’ll need to switch from the file
-system to another storage mechanism, I’ll be able to do get the
-job done by writing another implementation of the interface.
-Right? Wrong! The requirement did come in - I’ve had to store
-the files in S3. And only then I realised that IFilesStorage is
-a leaky abstraction.">
-  <meta property="og:description" content="On the project I’m working on I’ve had a requirement to store and read files
-from the file system. Alse the files had to be accessible from the web.
-
-Having a gut feeling that the infrastructure may change as the business will
-grow, I decided to hide operations on the file system behind an interface:
-
-public interface IFilesStorage {
-    string StoreFile(Stream stream, string fileName);
-    Stream GetFile(string virtualPath);
-    string GetFileUrl(string virtualPath);
-    string GetFilePath(string virtualPath);
-}
-
-
-As it looks, if someday I’ll need to switch from the file
-system to another storage mechanism, I’ll be able to do get the
-job done by writing another implementation of the interface.
-Right? Wrong! The requirement did come in - I’ve had to store
-the files in S3. And only then I realised that IFilesStorage is
-a leaky abstraction.">
-  <meta name="twitter:description" content="On the project I’m working on I’ve had a requirement to store and read files
-from the file system. Alse the files had to be accessible from the web.
-
-Having a gut feeling that the infrastructure may …">
+  <title>Balanced Coupling</title>
+  <meta property="og:title" content="Balanced Coupling" />
+  <meta name="twitter:title" content="Balanced Coupling" />
   <meta name="author" content="Vlad Khononov"/>
   <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://vladikk.com/images/me-conf.jpg" />
@@ -59,13 +15,13 @@ Having a gut feeling that the infrastructure may …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@vladikk" />
   <meta name="twitter:creator" content="@vladikk" />
-  <meta property="og:url" content="https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/" />
+  <meta property="og:url" content="https://vladikk.com/categories/Balanced-Coupling/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Rants on Software Design" />
 
   <meta name="generator" content="Hugo 0.56.3" />
-  <link rel="canonical" href="https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/" />
-  <link rel="alternate" href="" type="application/rss+xml" title="Rants on Software Design">
+  <link rel="canonical" href="https://vladikk.com/categories/Balanced-Coupling/" />
+  <link rel="alternate" href="https://vladikk.com/categories/Balanced-Coupling/index.xml" type="application/rss+xml" title="Rants on Software Design">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -73,7 +29,7 @@ Having a gut feeling that the infrastructure may …">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
   <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
-  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="leaky abstraction, design, oop, ood, objection oriented design, code smell">
+  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> 
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
@@ -209,34 +165,14 @@ if (!doNotTrack) {
 
 
     
-  
-  
-  
-
-
-
-
-  
-
   <header class="header-section ">
-    
     <div class="intro-header no-img">
-      
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="post-heading">
-              <h1>Learning From Mistakes: Leaky Abstractions</h1>
-                
-                
-                  <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on October 15, 2012
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 2 min (275 mots)
-  
-</span>
-
-
-                
+            <div class="page-heading">
+              <h1>#Balanced Coupling</h1>
+              <hr class="small">
             </div>
           </div>
         </div>
@@ -244,80 +180,49 @@ if (!doNotTrack) {
     </div>
   </header>
 
-
     
-<div class="container" role="main">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <article role="main" class="blog-post">
-        <p>On the project I’m working on I’ve had a requirement to store and read files
-from the file system. Alse the files had to be accessible from the web.</p>
-
-<p>Having a gut feeling that the infrastructure may change as the business will
-grow, I decided to hide operations on the file system behind an interface:</p>
-
-<pre><code class="language-c#">public interface IFilesStorage {
-    string StoreFile(Stream stream, string fileName);
-    Stream GetFile(string virtualPath);
-    string GetFileUrl(string virtualPath);
-    string GetFilePath(string virtualPath);
-}
-</code></pre>
-
-<p>As it looks, if someday I’ll need to switch from the file
-system to another storage mechanism, I’ll be able to do get the
-job done by writing another implementation of the interface.
-Right? Wrong! The requirement did come in - I’ve had to store
-the files in S3. And only then I realised that IFilesStorage is
-a leaky abstraction.</p>
-
-<p>The problem lies in the last method, GetFilePath. This method
-leaks out the implementation detail, that each file has a path
-which can be used to access the file from the file system. Of
-course, other storage mechanisms can’t provide such
-functionality. This bummer makes switching storage mechanism
-nearly impossible.</p>
-
-<p>From a <a href="http://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29">SOLID</a> point of view, this issue can be seen as a
-violation of the Liskov substitution principle: the file system
-based implementation of the interface cannot be replaced by
-another implementation, as it will break the correctness of the
-application.</p>
-
-<p>The solution was to drop the problematic method and get rid of
-the dependancy on file paths in the system.</p>
-
-<p>Lesson learned: having abstractions will make the code more testable,
-but if you’re aiming for supple design, make
-sure your abstractions don’t leak out details about the
-underlying architecture.</p>
-      </article>
-
-      <hr/>
-      
-
-      <ul class="pager blog-pager">
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
-          <li class="previous">
-            <a href="https://vladikk.com/2012/09/10/dependency-injection-patterns/" data-toggle="tooltip" data-placement="top" title="Dependency Injection Patterns">&larr; Previous Post</a>
-          </li>
-        
-        
-          <li class="next">
-            <a href="https://vladikk.com/2013/05/14/uncoupling-configuration-files/" data-toggle="tooltip" data-placement="top" title="Uncoupling Configuration Files">Next Post &rarr;</a>
-          </li>
-        
-      </ul>
+        <div class="posts-list">
+          
+            <article class="post-preview">
+              <a href="https://vladikk.com/2026/02/23/ai-toc-bc/">
+                <h2 class="post-title">AI Doesn&#39;t Fix Your Real Bottleneck</h2>
 
+                
+              </a>
 
-      
-        
-        
-      
+              <p class="post-meta">
+                Posted on February 23, 2026
+              </p>
+              <div class="post-entry">
+                
+                  <p><img src="/images/ai-toc.png" alt="An assembly line where an AI robot speeds up code production, creating a massive pile of blocks in front of an overwhelmed human operator with a warning alarm — illustrating how accelerating code generation creates a bottleneck at human comprehension." /></p>
 
+<p>Every other post on my feed celebrates how AI lets us write code faster: whole apps built in a matter of a few hours, 99% AI-generated codebases, hundred-fold productivity gains, and on and on. But does writing code faster actually make us more productive?</p>
+
+<h2 id="a-quick-detour-through-a-factory">A Quick Detour Through a Factory</h2>
+
+<p>The Theory of Constraints says that every system&rsquo;s throughput is limited by a single constraint: its bottleneck. What makes a system more effective? Improving the bottleneck. What makes a system less efficient? Improving anything else.</p>
+
+<p>I know, that second part is counterintuitive. Here&rsquo;s the thing: if you speed up a non-bottleneck, you don&rsquo;t improve the system; you produce more work-in-progress that piles up in front of the bottleneck! More inventory. More cost. More waste. The system becomes more expensive to operate, not more productive.</p>
+
+<p>This is a well-established principle in manufacturing, and software manufacturing is no exception.</p>
+                  <a href="https://vladikk.com/2026/02/23/ai-toc-bc/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+        </div>
+        
+      </div>
     </div>
   </div>
-</div>
 
     <footer>
   <div class="container">
@@ -391,7 +296,7 @@ underlying architecture.</p>
               </li>
           
           <li>
-            <a href="" title="RSS">
+            <a href="https://vladikk.com/categories/Balanced-Coupling/index.xml" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
