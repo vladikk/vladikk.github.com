@@ -66,5 +66,5 @@ Found this useful? Share it. Too many teams are still optimizing for the wrong n
 ## Learn More
 
 - [*Balancing Coupling in Software Design*](https://amzn.to/4irApMt) (Addison-Wesley) — The book covering the full Balanced Coupling model.
-- [*Integration Strength*](https://coupling.dev/integration-strength) on coupling.dev — A deep dive into the four levels of knowledge sharing between components.
-- [*Afferent & Efferent Coupling*](https://coupling.dev/afferent-efferent) on coupling.dev — How counting-based metrics relate to the balanced coupling model.
+- [*Integration Strength*](https://coupling.dev/posts/dimensions-of-coupling/integration-strength/) on coupling.dev — A deep dive into the four levels of knowledge sharing between components.
+- [*Afferent & Efferent Coupling*](https://coupling.dev/posts/related-topics/afferent-and-efferent-coupling/) on coupling.dev — How counting-based metrics relate to the balanced coupling model.
