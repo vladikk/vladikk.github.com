@@ -188,6 +188,46 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+              <a href="https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/">
+                <h2 class="post-title">Learning From Mistakes: Leaky Abstractions</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on October 15, 2012
+              </p>
+              <div class="post-entry">
+                
+                  <p>On the project I’m working on I’ve had a requirement to store and read files
+from the file system. Alse the files had to be accessible from the web.</p>
+
+<p>Having a gut feeling that the infrastructure may change as the business will
+grow, I decided to hide operations on the file system behind an interface:</p>
+
+<pre><code class="language-c#">public interface IFilesStorage {
+    string StoreFile(Stream stream, string fileName);
+    Stream GetFile(string virtualPath);
+    string GetFileUrl(string virtualPath);
+    string GetFilePath(string virtualPath);
+}
+</code></pre>
+
+<p>As it looks, if someday I’ll need to switch from the file
+system to another storage mechanism, I’ll be able to do get the
+job done by writing another implementation of the interface.
+Right? Wrong! The requirement did come in - I’ve had to store
+the files in S3. And only then I realised that IFilesStorage is
+a leaky abstraction.</p>
+                  <a href="https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
               <a href="https://vladikk.com/2012/09/10/dependency-injection-patterns/">
                 <h2 class="post-title">Dependency Injection Patterns</h2>
 

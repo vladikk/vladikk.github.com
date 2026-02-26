@@ -188,6 +188,42 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+              <a href="https://vladikk.com/2026/02/26/coupling-weighed/">
+                <h2 class="post-title">Coupling Should Be Weighed, Not Counted</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on February 26, 2026
+              </p>
+              <div class="post-entry">
+                
+                  <p><img src="/images/weighed-not-counted.png" alt="A balance scale where a single heavy weight outweighs many smaller pieces — illustrating that one heavy dependency can matter more than many lightweight ones." /></p>
+
+<blockquote>
+<p>&ldquo;Words should be weighed, not counted.&rdquo; — A Yiddish Saying</p>
+</blockquote>
+
+<p>Static code analysis tools count dependencies, calculate ratios, and assign neat scores. Yet in my experience, chasing those metrics never really made the design more modular. It&rsquo;s so easy to game the scores without any improvement to the design itself. Let&rsquo;s see why, and what you can do instead.</p>
+
+<h2 id="the-counting-approach">The Counting Approach</h2>
+
+<p>Most static analysis tools evaluate coupling by counting dependencies. Afferent coupling (Ca) counts how many components depend on yours. Efferent coupling (Ce) counts how many components yours depends on. A popular instability metric combines them into a neat formula:</p>
+
+<pre><code>I = Ce / (Ce + Ca)
+</code></pre>
+
+<p>The higher the ratio of outgoing to total dependencies, the more &ldquo;unstable&rdquo; a component is considered. Simple. Automatable. And deeply misleading.</p>
+                  <a href="https://vladikk.com/2026/02/26/coupling-weighed/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
               <a href="https://vladikk.com/2026/02/23/ai-toc-bc/">
                 <h2 class="post-title">AI Doesn&#39;t Fix Your Real Bottleneck</h2>
 
@@ -470,33 +506,6 @@ sns.publish(
 
 <p><img src="/images/lddd-three-years.png" alt="Learning Domain-Driven Design's third anniversary" /></p>
                   <a href="https://vladikk.com/2024/10/08/lddd-bcisd/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2024/09/28/aws-eda/">
-                <h2 class="post-title">Event-Driven Architecture on AWS, Part I: The Basics</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on September 28, 2024
-              </p>
-              <div class="post-entry">
-                
-                  <p>The abundance of services provided by AWS often makes it possible to implement the same functionality in different ways. In the case of messaging systems, AWS offers services such as Simple Notification Service (SNS), Simple Queue Service (SQS), EventBridge, Kinesis, and Managed Streaming for Apache Kafka (MSK). It may seem that at least a subset of these services duplicates the same functionality. In this post, I want to describe my go-to architecture and explain why, in my opinion, it is the simplest, most cost-effective, and robust solution for the majority of cases.</p>
-
-<h2 id="event-driven-architecture">Event-Driven Architecture</h2>
-
-<p>Components of an event-driven system communicate by publishing and subscribing to events. The asynchronous integration offers significant non-functional advantages. For example, it decouples the integrated components’ lifecycles. To a certain degree, the system can keep functioning even in the face of unavailability of some of its services, thus also reducing the coordination overhead needed to deploy updated components, and to evolve the system.</p>
-
-<p>A basic event-driven integration is comprised of two parts: a component of the system can publish events describing important occurrences in its lifecycle, and it can react (subscribe) to events published by other parts of the system. Let’s see what managed services we can leverage for implementing this.</p>
-                  <a href="https://vladikk.com/2024/09/28/aws-eda/" class="post-read-more">[Read More]</a>
                 
               </div>
 

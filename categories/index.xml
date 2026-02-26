@@ -8,10 +8,37 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
-    <lastBuildDate>Mon, 23 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Feb 2026 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Balanced Coupling</title>
+      <link>https://vladikk.com/categories/Balanced-Coupling/</link>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/categories/Balanced-Coupling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Coupling</title>
+      <link>https://vladikk.com/categories/Coupling/</link>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/categories/Coupling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software Design</title>
+      <link>https://vladikk.com/categories/Software-Design/</link>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/categories/Software-Design/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>AI</title>
@@ -19,15 +46,6 @@
       <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/categories/AI/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Balanced Coupling</title>
-      <link>https://vladikk.com/categories/Balanced-Coupling/</link>
-      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vlad Khononov)</author>
-      <guid>https://vladikk.com/categories/Balanced-Coupling/</guid>
       <description></description>
     </item>
     
@@ -55,15 +73,6 @@
       <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/categories/Architecture/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Coupling</title>
-      <link>https://vladikk.com/categories/Coupling/</link>
-      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
-      <author>vladik@khononov.com (Vlad Khononov)</author>
-      <guid>https://vladikk.com/categories/Coupling/</guid>
       <description></description>
     </item>
     

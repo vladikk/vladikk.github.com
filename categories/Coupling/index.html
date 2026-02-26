@@ -188,6 +188,42 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+              <a href="https://vladikk.com/2026/02/26/coupling-weighed/">
+                <h2 class="post-title">Coupling Should Be Weighed, Not Counted</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on February 26, 2026
+              </p>
+              <div class="post-entry">
+                
+                  <p><img src="/images/weighed-not-counted.png" alt="A balance scale where a single heavy weight outweighs many smaller pieces — illustrating that one heavy dependency can matter more than many lightweight ones." /></p>
+
+<blockquote>
+<p>&ldquo;Words should be weighed, not counted.&rdquo; — A Yiddish Saying</p>
+</blockquote>
+
+<p>Static code analysis tools count dependencies, calculate ratios, and assign neat scores. Yet in my experience, chasing those metrics never really made the design more modular. It&rsquo;s so easy to game the scores without any improvement to the design itself. Let&rsquo;s see why, and what you can do instead.</p>
+
+<h2 id="the-counting-approach">The Counting Approach</h2>
+
+<p>Most static analysis tools evaluate coupling by counting dependencies. Afferent coupling (Ca) counts how many components depend on yours. Efferent coupling (Ce) counts how many components yours depends on. A popular instability metric combines them into a neat formula:</p>
+
+<pre><code>I = Ce / (Ce + Ca)
+</code></pre>
+
+<p>The higher the ratio of outgoing to total dependencies, the more &ldquo;unstable&rdquo; a component is considered. Simple. Automatable. And deeply misleading.</p>
+                  <a href="https://vladikk.com/2026/02/26/coupling-weighed/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
               <a href="https://vladikk.com/2025/04/03/coupling-dev/">
                 <h2 class="post-title">Just Launched: coupling.dev</h2>
 

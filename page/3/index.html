@@ -208,6 +208,30 @@ if (!doNotTrack) {
           
           
             <article class="post-preview">
+              <a href="https://vladikk.com/2016/06/29/test-scopes/">
+                <h2 class="post-title">Finding Proper Scopes for Unit Tests</h2>
+                
+                
+              </a>
+
+              <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on June 29, 2016
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 2 min (307 mots)
+  
+</span>
+
+
+              <div class="post-entry">
+                
+                  <p>In my previous <strike>rant</strike> <a href="http://vladikk.com/2016/01/22/tdd-what-went-wrong/">post on TDD</a> I’ve argued that the majority of the problems many experience doing TDD are caused by testing in too narrow scopes - using classes as units of testability, instead of functional use cases. However, widening the scope of the test too much is just another extreme. So how one finds the sweet spot? In this post I’d like to share the heuristic that I use.</p>
+                  <a href="https://vladikk.com/2016/06/29/test-scopes/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+            </article>
+          
+            <article class="post-preview">
               <a href="https://vladikk.com/2016/04/05/tackling-complexity-ddd/">
                 <h2 class="post-title">Tackling Complexity in the Heart of DDD</h2>
                 
@@ -471,49 +495,6 @@ int bar = int.Parse(ConfigurationManager.AppSettings[“Bar”]);
 
 <p>ConfigurationManager makes it trivial to access data in the config file, however in most cases it also introduces various code smells that make the code tight coupled and hard to test. In the next sections I’ll introduce a simple class and will use it to demonstrate the code smells and violations of principles of clean object oriented design. The code will be gradually refactored to a better and cleaner solution.</p>
                   <a href="https://vladikk.com/2013/05/14/uncoupling-configuration-files/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/">
-                <h2 class="post-title">Learning From Mistakes: Leaky Abstractions</h2>
-                
-                
-              </a>
-
-              <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on October 15, 2012
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 2 min (275 mots)
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  <p>On the project I’m working on I’ve had a requirement to store and read files
-from the file system. Alse the files had to be accessible from the web.</p>
-
-<p>Having a gut feeling that the infrastructure may change as the business will
-grow, I decided to hide operations on the file system behind an interface:</p>
-
-<pre><code class="language-c#">public interface IFilesStorage {
-    string StoreFile(Stream stream, string fileName);
-    Stream GetFile(string virtualPath);
-    string GetFileUrl(string virtualPath);
-    string GetFilePath(string virtualPath);
-}
-</code></pre>
-
-<p>As it looks, if someday I’ll need to switch from the file
-system to another storage mechanism, I’ll be able to do get the
-job done by writing another implementation of the interface.
-Right? Wrong! The requirement did come in - I’ve had to store
-the files in S3. And only then I realised that IFilesStorage is
-a leaky abstraction.</p>
-                  <a href="https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/" class="post-read-more">[Read More]</a>
                 
               </div>
 

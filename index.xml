@@ -8,10 +8,34 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
-    <lastBuildDate>Mon, 23 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Feb 2026 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Coupling Should Be Weighed, Not Counted</title>
+      <link>https://vladikk.com/2026/02/26/coupling-weighed/</link>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/2026/02/26/coupling-weighed/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/weighed-not-counted.png&#34; alt=&#34;A balance scale where a single heavy weight outweighs many smaller pieces — illustrating that one heavy dependency can matter more than many lightweight ones.&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Words should be weighed, not counted.&amp;rdquo; — A Yiddish Saying&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Static code analysis tools count dependencies, calculate ratios, and assign neat scores. Yet in my experience, chasing those metrics never really made the design more modular. It&amp;rsquo;s so easy to game the scores without any improvement to the design itself. Let&amp;rsquo;s see why, and what you can do instead.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-counting-approach&#34;&gt;The Counting Approach&lt;/h2&gt;
+
+&lt;p&gt;Most static analysis tools evaluate coupling by counting dependencies. Afferent coupling (Ca) counts how many components depend on yours. Efferent coupling (Ce) counts how many components yours depends on. A popular instability metric combines them into a neat formula:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;I = Ce / (Ce + Ca)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The higher the ratio of outgoing to total dependencies, the more &amp;ldquo;unstable&amp;rdquo; a component is considered. Simple. Automatable. And deeply misleading.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>AI Doesn&#39;t Fix Your Real Bottleneck</title>
