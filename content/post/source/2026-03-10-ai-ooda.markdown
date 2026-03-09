@@ -1,0 +1,83 @@
+---
+comments: true
+date: 2026-03-09T00:00:00Z
+title: "The Missing Link in Vibe Coding: Feedback Loops"
+keywords: "vibe coding, AI coding feedback loops, OODA loop software engineering, AI code review, iterative AI development, AI-assisted coding, autonomous AI coding, AI code quality"
+description: >
+  Vibe coding often falls short not because AI models aren't smart enough, but because they lack feedback loops. Applying Boyd's OODA loop to AI-assisted coding reveals that the Observe phase is the weakest link. Better feedback loops, not smarter models, will drive the next leap in AI coding quality.
+url: /2026/03/10/ai-ooda/
+draft: false
+categories: [AI, Software Design]
+share_img: /images/ai-ooda.png
+---
+
+<img src="/images/ai-ooda.png" alt="" />
+
+Vibe coding, or as some prefer to call it, "hands-off" software engineering, is having its moment. AI agents write code, implement features, and even spin up entire projects from a prompt. The results are impressive for demos. For production systems, not so much.
+
+The knee-jerk reaction is to blame the models. That was my reaction too. But the problem isn't the models. It's what we're not giving them.
+
+Production-grade code is iterative. No one writes it right on the first attempt. Our profession is built around this fact: code reviews, refactoring, pair programming, testing. Domain-Driven Design makes iterative modeling a first-class concern, because getting the model right requires continuous learning and refinement. We iterate until the code is good enough. Yet when AI doesn't nail it on the first try, we use it as proof that AI isn't there yet.
+
+I was in that camp. Then something changed my mind.
+
+<!--more-->
+
+But first, a quick disclaimer. AI-assisted software engineering has two facets: tactical and strategic. Tactical is coding. Strategic is architecture. This post is about the tactical side. Strategic decision-making, the architectural choices that shape a system's future, presents a different set of challenges that deserve a dedicated discussion.
+
+## The Eye-Opener
+
+Recently I started using [Ralphex](https://ralphex.com), an implementation of the Ralph Wiggum pattern for autonomous AI coding. What's special about it is that it doesn't just write code with a clean context for each task, but that it has a multi-agent review cycle as an inherent part of the process. Once implementation is complete, multiple review agents evaluate the result for quality, correctness, and over-engineering. The AI fixes the identified issues and iterates.
+
+The difference was immediate. Not because the underlying model got smarter overnight, but because the process gave the AI something we take for granted: feedback loops.
+
+The code isn't perfect after the first pass. It never is. But after a few rounds of review and refinement, it becomes consistently better than what I've seen from one-shot generation. Sometimes significantly so.
+
+That got me thinking. If iteration is what makes human engineers effective, why do we expect AI to work without it?
+
+## OODA and AI Coding
+
+The OODA loop is a decision-making model developed by military strategist John Boyd for gaining advantage through rapid decision cycles. Boyd's insight was that the entity that cycles through Observe-Orient-Decide-Act faster gains the upper hand. Originally designed for fighter combat, the model has since been applied far beyond the military. It maps surprisingly well onto iterative AI coding:
+
+- **Observe** — Gather information about the current state.
+- **Orient** — Make sense of what you observed. Compare it against requirements and expectations.
+- **Decide** — Determine the course of action.
+- **Act** — Execute.
+
+Map this onto AI-assisted coding. Three of the four phases are in decent shape:
+
+**Orient** is improving fast. Code review workflows can compare output against requirements, conventions, and design expectations. Ralphex, for example, does this with multiple review agents running in parallel.
+
+**Decide** is getting there. AI models are increasingly capable of applying design heuristics and making informed decisions about what to change, especially when equipped with the right context and skills.
+
+**Act** is what AI is already quite good at, especially when given concrete, non-ambiguous instructions. Writing code, applying fixes, refactoring: AI offloads the majority of these responsibilities from us.
+
+That leaves **Observe**.
+
+## The Missing Feedback Loops
+
+Observe is the weakest link, and it's holding everything else back.
+
+For a simple CLI app with no external dependencies, the Observe phase works fine. Run it, check the output, done. But most real systems are not simple CLI apps.
+
+Think about what "observe" means in practice. It means knowing what the system actually does after a change. Not what you *think* it does. What it *actually* does.
+
+**Ephemeral testing environments are still a challenge.** Unless prioritized from the get go, it remains difficult for most systems to spin up a fresh environment on demand, deploy the latest changes, run the application end to end, and clean up when done.
+
+**Unit and integration tests are not enough.** They validate isolated pieces, but they can't tell you whether the whole system works. UI and end-to-end tests are essential for observing actual behavior, and most projects don't have adequate coverage. The AI needs eyes, not just assertions.
+
+**Internal quality attributes are invisible.** Transactional boundaries, domain model consistency, coupling, and modularity assessment: these are properties of the system that no test runner reports on. They require design judgment to evaluate.
+
+Right now, we are the missing observation layer. We try out the AI's output, run the application, click through the UI, check whether the domain model makes sense, verify that transactional boundaries are right. We fill the gaps that automated feedback can't cover. According to Boyd's model, faster iterations win. Manual inspection is the slowest part of the cycle.
+
+## Close the Loops
+
+Ralphex showed that when you add even one feedback loop to the process, the quality of AI-generated code improves dramatically. Imagine what happens when we close the rest. Ephemeral environments that spin up automatically. Comprehensive UI tests that validate end-to-end behavior.
+
+I believe the next leap in AI-assisted software engineering will come not from smarter models, but from better feedback loops.
+
+Tools like [Ralphex](https://ralphex.com) and [Takt](https://github.com/nrslib/takt) are already moving in this direction, building iterative review and coordination into AI coding workflows.
+
+## P.S.
+
+If this blog resonated, please share it.
