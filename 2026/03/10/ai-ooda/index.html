@@ -5,23 +5,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Rants on Software Design</title>
-  <meta property="og:title" content="Rants on Software Design" />
-  <meta name="twitter:title" content="Rants on Software Design" />
+  <title>The Missing Link in Vibe Coding: Feedback Loops</title>
+  <meta property="og:title" content="The Missing Link in Vibe Coding: Feedback Loops" />
+  <meta name="twitter:title" content="The Missing Link in Vibe Coding: Feedback Loops" />
+  <meta name="description" content="Vibe coding often falls short not because AI models aren&#39;t smart enough, but because they lack feedback loops. Applying Boyd&#39;s OODA loop to AI-assisted coding reveals that the Observe phase is the weakest link. Better feedback loops, not smarter models, will drive the next leap in AI coding quality.
+">
+  <meta property="og:description" content="Vibe coding often falls short not because AI models aren&#39;t smart enough, but because they lack feedback loops. Applying Boyd&#39;s OODA loop to AI-assisted coding reveals that the Observe phase is the weakest link. Better feedback loops, not smarter models, will drive the next leap in AI coding quality.
+">
+  <meta name="twitter:description" content="Vibe coding often falls short not because AI models aren&#39;t smart enough, but because they lack feedback loops. Applying Boyd&#39;s OODA loop to AI-assisted coding reveals that the Observe phase is the …">
   <meta name="author" content="Vlad Khononov"/>
   <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta property="og:image" content="https://vladikk.com/images/me-conf.jpg" />
-  <meta name="twitter:image" content="https://vladikk.com/images/me-conf.jpg" />
+  <meta property="og:image" content="https://vladikk.com/images/ai-ooda.png" />
+  <meta name="twitter:image" content="https://vladikk.com/images/ai-ooda.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@vladikk" />
   <meta name="twitter:creator" content="@vladikk" />
-  <meta property="og:url" content="https://vladikk.com/" />
+  <meta property="og:url" content="https://vladikk.com/2026/03/10/ai-ooda/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Rants on Software Design" />
 
   <meta name="generator" content="Hugo 0.56.3" />
-  <link rel="canonical" href="https://vladikk.com/" />
-  <link rel="alternate" href="https://vladikk.com/index.xml" type="application/rss+xml" title="Rants on Software Design">
+  <link rel="canonical" href="https://vladikk.com/2026/03/10/ai-ooda/" />
+  <link rel="alternate" href="" type="application/rss+xml" title="Rants on Software Design">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -29,7 +34,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
   <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
-  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> 
+  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="vibe coding, AI coding feedback loops, OODA loop software engineering, AI code review, iterative AI development, AI-assisted coding, autonomous AI coding, AI code quality">
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
@@ -181,14 +186,17 @@ if (!doNotTrack) {
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
-              <h1>Rants on Software Design</h1>
+            <div class="post-heading">
+              <h1>The Missing Link in Vibe Coding: Feedback Loops</h1>
                 
-                  
-                    <hr class="small">
-                    <span class="page-subheading">Vlad Khononov&#39;s personal blog</span>
-                  
                 
+                  <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on March 9, 2026
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 5 min (893 mots)
+  
+</span>
+
+
                 
             </div>
           </div>
@@ -199,192 +207,103 @@ if (!doNotTrack) {
 
 
     
-  <div role="main" class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><img src="/images/ai-ooda.png" alt="" /></p>
+
+<p>Vibe coding, or as some prefer to call it, &ldquo;hands-off&rdquo; software engineering, is having its moment. AI agents write code, implement features, and even spin up entire projects from a prompt. The results are impressive for demos. For production systems, not so much.</p>
+
+<p>The knee-jerk reaction is to blame the models. That was my reaction too. But the problem isn&rsquo;t the models. It&rsquo;s what we&rsquo;re not giving them.</p>
+
+<p>Production-grade code is iterative. No one writes it right on the first attempt. Our profession is built around this fact: code reviews, refactoring, pair programming, testing. Domain-Driven Design makes iterative modeling a first-class concern, because getting the model right requires continuous learning and refinement. We iterate until the code is good enough. Yet when AI doesn&rsquo;t nail it on the first try, we use it as proof that AI isn&rsquo;t there yet.</p>
+
+<p>I was in that camp. Then something changed my mind.</p>
+
+<p>But first, a quick disclaimer. AI-assisted software engineering has two facets: tactical and strategic. Tactical is coding. Strategic is architecture. This post is about the tactical side. Strategic decision-making, the architectural choices that shape a system&rsquo;s future, presents a different set of challenges that deserve a dedicated discussion.</p>
+
+<h2 id="the-eye-opener">The Eye-Opener</h2>
+
+<p>Recently I started using <a href="https://ralphex.com">Ralphex</a>, an implementation of the Ralph Wiggum pattern for autonomous AI coding. What&rsquo;s special about it is that it doesn&rsquo;t just write code with a clean context for each task, but that it has a multi-agent review cycle as an inherent part of the process. Once implementation is complete, multiple review agents evaluate the result for quality, correctness, and over-engineering. The AI fixes the identified issues and iterates.</p>
+
+<p>The difference was immediate. Not because the underlying model got smarter overnight, but because the process gave the AI something we take for granted: feedback loops.</p>
+
+<p>The code isn&rsquo;t perfect after the first pass. It never is. But after a few rounds of review and refinement, it becomes consistently better than what I&rsquo;ve seen from one-shot generation. Sometimes significantly so.</p>
+
+<p>That got me thinking. If iteration is what makes human engineers effective, why do we expect AI to work without it?</p>
+
+<h2 id="ooda-and-ai-coding">OODA and AI Coding</h2>
+
+<p>The OODA loop is a decision-making model developed by military strategist John Boyd for gaining advantage through rapid decision cycles. Boyd&rsquo;s insight was that the entity that cycles through Observe-Orient-Decide-Act faster gains the upper hand. Originally designed for fighter combat, the model has since been applied far beyond the military. It maps surprisingly well onto iterative AI coding:</p>
+
+<ul>
+<li><strong>Observe</strong> — Gather information about the current state.</li>
+<li><strong>Orient</strong> — Make sense of what you observed. Compare it against requirements and expectations.</li>
+<li><strong>Decide</strong> — Determine the course of action.</li>
+<li><strong>Act</strong> — Execute.</li>
+</ul>
+
+<p>Map this onto AI-assisted coding. Three of the four phases are in decent shape:</p>
+
+<p><strong>Orient</strong> is improving fast. Code review workflows can compare output against requirements, conventions, and design expectations. Ralphex, for example, does this with multiple review agents running in parallel.</p>
+
+<p><strong>Decide</strong> is getting there. AI models are increasingly capable of applying design heuristics and making informed decisions about what to change, especially when equipped with the right context and skills.</p>
+
+<p><strong>Act</strong> is what AI is already quite good at, especially when given concrete, non-ambiguous instructions. Writing code, applying fixes, refactoring: AI offloads the majority of these responsibilities from us.</p>
+
+<p>That leaves <strong>Observe</strong>.</p>
+
+<h2 id="the-missing-feedback-loops">The Missing Feedback Loops</h2>
+
+<p>Observe is the weakest link, and it&rsquo;s holding everything else back.</p>
+
+<p>For a simple CLI app with no external dependencies, the Observe phase works fine. Run it, check the output, done. But most real systems are not simple CLI apps.</p>
+
+<p>Think about what &ldquo;observe&rdquo; means in practice. It means knowing what the system actually does after a change. Not what you <em>think</em> it does. What it <em>actually</em> does.</p>
+
+<p><strong>Ephemeral testing environments are still a challenge.</strong> Unless prioritized from the get go, it remains difficult for most systems to spin up a fresh environment on demand, deploy the latest changes, run the application end to end, and clean up when done.</p>
+
+<p><strong>Unit and integration tests are not enough.</strong> They validate isolated pieces, but they can&rsquo;t tell you whether the whole system works. UI and end-to-end tests are essential for observing actual behavior, and most projects don&rsquo;t have adequate coverage. The AI needs eyes, not just assertions.</p>
+
+<p><strong>Internal quality attributes are invisible.</strong> Transactional boundaries, domain model consistency, coupling, and modularity assessment: these are properties of the system that no test runner reports on. They require design judgment to evaluate.</p>
+
+<p>Right now, we are the missing observation layer. We try out the AI&rsquo;s output, run the application, click through the UI, check whether the domain model makes sense, verify that transactional boundaries are right. We fill the gaps that automated feedback can&rsquo;t cover. According to Boyd&rsquo;s model, faster iterations win. Manual inspection is the slowest part of the cycle.</p>
+
+<h2 id="close-the-loops">Close the Loops</h2>
+
+<p>Ralphex showed that when you add even one feedback loop to the process, the quality of AI-generated code improves dramatically. Imagine what happens when we close the rest. Ephemeral environments that spin up automatically. Comprehensive UI tests that validate end-to-end behavior.</p>
+
+<p>I believe the next leap in AI-assisted software engineering will come not from smarter models, but from better feedback loops.</p>
+
+<p>Tools like <a href="https://ralphex.com">Ralphex</a> and <a href="https://github.com/nrslib/takt">Takt</a> are already moving in this direction, building iterative review and coordination into AI coding workflows.</p>
+
+<h2 id="p-s">P.S.</h2>
+
+<p>If this blog resonated, please share it.</p>
+      </article>
+
+      <hr/>
+      
+
+      <ul class="pager blog-pager">
         
-
-        <div class="posts-list">
-          
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2013/05/14/uncoupling-configuration-files/">
-                <h2 class="post-title">Uncoupling Configuration Files</h2>
-                
-                
-              </a>
-
-              <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on May 14, 2013
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 8 min (1574 mots)
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  <p>Tight coupling is a known source for inflexible and hard to test code. In this post I want to talk about a rather unexpected source of tight coupling - configuration files.
-Configuration files are external dependencies. As other external dependencies, its infrastructure may change in the future, and it should be easily mocked for unit testing. Modern software frameworks provide means for easy access to the values stored in configuration files. In the .NET framework configuration files can be accessed using the ConfigurationManager:</p>
-
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot;?&gt;
-&lt;configuration&gt;
-  &lt;appSettings&gt;
-    &lt;add key=&quot;Foo&quot; value=&quot;1&quot;/&gt;
-    &lt;add key=&quot;Bar&quot; value=&quot;2&quot;/&gt;
-  &lt;/appSettings&gt;
-&lt;/configuration&gt;
-</code></pre>
-
-<pre><code class="language-csharp">int foo = int.Parse(ConfigurationManager.AppSetttings[“Foo”]);
-int bar = int.Parse(ConfigurationManager.AppSettings[“Bar”]);
-</code></pre>
-
-<p>ConfigurationManager makes it trivial to access data in the config file, however in most cases it also introduces various code smells that make the code tight coupled and hard to test. In the next sections I’ll introduce a simple class and will use it to demonstrate the code smells and violations of principles of clean object oriented design. The code will be gradually refactored to a better and cleaner solution.</p>
-                  <a href="https://vladikk.com/2013/05/14/uncoupling-configuration-files/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/">
-                <h2 class="post-title">Learning From Mistakes: Leaky Abstractions</h2>
-                
-                
-              </a>
-
-              <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on October 15, 2012
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 2 min (275 mots)
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  <p>On the project I’m working on I’ve had a requirement to store and read files
-from the file system. Alse the files had to be accessible from the web.</p>
-
-<p>Having a gut feeling that the infrastructure may change as the business will
-grow, I decided to hide operations on the file system behind an interface:</p>
-
-<pre><code class="language-c#">public interface IFilesStorage {
-    string StoreFile(Stream stream, string fileName);
-    Stream GetFile(string virtualPath);
-    string GetFileUrl(string virtualPath);
-    string GetFilePath(string virtualPath);
-}
-</code></pre>
-
-<p>As it looks, if someday I’ll need to switch from the file
-system to another storage mechanism, I’ll be able to do get the
-job done by writing another implementation of the interface.
-Right? Wrong! The requirement did come in - I’ve had to store
-the files in S3. And only then I realised that IFilesStorage is
-a leaky abstraction.</p>
-                  <a href="https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2012/09/10/dependency-injection-patterns/">
-                <h2 class="post-title">Dependency Injection Patterns</h2>
-                
-                
-              </a>
-
-              <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on September 10, 2012
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 5 min (986 mots)
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  <p>Choosing the right pattern for implementing dependency injection is an important task and can affect your class’s usability and functionality. In this post I’ll overview 3 patterns of implementing dependency injection - constructor injection, property injection, builder (Joshua Bloch’s pattern, not GoF pattern).
-For demonstration purposes we will work with a class called TextTranslator, that requires 3 dependencies: TextReader, TranslationService and TextWriter:</p>
-
-<pre><code class="language-c#">public class TextTranslator
-{
-    protected TextReader textReader;
-    protected TranslationService translationService;
-    protected TextWriter textWriter;    
-}
-</code></pre>
-
-<p>The sample code will be written in C#, but the examples are applicable to Java and other object oriented languages.</p>
-                  <a href="https://vladikk.com/2012/09/10/dependency-injection-patterns/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2012/08/23/disposing-objects-created-by-di-container/">
-                <h2 class="post-title">Disposing Objects Created by DI Container</h2>
-                
-                
-              </a>
-
-              <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on August 23, 2012
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 2 min (351 mots)
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  <p>The general rule says that if you created an object, then it is your responsibility to dispose it. Things get a bit tricky when objects are created by a dependency injection container. The responsibility of containers is to construct objects and inject the dependencies they need. An error I’ve seen people doing again and again is to dispose objects that were injected into an object via constructor or property injection. Consider the class “Foo” that requires an instance of class “Bar”:</p>
-
-<pre><code class="language-c#">public class Foo : IDisposable {  
-    protected Bar bar;  
-    public Foo(Bar bar) {  
-        this.bar = bar;  
-    }  
-    public void Dispose() {  
-        bar.Dispose();  
-    }  
-}  
-
-public class Program {  
-    static void Main() {  
-        var foo = container.Resolve&lt;Foo&gt;();  
-        ...  
-        foo.Dispose();  
-    }  
-}  
-</code></pre>
-
-<p>The problem with this approach is that the “Foo” class will know too much about the environment it runs in. At least it will think it does. An instance of “Foo” can’t and shouldn’t know who passed in the instance of “Bar”, and what he intends to do with it after the instance of “Foo” will be disposed.</p>
-                  <a href="https://vladikk.com/2012/08/23/disposing-objects-created-by-di-container/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-            </article>
-          
-        </div>
-
+          <li class="previous">
+            <a href="https://vladikk.com/2026/02/26/coupling-weighed/" data-toggle="tooltip" data-placement="top" title="Coupling Should Be Weighed, Not Counted">&larr; Previous Post</a>
+          </li>
         
-          <ul class="pager main-pager">
-            
-              <li class="previous">
-                <a href="/page/3/">&larr; Newer Posts</a>
-              </li>
-            
-            
-          </ul>
         
-      </div>
+      </ul>
+
+
+      
+        
+        
+      
+
     </div>
   </div>
+</div>
 
     <footer>
   <div class="container">
@@ -458,7 +377,7 @@ public class Program {
               </li>
           
           <li>
-            <a href="https://vladikk.com/index.xml" title="RSS">
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>

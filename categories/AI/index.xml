@@ -8,10 +8,27 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
-    <lastBuildDate>Mon, 23 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Mar 2026 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/categories/AI/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Missing Link in Vibe Coding: Feedback Loops</title>
+      <link>https://vladikk.com/2026/03/10/ai-ooda/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/2026/03/10/ai-ooda/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-ooda.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vibe coding, or as some prefer to call it, &amp;ldquo;hands-off&amp;rdquo; software engineering, is having its moment. AI agents write code, implement features, and even spin up entire projects from a prompt. The results are impressive for demos. For production systems, not so much.&lt;/p&gt;
+
+&lt;p&gt;The knee-jerk reaction is to blame the models. That was my reaction too. But the problem isn&amp;rsquo;t the models. It&amp;rsquo;s what we&amp;rsquo;re not giving them.&lt;/p&gt;
+
+&lt;p&gt;Production-grade code is iterative. No one writes it right on the first attempt. Our profession is built around this fact: code reviews, refactoring, pair programming, testing. Domain-Driven Design makes iterative modeling a first-class concern, because getting the model right requires continuous learning and refinement. We iterate until the code is good enough. Yet when AI doesn&amp;rsquo;t nail it on the first try, we use it as proof that AI isn&amp;rsquo;t there yet.&lt;/p&gt;
+
+&lt;p&gt;I was in that camp. Then something changed my mind.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>AI Doesn&#39;t Fix Your Real Bottleneck</title>
