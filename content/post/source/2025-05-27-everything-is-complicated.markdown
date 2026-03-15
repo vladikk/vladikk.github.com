@@ -11,7 +11,7 @@ categories: [AI, Cynefin]
 share_img: /images/f1-crash.png
 ---
 
-<img src="/images/ai-everything-is-complicated.png" alt="With AI, everything is so complicated... and this is great news!" />
+<img src="/images/ai-everything-is-complicated2.png" alt="With AI, everything is so complicated... and this is great news!" />
 
 Lately I've been spending more and more time researching AI models and their effects on software engineering and architecture, so it's time to share my findings. 
 
