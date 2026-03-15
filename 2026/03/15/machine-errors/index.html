@@ -5,23 +5,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Posts</title>
-  <meta property="og:title" content="Posts" />
-  <meta name="twitter:title" content="Posts" />
+  <title>Machine Errors and Non-Deterministic Humans</title>
+  <meta property="og:title" content="Machine Errors and Non-Deterministic Humans" />
+  <meta name="twitter:title" content="Machine Errors and Non-Deterministic Humans" />
+  <meta name="description" content="LLMs are non-deterministic, but so are humans. We don&#39;t blame people for human error, we design systems that absorb it. The same playbook, from guardrails to feedback loops to the Swiss Cheese Model, can make AI reliable too.
+">
+  <meta property="og:description" content="LLMs are non-deterministic, but so are humans. We don&#39;t blame people for human error, we design systems that absorb it. The same playbook, from guardrails to feedback loops to the Swiss Cheese Model, can make AI reliable too.
+">
+  <meta name="twitter:description" content="LLMs are non-deterministic, but so are humans. We don&#39;t blame people for human error, we design systems that absorb it. The same playbook, from guardrails to feedback loops to the Swiss Cheese Model, …">
   <meta name="author" content="Vlad Khononov"/>
   <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta property="og:image" content="https://vladikk.com/images/me-conf.jpg" />
-  <meta name="twitter:image" content="https://vladikk.com/images/me-conf.jpg" />
+  <meta property="og:image" content="https://vladikk.com/images/machine-errors.png" />
+  <meta name="twitter:image" content="https://vladikk.com/images/machine-errors.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@vladikk" />
   <meta name="twitter:creator" content="@vladikk" />
-  <meta property="og:url" content="https://vladikk.com/post/" />
+  <meta property="og:url" content="https://vladikk.com/2026/03/15/machine-errors/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Rants on Software Design" />
 
   <meta name="generator" content="Hugo 0.56.3" />
-  <link rel="canonical" href="https://vladikk.com/post/" />
-  <link rel="alternate" href="https://vladikk.com/post/index.xml" type="application/rss+xml" title="Rants on Software Design">
+  <link rel="canonical" href="https://vladikk.com/2026/03/15/machine-errors/" />
+  <link rel="alternate" href="" type="application/rss+xml" title="Rants on Software Design">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -29,7 +34,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
   <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
-  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> 
+  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="LLM reliability, AI mistakes, non-deterministic LLM, AI error management, AI guardrails, AI feedback loops, Swiss Cheese Model AI, managing AI errors, vibe coding, AI-assisted software engineering, claude code, AI coding tools, cursor AI, software engineering with AI">
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
@@ -165,14 +170,34 @@ if (!doNotTrack) {
 
 
     
+  
+  
+  
+
+
+
+
+  
+
   <header class="header-section ">
+    
     <div class="intro-header no-img">
+      
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
-              <h1>Posts</h1>
-              <hr class="small">
+            <div class="post-heading">
+              <h1>Machine Errors and Non-Deterministic Humans</h1>
+                
+                
+                  <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on March 15, 2026
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 4 min (667 mots)
+  
+</span>
+
+
+                
             </div>
           </div>
         </div>
@@ -180,211 +205,96 @@ if (!doNotTrack) {
     </div>
   </header>
 
+
     
-  <div class="container" role="main">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><img src="/images/machine-errors.png" alt="A friendly robot holding onto a railing, illustrating the concept of designing systems that support variable components" /></p>
+
+<p>&ldquo;I can&rsquo;t rely on LLMs because they&rsquo;re not deterministic. How can I be sure what I&rsquo;ll get?&rdquo; — I bet you&rsquo;ve thought that yourself. I did for sure.</p>
+
+<p>It&rsquo;s a fair point. LLMs can be unpredictable: the same input can produce different outputs. But here&rsquo;s the thing: neither are you deterministic, nor am I. A cup of coffee can dramatically improve our &ldquo;inference.&rdquo; A bad night&rsquo;s sleep can tank it. We&rsquo;re so unpredictable that we have a term for when our variability wreaks havoc: <em>human error</em>.</p>
+
+<p>And when human error happens, we&rsquo;ve learned not to simply blame the person. Instead, we examine the environment. Why didn&rsquo;t the system prevent this? We expect systems to withstand human errors, or better yet, prevent them from happening in the first place.</p>
+
+<p>LLMs are made in our likeness. They&rsquo;re trained on the code, books, and articles we&rsquo;ve written. So why do we blame them for human errors? Sorry, I meant machine errors.</p>
+
+<h2 id="the-playbook">The Playbook</h2>
+
+<p>I believe the same strategies we&rsquo;ve developed to help people do the right thing can also help us get more out of AI.</p>
+
+<h3 id="make-errors-impossible-or-difficult-to-commit">Make Errors Impossible or Difficult to Commit</h3>
+
+<p>For humans, this means physical interlocks, confirmation dialogs, guards that prevent you from even attempting the wrong action. You can&rsquo;t start a car without pressing the brake. Prescription bottles have child-resistant caps.</p>
+
+<p>For AI, one example is letting compilers, linters, type checkers, and tests do the heavy lifting. The model might generate code with a bug, but the system catches it long before it causes damage.</p>
+
+<h3 id="make-it-easy-to-do-the-right-thing">Make It Easy to Do the Right Thing</h3>
+
+<p>Humans follow the path of least resistance. Good design makes the correct action the easiest one: sensible defaults, one-way gates, obvious signage.</p>
+
+<p>For AI, this might look like prompt engineering. Be explicit about what you want. Provide clear examples. Preprocess requests to detect ambiguities and ask for clarifications before proceeding.</p>
+
+<h3 id="reduce-cognitive-load">Reduce Cognitive Load</h3>
+
+<p>Surgeons and pilots use checklists. Not because they&rsquo;re forgetful, but because checklists free up cognitive capacity for the work that actually requires judgment.</p>
+
+<p>AI can benefit from the same approach. Break large tasks into smaller ones. As each step becomes simpler, the compound error rate drops.</p>
+
+<h3 id="enforce-recovery">Enforce Recovery</h3>
+
+<p>Drivers have mandatory rest periods. Doctors have shift limits. Pilots have crew rest requirements. We know that fatigue degrades performance, so we enforce recovery.</p>
+
+<p>For AI, one equivalent is context engineering. Long conversations accumulate noise. The larger the context, the less effective the model. Clearing and restructuring context is how you let AI have some rest.</p>
+
+<h3 id="feedback-loops">Feedback Loops</h3>
+
+<p>In medicine, you get a second opinion. In publishing, editors review before anything goes to print. In software, we have pair programming and pull requests.</p>
+
+<p>For AI, feedback loops might involve using different prompts or entirely different models to review output. One model generates, another critiques. Together they iterate toward better results.</p>
+
+<h3 id="monitoring-and-resilience">Monitoring and Resilience</h3>
+
+<p>When a human error does cause an incident, we run post-mortems and use what we learn to stop the same mistake from happening again.</p>
+
+<p>For AI, one approach is building knowledge bases that capture past issues. When the model gets something wrong, you don&rsquo;t just correct it. You update the context, the prompts, the examples, so the same failure is less likely next time. Resilience isn&rsquo;t about preventing all errors. It&rsquo;s about using the errors to make the system stronger.</p>
+
+<h2 id="swiss-cheese">Swiss Cheese</h2>
+
+<p>The most robust approach treats humans as variable components operating within a system. Not as the weakest link, but as the last line of defense in a system designed to absorb their variability.</p>
+
+<p>James Reason&rsquo;s Swiss Cheese Model captures this well: no single layer of defense is perfect. Each layer has holes. But stack enough imperfect layers, and the holes rarely align. Most errors get caught before they cause harm.</p>
+
+<p>AI is no different. It&rsquo;s a variable component. It will make mistakes. The goal is to design systems that absorb its variability. We&rsquo;ve been doing it for ourselves all along.</p>
+
+<h2 id="p-s">P.S.</h2>
+
+<p>If this clicked, please share it.</p>
+      </article>
+
+      <hr/>
+      
+
+      <ul class="pager blog-pager">
         
-        <div class="posts-list">
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2013/06/01/unicode-file-names-in-python/">
-                <h2 class="post-title">Unicode file names in Python 2.7</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on June 1, 2013
-              </p>
-              <div class="post-entry">
-                
-                  <p>Today I wrote a small script to find and delete duplicate files. To do this task I needed to iterate over files in a specific folder, and calculate md5 checksum for each file:</p>
-
-<pre><code class="language-python">for folder, subs, files in os.walk(path):
-    for filename in files:
-        file_path = os.path.join(folder, filename)
-	        with open(file_path, 'rb') as fh:
-	        	...
-</code></pre>
-
-<p>If the source folder contains a file or a folder with unicode characters in it, execution of the code results in this bummer:</p>
-
-<pre><code class="language-text">IOError: [Errno 22] invalid mode ('rb') or filename: 'files\\????????? ????? ????????.txt'
-</code></pre>
-                  <a href="https://vladikk.com/2013/06/01/unicode-file-names-in-python/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2013/05/14/uncoupling-configuration-files/">
-                <h2 class="post-title">Uncoupling Configuration Files</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on May 14, 2013
-              </p>
-              <div class="post-entry">
-                
-                  <p>Tight coupling is a known source for inflexible and hard to test code. In this post I want to talk about a rather unexpected source of tight coupling - configuration files.
-Configuration files are external dependencies. As other external dependencies, its infrastructure may change in the future, and it should be easily mocked for unit testing. Modern software frameworks provide means for easy access to the values stored in configuration files. In the .NET framework configuration files can be accessed using the ConfigurationManager:</p>
-
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot;?&gt;
-&lt;configuration&gt;
-  &lt;appSettings&gt;
-    &lt;add key=&quot;Foo&quot; value=&quot;1&quot;/&gt;
-    &lt;add key=&quot;Bar&quot; value=&quot;2&quot;/&gt;
-  &lt;/appSettings&gt;
-&lt;/configuration&gt;
-</code></pre>
-
-<pre><code class="language-csharp">int foo = int.Parse(ConfigurationManager.AppSetttings[“Foo”]);
-int bar = int.Parse(ConfigurationManager.AppSettings[“Bar”]);
-</code></pre>
-
-<p>ConfigurationManager makes it trivial to access data in the config file, however in most cases it also introduces various code smells that make the code tight coupled and hard to test. In the next sections I’ll introduce a simple class and will use it to demonstrate the code smells and violations of principles of clean object oriented design. The code will be gradually refactored to a better and cleaner solution.</p>
-                  <a href="https://vladikk.com/2013/05/14/uncoupling-configuration-files/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/">
-                <h2 class="post-title">Learning From Mistakes: Leaky Abstractions</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on October 15, 2012
-              </p>
-              <div class="post-entry">
-                
-                  <p>On the project I’m working on I’ve had a requirement to store and read files
-from the file system. Alse the files had to be accessible from the web.</p>
-
-<p>Having a gut feeling that the infrastructure may change as the business will
-grow, I decided to hide operations on the file system behind an interface:</p>
-
-<pre><code class="language-c#">public interface IFilesStorage {
-    string StoreFile(Stream stream, string fileName);
-    Stream GetFile(string virtualPath);
-    string GetFileUrl(string virtualPath);
-    string GetFilePath(string virtualPath);
-}
-</code></pre>
-
-<p>As it looks, if someday I’ll need to switch from the file
-system to another storage mechanism, I’ll be able to do get the
-job done by writing another implementation of the interface.
-Right? Wrong! The requirement did come in - I’ve had to store
-the files in S3. And only then I realised that IFilesStorage is
-a leaky abstraction.</p>
-                  <a href="https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2012/09/10/dependency-injection-patterns/">
-                <h2 class="post-title">Dependency Injection Patterns</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on September 10, 2012
-              </p>
-              <div class="post-entry">
-                
-                  <p>Choosing the right pattern for implementing dependency injection is an important task and can affect your class’s usability and functionality. In this post I’ll overview 3 patterns of implementing dependency injection - constructor injection, property injection, builder (Joshua Bloch’s pattern, not GoF pattern).
-For demonstration purposes we will work with a class called TextTranslator, that requires 3 dependencies: TextReader, TranslationService and TextWriter:</p>
-
-<pre><code class="language-c#">public class TextTranslator
-{
-    protected TextReader textReader;
-    protected TranslationService translationService;
-    protected TextWriter textWriter;    
-}
-</code></pre>
-
-<p>The sample code will be written in C#, but the examples are applicable to Java and other object oriented languages.</p>
-                  <a href="https://vladikk.com/2012/09/10/dependency-injection-patterns/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2012/08/23/disposing-objects-created-by-di-container/">
-                <h2 class="post-title">Disposing Objects Created by DI Container</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on August 23, 2012
-              </p>
-              <div class="post-entry">
-                
-                  <p>The general rule says that if you created an object, then it is your responsibility to dispose it. Things get a bit tricky when objects are created by a dependency injection container. The responsibility of containers is to construct objects and inject the dependencies they need. An error I’ve seen people doing again and again is to dispose objects that were injected into an object via constructor or property injection. Consider the class “Foo” that requires an instance of class “Bar”:</p>
-
-<pre><code class="language-c#">public class Foo : IDisposable {  
-    protected Bar bar;  
-    public Foo(Bar bar) {  
-        this.bar = bar;  
-    }  
-    public void Dispose() {  
-        bar.Dispose();  
-    }  
-}  
-
-public class Program {  
-    static void Main() {  
-        var foo = container.Resolve&lt;Foo&gt;();  
-        ...  
-        foo.Dispose();  
-    }  
-}  
-</code></pre>
-
-<p>The problem with this approach is that the “Foo” class will know too much about the environment it runs in. At least it will think it does. An instance of “Foo” can’t and shouldn’t know who passed in the instance of “Bar”, and what he intends to do with it after the instance of “Foo” will be disposed.</p>
-                  <a href="https://vladikk.com/2012/08/23/disposing-objects-created-by-di-container/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-        </div>
+          <li class="previous">
+            <a href="https://vladikk.com/2026/03/10/ai-ooda/" data-toggle="tooltip" data-placement="top" title="The Missing Link in Vibe Coding: Feedback Loops">&larr; Previous Post</a>
+          </li>
         
-          <ul class="pager main-pager">
-            
-              <li class="previous">
-                <a href="/post/page/3/">&larr; Newer Posts</a>
-              </li>
-            
-            
-          </ul>
         
-      </div>
+      </ul>
+
+
+      
+        
+        
+      
+
     </div>
   </div>
+</div>
 
     <footer>
   <div class="container">
@@ -458,7 +368,7 @@ public class Program {
               </li>
           
           <li>
-            <a href="https://vladikk.com/post/index.xml" title="RSS">
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>

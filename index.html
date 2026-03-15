@@ -208,6 +208,38 @@ if (!doNotTrack) {
           
           
             <article class="post-preview">
+              <a href="https://vladikk.com/2026/03/15/machine-errors/">
+                <h2 class="post-title">Machine Errors and Non-Deterministic Humans</h2>
+                
+                
+              </a>
+
+              <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on March 15, 2026
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 4 min (667 mots)
+  
+</span>
+
+
+              <div class="post-entry">
+                
+                  <p><img src="/images/machine-errors.png" alt="A friendly robot holding onto a railing, illustrating the concept of designing systems that support variable components" /></p>
+
+<p>&ldquo;I can&rsquo;t rely on LLMs because they&rsquo;re not deterministic. How can I be sure what I&rsquo;ll get?&rdquo; — I bet you&rsquo;ve thought that yourself. I did for sure.</p>
+
+<p>It&rsquo;s a fair point. LLMs can be unpredictable: the same input can produce different outputs. But here&rsquo;s the thing: neither are you deterministic, nor am I. A cup of coffee can dramatically improve our &ldquo;inference.&rdquo; A bad night&rsquo;s sleep can tank it. We&rsquo;re so unpredictable that we have a term for when our variability wreaks havoc: <em>human error</em>.</p>
+
+<p>And when human error happens, we&rsquo;ve learned not to simply blame the person. Instead, we examine the environment. Why didn&rsquo;t the system prevent this? We expect systems to withstand human errors, or better yet, prevent them from happening in the first place.</p>
+
+<p>LLMs are made in our likeness. They&rsquo;re trained on the code, books, and articles we&rsquo;ve written. So why do we blame them for human errors? Sorry, I meant machine errors.</p>
+                  <a href="https://vladikk.com/2026/03/15/machine-errors/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+            </article>
+          
+            <article class="post-preview">
               <a href="https://vladikk.com/2026/03/10/ai-ooda/">
                 <h2 class="post-title">The Missing Link in Vibe Coding: Feedback Loops</h2>
                 
@@ -531,36 +563,6 @@ sns.publish(
 
 <p>In the above example, an event of type <code>user_registered</code> is published to an SNS topic. But did that event come from thin air? Is that all services do, just publish messages? Of course not. The event is part of a larger business process that typically involves updating some state in an operational database before notifying external components about it. A more accurate representation of this process would look like this:</p>
                   <a href="https://vladikk.com/2024/10/12/aws-eda-ii/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2024/10/09/coupling-and-cohesion/">
-                <h2 class="post-title">The Essence of Coupling and Cohesion in Under 500 Words</h2>
-                
-                
-              </a>
-
-              <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on October 9, 2024
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 2 min (412 mots)
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  <p><img src="/images/strength-and-distance.png" alt="Integration Strength and Distance" /></p>
-
-<p>When you couple two components, they need to share some form of knowledge: public interfaces, functional behavior, implementation details, or other types of information. Let’s call it the integration strength. The more knowledge is shared, the stronger the integration. The stronger the integration, the more both components will have to change together. Therefore, you should always look to minimize the integration strength. That said, minimizing integration strength isn’t always possible—sometimes, extensive shared knowledge is necessary. For example, when the components implement closely related business functionalities.</p>
-
-<p>Another important property of integrated components is the distance between them. For example, objects in a module are located closer to each other than the source code of two microservices. The greater the distance, the higher the induced cognitive load and coordination challenges, and the more effort is needed to change the integrated components simultaneously.</p>
-
-<p>Now let’s examine four extreme combinations of the two dimensions:</p>
-                  <a href="https://vladikk.com/2024/10/09/coupling-and-cohesion/" class="post-read-more">[Read More]</a>
                 
               </div>
 

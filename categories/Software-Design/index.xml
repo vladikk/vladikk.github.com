@@ -8,10 +8,27 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
-    <lastBuildDate>Mon, 09 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/categories/Software-Design/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Machine Errors and Non-Deterministic Humans</title>
+      <link>https://vladikk.com/2026/03/15/machine-errors/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/2026/03/15/machine-errors/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/machine-errors.png&#34; alt=&#34;A friendly robot holding onto a railing, illustrating the concept of designing systems that support variable components&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;I can&amp;rsquo;t rely on LLMs because they&amp;rsquo;re not deterministic. How can I be sure what I&amp;rsquo;ll get?&amp;rdquo; — I bet you&amp;rsquo;ve thought that yourself. I did for sure.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s a fair point. LLMs can be unpredictable: the same input can produce different outputs. But here&amp;rsquo;s the thing: neither are you deterministic, nor am I. A cup of coffee can dramatically improve our &amp;ldquo;inference.&amp;rdquo; A bad night&amp;rsquo;s sleep can tank it. We&amp;rsquo;re so unpredictable that we have a term for when our variability wreaks havoc: &lt;em&gt;human error&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;And when human error happens, we&amp;rsquo;ve learned not to simply blame the person. Instead, we examine the environment. Why didn&amp;rsquo;t the system prevent this? We expect systems to withstand human errors, or better yet, prevent them from happening in the first place.&lt;/p&gt;
+
+&lt;p&gt;LLMs are made in our likeness. They&amp;rsquo;re trained on the code, books, and articles we&amp;rsquo;ve written. So why do we blame them for human errors? Sorry, I meant machine errors.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>The Missing Link in Vibe Coding: Feedback Loops</title>
