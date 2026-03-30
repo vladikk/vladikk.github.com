@@ -4,31 +4,42 @@
   
   <url>
     <loc>https://vladikk.com/categories/AI/</loc>
-    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladikk.com/2026/03/30/solid-principles-ai-era/</loc>
+    <lastmod>2026-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vladikk.com/categories/Balanced-Coupling/</loc>
+    <lastmod>2026-03-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://vladikk.com/categories/</loc>
-    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladikk.com/post/</loc>
+    <lastmod>2026-03-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vladikk.com/</loc>
+    <lastmod>2026-03-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://vladikk.com/2026/03/15/machine-errors/</loc>
     <lastmod>2026-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vladikk.com/post/</loc>
-    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vladikk.com/</loc>
-    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -40,12 +51,6 @@
   <url>
     <loc>https://vladikk.com/2026/03/10/ai-ooda/</loc>
     <lastmod>2026-03-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vladikk.com/categories/Balanced-Coupling/</loc>
-    <lastmod>2026-02-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

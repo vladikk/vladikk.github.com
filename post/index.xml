@@ -8,10 +8,27 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
-    <lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Mar 2026 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Are SOLID Principles Still Relevant in the AI Era?</title>
+      <link>https://vladikk.com/2026/03/30/solid-principles-ai-era/</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/2026/03/30/solid-principles-ai-era/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/solid-ai.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I was recently asked &lt;a href=&#34;https://www.linkedin.com/posts/adriankearns_tnt-architecting-for-change-presentation-activity-7442659984695422976-vR7R&#34;&gt;this question on LinkedIn&lt;/a&gt;. My short answer: yes. But the more interesting question is &lt;em&gt;why&lt;/em&gt;, and why AI might make them more relevant, not less.&lt;/p&gt;
+
+&lt;h2 id=&#34;reframing-the-question&#34;&gt;Reframing the Question&lt;/h2&gt;
+
+&lt;p&gt;Some say SOLID principles are outdated. They&amp;rsquo;re not. SOLID principles are guidelines for designing modular systems. They address forces that exist in software regardless of who (or what) produces the code. AI changes the author. It doesn&amp;rsquo;t change the physics of software complexity.&lt;/p&gt;
+
+&lt;p&gt;If anything, AI amplifies the need for modular design. We can now generate code at unprecedented speed. That&amp;rsquo;s a double-edged sword. You can build a well-structured system faster than ever. But poor design decisions will accumulate technical debt at a pace we&amp;rsquo;ve never seen before.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Machine Errors and Non-Deterministic Humans</title>

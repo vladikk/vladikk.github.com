@@ -5,23 +5,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Balanced Coupling</title>
-  <meta property="og:title" content="Balanced Coupling" />
-  <meta name="twitter:title" content="Balanced Coupling" />
+  <title>Are SOLID Principles Still Relevant in the AI Era?</title>
+  <meta property="og:title" content="Are SOLID Principles Still Relevant in the AI Era?" />
+  <meta name="twitter:title" content="Are SOLID Principles Still Relevant in the AI Era?" />
+  <meta name="description" content="SOLID principles address the physics of software complexity, not the authorship of code. AI changes the author but not the forces that make software hard to change. Through the lens of balanced coupling, all five principles manage knowledge flow between components to preserve modularity, a concern that becomes more acute when code is generated faster than humans can review it.
+">
+  <meta property="og:description" content="SOLID principles address the physics of software complexity, not the authorship of code. AI changes the author but not the forces that make software hard to change. Through the lens of balanced coupling, all five principles manage knowledge flow between components to preserve modularity, a concern that becomes more acute when code is generated faster than humans can review it.
+">
+  <meta name="twitter:description" content="SOLID principles address the physics of software complexity, not the authorship of code. AI changes the author but not the forces that make software hard to change. Through the lens of balanced …">
   <meta name="author" content="Vlad Khononov"/>
   <link href='https://vladikk.com/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta property="og:image" content="https://vladikk.com/images/me-conf.jpg" />
-  <meta name="twitter:image" content="https://vladikk.com/images/me-conf.jpg" />
+  <meta property="og:image" content="https://vladikk.com/images/solid-principles-ai-era.png" />
+  <meta name="twitter:image" content="https://vladikk.com/images/solid-principles-ai-era.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@vladikk" />
   <meta name="twitter:creator" content="@vladikk" />
-  <meta property="og:url" content="https://vladikk.com/categories/Balanced-Coupling/" />
+  <meta property="og:url" content="https://vladikk.com/2026/03/30/solid-principles-ai-era/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Rants on Software Design" />
 
   <meta name="generator" content="Hugo 0.56.3" />
-  <link rel="canonical" href="https://vladikk.com/categories/Balanced-Coupling/" />
-  <link rel="alternate" href="https://vladikk.com/categories/Balanced-Coupling/index.xml" type="application/rss+xml" title="Rants on Software Design">
+  <link rel="canonical" href="https://vladikk.com/2026/03/30/solid-principles-ai-era/" />
+  <link rel="alternate" href="" type="application/rss+xml" title="Rants on Software Design">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -29,7 +34,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
   <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
-  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> 
+  <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="SOLID principles, AI era, software design, balanced coupling, modular design, single responsibility principle, open closed principle, Liskov substitution, interface segregation, dependency inversion, software complexity, AI code generation">
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
@@ -165,14 +170,34 @@ if (!doNotTrack) {
 
 
     
+  
+  
+  
+
+
+
+
+  
+
   <header class="header-section ">
+    
     <div class="intro-header no-img">
+      
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
-              <h1>#Balanced Coupling</h1>
-              <hr class="small">
+            <div class="post-heading">
+              <h1>Are SOLID Principles Still Relevant in the AI Era?</h1>
+                
+                
+                  <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on March 30, 2026
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 4 min (645 mots)
+  
+</span>
+
+
+                
             </div>
           </div>
         </div>
@@ -180,26 +205,13 @@ if (!doNotTrack) {
     </div>
   </header>
 
+
     
-  <div class="container" role="main">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        
-        <div class="posts-list">
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2026/03/30/solid-principles-ai-era/">
-                <h2 class="post-title">Are SOLID Principles Still Relevant in the AI Era?</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on March 30, 2026
-              </p>
-              <div class="post-entry">
-                
-                  <p><img src="/images/solid-ai.png" alt="" /></p>
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><img src="/images/solid-ai.png" alt="" /></p>
 
 <p>I was recently asked <a href="https://www.linkedin.com/posts/adriankearns_tnt-architecting-for-change-presentation-activity-7442659984695422976-vR7R">this question on LinkedIn</a>. My short answer: yes. But the more interesting question is <em>why</em>, and why AI might make them more relevant, not less.</p>
 
@@ -208,86 +220,85 @@ if (!doNotTrack) {
 <p>Some say SOLID principles are outdated. They&rsquo;re not. SOLID principles are guidelines for designing modular systems. They address forces that exist in software regardless of who (or what) produces the code. AI changes the author. It doesn&rsquo;t change the physics of software complexity.</p>
 
 <p>If anything, AI amplifies the need for modular design. We can now generate code at unprecedented speed. That&rsquo;s a double-edged sword. You can build a well-structured system faster than ever. But poor design decisions will accumulate technical debt at a pace we&rsquo;ve never seen before.</p>
-                  <a href="https://vladikk.com/2026/03/30/solid-principles-ai-era/" class="post-read-more">[Read More]</a>
-                
-              </div>
 
-              
+<h2 id="solid-through-the-lens-of-coupling">SOLID Through the Lens of Coupling</h2>
 
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2026/02/26/coupling-weighed/">
-                <h2 class="post-title">Coupling Should Be Weighed, Not Counted</h2>
+<p>To understand why SOLID remains relevant, it helps to look at what these principles actually address. I&rsquo;ll use the <em>balanced coupling</em> model as a lens.</p>
 
-                
-              </a>
+<p>The short version: modularity emerges when two dimensions of coupling, <em>integration strength</em> (how much knowledge components share) and <em>distance</em> (how far apart they are), balance each other. When they don&rsquo;t, you get complexity. Either tight coupling (high strength, high distance) or low cohesion (low strength, low distance).</p>
 
-              <p class="post-meta">
-                Posted on February 26, 2026
-              </p>
-              <div class="post-entry">
-                
-                  <p><img src="/images/weighed-not-counted.png" alt="A balance scale where a single heavy weight outweighs many smaller pieces — illustrating that one heavy dependency can matter more than many lightweight ones." /></p>
+<p>Let&rsquo;s see how SOLID principles map to this model.</p>
 
-<blockquote>
-<p>&ldquo;Words should be weighed, not counted.&rdquo; — A Yiddish Saying</p>
-</blockquote>
+<h3 id="single-responsibility-principle-srp">Single Responsibility Principle (SRP)</h3>
 
-<p>Static code analysis tools count dependencies, calculate ratios, and assign neat scores. Yet in my experience, chasing those metrics never really made the design more modular. It&rsquo;s so easy to game the scores without any improvement to the design itself. Let&rsquo;s see why, and what you can do instead.</p>
+<p><em>A class should have only one reason to change.</em></p>
 
-<h2 id="the-counting-approach">The Counting Approach</h2>
+<p>In balanced coupling terms: don&rsquo;t co-locate functionalities that don&rsquo;t change together. If two behaviors have different change vectors, putting them in the same place creates low cohesion: low integration strength combined with low distance. SRP is about avoiding the mess of shoehorning unrelated functionalities into the same container.</p>
 
-<p>Most static analysis tools evaluate coupling by counting dependencies. Afferent coupling (Ca) counts how many components depend on yours. Efferent coupling (Ce) counts how many components yours depends on. A popular instability metric combines them into a neat formula:</p>
+<h3 id="open-closed-principle-ocp">Open/Closed Principle (OCP)</h3>
 
-<pre><code>I = Ce / (Ce + Ca)
-</code></pre>
+<p><em>Software entities should be open for extension but closed for modification.</em></p>
 
-<p>The higher the ratio of outgoing to total dependencies, the more &ldquo;unstable&rdquo; a component is considered. Simple. Automatable. And deeply misleading.</p>
-                  <a href="https://vladikk.com/2026/02/26/coupling-weighed/" class="post-read-more">[Read More]</a>
-                
-              </div>
+<p>This one is the trickiest: if an extension is a reasonable change to expect, the component&rsquo;s interfaces should make it easy to implement <em>without</em> modifying internals.</p>
 
-              
+<p>When you can&rsquo;t extend without fiddling with things irrelevant to the functionality you&rsquo;re adding, you&rsquo;re forced to share knowledge of implementation details that shouldn&rsquo;t be shared. That&rsquo;s <em>intrusive coupling</em>, the strongest and most fragile form.</p>
 
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://vladikk.com/2026/02/23/ai-toc-bc/">
-                <h2 class="post-title">AI Doesn&#39;t Fix Your Real Bottleneck</h2>
+<p>OCP is about designing interfaces that anticipate reasonable change vectors.</p>
 
-                
-              </a>
+<h3 id="liskov-substitution-principle-lsp">Liskov Substitution Principle (LSP)</h3>
 
-              <p class="post-meta">
-                Posted on February 23, 2026
-              </p>
-              <div class="post-entry">
-                
-                  <p><img src="/images/ai-toc.png" alt="An assembly line where an AI robot speeds up code production, creating a massive pile of blocks in front of an overwhelmed human operator with a warning alarm — illustrating how accelerating code generation creates a bottleneck at human comprehension." /></p>
+<p><em>Objects of a superclass should be replaceable with objects of its subclasses without breaking the application.</em></p>
 
-<p>Every other post on my feed celebrates how AI lets us write code faster: whole apps built in a matter of a few hours, 99% AI-generated codebases, hundred-fold productivity gains, and on and on. But does writing code faster actually make us more productive?</p>
+<p>If swapping a subclass breaks things, there&rsquo;s implicit knowledge about the superclass that isn&rsquo;t explicit in its contract. Consumers depend on assumptions that aren&rsquo;t documented or enforced.</p>
 
-<h2 id="a-quick-detour-through-a-factory">A Quick Detour Through a Factory</h2>
+<p>LSP violations are a symptom of implicit knowledge flow. Implicit knowledge flow is complexity.</p>
 
-<p>The Theory of Constraints says that every system&rsquo;s throughput is limited by a single constraint: its bottleneck. What makes a system more effective? Improving the bottleneck. What makes a system less efficient? Improving anything else.</p>
+<h3 id="interface-segregation-principle-isp">Interface Segregation Principle (ISP)</h3>
 
-<p>I know, that second part is counterintuitive. Here&rsquo;s the thing: if you speed up a non-bottleneck, you don&rsquo;t improve the system; you produce more work-in-progress that piles up in front of the bottleneck! More inventory. More cost. More waste. The system becomes more expensive to operate, not more productive.</p>
+<p><em>Clients should not be forced to depend on methods they do not use.</em></p>
 
-<p>This is a well-established principle in manufacturing, and software manufacturing is no exception.</p>
-                  <a href="https://vladikk.com/2026/02/23/ai-toc-bc/" class="post-read-more">[Read More]</a>
-                
-              </div>
+<p>This principle targets knowledge flow. Don&rsquo;t expose clients to functionality they don&rsquo;t need. Every method in an interface is a piece of knowledge the consumer must be aware of. The more a piece of knowledge is shared, the harder it becomes to change.</p>
 
-              
+<h3 id="dependency-inversion-principle-dip">Dependency Inversion Principle (DIP)</h3>
 
-            </article>
-          
-        </div>
+<p><em>High-level modules should not depend on low-level modules; both should depend on abstractions.</em></p>
+
+<p>Low-level modules support the application. High-level modules are the reason the application is being developed. If high-level modules depend directly on low-level ones, implementation knowledge flows upward. DIP inverts this: both depend on abstractions, shielding the high-level modules from details they don&rsquo;t need. The result is reduced knowledge flow and more comprehensible code.</p>
+
+<h2 id="the-reasoning-stands">The Reasoning Stands</h2>
+
+<p>All five principles address the same underlying concern: managing the flow of knowledge between components to preserve modularity. That concern doesn&rsquo;t disappear because AI writes your code. If anything, it becomes more acute when code is generated faster than humans can review it.</p>
+
+<p>Now, whether SOLID is the most <em>effective</em> formulation of these guidelines today is a different question. OOP itself is viewed more pragmatically than it was twenty years ago. Many teams work in paradigms where classes aren&rsquo;t central and inheritance is treated with suspicion.</p>
+
+<p>But that&rsquo;s a topic for another post.</p>
+
+<h2 id="p-s">P.S.</h2>
+
+<p>Sharing is caring ;)</p>
+      </article>
+
+      <hr/>
+      
+
+      <ul class="pager blog-pager">
         
-      </div>
+          <li class="previous">
+            <a href="https://vladikk.com/2026/03/15/machine-errors/" data-toggle="tooltip" data-placement="top" title="Machine Errors and Non-Deterministic Humans">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+
+      
+        
+        
+      
+
     </div>
   </div>
+</div>
 
     <footer>
   <div class="container">
@@ -361,7 +372,7 @@ if (!doNotTrack) {
               </li>
           
           <li>
-            <a href="https://vladikk.com/categories/Balanced-Coupling/index.xml" title="RSS">
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
