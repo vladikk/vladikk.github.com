@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2026-05-01T00:00:00Z
-title: "Genies Grant Wishes Only to Teach Lessons"
+title: "Genies Grant Wishes Only to Teach You a Lesson"
 keywords: "LLM genie metaphor, AI coding agents, vibe coding fiasco, Kent Beck genie, domain-driven design AI, modular design, balanced coupling, software engineering not solved, PocketOS, Moltbook, AI-assisted software engineering"
 description: >
   Kent Beck calls LLMs genies. Folklore teaches that genies grant wishes only to teach lessons about greed, shortcuts, and poorly defined goals. Those warnings are uncannily relevant to AI-assisted software engineering, and the boring fundamentals of domain-driven design, modular architecture, and balanced coupling are how we keep the genie from tricking us.
