@@ -8,10 +8,25 @@
     <language>en-us</language>
     <managingEditor>vladik@khononov.com (Vlad Khononov)</managingEditor>
     <webMaster>vladik@khononov.com (Vlad Khononov)</webMaster>
-    <lastBuildDate>Mon, 30 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vladikk.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Genies Grant Wishes Only to Teach Lessons</title>
+      <link>https://vladikk.com/2026/05/01/ai-genies/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <author>vladik@khononov.com (Vlad Khononov)</author>
+      <guid>https://vladikk.com/2026/05/01/ai-genies/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-genies.png&#34; alt=&#34;A friendly white robot in the form of a genie&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Is software engineering solved? Depends who you ask. People selling LLMs proclaim that programming, software architecture, everything has been solved. (Apart from making their company profitable.) Not everyone agrees, of course. In this post I want to explore what the folktales we grew up on can teach us about AI-assisted software engineering.&lt;/p&gt;
+
+&lt;p&gt;Kent Beck calls LLMs &lt;em&gt;genies&lt;/em&gt;. Only a genius like Kent could come up with such a succinct definition of what LLMs really are and what we can expect to get from them.&lt;/p&gt;
+
+&lt;p&gt;When I was a kid, I spent hours imagining what I would ask for if I ever met a genie. It&amp;rsquo;s a beautiful daydream. Until you actually read the stories. Genies in folktales don&amp;rsquo;t really show up to make you happy, but to teach you a lesson.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Are SOLID Principles Still Relevant in the AI Era?</title>
