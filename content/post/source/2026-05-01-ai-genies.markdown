@@ -1,0 +1,70 @@
+---
+comments: true
+date: 2026-05-01T00:00:00Z
+title: "Genies Grant Wishes Only to Teach Lessons"
+keywords: "LLM genie metaphor, AI coding agents, vibe coding fiasco, Kent Beck genie, domain-driven design AI, modular design, balanced coupling, software engineering not solved, PocketOS, Moltbook, AI-assisted software engineering"
+description: >
+  Kent Beck calls LLMs genies. Folklore teaches that genies grant wishes only to teach lessons about greed, shortcuts, and poorly defined goals. Those warnings are uncannily relevant to AI-assisted software engineering, and the boring fundamentals of domain-driven design, modular architecture, and balanced coupling are how we keep the genie from tricking us.
+url: /2026/05/01/ai-genies/
+draft: false
+categories: [AI, Balanced Coupling]
+share_img: /images/ai-genies.png
+---
+
+<img src="/images/ai-genies.png" alt="A friendly white robot in the form of a genie" />
+
+Is software engineering solved? Depends who you ask. People selling LLMs proclaim that programming, software architecture, everything has been solved. (Apart from making their company profitable.) Not everyone agrees, of course. In this post I want to explore what the folktales we grew up on can teach us about AI-assisted software engineering.
+
+Kent Beck calls LLMs *genies*. Only a genius like Kent could come up with such a succinct definition of what LLMs really are and what we can expect to get from them.
+
+When I was a kid, I spent hours imagining what I would ask for if I ever met a genie. It's a beautiful daydream. Until you actually read the stories. Genies in folktales don't really show up to make you happy, but to teach you a lesson.
+
+<!--more-->
+
+## Greed, shortcuts, and poorly defined goals
+
+The genie is a storytelling device. The mechanic is always the same. You make a wish, the genie grants it, and you get *exactly* what you asked for but never what you meant. That gap is where the lesson lives. Every one of them warns against greed, shortcuts, and poorly defined goals:
+
+**Greed.** Wanting too much. King Midas wished that everything he touched would turn to gold. Once the wish was granted, it turned out to be a disaster.
+
+**Shortcuts.** In *The Monkey's Paw*, the protagonist wishes for £200. He gets it, as compensation for his son's death in a workplace accident the next morning. The wish was granted. The shortcut had a price tag he hadn't seen.
+
+**Poorly defined goals.** Not knowing what you actually want. If you've watched *What We Do in the Shadows*, you've seen this trope played out a dozen ways. Nandor the Relentless has to work hard to phrase his wishes so that the Djinn won't twist them against him.
+
+Those warnings are uncannily relevant to our industry.
+
+## The current crop of cautionary tales
+
+Two recent incidents are pure folklore, told in production:
+
+**PocketOS, April 2026.** A Cursor agent running Claude Opus 4.6 ran into a credential mismatch in a staging environment. It decided to fix the problem the fastest way it knew how: by deleting a Railway production database and all of its volume-level backups, in under ten seconds, after digging an API token out of an unrelated file to give itself permission ([The Register](https://www.theregister.com/2026/04/27/cursoropus_agent_snuffs_out_pocketos/)). The wish was "resolve the credential issue." The wish was granted. With prejudice.
+
+**Moltbook, February 2026.** A social network for AI agents whose founder publicly bragged he didn't write a single line of code. Three days after launch, Wiz found a misconfigured Supabase database, fully readable and writable by anyone, leaking 1.5 million auth tokens, 35,000 email addresses, and private messages between agents ([Wiz blog](https://www.wiz.io/blog/exposed-moltbook-database-reveals-millions-of-api-keys)). The wish was "give me a product without doing the work." The genie obliged.
+
+There is no shortage of these stories, and there will be more next week.
+
+## The boring stuff doesn't go on sale
+
+LLM-driven euphoria is rarely relevant beyond demos and POCs. Once you actually build a product, every edge case you didn't plan for, every failure scenario you didn't anticipate, every unintended interaction between components is prone to become next week's headline news.
+
+Genies can be useful, but only if you've already learned the lessons they are there to teach.
+
+[Domain-Driven Design](https://amzn.to/4iMKeo2) won't make headlines like the next LLM release. But it does something the next LLM release can't: it teaches how to analyze and model the system's business domain, before we even attempt to explain it to an LLM. It shows where shortcuts are safe, and gives us a plethora of tools to make sure we have all the knowledge about the most important, business-critical parts of the system.
+
+Modular design is about building a system that serves you in the long term. Yes, you can easily vibe code something that implements some functionality. But what happens when that product catches on, and you have to extend and evolve it? Modular design has you covered. And the [Balanced Coupling](https://amzn.to/4irApMt) model is how you get there.
+
+None of this is fast, sexy, or going to get you a viral demo. But this "boring stuff" is what keeps the genie from tricking you.
+
+## An experiment
+
+I have been experimenting with this myself for a while now. I built a [plugin for Claude Code](https://github.com/vladikk/modularity) that helps design and maintain modular codebases.
+
+It is not a shortcut. It can drive you crazy with questions about your business domain. It will refuse to design a system until it understands what the system is *for*, and what its reasonable change vectors are. Only once it understands the domain does it apply the Balanced Coupling model to make modular design decisions. And it can be re-run periodically to review whether the system is still modular, or whether the wishes you have been making lately have started to pull it apart.
+
+--- 
+
+Genies are too useful to ignore. Use them. Just don't let them trick you.
+
+## P.S.
+
+Sharing is caring ;)
