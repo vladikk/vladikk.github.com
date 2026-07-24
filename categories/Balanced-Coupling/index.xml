@@ -19,7 +19,7 @@
       <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/05/01/ai-genies/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-genies.png&#34; alt=&#34;A friendly white robot in the form of a genie&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-genies.webp&#34; alt=&#34;A friendly white robot in the form of a genie&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Is software engineering solved? Depends who you ask. People selling LLMs proclaim that programming, software architecture, everything has been solved. (Apart from making their company profitable.) Not everyone agrees, of course. In this post I want to explore what the folktales we grew up on can teach us about AI-assisted software engineering.&lt;/p&gt;
 
@@ -34,7 +34,7 @@
       <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/03/30/solid-principles-ai-era/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/solid-ai.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/solid-ai.webp&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I was recently asked &lt;a href=&#34;https://www.linkedin.com/posts/adriankearns_tnt-architecting-for-change-presentation-activity-7442659984695422976-vR7R&#34;&gt;this question on LinkedIn&lt;/a&gt;. My short answer: yes. But the more interesting question is &lt;em&gt;why&lt;/em&gt;, and why AI might make them more relevant, not less.&lt;/p&gt;
 
@@ -51,7 +51,7 @@
       <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/02/26/coupling-weighed/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/weighed-not-counted.png&#34; alt=&#34;A balance scale where a single heavy weight outweighs many smaller pieces — illustrating that one heavy dependency can matter more than many lightweight ones.&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/weighed-not-counted.webp&#34; alt=&#34;A balance scale where a single heavy weight outweighs many smaller pieces — illustrating that one heavy dependency can matter more than many lightweight ones.&#34; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&amp;ldquo;Words should be weighed, not counted.&amp;rdquo; — A Yiddish Saying&lt;/p&gt;
@@ -75,7 +75,7 @@
       <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/02/23/ai-toc-bc/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-toc.png&#34; alt=&#34;An assembly line where an AI robot speeds up code production, creating a massive pile of blocks in front of an overwhelmed human operator with a warning alarm — illustrating how accelerating code generation creates a bottleneck at human comprehension.&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-toc.webp&#34; alt=&#34;An assembly line where an AI robot speeds up code production, creating a massive pile of blocks in front of an overwhelmed human operator with a warning alarm — illustrating how accelerating code generation creates a bottleneck at human comprehension.&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Every other post on my feed celebrates how AI lets us write code faster: whole apps built in a matter of a few hours, 99% AI-generated codebases, hundred-fold productivity gains, and on and on. But does writing code faster actually make us more productive?&lt;/p&gt;
 

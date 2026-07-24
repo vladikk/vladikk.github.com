@@ -19,7 +19,7 @@
       <pubDate>Sat, 29 Mar 2025 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2025/03/30/golden-age-of-modularity/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-boundaries.png&#34; alt=&#34;The Golden Age of Modularity: Why Modern Architecture—and AI—Depend on Better Boundaries&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-boundaries.webp&#34; alt=&#34;The Golden Age of Modularity: Why Modern Architecture—and AI—Depend on Better Boundaries&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;My news feed these days:&lt;br /&gt;
 “Take a look at the app I built with zero coding skills!”&lt;br /&gt;
@@ -117,7 +117,7 @@ sns.publish(
       <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2020/04/09/untangling-microservices/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/untangling-microservices/header.png&#34; alt=&#34;Untangling Microservices, or Balancing Complexity in Distributed Systems&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/untangling-microservices/header.webp&#34; alt=&#34;Untangling Microservices, or Balancing Complexity in Distributed Systems&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The microservices honeymoon period is over. Uber is refactoring thousands of microservices into a more manageable solution [1]; Kelsey Hightower is predicting monoliths are the future [2]; and even Sam Newman is declaring that microservices should never be the default choice, but rather a last resort [3].&lt;/p&gt;
 
@@ -143,7 +143,7 @@ Example Say as the result of some user’s operation the system has to:
       <pubDate>Wed, 28 Feb 2018 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2018/02/28/microservices/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/microservices/title-img.jpg&#34; alt=&#34;Tackling Complexity in Microservices&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/microservices/title-img.webp&#34; alt=&#34;Tackling Complexity in Microservices&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Unfortunately, many of them ended up worse off than they were before - in the realm of distributed monoliths. Why?&lt;/p&gt;
 

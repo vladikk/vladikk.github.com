@@ -19,7 +19,7 @@
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2017/03/20/tackling-complexity-in-cqrs/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/cqrs/title-img.jpg&#34; alt=&#34;Tackling Complexity in CQRS&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/cqrs/title-img.webp&#34; alt=&#34;Tackling Complexity in CQRS&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The CQRS pattern can do wonders: it can maximize scalability, performance, security, and even &lt;a href=&#34;http://codebetter.com/gregyoung/2010/02/20/cqrs-and-cap-theorem/&#34;&gt;“beat” the CAP theorem&lt;/a&gt;. Nonetheless, CQRS has acquired a controversial name because of the complexity it introduces. For instance, &lt;a href=&#34;https://martinfowler.com/bliki/CQRS.html&#34;&gt;in his article on CQRS&lt;/a&gt;, Martin Fowler argues that the pattern should be applied sparingly and even cautiously:&lt;/p&gt;
 

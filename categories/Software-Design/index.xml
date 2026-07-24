@@ -19,7 +19,7 @@
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/03/15/machine-errors/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/machine-errors.png&#34; alt=&#34;A friendly robot holding onto a railing, illustrating the concept of designing systems that support variable components&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/machine-errors.webp&#34; alt=&#34;A friendly robot holding onto a railing, illustrating the concept of designing systems that support variable components&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;ldquo;I can&amp;rsquo;t rely on LLMs because they&amp;rsquo;re not deterministic. How can I be sure what I&amp;rsquo;ll get?&amp;rdquo; — I bet you&amp;rsquo;ve thought that yourself. I did for sure.&lt;/p&gt;
 
@@ -36,7 +36,7 @@
       <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/03/10/ai-ooda/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-ooda.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-ooda.webp&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Vibe coding, or as some prefer to call it, &amp;ldquo;hands-off&amp;rdquo; software engineering, is having its moment. AI agents write code, implement features, and even spin up entire projects from a prompt. The results are impressive for demos. For production systems, not so much.&lt;/p&gt;
 
@@ -53,7 +53,7 @@
       <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/02/26/coupling-weighed/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/weighed-not-counted.png&#34; alt=&#34;A balance scale where a single heavy weight outweighs many smaller pieces — illustrating that one heavy dependency can matter more than many lightweight ones.&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/weighed-not-counted.webp&#34; alt=&#34;A balance scale where a single heavy weight outweighs many smaller pieces — illustrating that one heavy dependency can matter more than many lightweight ones.&#34; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&amp;ldquo;Words should be weighed, not counted.&amp;rdquo; — A Yiddish Saying&lt;/p&gt;

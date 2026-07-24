@@ -8,13 +8,7 @@
   <title>Event-Driven Architecture on AWS, Part I: The Basics</title>
   <meta property="og:title" content="Event-Driven Architecture on AWS, Part I: The Basics" />
   <meta name="twitter:title" content="Event-Driven Architecture on AWS, Part I: The Basics" />
-  <meta name="description" content="The abundance of services provided by AWS often makes it possible to implement the same functionality in different ways. In the case of messaging systems, AWS offers services such as Simple Notification Service (SNS), Simple Queue Service (SQS), EventBridge, Kinesis, and Managed Streaming for Apache Kafka (MSK). It may seem that at least a subset of these services duplicates the same functionality. In this post, I want to describe my go-to architecture and explain why, in my opinion, it is the simplest, most cost-effective, and robust solution for the majority of cases.
-
-Event-Driven Architecture
-
-Components of an event-driven system communicate by publishing and subscribing to events. The asynchronous integration offers significant non-functional advantages. For example, it decouples the integrated components’ lifecycles. To a certain degree, the system can keep functioning even in the face of unavailability of some of its services, thus also reducing the coordination overhead needed to deploy updated components, and to evolve the system.
-
-A basic event-driven integration is comprised of two parts: a component of the system can publish events describing important occurrences in its lifecycle, and it can react (subscribe) to events published by other parts of the system. Let’s see what managed services we can leverage for implementing this.">
+  <meta name="description" content="The abundance of services provided by AWS often makes it possible to implement the same functionality in different ways. In the case of messaging systems, AWS …">
   <meta property="og:description" content="The abundance of services provided by AWS often makes it possible to implement the same functionality in different ways. In the case of messaging systems, AWS offers services such as Simple Notification Service (SNS), Simple Queue Service (SQS), EventBridge, Kinesis, and Managed Streaming for Apache Kafka (MSK). It may seem that at least a subset of these services duplicates the same functionality. In this post, I want to describe my go-to architecture and explain why, in my opinion, it is the simplest, most cost-effective, and robust solution for the majority of cases.
 
 Event-Driven Architecture
@@ -45,6 +39,7 @@ A basic event-driven integration is comprised of two parts: a component of the s
   <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="aws, eda, event-driven architecture, sns, sqs, kafka, msk, kinesis, microservices, event-driven, architecture, design principles, engineering, design, software, architecture">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Vlad Khononov","url":"https://vladikk.com"},"dateModified":"2024-09-28T00:00:00Z","datePublished":"2024-09-28T00:00:00Z","description":"\u003cp\u003eThe abundance of services provided by AWS often makes it possible to implement the same functionality in different ways. In the case of messaging systems, AWS offers services such as Simple Notification Service (SNS), Simple Queue Service (SQS), EventBridge, Kinesis, and Managed Streaming for Apache …\u003c/p\u003e","headline":"Event-Driven Architecture on AWS, Part I: The Basics","image":"https://vladikk.com/images/aws-eda/eda-on-aws-4.png","mainEntityOfPage":"https://vladikk.com/2024/09/28/aws-eda/","url":"https://vladikk.com/2024/09/28/aws-eda/"}</script>
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
@@ -270,7 +265,7 @@ if (!doNotTrack) {
 
 <p>The message bus used by the system is just another persistence mechanism — albeit a much more limited one — and should be treated as such. As a result, in addition to a database, each (micro)service needs an SNS topic for publishing events and an SQS queue for consuming events, as illustrated in Figure 4:</p>
 
-<p><img src="/images/aws-eda/eda-on-aws-4.png" alt="An EDA requires defining clear ownership boundaries not only for databases but also for their messaging mechanisms (SNS and SQS)" />
+<p><img src="/images/aws-eda/eda-on-aws-4.webp" alt="An EDA requires defining clear ownership boundaries not only for databases but also for their messaging mechanisms (SNS and SQS)" />
 <em>Figure 4: An EDA requires defining clear ownership boundaries not only for databases but also for their messaging mechanisms (SNS and SQS).</em></p>
 
 <p>The arrows between the services — the subscriptions from topics to queues — belong to a higher architectural level of abstraction than the services themselves. For example, there might be a CloudFormation template for each individual service and a higher-level CloudFormation template for the resultant system. The latter one is in charge of defining the subscriptions.</p>

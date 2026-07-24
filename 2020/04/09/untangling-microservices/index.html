@@ -10,11 +10,7 @@
   <meta name="twitter:title" content="Untangling Microservices, or Balancing Complexity in Distributed …" />
   <meta name="description" content="
 
-The microservices honeymoon period is over. Uber is refactoring thousands of microservices into a more manageable solution [1]; Kelsey Hightower is predicting monoliths are the future [2]; and even Sam Newman is declaring that microservices should never be the default choice, but rather a last resort [3].
-
-What&rsquo;s going on here? Why have so many projects become unmaintainable, despite microservices’ promise of simplicity and flexibility? Or are monoliths better, after all?
-
-In this post, I want to address these questions. You will learn about common design issues that turn microservices into distributed big balls of mud – and, of course, how you can avoid them.">
+The microservices honeymoon period is over. Uber is refactoring thousands of microservices into a more manageable solution [1]; Kelsey Hightower is predicting …">
   <meta property="og:description" content="
 
 The microservices honeymoon period is over. Uber is refactoring thousands of microservices into a more manageable solution [1]; Kelsey Hightower is predicting monoliths are the future [2]; and even Sam Newman is declaring that microservices should never be the default choice, but rather a last resort [3].
@@ -47,6 +43,7 @@ The microservices honeymoon period is over. Uber is refactoring thousands of mic
   <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="microservices, nanoservices, bbom, monolith, distributed systems, antipattern, anti-pattern, software architecture, design patterns, design principles, ddd, engineering, design, software, architecture">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Vlad Khononov","url":"https://vladikk.com"},"dateModified":"2020-04-09T00:00:00Z","datePublished":"2020-04-09T00:00:00Z","description":"\u003cp\u003e\u003cimg src=\"/images/untangling-microservices/header.webp\" alt=\"Untangling Microservices, or Balancing Complexity in Distributed Systems\" /\u003e\u003c/p\u003e\n\n\u003cp\u003eThe microservices honeymoon period is over. Uber is refactoring thousands of microservices into a more manageable solution [1]; Kelsey Hightower is predicting monoliths are the future [2]; and even Sam Newman is declaring that microservices should never be the default choice, but rather a last …\u003c/p\u003e","headline":"Untangling Microservices, or Balancing Complexity in Distributed Systems","image":"https://vladikk.com/images/untangling-microservices/header.png","mainEntityOfPage":"https://vladikk.com/2020/04/09/untangling-microservices/","url":"https://vladikk.com/2020/04/09/untangling-microservices/"}</script>
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
@@ -223,7 +220,7 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p><img src="/images/untangling-microservices/header.png" alt="Untangling Microservices, or Balancing Complexity in Distributed Systems" /></p>
+        <p><img src="/images/untangling-microservices/header.webp" alt="Untangling Microservices, or Balancing Complexity in Distributed Systems" /></p>
 
 <p>The microservices honeymoon period is over. Uber is refactoring thousands of microservices into a more manageable solution [1]; Kelsey Hightower is predicting monoliths are the future [2]; and even Sam Newman is declaring that microservices should never be the default choice, but rather a last resort [3].</p>
 
@@ -280,7 +277,7 @@ if (!doNotTrack) {
 
 <p>Services will always have to interact with each other to form a system. If you design a system by optimizing its services, but ignore the interactions between them, this is what you may end up with this:</p>
 
-<p><img src="/images/untangling-microservices/complex-system.png" alt="" /></p>
+<p><img src="/images/untangling-microservices/complex-system.webp" alt="" /></p>
 
 <p>Those “microservices” may be simple individually, but the system itself is a complexity hell!</p>
 

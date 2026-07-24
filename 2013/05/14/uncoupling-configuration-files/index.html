@@ -8,23 +8,7 @@
   <title>Uncoupling Configuration Files</title>
   <meta property="og:title" content="Uncoupling Configuration Files" />
   <meta name="twitter:title" content="Uncoupling Configuration Files" />
-  <meta name="description" content="Tight coupling is a known source for inflexible and hard to test code. In this post I want to talk about a rather unexpected source of tight coupling - configuration files.
-Configuration files are external dependencies. As other external dependencies, its infrastructure may change in the future, and it should be easily mocked for unit testing. Modern software frameworks provide means for easy access to the values stored in configuration files. In the .NET framework configuration files can be accessed using the ConfigurationManager:
-
-&lt;?xml version=&quot;1.0&quot;?&gt;
-&lt;configuration&gt;
-  &lt;appSettings&gt;
-    &lt;add key=&quot;Foo&quot; value=&quot;1&quot;/&gt;
-    &lt;add key=&quot;Bar&quot; value=&quot;2&quot;/&gt;
-  &lt;/appSettings&gt;
-&lt;/configuration&gt;
-
-
-int foo = int.Parse(ConfigurationManager.AppSetttings[“Foo”]);
-int bar = int.Parse(ConfigurationManager.AppSettings[“Bar”]);
-
-
-ConfigurationManager makes it trivial to access data in the config file, however in most cases it also introduces various code smells that make the code tight coupled and hard to test. In the next sections I’ll introduce a simple class and will use it to demonstrate the code smells and violations of principles of clean object oriented design. The code will be gradually refactored to a better and cleaner solution.">
+  <meta name="description" content="Tight coupling is a known source for inflexible and hard to test code. In this post I want to talk about a rather unexpected source of tight coupling - …">
   <meta property="og:description" content="Tight coupling is a known source for inflexible and hard to test code. In this post I want to talk about a rather unexpected source of tight coupling - configuration files.
 Configuration files are external dependencies. As other external dependencies, its infrastructure may change in the future, and it should be easily mocked for unit testing. Modern software frameworks provide means for easy access to the values stored in configuration files. In the .NET framework configuration files can be accessed using the ConfigurationManager:
 
@@ -66,6 +50,7 @@ Configuration files are …">
   <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="c#, configuration, configuration files, dependency, pattern, ood, clean code, object oriented design, dependency injection, tdd, unit testing, refactoring">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Vlad Khononov","url":"https://vladikk.com"},"dateModified":"2013-05-14T00:00:00Z","datePublished":"2013-05-14T00:00:00Z","description":"\u003cp\u003eTight coupling is a known source for inflexible and hard to test code. In this post I want to talk about a rather unexpected source of tight coupling - configuration files.\nConfiguration files are external dependencies. As other external dependencies, its infrastructure may change in the future, and …\u003c/p\u003e","headline":"Uncoupling Configuration Files","image":"https://vladikk.com/images/me-conf.jpg","mainEntityOfPage":"https://vladikk.com/2013/05/14/uncoupling-configuration-files/","url":"https://vladikk.com/2013/05/14/uncoupling-configuration-files/"}</script>
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />

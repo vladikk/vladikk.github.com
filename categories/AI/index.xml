@@ -19,7 +19,7 @@
       <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/05/01/ai-genies/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-genies.png&#34; alt=&#34;A friendly white robot in the form of a genie&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-genies.webp&#34; alt=&#34;A friendly white robot in the form of a genie&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Is software engineering solved? Depends who you ask. People selling LLMs proclaim that programming, software architecture, everything has been solved. (Apart from making their company profitable.) Not everyone agrees, of course. In this post I want to explore what the folktales we grew up on can teach us about AI-assisted software engineering.&lt;/p&gt;
 
@@ -34,7 +34,7 @@
       <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/03/30/solid-principles-ai-era/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/solid-ai.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/solid-ai.webp&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I was recently asked &lt;a href=&#34;https://www.linkedin.com/posts/adriankearns_tnt-architecting-for-change-presentation-activity-7442659984695422976-vR7R&#34;&gt;this question on LinkedIn&lt;/a&gt;. My short answer: yes. But the more interesting question is &lt;em&gt;why&lt;/em&gt;, and why AI might make them more relevant, not less.&lt;/p&gt;
 
@@ -51,7 +51,7 @@
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/03/15/machine-errors/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/machine-errors.png&#34; alt=&#34;A friendly robot holding onto a railing, illustrating the concept of designing systems that support variable components&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/machine-errors.webp&#34; alt=&#34;A friendly robot holding onto a railing, illustrating the concept of designing systems that support variable components&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;ldquo;I can&amp;rsquo;t rely on LLMs because they&amp;rsquo;re not deterministic. How can I be sure what I&amp;rsquo;ll get?&amp;rdquo; — I bet you&amp;rsquo;ve thought that yourself. I did for sure.&lt;/p&gt;
 
@@ -68,7 +68,7 @@
       <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/03/10/ai-ooda/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-ooda.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-ooda.webp&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Vibe coding, or as some prefer to call it, &amp;ldquo;hands-off&amp;rdquo; software engineering, is having its moment. AI agents write code, implement features, and even spin up entire projects from a prompt. The results are impressive for demos. For production systems, not so much.&lt;/p&gt;
 
@@ -85,7 +85,7 @@
       <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/02/23/ai-toc-bc/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-toc.png&#34; alt=&#34;An assembly line where an AI robot speeds up code production, creating a massive pile of blocks in front of an overwhelmed human operator with a warning alarm — illustrating how accelerating code generation creates a bottleneck at human comprehension.&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-toc.webp&#34; alt=&#34;An assembly line where an AI robot speeds up code production, creating a massive pile of blocks in front of an overwhelmed human operator with a warning alarm — illustrating how accelerating code generation creates a bottleneck at human comprehension.&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Every other post on my feed celebrates how AI lets us write code faster: whole apps built in a matter of a few hours, 99% AI-generated codebases, hundred-fold productivity gains, and on and on. But does writing code faster actually make us more productive?&lt;/p&gt;
 
@@ -104,7 +104,7 @@
       <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2025/05/26/with-ai-everything-is-complicated/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-everything-is-complicated2.png&#34; alt=&#34;With AI, everything is so complicated... and this is great news!&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-everything-is-complicated2.webp&#34; alt=&#34;With AI, everything is so complicated... and this is great news!&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Lately I&amp;rsquo;ve been spending more and more time researching AI models and their effects on software engineering and architecture, so it&amp;rsquo;s time to share my findings.&lt;/p&gt;
 

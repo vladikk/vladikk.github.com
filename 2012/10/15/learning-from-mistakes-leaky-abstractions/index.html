@@ -11,23 +11,7 @@
   <meta name="description" content="On the project I’m working on I’ve had a requirement to store and read files
 from the file system. Alse the files had to be accessible from the web.
 
-Having a gut feeling that the infrastructure may change as the business will
-grow, I decided to hide operations on the file system behind an interface:
-
-public interface IFilesStorage {
-    string StoreFile(Stream stream, string fileName);
-    Stream GetFile(string virtualPath);
-    string GetFileUrl(string virtualPath);
-    string GetFilePath(string virtualPath);
-}
-
-
-As it looks, if someday I’ll need to switch from the file
-system to another storage mechanism, I’ll be able to do get the
-job done by writing another implementation of the interface.
-Right? Wrong! The requirement did come in - I’ve had to store
-the files in S3. And only then I realised that IFilesStorage is
-a leaky abstraction.">
+Having a …">
   <meta property="og:description" content="On the project I’m working on I’ve had a requirement to store and read files
 from the file system. Alse the files had to be accessible from the web.
 
@@ -74,6 +58,7 @@ Having a gut feeling that the infrastructure may …">
   <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="leaky abstraction, design, oop, ood, objection oriented design, code smell">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Vlad Khononov","url":"https://vladikk.com"},"dateModified":"2012-10-15T00:00:00Z","datePublished":"2012-10-15T00:00:00Z","description":"\u003cp\u003eOn the project I’m working on I’ve had a requirement to store and read files\nfrom the file system. Alse the files had to be accessible from the web.\u003c/p\u003e\n\n\u003cp\u003eHaving a gut feeling that the infrastructure may change as the business will\ngrow, I decided to hide operations on the file system behind an …\u003c/p\u003e","headline":"Learning From Mistakes: Leaky Abstractions","image":"https://vladikk.com/images/me-conf.jpg","mainEntityOfPage":"https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/","url":"https://vladikk.com/2012/10/15/learning-from-mistakes-leaky-abstractions/"}</script>
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />

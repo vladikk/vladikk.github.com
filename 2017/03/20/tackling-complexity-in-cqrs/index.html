@@ -8,7 +8,7 @@
   <title>Tackling Complexity in CQRS</title>
   <meta property="og:title" content="Tackling Complexity in CQRS" />
   <meta name="twitter:title" content="Tackling Complexity in CQRS" />
-  <meta name="description" content="CQRS is a great tool. However CQRS gained itself a controversial name because of the complexity it introduces. In this post I want to show why this complexity is accidental, and 3 ways to tackle it">
+  <meta name="description" content="CQRS is a great tool. However CQRS gained itself a controversial name because of the complexity it introduces. In this post I want to show why this complexity …">
   <meta property="og:description" content="CQRS is a great tool. However CQRS gained itself a controversial name because of the complexity it introduces. In this post I want to show why this complexity is accidental, and 3 ways to tackle it">
   <meta name="twitter:description" content="CQRS is a great tool. However CQRS gained itself a controversial name because of the complexity it introduces. In this post I want to show why this complexity is accidental, and 3 ways to tackle it">
   <meta name="author" content="Vlad Khononov"/>
@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="CQRS, CQS, Command Query Responsibility Segregation, Event Sourcing, Complexity, Beginners, Domain-Driven Design, DDD, DDDesign, software, architecture, methodology, bounded context, ubiquitous language, patterns, domain model">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Vlad Khononov","url":"https://vladikk.com"},"dateModified":"2017-03-20T00:00:00Z","datePublished":"2017-03-20T00:00:00Z","description":"CQRS is a great tool. However CQRS gained itself a controversial name because of the complexity it introduces. In this post I want to show why this complexity is accidental, and 3 ways to tackle it","headline":"Tackling Complexity in CQRS","image":"https://vladikk.com/images/cqrs/title-img.jpg","mainEntityOfPage":"https://vladikk.com/2017/03/20/tackling-complexity-in-cqrs/","url":"https://vladikk.com/2017/03/20/tackling-complexity-in-cqrs/"}</script>
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
@@ -209,7 +210,7 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p><img src="/images/cqrs/title-img.jpg" alt="Tackling Complexity in CQRS" /></p>
+        <p><img src="/images/cqrs/title-img.webp" alt="Tackling Complexity in CQRS" /></p>
 
 <p>The CQRS pattern can do wonders: it can maximize scalability, performance, security, and even <a href="http://codebetter.com/gregyoung/2010/02/20/cqrs-and-cap-theorem/">“beat” the CAP theorem</a>. Nonetheless, CQRS has acquired a controversial name because of the complexity it introduces. For instance, <a href="https://martinfowler.com/bliki/CQRS.html">in his article on CQRS</a>, Martin Fowler argues that the pattern should be applied sparingly and even cautiously:</p>
 
@@ -316,7 +317,7 @@ if (!doNotTrack) {
 
 <p>This diagram differs from other diagrams you can find on the web:</p>
 
-<p><img src="/images/cqrs/google-cqrs.png" alt="Other CQRS diagrams" /></p>
+<p><img src="/images/cqrs/google-cqrs.webp" alt="Other CQRS diagrams" /></p>
 
 <p>This is the CQRS pattern the way I both see and implement it. Commands have responses. The projection mechanism defined is abstractly without any implementation details. Inside it may be based on events, or on state, or even a database view. And finally, there  is no glimpse of Event Sourcing. Model the system’s business logic as required by the business domain: Active Record, Domain Model, or Event Sourced Domain Model.</p>
 

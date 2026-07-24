@@ -8,35 +8,7 @@
   <title>Event-Driven Architecture on AWS, Part II: The Advanced Basics</title>
   <meta property="og:title" content="Event-Driven Architecture on AWS, Part II: The Advanced Basics" />
   <meta name="twitter:title" content="Event-Driven Architecture on AWS, Part II: The Advanced Basics" />
-  <meta name="description" content="In my previous post in the series, I discussed the basic building blocks for implementing event-driven architecture (EDA) using AWS managed services. This post is about the advanced basics. It’s advanced because, based on my consulting experience, very few companies apply the practices I want to discuss. However, I still consider this as basics because these practices are not optional but essential for implementing reliable messaging-based systems.
-
-Although the examples in this post use AWS services, the material applies to any system, regardless of the infrastructure it runs on. The implementation might differ, but the underlying principles remain the same.
-
-Since this post is about a pattern—and patterns, by definition, are repeatable solutions to commonly occurring problems—I want to begin by discussing a commonly overlooked problem in EDA-based systems.
-
-The Problem
-
-In the previous post, I suggested using AWS SNS for publishing messages in an event-driven system. Here’s a common example of how such publishing is carried out:
-
-...
-
-sns.publish(
-    TopicArn=users_topic_arn,
-    Message=json.dumps({
-        &#39;event_type&#39;: &#39;user_registered&#39;,
-        &#39;event_id&#39;: str(uuid.uuid4()),
-        &#39;user_id&#39;: &#39;USER12345&#39;,
-        &#39;name&#39;: &#39;John Doe&#39;,
-        &#39;email&#39;: &#39;john.doe@example.com&#39;,
-        &#39;source&#39;: &#39;mobile_app&#39;,
-        &#39;registration_date&#39;: &#39;2024-10-11T20:01:00Z&#39;
-    })
-)
-
-...
-
-
-In the above example, an event of type user_registered is published to an SNS topic. But did that event come from thin air? Is that all services do, just publish messages? Of course not. The event is part of a larger business process that typically involves updating some state in an operational database before notifying external components about it. A more accurate representation of this process would look like this:">
+  <meta name="description" content="In my previous post in the series, I discussed the basic building blocks for implementing event-driven architecture (EDA) using AWS managed services. This post …">
   <meta property="og:description" content="In my previous post in the series, I discussed the basic building blocks for implementing event-driven architecture (EDA) using AWS managed services. This post is about the advanced basics. It’s advanced because, based on my consulting experience, very few companies apply the practices I want to discuss. However, I still consider this as basics because these practices are not optional but essential for implementing reliable messaging-based systems.
 
 Although the examples in this post use AWS services, the material applies to any system, regardless of the infrastructure it runs on. The implementation might differ, but the underlying principles remain the same.
@@ -89,6 +61,7 @@ In the above example, an event of type user_registered is published to an SNS to
   <link rel="stylesheet" href="https://vladikk.com/css/highlighting.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/pygment_highlights.css" />
   <link rel="stylesheet" href="https://vladikk.com/css/highlight.min.css" /> <meta name="keywords" content="outbox, aws, eda, event-driven architecture, sns, sqs, kafka, msk, kinesis, microservices, event-driven, architecture, design principles, engineering, design, software, architecture">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Vlad Khononov","url":"https://vladikk.com"},"dateModified":"2024-10-12T00:00:00Z","datePublished":"2024-10-12T00:00:00Z","description":"\u003cp\u003eIn my \u003ca href=\"/2024/09/28/aws-eda/\"\u003eprevious post in the series\u003c/a\u003e, I discussed the basic building blocks for implementing event-driven architecture (EDA) using AWS managed services. This post is about the \u003cem\u003eadvanced\u003c/em\u003e basics. It’s advanced because, based on my consulting experience, very few companies apply the practices I want to …\u003c/p\u003e","headline":"Event-Driven Architecture on AWS, Part II: The Advanced Basics","image":"https://vladikk.com/images/aws-eda-2/fig-2.png","mainEntityOfPage":"https://vladikk.com/2024/10/12/aws-eda-ii/","url":"https://vladikk.com/2024/10/12/aws-eda-ii/"}</script>
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />

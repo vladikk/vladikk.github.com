@@ -19,7 +19,7 @@
       <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/05/01/ai-genies/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-genies.png&#34; alt=&#34;A friendly white robot in the form of a genie&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-genies.webp&#34; alt=&#34;A friendly white robot in the form of a genie&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Is software engineering solved? Depends who you ask. People selling LLMs proclaim that programming, software architecture, everything has been solved. (Apart from making their company profitable.) Not everyone agrees, of course. In this post I want to explore what the folktales we grew up on can teach us about AI-assisted software engineering.&lt;/p&gt;
 
@@ -34,7 +34,7 @@
       <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/03/30/solid-principles-ai-era/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/solid-ai.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/solid-ai.webp&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I was recently asked &lt;a href=&#34;https://www.linkedin.com/posts/adriankearns_tnt-architecting-for-change-presentation-activity-7442659984695422976-vR7R&#34;&gt;this question on LinkedIn&lt;/a&gt;. My short answer: yes. But the more interesting question is &lt;em&gt;why&lt;/em&gt;, and why AI might make them more relevant, not less.&lt;/p&gt;
 
@@ -51,7 +51,7 @@
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/03/15/machine-errors/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/machine-errors.png&#34; alt=&#34;A friendly robot holding onto a railing, illustrating the concept of designing systems that support variable components&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/machine-errors.webp&#34; alt=&#34;A friendly robot holding onto a railing, illustrating the concept of designing systems that support variable components&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;ldquo;I can&amp;rsquo;t rely on LLMs because they&amp;rsquo;re not deterministic. How can I be sure what I&amp;rsquo;ll get?&amp;rdquo; — I bet you&amp;rsquo;ve thought that yourself. I did for sure.&lt;/p&gt;
 
@@ -68,7 +68,7 @@
       <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/03/10/ai-ooda/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-ooda.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-ooda.webp&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Vibe coding, or as some prefer to call it, &amp;ldquo;hands-off&amp;rdquo; software engineering, is having its moment. AI agents write code, implement features, and even spin up entire projects from a prompt. The results are impressive for demos. For production systems, not so much.&lt;/p&gt;
 
@@ -85,7 +85,7 @@
       <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/02/26/coupling-weighed/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/weighed-not-counted.png&#34; alt=&#34;A balance scale where a single heavy weight outweighs many smaller pieces — illustrating that one heavy dependency can matter more than many lightweight ones.&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/weighed-not-counted.webp&#34; alt=&#34;A balance scale where a single heavy weight outweighs many smaller pieces — illustrating that one heavy dependency can matter more than many lightweight ones.&#34; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&amp;ldquo;Words should be weighed, not counted.&amp;rdquo; — A Yiddish Saying&lt;/p&gt;
@@ -109,7 +109,7 @@
       <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2026/02/23/ai-toc-bc/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-toc.png&#34; alt=&#34;An assembly line where an AI robot speeds up code production, creating a massive pile of blocks in front of an overwhelmed human operator with a warning alarm — illustrating how accelerating code generation creates a bottleneck at human comprehension.&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-toc.webp&#34; alt=&#34;An assembly line where an AI robot speeds up code production, creating a massive pile of blocks in front of an overwhelmed human operator with a warning alarm — illustrating how accelerating code generation creates a bottleneck at human comprehension.&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Every other post on my feed celebrates how AI lets us write code faster: whole apps built in a matter of a few hours, 99% AI-generated codebases, hundred-fold productivity gains, and on and on. But does writing code faster actually make us more productive?&lt;/p&gt;
 
@@ -128,7 +128,7 @@
       <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2025/05/26/with-ai-everything-is-complicated/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-everything-is-complicated2.png&#34; alt=&#34;With AI, everything is so complicated... and this is great news!&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-everything-is-complicated2.webp&#34; alt=&#34;With AI, everything is so complicated... and this is great news!&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Lately I&amp;rsquo;ve been spending more and more time researching AI models and their effects on software engineering and architecture, so it&amp;rsquo;s time to share my findings.&lt;/p&gt;
 
@@ -154,7 +154,7 @@ situations.  It says that first you need to understand what kind of situation yo
 
 &lt;p&gt;This race weekend in the beautiful Japan started with a scare. During a pre-race practice, Jack Doohan, a rookie driver from the Alpine team, suddenly spun out of control in the highest-speed section of the track and hit a wall (&lt;a href=&#34;https://www.youtube.com/watch?v=49H4qtfUv24&#34;&gt;video&lt;/a&gt;). He was going over 320 kilometers per hour (200 miles per hour) at the time. Thanks to the marvels of modern race car engineering, Jack walked away unharmed—not even a concussion. But why did it happen in the first place?&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/f1-crash.png&#34; alt=&#34;Jack Doohan&#39;s crash Practice 2&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/f1-crash.webp&#34; alt=&#34;Jack Doohan&#39;s crash Practice 2&#34; /&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -163,7 +163,7 @@ situations.  It says that first you need to understand what kind of situation yo
       <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2025/04/03/coupling-dev/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/coupling-dev-t.png&#34; alt=&#34;coupling.dev&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/coupling-dev-t.webp&#34; alt=&#34;coupling.dev&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;One of the most common pieces of feedback I received about &lt;a href=&#34;https://amzn.to/4irApMt&#34;&gt;&lt;em&gt;Balancing Coupling in Software Design&lt;/em&gt;&lt;/a&gt; was that readers wanted a resource they could easily share with colleagues—a quick way to introduce the balanced coupling model and make discussions about it more accessible.&lt;/p&gt;
 
@@ -176,7 +176,7 @@ situations.  It says that first you need to understand what kind of situation yo
       <pubDate>Sat, 29 Mar 2025 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2025/03/30/golden-age-of-modularity/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-boundaries.png&#34; alt=&#34;The Golden Age of Modularity: Why Modern Architecture—and AI—Depend on Better Boundaries&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ai-boundaries.webp&#34; alt=&#34;The Golden Age of Modularity: Why Modern Architecture—and AI—Depend on Better Boundaries&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;My news feed these days:&lt;br /&gt;
 “Take a look at the app I built with zero coding skills!”&lt;br /&gt;
@@ -278,7 +278,7 @@ sns.publish(
 
 &lt;p&gt;Exactly three years ago, &lt;em&gt;Learning Domain-Driven Design&lt;/em&gt; was published! And what a birthday present the monkey received: today marks the official release of &lt;em&gt;Balancing Coupling in Software Design&lt;/em&gt;! The new book is available in print and electronic formats on &lt;a href=&#34;https://amzn.to/3BIIPyk&#34;&gt;Amazon&lt;/a&gt;, &lt;a href=&#34;https://click.linksynergy.com/deeplink?id=XLXvHJZS*qY&amp;amp;mid=24808&amp;amp;murl=https%3A%2F%2Fwww.informit.com%2Fstore%2Fbalancing-coupling-in-software-design-universal-design-9780137353484&#34;&gt;InformIT&lt;/a&gt;, and other major book stores 🎉&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/lddd-three-years.png&#34; alt=&#34;Learning Domain-Driven Design&#39;s third anniversary&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/lddd-three-years.webp&#34; alt=&#34;Learning Domain-Driven Design&#39;s third anniversary&#34; /&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -302,7 +302,7 @@ sns.publish(
       <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2020/04/09/untangling-microservices/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/untangling-microservices/header.png&#34; alt=&#34;Untangling Microservices, or Balancing Complexity in Distributed Systems&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/untangling-microservices/header.webp&#34; alt=&#34;Untangling Microservices, or Balancing Complexity in Distributed Systems&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The microservices honeymoon period is over. Uber is refactoring thousands of microservices into a more manageable solution [1]; Kelsey Hightower is predicting monoliths are the future [2]; and even Sam Newman is declaring that microservices should never be the default choice, but rather a last resort [3].&lt;/p&gt;
 
@@ -347,7 +347,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
       <pubDate>Wed, 28 Feb 2018 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2018/02/28/microservices/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/microservices/title-img.jpg&#34; alt=&#34;Tackling Complexity in Microservices&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/microservices/title-img.webp&#34; alt=&#34;Tackling Complexity in Microservices&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Unfortunately, many of them ended up worse off than they were before - in the realm of distributed monoliths. Why?&lt;/p&gt;
 
@@ -399,7 +399,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2017/03/20/tackling-complexity-in-cqrs/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/cqrs/title-img.jpg&#34; alt=&#34;Tackling Complexity in CQRS&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/cqrs/title-img.webp&#34; alt=&#34;Tackling Complexity in CQRS&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The CQRS pattern can do wonders: it can maximize scalability, performance, security, and even &lt;a href=&#34;http://codebetter.com/gregyoung/2010/02/20/cqrs-and-cap-theorem/&#34;&gt;“beat” the CAP theorem&lt;/a&gt;. Nonetheless, CQRS has acquired a controversial name because of the complexity it introduces. For instance, &lt;a href=&#34;https://martinfowler.com/bliki/CQRS.html&#34;&gt;in his article on CQRS&lt;/a&gt;, Martin Fowler argues that the pattern should be applied sparingly and even cautiously:&lt;/p&gt;
 
@@ -427,7 +427,7 @@ Symptoms All too often you can hear statements that some tool or technique is ba
       <pubDate>Tue, 05 Apr 2016 00:00:00 +0000</pubDate>
       <author>vladik@khononov.com (Vlad Khononov)</author>
       <guid>https://vladikk.com/2016/04/05/tackling-complexity-ddd/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ddd/title-img.jpg&#34; alt=&#34;Tackling Complexity in the Heart of Domain-Driven Design&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vladikk.com/images/ddd/title-img.webp&#34; alt=&#34;Tackling Complexity in the Heart of Domain-Driven Design&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Let’s do a little experiment: try to explain the gist of Domain-Driven Design to someone who has no clue about it. This, especially doing it succinctly, is not easy. Heck, I struggle with it myself. Bounded contexts, entities, domain events, value objects, domains, aggregates, repositories… where do you even start?&lt;/p&gt;
 
