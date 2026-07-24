@@ -54,7 +54,7 @@ It is widely accepted that a microservice should enable access to its data throu
 
 The message bus used by the system is just another persistence mechanism — albeit a much more limited one — and should be treated as such. As a result, in addition to a database, each (micro)service needs an SNS topic for publishing events and an SQS queue for consuming events, as illustrated in Figure 4:
 
-<img src="/images/aws-eda/eda-on-aws-4.png" alt="An EDA requires defining clear ownership boundaries not only for databases but also for their messaging mechanisms (SNS and SQS)" />
+<img src="/images/aws-eda/eda-on-aws-4.webp" alt="An EDA requires defining clear ownership boundaries not only for databases but also for their messaging mechanisms (SNS and SQS)" />
 *Figure 4: An EDA requires defining clear ownership boundaries not only for databases but also for their messaging mechanisms (SNS and SQS).*
 
 The arrows between the services — the subscriptions from topics to queues — belong to a higher architectural level of abstraction than the services themselves. For example, there might be a CloudFormation template for each individual service and a higher-level CloudFormation template for the resultant system. The latter one is in charge of defining the subscriptions.

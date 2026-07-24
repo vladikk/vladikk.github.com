@@ -9,7 +9,7 @@ categories: [Microservices, Domain-Driven Design]
 share_img: /images/microservices/title-img.jpg
 ---
 
-<img src="/images/microservices/title-img.jpg" alt="Tackling Complexity in Microservices" />
+<img src="/images/microservices/title-img.webp" alt="Tackling Complexity in Microservices" />
 
 Microservices have taken our industry by storm. Teams around the world have ditched their clumsy monoliths in favor of chasing the dream of loosely coupled, manageable, and independently deployable microservices. Unfortunately, many of them ended up worse off than they were before - in the realm of distributed monoliths. Why?
 

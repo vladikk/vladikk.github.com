@@ -9,7 +9,7 @@ categories: [Microservices, Architecture]
 share_img: /images/untangling-microservices/header.png
 ---
 
-<img src="/images/untangling-microservices/header.png" alt="Untangling Microservices, or Balancing Complexity in Distributed Systems" />
+<img src="/images/untangling-microservices/header.webp" alt="Untangling Microservices, or Balancing Complexity in Distributed Systems" />
 
 The microservices honeymoon period is over. Uber is refactoring thousands of microservices into a more manageable solution [1]; Kelsey Hightower is predicting monoliths are the future [2]; and even Sam Newman is declaring that microservices should never be the default choice, but rather a last resort [3].
 
@@ -55,7 +55,7 @@ We build systems, not sets of services. We use microservices-based architecture 
 
 Services will always have to interact with each other to form a system. If you design a system by optimizing its services, but ignore the interactions between them, this is what you may end up with this:
 
-<img src="/images/untangling-microservices/complex-system.png" alt="" />
+<img src="/images/untangling-microservices/complex-system.webp" alt="" />
 
 Those “microservices” may be simple individually, but the system itself is a complexity hell!
 

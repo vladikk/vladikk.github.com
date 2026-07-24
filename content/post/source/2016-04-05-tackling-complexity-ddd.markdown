@@ -10,7 +10,7 @@ share_img: /images/ddd/title-img.jpg
 categories: [Domain-Driven Design, Architecture]
 ---
 
-<img src="/images/ddd/title-img.jpg" alt="Tackling Complexity in the Heart of Domain-Driven Design" />
+<img src="/images/ddd/title-img.webp" alt="Tackling Complexity in the Heart of Domain-Driven Design" />
 
 Let’s do a little experiment: try to explain the gist of Domain-Driven Design to someone who has no clue about it. This, especially doing it succinctly, is not easy. Heck, I struggle with it myself. Bounded contexts, entities, domain events, value objects, domains, aggregates, repositories… where do you even start?
 
@@ -68,7 +68,7 @@ The decoupling of Domain-Driven Design from the tactical modeling patterns can h
 ### 1. Reduced Complexity
 This mind map by Eric Evans depicts the patterns that constitute the Domain-Driven Design methodology:
 
-<img src="/images/ddd/ddd-patterns.png" alt="Domain-Driven Design Patterns" />
+<img src="/images/ddd/ddd-patterns.webp" alt="Domain-Driven Design Patterns" />
 
 And this is how it will look if we drop the tactical modeling patterns:
 

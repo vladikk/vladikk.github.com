@@ -14,7 +14,7 @@ share_img: /images/cqrs/title-img.jpg
 categories: [Domain-Driven Design, CQRS, Architecture]
 ---
 
-<img src="/images/cqrs/title-img.jpg" alt="Tackling Complexity in CQRS" />
+<img src="/images/cqrs/title-img.webp" alt="Tackling Complexity in CQRS" />
 
 The CQRS pattern can do wonders: it can maximize scalability, performance, security, and even [“beat” the CAP theorem](http://codebetter.com/gregyoung/2010/02/20/cqrs-and-cap-theorem/). Nonetheless, CQRS has acquired a controversial name because of the complexity it introduces. For instance, [in his article on CQRS](https://martinfowler.com/bliki/CQRS.html), Martin Fowler argues that the pattern should be applied sparingly and even cautiously:
 
@@ -104,7 +104,7 @@ I want to sum it all up with a diagram of CQRS:
 
 This diagram differs from other diagrams you can find on the web:
 
-<img src="/images/cqrs/google-cqrs.png" alt="Other CQRS diagrams" />
+<img src="/images/cqrs/google-cqrs.webp" alt="Other CQRS diagrams" />
 
 This is the CQRS pattern the way I both see and implement it. Commands have responses. The projection mechanism defined is abstractly without any implementation details. Inside it may be based on events, or on state, or even a database view. And finally, there  is no glimpse of Event Sourcing. Model the system’s business logic as required by the business domain: Active Record, Domain Model, or Event Sourced Domain Model.
 

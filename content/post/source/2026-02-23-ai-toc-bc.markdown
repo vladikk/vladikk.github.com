@@ -8,10 +8,10 @@ description: >
 url: /2026/02/23/ai-toc-bc/
 draft: false
 categories: [AI, Balanced Coupling]
-share_img: /images/ait-toc.png
+share_img: /images/ai-toc.png
 ---
 
-<img src="/images/ai-toc.png" alt="An assembly line where an AI robot speeds up code production, creating a massive pile of blocks in front of an overwhelmed human operator with a warning alarm — illustrating how accelerating code generation creates a bottleneck at human comprehension." />
+<img src="/images/ai-toc.webp" alt="An assembly line where an AI robot speeds up code production, creating a massive pile of blocks in front of an overwhelmed human operator with a warning alarm — illustrating how accelerating code generation creates a bottleneck at human comprehension." />
 
 Every other post on my feed celebrates how AI lets us write code faster: whole apps built in a matter of a few hours, 99% AI-generated codebases, hundred-fold productivity gains, and on and on. But does writing code faster actually make us more productive?
 

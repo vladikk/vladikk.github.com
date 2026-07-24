@@ -8,10 +8,10 @@ description: >
 url: /2026/03/30/solid-principles-ai-era/
 draft: false
 categories: [AI, Balanced Coupling]
-share_img: /images/solid-principles-ai-era.png
+share_img: /images/solid-ai.png
 ---
 
-<img src="/images/solid-ai.png" alt="" />
+<img src="/images/solid-ai.webp" alt="" />
 
 I was recently asked [this question on LinkedIn](https://www.linkedin.com/posts/adriankearns_tnt-architecting-for-change-presentation-activity-7442659984695422976-vR7R). My short answer: yes. But the more interesting question is *why*, and why AI might make them more relevant, not less.
 

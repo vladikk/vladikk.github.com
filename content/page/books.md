@@ -5,7 +5,7 @@ comments: false
 
 ### Balancing Coupling in Software Design (Pearson, 2024)
 
-[<img src="/images/bcisd.jpg" alt="" width="400"/>](https://www.amazon.com/Balancing-Coupling-Software-Design-Addison-Wesley-ebook/dp/B09RV3Z3TP?crid=3KT021MCVOAHN&dib=eyJ2IjoiMSJ9.OFBJyeA-cqbOAdF36Oyf90R9pQz4DUP4ktypadnzmps1N-kYdFTQtxR9JSglNjDO.Gw00g3K9VOXa9faG_5MFuH0E4puSybPRa326yAOW_ls&dib_tag=se&keywords=balancing+coupling+in+software+design&qid=1728052868&sprefix=balancing+coupling+%2Caps%2C243&sr=8-1&linkCode=ll1&tag=vldkk-20&linkId=8206f6af7028ac19a6baa82f4084e5ad&language=en_US&ref_=as_li_ss_tl)
+[<img src="/images/bcisd.webp" alt="" width="400"/>](https://www.amazon.com/Balancing-Coupling-Software-Design-Addison-Wesley-ebook/dp/B09RV3Z3TP?crid=3KT021MCVOAHN&dib=eyJ2IjoiMSJ9.OFBJyeA-cqbOAdF36Oyf90R9pQz4DUP4ktypadnzmps1N-kYdFTQtxR9JSglNjDO.Gw00g3K9VOXa9faG_5MFuH0E4puSybPRa326yAOW_ls&dib_tag=se&keywords=balancing+coupling+in+software+design&qid=1728052868&sprefix=balancing+coupling+%2Caps%2C243&sr=8-1&linkCode=ll1&tag=vldkk-20&linkId=8206f6af7028ac19a6baa82f4084e5ad&language=en_US&ref_=as_li_ss_tl)
 
 **Learn How Coupling Impacts Every Software Design Decision You Make--and How to Control It**
 
@@ -45,7 +45,7 @@ With this book, you'll learn how to:
 
 ### What is Domain-Driven Design? (O'Reilly, 2019)
 
-[<img src="/images/whatisddd.jpg" alt="" width="400"/>](https://learning.oreilly.com/library/view/what-is-domain-driven/9781492057802/)
+[<img src="/images/whatisddd.webp" alt="" width="400"/>](https://learning.oreilly.com/library/view/what-is-domain-driven/9781492057802/)
 
 The majority of software projects are delivered late or over budget, or they fail to meet the client’s requirements. Attack the problem head-on and build better software with domain-driven design (DDD)—a methodology that aligns software design with a business’s domain, needs, and strategy. In this report, Vladik Khononov introduces the key patterns and practices of domain-driven design and shows you how to apply them to improve the success rate of your projects.
 

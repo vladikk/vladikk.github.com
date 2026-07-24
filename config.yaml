@@ -12,6 +12,7 @@ publishDir: ../blog-public
 unsafe: true
 Params:
   subtitle: Vlad Khononov's personal blog
+  description: Rants on Software Design is Vlad Khononov's blog on software architecture, domain-driven design, balanced coupling, and AI-assisted software engineering.
   logo: images/me-conf.jpg
   favicon: favicon.ico
   dateFormat: 'January 2, 2006'

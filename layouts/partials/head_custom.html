@@ -1,1 +1,9 @@
  {{ with .Keywords }}<meta name="keywords" content="{{ range $i, $e := . }}{{ if $i }} {{ end }}{{ $e }}{{ end }}">{{ end }}
+{{- if .IsHome }}
+  <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "WebSite" "name" .Site.Title "url" .Site.BaseURL "description" .Site.Params.description "author" (dict "@type" "Person" "name" .Site.Author.name "url" .Site.BaseURL) | jsonify | safeJS }}</script>
+  <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "Person" "name" .Site.Author.name "url" .Site.BaseURL "jobTitle" "Software Architect, Author, and Speaker" "sameAs" (slice "https://twitter.com/vladikk" "https://github.com/vladikk" "https://www.linkedin.com/in/vladikkhononov") | jsonify | safeJS }}</script>
+{{- end }}
+{{- if and .IsPage (eq .Section "post") }}
+  {{- $img := .Params.share_img | default .Params.image | default .Site.Params.logo }}
+  <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "BlogPosting" "headline" .Title "description" (.Description | default .Summary | truncate 300) "image" ($img | absURL) "url" .Permalink "mainEntityOfPage" .Permalink "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00") "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00") "author" (dict "@type" "Person" "name" .Site.Author.name "url" .Site.BaseURL) | jsonify | safeJS }}</script>
+{{- end }}

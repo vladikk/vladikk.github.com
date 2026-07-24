@@ -11,7 +11,7 @@ categories: [AI, Software Design]
 share_img: /images/ai-ooda.png
 ---
 
-<img src="/images/ai-ooda.png" alt="" />
+<img src="/images/ai-ooda.webp" alt="" />
 
 Vibe coding, or as some prefer to call it, "hands-off" software engineering, is having its moment. AI agents write code, implement features, and even spin up entire projects from a prompt. The results are impressive for demos. For production systems, not so much.
 

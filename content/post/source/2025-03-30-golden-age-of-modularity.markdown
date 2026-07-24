@@ -12,7 +12,7 @@ categories: [Microservices, Architecture]
 share_img: /images/ai-modularity.png
 ---
 
-<img src="/images/ai-boundaries.png" alt="The Golden Age of Modularity: Why Modern Architecture—and AI—Depend on Better Boundaries" />
+<img src="/images/ai-boundaries.webp" alt="The Golden Age of Modularity: Why Modern Architecture—and AI—Depend on Better Boundaries" />
 
 My news feed these days:  
 “Take a look at the app I built with zero coding skills!”  

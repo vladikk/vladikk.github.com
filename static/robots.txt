@@ -1,7 +1,4 @@
----
-layout: nil
----
 User-agent: *
-Disallow: 
+Disallow:
 
-Sitemap: http://vladikk.com/sitemap.xml 
+Sitemap: https://vladikk.com/sitemap.xml

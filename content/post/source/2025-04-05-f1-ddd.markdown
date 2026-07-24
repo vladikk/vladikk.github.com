@@ -16,7 +16,7 @@ This weekend, I have a rare opportunity to write about two things I care deeply 
 ## The Crash
 This race weekend in the beautiful Japan started with a scare. During a pre-race practice, Jack Doohan, a rookie driver from the Alpine team, suddenly spun out of control in the highest-speed section of the track and hit a wall ([video](https://www.youtube.com/watch?v=49H4qtfUv24)). He was going over 320 kilometers per hour (200 miles per hour) at the time. Thanks to the marvels of modern race car engineering, Jack walked away unharmed—not even a concussion. But why did it happen in the first place?
 
-<img src="/images/f1-crash.png" alt="Jack Doohan's crash Practice 2" />
+<img src="/images/f1-crash.webp" alt="Jack Doohan's crash Practice 2" />
 <!--more-->
 ## The Cause
 Current-generation Formula 1 cars have what’s called a [Drag Reduction System (DRS)](https://en.wikipedia.org/wiki/Drag_reduction_system). Under certain conditions, this system allows drivers to adjust the rear wing to let more air through. That open rear wing has two implications: first, the car can go much faster; second, it generates much less downforce, which reduces its ability to turn. That’s why DRS zones are limited to long straights.

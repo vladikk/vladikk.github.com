@@ -11,7 +11,7 @@ categories: [Software Design, Balanced Coupling, Coupling]
 share_img: /images/weighed-not-counted.png
 ---
 
-<img src="/images/weighed-not-counted.png" alt="A balance scale where a single heavy weight outweighs many smaller pieces — illustrating that one heavy dependency can matter more than many lightweight ones." />
+<img src="/images/weighed-not-counted.webp" alt="A balance scale where a single heavy weight outweighs many smaller pieces — illustrating that one heavy dependency can matter more than many lightweight ones." />
 
 > "Words should be weighed, not counted." — A Yiddish Saying
 

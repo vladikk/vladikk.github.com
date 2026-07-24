@@ -11,7 +11,7 @@ categories: [AI, Software Design]
 share_img: /images/machine-errors.png
 ---
 
-<img src="/images/machine-errors.png" alt="A friendly robot holding onto a railing, illustrating the concept of designing systems that support variable components" />
+<img src="/images/machine-errors.webp" alt="A friendly robot holding onto a railing, illustrating the concept of designing systems that support variable components" />
 
 "I can't rely on LLMs because they're not deterministic. How can I be sure what I'll get?" — I bet you've thought that yourself. I did for sure.
 

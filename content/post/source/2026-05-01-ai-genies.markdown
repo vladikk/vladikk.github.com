@@ -11,7 +11,7 @@ categories: [AI, Balanced Coupling]
 share_img: /images/ai-genies.png
 ---
 
-<img src="/images/ai-genies.png" alt="A friendly white robot in the form of a genie" />
+<img src="/images/ai-genies.webp" alt="A friendly white robot in the form of a genie" />
 
 Is software engineering solved? Depends who you ask. People selling LLMs proclaim that programming, software architecture, everything has been solved. (Apart from making their company profitable.) Not everyone agrees, of course. In this post I want to explore what the folktales we grew up on can teach us about AI-assisted software engineering.
 

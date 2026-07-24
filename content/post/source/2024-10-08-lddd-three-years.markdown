@@ -14,7 +14,7 @@ Frist of all, today is the 🐒 book’s birthday! 🎉
 Exactly three years ago, *Learning Domain-Driven Design* was published! And what a birthday present the monkey received: today marks the official release of *Balancing Coupling in Software Design*! The new book is available in print and electronic formats on [Amazon](https://amzn.to/3BIIPyk), [InformIT](https://click.linksynergy.com/deeplink?id=XLXvHJZS*qY&mid=24808&murl=https%3A%2F%2Fwww.informit.com%2Fstore%2Fbalancing-coupling-in-software-design-universal-design-9780137353484), and other major book stores 🎉
 
 
-<img src="/images/lddd-three-years.png" alt="Learning Domain-Driven Design's third anniversary" />
+<img src="/images/lddd-three-years.webp" alt="Learning Domain-Driven Design's third anniversary" />
 
 <!--more-->
 
