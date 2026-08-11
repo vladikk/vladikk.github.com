@@ -39,6 +39,7 @@ I use third-party services for certain features, such as:
 
 * Analytics: Google Analytics helps me understand how users interact with the Blog.
 * Email Subscription: If you subscribe to updates, your information may be processed by email marketing services.
+* Agent tooling: The Blog exposes a search tool to AI browser agents using the WebMCP SDK. The SDK sends anonymous usage events (page load, tool registration, and tool calls) to Agentlane at collect.agentlane.com. These events carry no name, email, or account identifier, and the SDK does not read or write cookies or other browser storage for this purpose.
 
 These third parties may collect information as governed by their respective privacy policies.
 

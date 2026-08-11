@@ -1,0 +1,12 @@
+{{- /*
+  WebMCP: exposes the ask_site tool to browser agents via @agentlane/webmcp.
+
+  The SDK is vendored rather than installed — this site has no bundler and no
+  package.json, so the import map is what makes the bare specifier resolve. It
+  must come before the module that imports it.
+
+  safeHTML, not safeJS: html/template does not recognise `importmap` as a script
+  type, so without it the JSON is HTML-escaped and the browser rejects the map.
+*/ -}}
+<script type="importmap">{{ dict "imports" (dict "@agentlane/webmcp" ("js/vendor/agentlane-webmcp-0.4.0.js" | relURL)) | jsonify | safeHTML }}</script>
+<script type="module" src="{{ "js/webmcp/entry.js" | relURL }}"></script>
