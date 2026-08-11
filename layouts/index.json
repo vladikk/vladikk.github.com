@@ -1,0 +1,30 @@
+{{- /*
+  WebMCP content bundle, served at /index.json and consumed by
+  /js/webmcp/tools/site.js (the ask_site tool). Emitted only for the home page's
+  JSON output — see `outputs.home` in config.yaml.
+
+  Every visitor-facing page is included: blog posts plus the standalone pages
+  (consulting, speaking, books, about, contact, reading, policies). `.Plain` is
+  the rendered page with markup stripped, so the tool matches against the same
+  words a reader sees.
+
+  Actions are kept on single lines: this site builds with Hugo 0.56.3, whose Go
+  template engine predates multi-line actions.
+*/ -}}
+{{- $docs := slice -}}
+{{- range .Site.RegularPages -}}
+  {{- $date := "" -}}
+  {{- if not .Date.IsZero -}}{{- $date = .Date.Format "2006-01-02" -}}{{- end -}}
+  {{- /* `categories` is authored as both a scalar and a list across the archive; normalise to a list. */ -}}
+  {{- $categories := slice -}}
+  {{- with .Params.categories -}}{{- if reflect.IsSlice . -}}{{- $categories = . -}}{{- else -}}{{- $categories = slice . -}}{{- end -}}{{- end -}}
+  {{- $tags := slice -}}
+  {{- with .Params.tags -}}{{- if reflect.IsSlice . -}}{{- $tags = . -}}{{- else -}}{{- $tags = slice . -}}{{- end -}}{{- end -}}
+  {{- /* htmlUnescape: .Plain strips tags but leaves entities, and `It&rsquo;s` is noise to a reader. */ -}}
+  {{- $description := trim (.Description | default .Summary | plainify | htmlUnescape | replaceRE "\\s+" " ") " " -}}
+  {{- $body := trim (.Plain | htmlUnescape | replaceRE "\\s+" " ") " " -}}
+  {{- $doc := dict "title" .Title "url" .RelPermalink "section" .Section "date" $date -}}
+  {{- $doc = merge $doc (dict "categories" $categories "tags" $tags "description" $description "body" $body) -}}
+  {{- $docs = $docs | append $doc -}}
+{{- end -}}
+{{- dict "version" 1 "site" .Site.Title "count" (len $docs) "docs" $docs | jsonify -}}

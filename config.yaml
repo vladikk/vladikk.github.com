@@ -10,6 +10,14 @@ pygmentCodeFences: true
 googleAnalytics: UA-40869819-1
 publishDir: ../blog-public
 unsafe: true
+# JSON is the WebMCP content bundle emitted by layouts/index.json at /index.json.
+# HTML and RSS must stay listed explicitly: naming `outputs.home` replaces the
+# defaults, and partials/head.html links .RSSLink.
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
 Params:
   subtitle: Vlad Khononov's personal blog
   description: Rants on Software Design is Vlad Khononov's blog on software architecture, domain-driven design, balanced coupling, and AI-assisted software engineering.
